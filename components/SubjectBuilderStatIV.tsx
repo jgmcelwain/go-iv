@@ -11,7 +11,7 @@ const SubjectBuilderStatIV: FunctionComponent<{
   const { subject, dispatch } = useContext(SubjectContext);
 
   return (
-    <label className='block mb-4'>
+    <label className='block mb-2'>
       <span className='text-gray-200 text-sm'>{STAT_MAP[stat]}</span>
 
       <select

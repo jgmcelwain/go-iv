@@ -15,21 +15,20 @@ const LEAGUE_COLORS = {
 
 const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
   return (
-    <div className='w-full bg-white rounded-lg overflow-hidden'>
+    <div className='w-full bg-white sm:rounded-lg overflow-y-hidden overflow-x-scroll'>
       <div
         className={`w-full px-4 py-5 bg-gradient-to-br ${
           LEAGUE_COLORS[league.key].background
-        } relative overflow-hidden`}
+        } sticky top-0 left-0 overflow-hidden`}
       >
-        <p className='text-lg font-title font-semibold text-white leading-none'>
-          {league.name}
-        </p>
-
         <div
           className={`absolute right-0 top-0 transform rotate-45 w-5 h-32 -translate-x-14 -translate-y-10 ${
             LEAGUE_COLORS[league.key].stripe
           }`}
         />
+        <p className='font-title font-semibold text-white leading-none'>
+          {league.name}
+        </p>
       </div>
 
       <LeagueRanking league={league} />

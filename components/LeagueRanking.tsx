@@ -8,7 +8,7 @@ const THeadCell: FunctionComponent<{
   canHide?: boolean;
 }> = ({ children, canHide }) => (
   <th
-    className={`text-left bg-gray-100 border-b border-gray-200 px-6 py-3 text-gray-500 font-semibold tracking-wider uppercase font-title text-xs  ${
+    className={`text-left bg-gray-100 border-b border-gray-200 p-3 text-gray-500 font-semibold tracking-wider uppercase font-title text-xs ${
       canHide === true && 'hidden sm:table-cell'
     }`}
   >
@@ -20,12 +20,12 @@ const LeagueSubjectRanking: FunctionComponent<{ league: League }> = ({
   league,
 }) => {
   return (
-    <table className='w-full border-collapse text-sm'>
+    <table className='w-full border-collapse table-auto'>
       <thead>
         <tr>
           <THeadCell>Cap</THeadCell>
 
-          <THeadCell>Rank</THeadCell>
+          <THeadCell>#</THeadCell>
 
           <THeadCell>CP</THeadCell>
 
