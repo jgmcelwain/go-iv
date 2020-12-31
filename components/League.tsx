@@ -17,7 +17,7 @@ const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
   return (
     <div className='w-full bg-white sm:rounded-lg overflow-y-hidden overflow-x-scroll'>
       <div
-        className={`w-full px-3 py-5 bg-gradient-to-br ${
+        className={`w-full px-4 py-5 bg-gradient-to-br ${
           LEAGUE_COLORS[league.key].background
         } sticky top-0 left-0 overflow-hidden`}
       >

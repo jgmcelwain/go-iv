@@ -8,7 +8,7 @@ import SubjectBuilderIVFloor from './SubjectBuilderIVFloor';
 
 const SubjectBuilder: FunctionComponent = () => {
   return (
-    <div className='w-full flex justify-start items-center flex-wrap mt-2 mb-4 px-3 sm:px-0'>
+    <div className='w-full flex justify-start items-center flex-wrap mt-2 mb-4 px-4 sm:px-0'>
       <div className='mr-6'>
         <SubjectBuilderPokemon />
       </div>

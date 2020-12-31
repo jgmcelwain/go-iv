@@ -8,7 +8,7 @@ const THeadCell: FunctionComponent<{
   canHide?: boolean;
 }> = ({ children, canHide }) => (
   <th
-    className={`text-left bg-gray-100 border-b border-gray-200 p-3 text-gray-500 font-semibold tracking-wider uppercase font-title text-xs ${
+    className={`text-left bg-gray-100 border-b border-gray-200 p-3 first:pl-4 text-gray-500 font-semibold tracking-wider uppercase font-title text-xs ${
       canHide === true && 'hidden sm:table-cell'
     }`}
   >

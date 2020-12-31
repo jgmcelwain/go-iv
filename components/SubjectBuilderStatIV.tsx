@@ -22,7 +22,7 @@ const SubjectBuilderStatIV: FunctionComponent<{
           })
         }
         value={subject.iv[stat]}
-        className='form-select rounded mt-1 block w-full text-xs'
+        className='form-select rounded mt-1 block w-full'
       >
         {IV_RANGE.filter((iv) => iv >= subject.floor).map((iv) => (
           <option key={iv} value={iv}>

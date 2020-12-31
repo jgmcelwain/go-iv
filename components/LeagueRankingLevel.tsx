@@ -16,9 +16,9 @@ const TBodyCell: FunctionComponent<{
   <td
     className={`border-t border-gray-200  ${
       canHide === true && 'hidden sm:table-cell'
-    }`}
+    } px-3 py-4 first:pl-4 `}
   >
-    <span className='px-3 py-4 text-xs flex items-center'>{children}</span>
+    <span className='text-xs flex items-center'>{children}</span>
   </td>
 );
 
