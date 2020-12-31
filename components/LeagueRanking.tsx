@@ -23,13 +23,11 @@ const LeagueSubjectRanking: FunctionComponent<{ league: League }> = ({
     <table className='w-full border-collapse table-auto'>
       <thead>
         <tr>
-          <THeadCell>Cap</THeadCell>
+          <THeadCell>Level</THeadCell>
 
           <THeadCell>Rank</THeadCell>
 
           <THeadCell>CP</THeadCell>
-
-          <THeadCell canHide={true}>Level</THeadCell>
 
           <THeadCell>Atk / Def / Sta</THeadCell>
 

@@ -52,13 +52,15 @@ const LeagueSubjectRankingLevel: FunctionComponent<{
 
   return (
     <tr className={bg}>
-      <TBodyCell>{maxLevel}</TBodyCell>
+      <TBodyCell>
+        <>
+          {result.subject.level} / {maxLevel}
+        </>
+      </TBodyCell>
 
       <TBodyCell>{result.subject.rank}</TBodyCell>
 
       <TBodyCell>{result.subject.cp}</TBodyCell>
-
-      <TBodyCell canHide={true}>{result.subject.level}</TBodyCell>
 
       <TBodyCell>
         <>
