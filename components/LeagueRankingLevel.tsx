@@ -11,14 +11,11 @@ import { LeagueCPCap, PowerUpLevelCap } from '../data/reference';
 
 const TBodyCell: FunctionComponent<{
   children: ReactChild | string[];
-  canHide?: boolean;
-}> = ({ children, canHide }) => (
-  <td
-    className={`border-t border-gray-200  ${
-      canHide === true && 'hidden sm:table-cell'
-    } px-3 py-4 first:pl-4`}
-  >
-    <span className='text-xs sm:text-sm flex items-center'>{children}</span>
+}> = ({ children }) => (
+  <td className='border-t border-gray-200 px-3 py-4 first:pl-4'>
+    <span className='text-xs sm:text-sm flex items-center whitespace-nowrap'>
+      {children}
+    </span>
   </td>
 );
 
@@ -78,9 +75,7 @@ const LeagueSubjectRankingLevel: FunctionComponent<{
         </>
       </TBodyCell>
 
-      <TBodyCell canHide={true}>
-        {(result.subject.percent * 100).toFixed(2)}%
-      </TBodyCell>
+      <TBodyCell>{(result.subject.percent * 100).toFixed(2)}%</TBodyCell>
     </tr>
   );
 };
