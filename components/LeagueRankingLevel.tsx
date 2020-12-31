@@ -9,10 +9,15 @@ import { SubjectContext } from './SubjectContext';
 import { rankCalculator } from '../lib/rankCalculator';
 import { LeagueCPCap, PowerUpLevelCap } from '../data/reference';
 
-const TBodyCell: FunctionComponent<{ children: ReactChild | string[] }> = ({
-  children,
-}) => (
-  <td className='border-t border-gray-200'>
+const TBodyCell: FunctionComponent<{
+  children: ReactChild | string[];
+  canHide?: boolean;
+}> = ({ children, canHide }) => (
+  <td
+    className={`border-t border-gray-200  ${
+      canHide === true && 'hidden sm:table-cell'
+    }`}
+  >
     <span className='px-6 py-4 flex items-center'>{children}</span>
   </td>
 );
@@ -53,7 +58,7 @@ const LeagueSubjectRankingLevel: FunctionComponent<{
 
       <TBodyCell>{result.subject.cp}</TBodyCell>
 
-      <TBodyCell>{result.subject.level}</TBodyCell>
+      <TBodyCell canHide={true}>{result.subject.level}</TBodyCell>
 
       <TBodyCell>
         <>
@@ -71,7 +76,9 @@ const LeagueSubjectRankingLevel: FunctionComponent<{
         </>
       </TBodyCell>
 
-      <TBodyCell>{(result.subject.percent * 100).toFixed(2)}%</TBodyCell>
+      <TBodyCell canHide={true}>
+        {(result.subject.percent * 100).toFixed(2)}%
+      </TBodyCell>
     </tr>
   );
 };
