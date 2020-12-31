@@ -40,7 +40,7 @@ const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
         </h2>
 
         <div className='font-title z-10 font-semibold text-white'>
-          <p className='text-sm'>{subject.species.name}</p>
+          <p className='text-sm text-right'>{subject.species.name}</p>
           <p className='text-xs text-right'>
             {subject.iv.atk} - {subject.iv.def} - {subject.iv.sta}
           </p>
