@@ -10,12 +10,12 @@ const Footer: FunctionComponent = () => (
     <p className='text-center text-xs text-gray-400'>
       pvpiv.app is open source on GitHub -{' '}
       <a
-        href='https://github.com/jgmcelwain/pvpiv.app'
+        href='https://github.com/jgmcelwain/pvpiv'
         rel='noreferrer'
         target='_blank'
         className='text-blue-400 hover:underline'
       >
-        jgmcelwain/pvpiv.app
+        jgmcelwain/pvpiv
       </a>
     </p>
   </div>
