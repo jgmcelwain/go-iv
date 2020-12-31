@@ -21,8 +21,6 @@ yarn (or npm install)
 yarn dev (or npm run dev)
 ```
 
-Then follow any messages in your Terminal.
-
 ## Special Thanks
 
 pvpiv.app is made possible by the data and inspiration of other community tools:
