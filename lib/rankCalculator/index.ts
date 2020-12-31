@@ -4,7 +4,7 @@ import {
   PokemonIVs,
   PokemonStats,
   PowerUpLevelCap,
-} from '../reference';
+} from '../../data/reference';
 import { getMaximizedStats } from './getMaximizedStats';
 import { getPossibleIVs } from './getPossibleIVs';
 

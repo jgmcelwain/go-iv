@@ -3,7 +3,7 @@ import {
   Pokemon,
   PokemonIVs,
   PowerUpLevelCap,
-} from '../reference';
+} from '../../data/reference';
 
 import { getLevel } from './getLevel';
 import { getStats } from './getStats';

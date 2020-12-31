@@ -1,4 +1,4 @@
-import { IVFloor, PokemonIVs } from '../reference';
+import { IVFloor, PokemonIVs } from '../../data/reference';
 
 export function getPossibleIVs(floor: IVFloor) {
   const ivCombinations: PokemonIVs[] = [];

@@ -1,4 +1,9 @@
-import { CPMs, LeagueCPCap, PokemonStats, PowerUpLevelCap } from '../reference';
+import {
+  CPMs,
+  LeagueCPCap,
+  PokemonStats,
+  PowerUpLevelCap,
+} from '../../data/reference';
 
 export function getLevel(
   atk: PokemonStats['atk'],
