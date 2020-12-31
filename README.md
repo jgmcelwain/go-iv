@@ -1,1 +1,1 @@
-# [https://pvpiv.app](pvpiv.app)
+# [pvpiv.app](https://pvpiv.app)
