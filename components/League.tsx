@@ -1,34 +1,50 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 
 import { League } from '../data/reference';
 
 import LeagueRanking from './LeagueRanking';
+import { SubjectContext } from './SubjectContext';
 
 const LEAGUE_COLORS = {
-  great: { background: 'from-blue-400 to-blue-500', stripe: 'bg-red-500' },
-  ultra: { background: 'from-gray-700 to-gray-800', stripe: 'bg-yellow-500' },
+  great: {
+    background: 'from-blue-400 to-blue-500',
+    stripe: 'from-red-500 to-red-600',
+  },
+  ultra: {
+    background: 'from-gray-700 to-gray-800',
+    stripe: 'from-yellow-500 to-yellow-600',
+  },
   master: {
     background: 'from-purple-500 to-purple-600',
-    stripe: 'bg-pink-500',
+    stripe: 'from-pink-500 to-pink-600',
   },
 };
 
 const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
+  const { subject } = useContext(SubjectContext);
   return (
     <div className='w-full bg-white sm:rounded-lg overflow-y-hidden overflow-x-scroll'>
       <div
-        className={`w-full px-4 py-5 bg-gradient-to-br ${
+        className={`w-full p-4 bg-gradient-to-br ${
           LEAGUE_COLORS[league.key].background
-        } sticky top-0 left-0 overflow-hidden`}
+        } sticky top-0 left-0 flex justify-between items-center overflow-hidden`}
       >
         <div
-          className={`absolute right-0 top-0 transform rotate-45 w-5 h-32 -translate-x-14 -translate-y-10 ${
+          className={`absolute z-0 right-0 top-0 transform rotate-45 w-5 h-48 opacity-90 -translate-x-20 -translate-y-10 bg-gradient-to-b ${
             LEAGUE_COLORS[league.key].stripe
           }`}
         />
-        <p className='font-title font-semibold text-white leading-none'>
+
+        <h2 className='font-title z-10 font-semibold text-white leading-none'>
           {league.name}
-        </p>
+        </h2>
+
+        <div className='font-title z-10 font-semibold text-white'>
+          <p className='text-sm'>{subject.species.name}</p>
+          <p className='text-xs text-right'>
+            {subject.iv.atk} - {subject.iv.def} - {subject.iv.sta}
+          </p>
+        </div>
       </div>
 
       <LeagueRanking league={league} />
