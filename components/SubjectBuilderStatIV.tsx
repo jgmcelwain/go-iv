@@ -12,7 +12,7 @@ const SubjectBuilderStatIV: FunctionComponent<{
 
   return (
     <label className='block mb-2'>
-      <span className='text-gray-300 text-xs uppercase font-semibold'>
+      <span className='text-gray-300 text-xs font-semibold'>
         {STAT_MAP[stat]}
       </span>
 

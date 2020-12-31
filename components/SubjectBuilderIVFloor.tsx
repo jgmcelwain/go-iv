@@ -10,9 +10,7 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
 
   return (
     <label className='block mb-2'>
-      <span className='text-gray-300 text-xs uppercase font-semibold'>
-        IV Floor
-      </span>
+      <span className='text-gray-300 text-xs font-semibold'>IV Floor</span>
 
       <select
         onChange={(evt) =>
