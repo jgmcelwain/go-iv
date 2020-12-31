@@ -25,7 +25,7 @@ const LeagueSubjectRanking: FunctionComponent<{ league: League }> = ({
         <tr>
           <THeadCell>Cap</THeadCell>
 
-          <THeadCell>#</THeadCell>
+          <THeadCell>Rank</THeadCell>
 
           <THeadCell>CP</THeadCell>
 
