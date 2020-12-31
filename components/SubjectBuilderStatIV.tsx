@@ -12,7 +12,9 @@ const SubjectBuilderStatIV: FunctionComponent<{
 
   return (
     <label className='block mb-2'>
-      <span className='text-gray-200 text-sm'>{STAT_MAP[stat]}</span>
+      <span className='text-gray-300 text-xs uppercase font-semibold'>
+        {STAT_MAP[stat]}
+      </span>
 
       <select
         onChange={(evt) =>
@@ -22,7 +24,7 @@ const SubjectBuilderStatIV: FunctionComponent<{
           })
         }
         value={subject.iv[stat]}
-        className='form-select rounded mt-1 block w-full'
+        className='form-select rounded mt-1 block w-full text-xs'
       >
         {IV_RANGE.filter((iv) => iv >= subject.floor).map((iv) => (
           <option key={iv} value={iv}>

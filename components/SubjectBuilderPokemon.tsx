@@ -25,14 +25,16 @@ const SubjectBuilderPokemon: FunctionComponent = () => {
 
   return (
     <label className='block mb-2'>
-      <span className='text-gray-200 text-sm'>Species</span>
+      <span className='text-gray-300 text-xs uppercase font-semibold'>
+        Species
+      </span>
 
       <input
         onChange={(evt) => setValue(evt.target.value)}
         type='text'
         list='pokemon-list'
         value={value}
-        className='form-input rounded mt-1 block w-full'
+        className='form-input rounded mt-1 block w-full text-xs'
         placeholder={POKEDEX[0].name}
       />
 

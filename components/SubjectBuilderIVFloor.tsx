@@ -10,7 +10,9 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
 
   return (
     <label className='block mb-2'>
-      <span className='text-gray-200 text-sm'>IV Floor</span>
+      <span className='text-gray-300 text-xs uppercase font-semibold'>
+        IV Floor
+      </span>
 
       <select
         onChange={(evt) =>
@@ -20,7 +22,7 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
           })
         }
         value={subject.floor}
-        className='form-select rounded mt-1 block w-full'
+        className='form-select rounded mt-1 block w-full text-xs'
       >
         {IV_FLOORS.map((floor) => (
           <option key={floor.value} value={floor.value}>
