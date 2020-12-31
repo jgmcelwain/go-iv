@@ -9,9 +9,11 @@ import SubjectBuilderIVFloor from './SubjectBuilderIVFloor';
 const SubjectBuilder: FunctionComponent = () => {
   return (
     <div className='w-full flex justify-start items-center flex-wrap my-4'>
-      <SubjectBuilderPokemon />
+      <div className='mr-6'>
+        <SubjectBuilderPokemon />
+      </div>
 
-      <div className='grid grid-cols-3 gap-2 mx-6'>
+      <div className='grid grid-cols-3 gap-2 mr-6'>
         {STATS.map((stat) => (
           <SubjectBuilderStatIV key={stat} stat={stat} />
         ))}
