@@ -15,10 +15,12 @@ pvpiv.app is built on [Next.js](https://nextjs.org/).
 
 Clone the git repo and then run:
 
+```bash
+$ yarn
 ```
-yarn (or npm install)
 
-yarn dev (or npm run dev)
+```bash
+$ yarn dev
 ```
 
 ## Special Thanks
