@@ -23,7 +23,7 @@ const LEAGUE_COLORS = {
 const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
   const { subject } = useContext(SubjectContext);
   return (
-    <div className='w-full bg-white sm:rounded-lg overflow-y-hidden overflow-x-scroll'>
+    <div className='w-full sm:rounded-lg overflow-hidden'>
       <div
         className={`w-full p-4 bg-gradient-to-br ${
           LEAGUE_COLORS[league.key].background
@@ -47,7 +47,9 @@ const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
         </div>
       </div>
 
-      <LeagueRanking league={league} />
+      <div className='w-full overflow-x-scroll bg-white'>
+        <LeagueRanking league={league} />
+      </div>
     </div>
   );
 };
