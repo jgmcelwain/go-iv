@@ -7,7 +7,7 @@ const IndexPage: FunctionComponent = () => {
   return (
     <>
       <Head>
-        <title>pvpiv.app</title>
+        <title>pvpiv.app - Pokémon GO PVP IV Checker</title>
       </Head>
 
       <Main />
