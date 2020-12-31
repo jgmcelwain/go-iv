@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 
 import { SubjectContext } from './SubjectContext';
-import { rankCalculator } from '../data/rankCalculator';
+import { rankCalculator } from '../lib/rankCalculator';
 import { LeagueCPCap, PowerUpLevelCap } from '../data/reference';
 
 const TBodyCell: FunctionComponent<{ children: ReactChild | string[] }> = ({
