@@ -25,7 +25,7 @@ const SubjectBuilderPokemon: FunctionComponent = () => {
 
   return (
     <label className='block mb-2'>
-      <span className='text-gray-300 text-xs font-semibold'>Species</span>
+      <span className='text-gray-300 text-xs'>Species</span>
 
       <input
         onChange={(evt) => setValue(evt.target.value)}
