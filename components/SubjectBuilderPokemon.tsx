@@ -33,7 +33,7 @@ const SubjectBuilderPokemon: FunctionComponent = () => {
         list='pokemon-list'
         value={value}
         className='form-input rounded mt-1 block w-full'
-        placeholder={POKEDEX[0].name}
+        placeholder='Pokémon'
       />
 
       <datalist id='pokemon-list'>
