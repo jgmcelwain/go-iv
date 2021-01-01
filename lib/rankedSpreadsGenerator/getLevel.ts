@@ -12,6 +12,13 @@ export function getLevel(
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
 ) {
+  // use the provided maxLevel if the maxCP is for master league, since it would
+  // never be optimal to not push right to the level cap
+  if (maxCP === 10000) {
+    return maxLevel;
+  }
+
+  // binary search to find cpm which gets us closest to the cap
   function getCPMIndex(query: number) {
     let start = 0;
     let end = CPMs.length - 1;
