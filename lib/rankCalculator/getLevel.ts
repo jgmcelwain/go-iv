@@ -2,7 +2,7 @@ import {
   CPMs,
   LeagueCPCap,
   PokemonStats,
-  PowerUpLevelCap,
+  LevelCapNumber,
 } from '../../data/reference';
 
 export function getLevel(
@@ -10,16 +10,25 @@ export function getLevel(
   def: PokemonStats['def'],
   sta: PokemonStats['sta'],
   maxCP: LeagueCPCap,
-  maxLevel: PowerUpLevelCap,
+  maxLevel: LevelCapNumber,
 ) {
   function getCPMIndex(query: number) {
-    let i = 0;
+    let start = 0;
+    let end = CPMs.length - 1;
 
-    while (CPMs[i] <= query) {
-      i++;
+    while (start <= end) {
+      const guess = (end + start) >> 1;
+
+      if (CPMs[guess] < query) {
+        start = guess + 1;
+      } else if (CPMs[guess] > query) {
+        end = guess - 1;
+      } else {
+        return guess;
+      }
     }
 
-    return i - 1;
+    return start - 1;
   }
 
   const cpmIndex = getCPMIndex(
