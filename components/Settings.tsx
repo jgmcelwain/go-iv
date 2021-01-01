@@ -58,7 +58,7 @@ const Settings: FunctionComponent = () => {
 
         <SettingsEditorCategory
           title='Output Data'
-          description='Choose leagues that will be displayed in the output.'
+          description='Choose data points for each league/level combination to be displayed in the output.'
         >
           {OUTPUT_DATA.map((dataPoint) => (
             <SettingsEditorInput
