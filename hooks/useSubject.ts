@@ -38,7 +38,22 @@ export function useSubject(): {
     (state: Subject, action: Actions): Subject => {
       switch (action.type) {
         case SubjectActionTypes.Species: {
-          return { ...state, species: action.payload };
+          if (action.payload.floor > state.floor) {
+            return {
+              species: action.payload,
+              floor: action.payload.floor,
+              ivs: {
+                atk: Math.max(state.ivs.atk, action.payload.floor) as IV,
+                def: Math.max(state.ivs.def, action.payload.floor) as IV,
+                sta: Math.max(state.ivs.sta, action.payload.floor) as IV,
+              },
+            };
+          }
+
+          return {
+            ...state,
+            species: action.payload,
+          };
         }
         case SubjectActionTypes.IV: {
           const ivKey = action.payload.stat;

@@ -216,6 +216,7 @@ export type Pokemon = {
   id: PokemonID;
   name: PokemonName;
   stats: PokemonStats;
+  floor?: IVFloor;
 };
 
 export type ActionMap<M extends { [index: string]: unknown }> = {
