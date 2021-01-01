@@ -219,6 +219,18 @@ export type Pokemon = {
   floor?: IVFloor;
 };
 
+export type SpreadStats = {
+  ivs: PokemonIVs;
+  cp: number;
+  level: number;
+  stats: PokemonStats;
+  product: number;
+};
+export type RankedSpreadStats = SpreadStats & {
+  rank: number;
+  percent: number;
+};
+
 export type ActionMap<M extends { [index: string]: unknown }> = {
   [Key in keyof M]: M[Key] extends undefined
     ? { type: Key }

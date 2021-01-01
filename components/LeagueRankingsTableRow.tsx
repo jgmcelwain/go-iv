@@ -7,7 +7,7 @@ import React, {
 
 import { Context as SubjectContext } from './SubjectContext';
 import { Context as SettingsContext } from './SettingsContext';
-import { rankedSpreadsGenerator } from '../lib/rankedSpreadsGenerator';
+import { generateRankedSpreads } from '../lib/generateRankedSpreads';
 import { LeagueCPCap, LevelCapNumber } from '../data/reference';
 import { SubjectActionTypes } from '../hooks/useSubject';
 
@@ -32,7 +32,7 @@ const LeagueRankingsTableRow: FunctionComponent<{
 
   const rankedSpreads = useMemo(
     () =>
-      rankedSpreadsGenerator(subject.species, subject.floor, maxCP, maxLevel),
+      generateRankedSpreads(subject.species, subject.floor, maxCP, maxLevel),
     [subject.species, subject.floor],
   );
 
