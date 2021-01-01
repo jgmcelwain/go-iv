@@ -14,7 +14,7 @@ const SettingsWrapper: FunctionComponent<{
         shown ? 'pointer-events-auto' : 'pointer-events-none'
       }`}
     >
-      <div className='flex items-center justify-center min-h-screen p-4 text-center'>
+      <div className='flex items-center justify-center min-h-screen px-4 text-center'>
         <Transition
           show={shown}
           enter='ease-out duration-300'
@@ -57,7 +57,7 @@ const SettingsWrapper: FunctionComponent<{
           {(ref) => (
             <div
               ref={ref}
-              className='inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all max-w-lg w-full'
+              className='inline-block bg-white my-4 rounded-lg text-left overflow-hidden shadow-xl transform transition-all max-w-lg w-full'
               role='dialog'
               aria-modal='true'
               aria-labelledby='modal-headline'
