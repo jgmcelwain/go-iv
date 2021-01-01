@@ -3,7 +3,7 @@ import {
   LeagueCPCap,
   PokemonIVs,
   PokemonStats,
-  PowerUpLevelCap,
+  LevelCapNumber,
 } from '../../data/reference';
 import { getMaximizedStats } from './getMaximizedStats';
 import { getPossibleIVs } from './getPossibleIVs';
@@ -21,7 +21,7 @@ type SpreadStats = {
 export function rankCalculator(
   subject: Subject,
   maxCP: LeagueCPCap,
-  maxLevel: PowerUpLevelCap,
+  maxLevel: LevelCapNumber,
 ) {
   const ivCombinations = getPossibleIVs(subject.floor);
 
@@ -40,6 +40,7 @@ export function rankCalculator(
 
       return { ...stats, percent, rank };
     });
+
   return {
     subject:
       all.find(

@@ -2,7 +2,7 @@ import {
   LeagueCPCap,
   Pokemon,
   PokemonIVs,
-  PowerUpLevelCap,
+  LevelCapNumber,
 } from '../../data/reference';
 
 import { getLevel } from './getLevel';
@@ -13,7 +13,7 @@ export function getMaximizedStats(
   species: Pokemon,
   iv: PokemonIVs,
   maxCP: LeagueCPCap,
-  maxLevel: PowerUpLevelCap,
+  maxLevel: LevelCapNumber,
 ) {
   const atk = iv.atk + species.stats.atk;
   const def = iv.def + species.stats.def;
