@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 
-const SettingsEditorDone: FunctionComponent<{ onExit: () => void }> = ({
+const SettingsDone: FunctionComponent<{ onExit: () => void }> = ({
   onExit,
 }) => (
-  <div className='border-t border-gray-200 bg-gray-50 p-3 flex justify-center'>
+  <div className='-mt-4 border-t border-gray-200 bg-gray-50 p-3 flex justify-center'>
     <button
       onClick={onExit}
       type='button'
@@ -29,4 +29,4 @@ const SettingsEditorDone: FunctionComponent<{ onExit: () => void }> = ({
   </div>
 );
 
-export default SettingsEditorDone;
+export default SettingsDone;

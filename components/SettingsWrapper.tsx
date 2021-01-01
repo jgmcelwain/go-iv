@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactChild } from 'react';
-import SettingsEditorDone from './SettingsEditorDone';
+import SettingsEditorDone from './SettingsDone';
 
 import { Transition } from '@headlessui/react';
 
@@ -62,7 +62,7 @@ const SettingsWrapper: FunctionComponent<{
               aria-modal='true'
               aria-labelledby='modal-headline'
             >
-              {children}
+              <div className='bg-white p-4 sm:p-6 pb-0 sm:pb-0'>{children}</div>
 
               <SettingsEditorDone onExit={onClose} />
             </div>
