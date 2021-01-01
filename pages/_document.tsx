@@ -2,13 +2,9 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
   render() {
-    console.log(process.env);
-
     return (
       <Html>
         <Head>
-          <title>pvpiv.app - Pokémon GO PVP IV Checker</title>
-
           {process.env.NODE_ENV === 'production' && (
             <>
               <script
