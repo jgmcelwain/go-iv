@@ -38,6 +38,7 @@ export function useSubject(): {
     (state: Subject, action: Actions): Subject => {
       switch (action.type) {
         case SubjectActionTypes.Species: {
+          // state floor cannot be lower than the floor of the new species
           if (action.payload.floor > state.floor) {
             return {
               species: action.payload,
