@@ -7,7 +7,7 @@ import { SettingsActionTypes } from '../hooks/useSettings';
 import { Context as SettingsContext } from './SettingsContext';
 import { Context as SettingsShownContext } from './SettingsShownContext';
 
-import SettingsEditor from './SettingsEditor';
+import SettingsWrapper from './SettingsWrapper';
 import SettingsEditorCategory from './SettingsEditorCategory';
 import SettingsEditorInput from './SettingsEditorInput';
 
@@ -16,7 +16,7 @@ const Settings: FunctionComponent = () => {
   const { settings, dispatch } = useContext(SettingsContext);
 
   return (
-    <SettingsEditor onClose={hide} shown={isShown}>
+    <SettingsWrapper onClose={hide} shown={isShown}>
       <div className='bg-white p-4 sm:p-6 pb-0 sm:pb-0'>
         <SettingsEditorCategory
           title='Leagues'
@@ -75,7 +75,7 @@ const Settings: FunctionComponent = () => {
           ))}
         </SettingsEditorCategory>
       </div>
-    </SettingsEditor>
+    </SettingsWrapper>
   );
 };
 

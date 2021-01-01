@@ -3,7 +3,7 @@ import SettingsEditorDone from './SettingsEditorDone';
 
 import { Transition } from '@headlessui/react';
 
-const SettingsEditor: FunctionComponent<{
+const SettingsWrapper: FunctionComponent<{
   onClose: () => void;
   shown: boolean;
   children: ReactChild | ReactChild[];
@@ -73,4 +73,4 @@ const SettingsEditor: FunctionComponent<{
   );
 };
 
-export default SettingsEditor;
+export default SettingsWrapper;
