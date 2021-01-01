@@ -1,30 +1,44 @@
 import React, { FunctionComponent } from 'react';
 
-import { LEAGUES } from '../data/reference';
-
+import { CookiesProvider } from 'react-cookie';
 import { Wrapper as SubjectContextWrapper } from '../components/SubjectContext';
+import { Wrapper as SettingsContextWrapper } from '../components/SettingsContext';
+import {
+  Settings as SettingsType,
+  getInitialSettings,
+} from '../hooks/useSettings';
+
 import SubjectBuilder from '../components/SubjectBuilder';
-import League from '../components/League';
+import Leagues from '../components/Leagues';
 import Footer from '../components/Footer';
+import Settings from '../components/Settings';
 
-const IndexPage: FunctionComponent = () => {
+const IndexPage: FunctionComponent<{ settings: SettingsType }> = (props) => {
   return (
-    <div className='container mx-auto'>
-      <SubjectContextWrapper>
-        <>
-          <SubjectBuilder />
+    <CookiesProvider>
+      <SettingsContextWrapper initialValue={props.settings}>
+        <SubjectContextWrapper>
+          <div className='container mx-auto'>
+            <SubjectBuilder />
 
-          <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8'>
-            {LEAGUES.map((league) => (
-              <League key={league.key} league={league} />
-            ))}
+            <Leagues />
+
+            <Footer />
+
+            <Settings />
           </div>
-        </>
-      </SubjectContextWrapper>
-
-      <Footer />
-    </div>
+        </SubjectContextWrapper>
+      </SettingsContextWrapper>
+    </CookiesProvider>
   );
 };
 
 export default IndexPage;
+
+export async function getServerSideProps({
+  req,
+}): Promise<{ props: { settings: SettingsType } }> {
+  const settings = getInitialSettings(req.cookies.settings);
+
+  return { props: { settings } };
+}
