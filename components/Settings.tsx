@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext, useState } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 
 import { LEAGUES, LEVEL_CAPS, OUTPUT_DATA } from '../data/reference';
 
