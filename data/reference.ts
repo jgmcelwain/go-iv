@@ -150,15 +150,52 @@ export const IV_FLOORS: { value: IVFloor; name: string }[] = [
 ];
 
 export type LeagueCPCap = 1500 | 2500 | 10000;
-export type League = { key: string; cp: LeagueCPCap; name: string };
+export type LeagueKey = 'great' | 'ultra' | 'master';
+export type LeagueName = 'Great League' | 'Ultra League' | 'Master League';
+export type League = { key: LeagueKey; cp: LeagueCPCap; name: LeagueName };
 export const LEAGUES: League[] = [
   { key: 'great', cp: 1500, name: 'Great League' },
   { key: 'ultra', cp: 2500, name: 'Ultra League' },
   { key: 'master', cp: 10000, name: 'Master League' },
 ];
 
-export type PowerUpLevelCap = 40 | 41 | 50 | 51;
-export const LEVEL_CAPS: PowerUpLevelCap[] = [40, 41, 50, 51];
+export type LevelCapNumber = 40 | 41 | 50 | 51;
+export type LevelCapName =
+  | 'Level 40'
+  | 'Level 41 (Best Buddy)'
+  | 'Level 50 (Candy XL)'
+  | 'Level 51 (Candy XL + Best Buddy)';
+export type LevelCap = { level: LevelCapNumber; name: LevelCapName };
+export const LEVEL_CAPS: LevelCap[] = [
+  { level: 40, name: 'Level 40' },
+  { level: 41, name: 'Level 41 (Best Buddy)' },
+  { level: 50, name: 'Level 50 (Candy XL)' },
+  { level: 51, name: 'Level 51 (Candy XL + Best Buddy)' },
+];
+
+export type OutputDataKey =
+  | 'level'
+  | 'rank'
+  | 'cp'
+  | 'stats'
+  | 'statProduct'
+  | 'statProductPercent';
+export type OutputDataName =
+  | 'Level'
+  | 'Rank'
+  | 'CP'
+  | 'Stats'
+  | 'Product'
+  | 'Product % of Max';
+export type OutputDataPoint = { key: OutputDataKey; name: OutputDataName };
+export const OUTPUT_DATA: OutputDataPoint[] = [
+  { key: 'level', name: 'Level' },
+  { key: 'rank', name: 'Rank' },
+  { key: 'cp', name: 'CP' },
+  { key: 'stats', name: 'Stats' },
+  { key: 'statProduct', name: 'Product' },
+  { key: 'statProductPercent', name: 'Product % of Max' },
+];
 
 export type PokemonID = string;
 export type PokemonName = string;
@@ -176,4 +213,10 @@ export type Pokemon = {
   id: PokemonID;
   name: PokemonName;
   stats: PokemonStats;
+};
+
+export type ActionMap<M extends { [index: string]: unknown }> = {
+  [Key in keyof M]: M[Key] extends undefined
+    ? { type: Key }
+    : { type: Key; payload: M[Key] };
 };
