@@ -18,61 +18,63 @@ const Settings: FunctionComponent = () => {
   return (
     <SettingsWrapper onClose={hide} shown={isShown}>
       <div className='bg-white p-4 sm:p-6 pb-0 sm:pb-0'>
-        <SettingsEditorCategory
-          title='Leagues'
-          description='Choose leagues that will be displayed in the output.'
-        >
-          {LEAGUES.map((league) => (
-            <SettingsEditorInput
-              key={league.key}
-              onInput={(value) =>
-                dispatch({
-                  type: SettingsActionTypes.League,
-                  payload: { key: league.key, value },
-                })
-              }
-              value={settings.leagues[league.key]}
-              label={league.name}
-            />
-          ))}
+        <SettingsEditorCategory title='Calculation'>
+          <>
+            <p className='text-sm text-gray-500 mb-1'>
+              Leagues for which rank data should be calculated for.
+            </p>
+            {LEAGUES.map((league) => (
+              <SettingsEditorInput
+                key={league.key}
+                onInput={(value) =>
+                  dispatch({
+                    type: SettingsActionTypes.League,
+                    payload: { key: league.key, value },
+                  })
+                }
+                value={settings.leagues[league.key]}
+                label={league.name}
+              />
+            ))}
+
+            <p className='text-sm text-gray-500 mt-4 mb-1'>
+              Level caps for which rank data should be calculated for.
+            </p>
+            {LEVEL_CAPS.map((levelCap) => (
+              <SettingsEditorInput
+                key={levelCap.level}
+                onInput={(value) =>
+                  dispatch({
+                    type: SettingsActionTypes.LevelCap,
+                    payload: { key: levelCap.level, value },
+                  })
+                }
+                value={settings.levelCaps[levelCap.level]}
+                label={levelCap.name}
+              />
+            ))}
+          </>
         </SettingsEditorCategory>
 
-        <SettingsEditorCategory
-          title='Level Caps'
-          description='Choose level caps that your subject will have their rank calculated for.'
-        >
-          {LEVEL_CAPS.map((levelCap) => (
-            <SettingsEditorInput
-              key={levelCap.level}
-              onInput={(value) =>
-                dispatch({
-                  type: SettingsActionTypes.LevelCap,
-                  payload: { key: levelCap.level, value },
-                })
-              }
-              value={settings.levelCaps[levelCap.level]}
-              label={levelCap.name}
-            />
-          ))}
-        </SettingsEditorCategory>
-
-        <SettingsEditorCategory
-          title='Output Data'
-          description='Choose data points for each league/level combination to be displayed in the output.'
-        >
-          {OUTPUT_DATA.map((dataPoint) => (
-            <SettingsEditorInput
-              key={dataPoint.key}
-              onInput={(value) =>
-                dispatch({
-                  type: SettingsActionTypes.OutputData,
-                  payload: { key: dataPoint.key, value },
-                })
-              }
-              value={settings.outputData[dataPoint.key]}
-              label={dataPoint.name}
-            />
-          ))}
+        <SettingsEditorCategory title='Display'>
+          <>
+            <p className='text-sm text-gray-500 mb-1'>
+              Selected fields will be displayed in the calculation output.
+            </p>
+            {OUTPUT_DATA.map((dataPoint) => (
+              <SettingsEditorInput
+                key={dataPoint.key}
+                onInput={(value) =>
+                  dispatch({
+                    type: SettingsActionTypes.OutputData,
+                    payload: { key: dataPoint.key, value },
+                  })
+                }
+                value={settings.outputData[dataPoint.key]}
+                label={dataPoint.name}
+              />
+            ))}
+          </>
         </SettingsEditorCategory>
       </div>
     </SettingsWrapper>
