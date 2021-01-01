@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useContext } from 'react';
 
-import { SubjectContext } from './SubjectContext';
+import { Context as SubjectContext } from './SubjectContext';
 import { SubjectActionTypes } from '../hooks/useSubject';
 
 import { IVFloor, IV_FLOORS } from '../data/reference';
@@ -20,7 +20,7 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
           })
         }
         value={subject.floor}
-        className='form-select rounded mt-1 block w-full'
+        className='form-select rounded mt-1 block w-full focus:ring-4 ring-blue-600'
       >
         {IV_FLOORS.map((floor) => (
           <option key={floor.value} value={floor.value}>

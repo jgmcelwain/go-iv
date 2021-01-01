@@ -5,7 +5,7 @@ import React, {
   useContext,
 } from 'react';
 
-import { SubjectContext } from './SubjectContext';
+import { Context as SubjectContext } from './SubjectContext';
 import { SubjectActionTypes } from '../hooks/useSubject';
 
 import { PokemonName } from '../data/reference';
@@ -32,7 +32,7 @@ const SubjectBuilderPokemon: FunctionComponent = () => {
         type='text'
         list='pokemon-list'
         value={value}
-        className='form-input rounded mt-1 block w-full'
+        className='form-input rounded mt-1 block w-full focus:ring-4 ring-blue-600'
         placeholder='Pokémon'
       />
 

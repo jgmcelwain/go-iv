@@ -1,21 +1,20 @@
 import React, {
-  Dispatch,
   FunctionComponent,
   ReactChild,
   createContext,
   useEffect,
 } from 'react';
-import { useSubject, Subject, Actions } from '../hooks/useSubject';
+import { useSubject, Subject, Dispatch } from '../hooks/useSubject';
 import * as gtag from '../utils/gtag';
 
-export const SubjectContext = createContext<{
+export const Context = createContext<{
   subject: Subject;
-  dispatch: Dispatch<Actions>;
+  dispatch: Dispatch;
 }>(null);
 
-export const Wrapper: FunctionComponent<{ children: ReactChild }> = ({
-  children,
-}) => {
+export const Wrapper: FunctionComponent<{
+  children: ReactChild | ReactChild[];
+}> = ({ children }) => {
   const value = useSubject();
 
   useEffect(() => {
@@ -34,7 +33,5 @@ export const Wrapper: FunctionComponent<{ children: ReactChild }> = ({
     value.subject.floor,
   ]);
 
-  return (
-    <SubjectContext.Provider value={value}>{children} </SubjectContext.Provider>
-  );
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 };

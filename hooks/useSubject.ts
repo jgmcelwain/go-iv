@@ -1,12 +1,6 @@
-import { Dispatch, useReducer } from 'react';
+import { Dispatch as ReactDispatch, useReducer } from 'react';
 import { POKEDEX } from '../data/pokedex';
-import { IV, IVFloor, Pokemon, Stat } from '../data/reference';
-
-type ActionMap<M extends { [index: string]: unknown }> = {
-  [Key in keyof M]: M[Key] extends undefined
-    ? { type: Key }
-    : { type: Key; payload: M[Key] };
-};
+import { IV, IVFloor, Pokemon, Stat, ActionMap } from '../data/reference';
 
 export type Subject = {
   species: Pokemon;
@@ -26,7 +20,8 @@ type PayloadTypes = {
   [SubjectActionTypes.Floor]: IVFloor;
 };
 
-export type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
+type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
+export type Dispatch = ReactDispatch<Actions>;
 
 const initialState: Subject = {
   species: POKEDEX[0],
@@ -35,7 +30,7 @@ const initialState: Subject = {
 };
 export function useSubject(): {
   subject: Subject;
-  dispatch: Dispatch<Actions>;
+  dispatch: Dispatch;
 } {
   const [subject, dispatch] = useReducer(
     (state: Subject, action: Actions): Subject => {
