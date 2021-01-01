@@ -20,7 +20,7 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
           })
         }
         value={subject.floor}
-        className='form-select rounded mt-1 block w-full focus:ring-4 ring-blue-600'
+        className='form-select rounded mt-1 block w-full focus:ring-2 ring-offset-2 ring-offset-gray-900 ring-blue-600'
       >
         {IV_FLOORS.map((floor) => (
           <option key={floor.value} value={floor.value}>
