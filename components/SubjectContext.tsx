@@ -20,16 +20,16 @@ export const Wrapper: FunctionComponent<{
   useEffect(() => {
     gtag.event('subject_created', {
       species_id: value.subject.species.id,
-      iv_atk: value.subject.iv.atk,
-      iv_def: value.subject.iv.def,
-      iv_sta: value.subject.iv.sta,
+      iv_atk: value.subject.ivs.atk,
+      iv_def: value.subject.ivs.def,
+      iv_sta: value.subject.ivs.sta,
       floor: value.subject.floor,
     });
   }, [
     value.subject.species.id,
-    value.subject.iv.atk,
-    value.subject.iv.def,
-    value.subject.iv.sta,
+    value.subject.ivs.atk,
+    value.subject.ivs.def,
+    value.subject.ivs.sta,
     value.subject.floor,
   ]);
 

@@ -11,13 +11,13 @@ import { getCP } from './getCP';
 
 export function getMaximizedStats(
   species: Pokemon,
-  iv: PokemonIVs,
+  ivs: PokemonIVs,
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
 ) {
-  const atk = iv.atk + species.stats.atk;
-  const def = iv.def + species.stats.def;
-  const sta = iv.sta + species.stats.sta;
+  const atk = ivs.atk + species.stats.atk;
+  const def = ivs.def + species.stats.def;
+  const sta = ivs.sta + species.stats.sta;
   const level = getLevel(atk, def, sta, maxCP, maxLevel);
   const cp = getCP(atk, def, sta, level);
   const stats = getStats(atk, def, sta, level);
@@ -25,7 +25,7 @@ export function getMaximizedStats(
 
   return {
     level,
-    iv,
+    ivs,
     stats,
     cp,
     product,

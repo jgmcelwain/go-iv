@@ -179,14 +179,16 @@ export type OutputDataKey =
   | 'cp'
   | 'stats'
   | 'statProduct'
-  | 'statProductPercent';
+  | 'statProductPercent'
+  | 'maximizeButton';
 export type OutputDataName =
   | 'Level'
   | 'Rank'
   | 'CP'
   | 'Stats'
   | 'Product'
-  | 'Product % of Max';
+  | 'Product % of Max'
+  | 'Maximize Button';
 export type OutputDataPoint = { key: OutputDataKey; name: OutputDataName };
 export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'level', name: 'Level' },
@@ -195,6 +197,7 @@ export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'stats', name: 'Stats' },
   { key: 'statProduct', name: 'Product' },
   { key: 'statProductPercent', name: 'Product % of Max' },
+  { key: 'maximizeButton', name: 'Maximize Button' },
 ];
 
 export type PokemonID = string;

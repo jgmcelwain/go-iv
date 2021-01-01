@@ -10,7 +10,7 @@ const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
     <div className='w-full sm:rounded-lg overflow-hidden'>
       <LeagueHeader league={league} />
 
-      <div className='w-full overflow-x-scroll bg-white'>
+      <div className='w-full overflow-x-scroll bg-gray-100 '>
         <LeagueRankingsTable league={league} />
       </div>
     </div>

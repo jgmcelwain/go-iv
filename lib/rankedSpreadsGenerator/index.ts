@@ -1,15 +1,16 @@
-import { Subject } from '../../hooks/useSubject';
 import {
   LeagueCPCap,
   PokemonIVs,
   PokemonStats,
   LevelCapNumber,
+  Pokemon,
+  IVFloor,
 } from '../../data/reference';
 import { getMaximizedStats } from './getMaximizedStats';
 import { getPossibleIVs } from './getPossibleIVs';
 
 type SpreadStats = {
-  iv: PokemonIVs;
+  ivs: PokemonIVs;
   cp: number;
   level: number;
   stats: PokemonStats;
@@ -18,15 +19,16 @@ type SpreadStats = {
   percent: number;
 };
 
-export function rankCalculator(
-  subject: Subject,
+export function rankedSpreadsGenerator(
+  pokemon: Pokemon,
+  floor: IVFloor,
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
 ) {
-  const ivCombinations = getPossibleIVs(subject.floor);
+  const ivCombinations = getPossibleIVs(floor);
 
-  const all: SpreadStats[] = ivCombinations
-    .map((iv) => getMaximizedStats(subject.species, iv, maxCP, maxLevel))
+  const ranks: SpreadStats[] = ivCombinations
+    .map((iv) => getMaximizedStats(pokemon, iv, maxCP, maxLevel))
     .sort((a, b) => {
       if (b.product === a.product) {
         return b.cp - a.cp;
@@ -41,15 +43,5 @@ export function rankCalculator(
       return { ...stats, percent, rank };
     });
 
-  return {
-    subject:
-      all.find(
-        ({ iv }) =>
-          iv.atk === subject.iv.atk &&
-          iv.def === subject.iv.def &&
-          iv.sta === subject.iv.sta,
-      ) ?? null,
-    best: all[0],
-    all,
-  };
+  return ranks;
 }

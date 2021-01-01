@@ -5,12 +5,14 @@ import LeagueRankingsTableRow from './LeagueRankingsTableRow';
 import { Context as SettingsContext } from './SettingsContext';
 
 const TableHeaderCell: FunctionComponent<{
-  children: ReactChild | string[];
+  children?: ReactChild | string[];
 }> = ({ children }) => (
   <th className='text-left bg-gray-100 py-2 px-3 first:pl-4'>
-    <span className='text-gray-500 font-semibold tracking-wider uppercase font-title text-xs'>
-      {children}
-    </span>
+    {children && (
+      <span className='text-gray-500 font-semibold tracking-wider uppercase font-title text-xs'>
+        {children}
+      </span>
+    )}
   </th>
 );
 
@@ -42,6 +44,8 @@ const LeagueRankingsTable: FunctionComponent<{ league: League }> = ({
           {settings.outputData.statProductPercent && (
             <TableHeaderCell>Product%</TableHeaderCell>
           )}
+
+          {settings.outputData.maximizeButton && <TableHeaderCell />}
         </tr>
       </thead>
 

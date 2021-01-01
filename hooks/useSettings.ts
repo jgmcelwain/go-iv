@@ -48,6 +48,7 @@ const defaultSettings: Settings = {
     stats: true,
     statProduct: false,
     statProductPercent: true,
+    maximizeButton: true,
   },
 };
 export function getInitialSettings(settingsCookie: string) {
