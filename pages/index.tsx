@@ -3,11 +3,13 @@ import React, { FunctionComponent } from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Wrapper as SubjectContextWrapper } from '../components/SubjectContext';
 import { Wrapper as SettingsContextWrapper } from '../components/SettingsContext';
+import { Wrapper as SettingsShownContextWrapper } from '../components/SettingsShownContext';
 import {
   Settings as SettingsType,
   getInitialSettings,
 } from '../hooks/useSettings';
 
+import Header from '../components/Header';
 import SubjectBuilder from '../components/SubjectBuilder';
 import Leagues from '../components/Leagues';
 import Footer from '../components/Footer';
@@ -17,17 +19,21 @@ const IndexPage: FunctionComponent<{ settings: SettingsType }> = (props) => {
   return (
     <CookiesProvider>
       <SettingsContextWrapper initialValue={props.settings}>
-        <SubjectContextWrapper>
-          <div className='container mx-auto'>
-            <SubjectBuilder />
+        <SettingsShownContextWrapper>
+          <SubjectContextWrapper>
+            <Header />
 
-            <Leagues />
+            <div className='container mx-auto px-0 sm:px-4'>
+              <SubjectBuilder />
 
-            <Footer />
+              <Leagues />
 
-            <Settings />
-          </div>
-        </SubjectContextWrapper>
+              <Footer />
+
+              <Settings />
+            </div>
+          </SubjectContextWrapper>
+        </SettingsShownContextWrapper>
       </SettingsContextWrapper>
     </CookiesProvider>
   );
