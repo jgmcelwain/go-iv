@@ -4,6 +4,7 @@ import React, {
   createContext,
   useEffect,
 } from 'react';
+import { useRouter } from 'next/router';
 import { useSubject, Subject, Dispatch } from '../hooks/useSubject';
 import * as gtag from '../utils/gtag';
 
@@ -13,11 +14,19 @@ export const Context = createContext<{
 }>(null);
 
 export const Wrapper: FunctionComponent<{
+  initialValue: Subject;
   children: ReactChild | ReactChild[];
-}> = ({ children }) => {
-  const value = useSubject();
+}> = ({ initialValue, children }) => {
+  const router = useRouter();
+  const value = useSubject(initialValue);
 
   useEffect(() => {
+    router.replace(
+      `/${value.subject.species.id}/${value.subject.ivs.atk}/${value.subject.ivs.def}/${value.subject.ivs.sta}/${value.subject.floor}`,
+      undefined,
+      { shallow: true },
+    );
+
     gtag.event('subject_created', {
       species_id: value.subject.species.id,
       iv_atk: value.subject.ivs.atk,
