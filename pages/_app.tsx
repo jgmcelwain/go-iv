@@ -8,6 +8,10 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>pvpiv.app - Pokémon GO PVP IV Checker</title>
+        <meta
+          name='description'
+          content='Check PVP IV ranks for Great League, Ultra League and Master League simultaneously.'
+        />
       </Head>
 
       <Component {...pageProps} />

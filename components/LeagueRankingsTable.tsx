@@ -9,7 +9,7 @@ const TableHeaderCell: FunctionComponent<{
 }> = ({ children }) => (
   <th className='text-left bg-gray-100 py-2 px-3 first:pl-4'>
     {children && (
-      <span className='text-gray-500 font-semibold tracking-wider uppercase font-title text-xs'>
+      <span className='text-gray-600 font-semibold tracking-wider uppercase font-title text-xs'>
         {children}
       </span>
     )}

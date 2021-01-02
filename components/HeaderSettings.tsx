@@ -8,13 +8,18 @@ const HeaderSettings: FunctionComponent = () => {
   return (
     <button
       onClick={show}
-      className='w-6 h-6 text-gray-400 focus:ring-2 ring-offset-2 ring-offset-gray-800 ring-blue-600 focus:outline-none rounded-full'
+      className='text-gray-400 focus:ring-2 ring-offset-4 ring-offset-gray-800 ring-blue-600 focus:outline-none rounded-full sm:rounded flex justify-start items-center'
     >
+      <span className='hidden sm:inline mr-2 text-sm font-semibold'>
+        Settings
+      </span>
+
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
+        className='w-5 h-5'
       >
         <path
           strokeLinecap='round'

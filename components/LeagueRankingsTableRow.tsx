@@ -51,15 +51,15 @@ const LeagueRankingsTableRow: FunctionComponent<{
     if (result === null) return '';
 
     if (result.percent === 1) {
-      return 'bg-purple-50 text-purple-600';
+      return 'bg-purple-50 text-purple-700';
     } else if (result.percent >= 0.98) {
-      return 'bg-green-50 text-green-600';
+      return 'bg-green-50 text-green-700';
     } else if (result.percent >= 0.95) {
-      return 'bg-yellow-50 text-yellow-600';
+      return 'bg-yellow-50 text-yellow-700';
     } else if (result.percent >= 0.9) {
-      return 'bg-orange-50 text-orange-600';
+      return 'bg-orange-50 text-orange-700';
     } else {
-      return 'bg-red-50 text-red-600';
+      return 'bg-red-50 text-red-700';
     }
   }, [result]);
 
