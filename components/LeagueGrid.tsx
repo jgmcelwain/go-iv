@@ -5,7 +5,7 @@ import { LEAGUES } from '../data/reference';
 import { Context as SettingsContext } from './SettingsContext';
 import League from './League';
 
-const Leagues: FunctionComponent = () => {
+const LeagueGrid: FunctionComponent = () => {
   const { settings } = useContext(SettingsContext);
 
   return (
@@ -19,4 +19,4 @@ const Leagues: FunctionComponent = () => {
   );
 };
 
-export default Leagues;
+export default LeagueGrid;

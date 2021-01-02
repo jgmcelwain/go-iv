@@ -14,7 +14,7 @@ import { Subject as SubjectType, getInitialSubject } from '../hooks/useSubject';
 
 import Header from '../components/Header';
 import SubjectBuilder from '../components/SubjectBuilder';
-import Leagues from '../components/Leagues';
+import LeagueGrid from '../components/LeagueGrid';
 import Footer from '../components/Footer';
 import Settings from '../components/Settings';
 
@@ -32,7 +32,7 @@ const IndexPage: FunctionComponent<{
             <div className='container mx-auto px-0 sm:px-4'>
               <SubjectBuilder />
 
-              <Leagues />
+              <LeagueGrid />
 
               <Footer />
 

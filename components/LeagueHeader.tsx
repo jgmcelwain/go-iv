@@ -1,8 +1,9 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent, useContext, useMemo } from 'react';
 
-import { League } from '../data/reference';
+import { IV_FLOORS, League } from '../data/reference';
 
 import { Context as SubjectContext } from './SubjectContext';
+import { LeagueDisplayModeContext } from './League';
 
 const LEAGUE_COLORS = {
   great: {
@@ -19,14 +20,24 @@ const LEAGUE_COLORS = {
   },
 };
 
-const LeagueHeader: FunctionComponent<{ league: League }> = ({ league }) => {
+const LeagueHeader: FunctionComponent<{
+  league: League;
+}> = ({ league }) => {
   const { subject } = useContext(SubjectContext);
+  const { displayMode, inspectedLevelCap, setDisplayMode } = useContext(
+    LeagueDisplayModeContext,
+  );
+
+  const floor = useMemo(
+    () => IV_FLOORS.find((floor) => floor.value === subject.floor),
+    [subject.floor],
+  );
 
   return (
     <div
       className={`w-full p-4 bg-gradient-to-br ${
         LEAGUE_COLORS[league.key].background
-      } sticky top-0 left-0 flex justify-between items-center overflow-hidden`}
+      } sticky top-0 left-0 flex justify-between items-center overflow-hidden font-title text-white`}
     >
       <div
         className={`absolute z-0 right-0 top-0 transform rotate-45 w-5 h-48 opacity-90 -translate-x-20 -translate-y-10 bg-gradient-to-b ${
@@ -34,15 +45,43 @@ const LeagueHeader: FunctionComponent<{ league: League }> = ({ league }) => {
         }`}
       />
 
-      <h2 className='font-title z-10 font-semibold text-white leading-none'>
-        {league.name}
-      </h2>
+      {displayMode === 'top' && (
+        <button
+          onClick={() => setDisplayMode('subject')}
+          title={`Back`}
+          className='text-white p-1 mr-3 focus:ring-2 ring-white focus:outline-none rounded'
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            className='w-4 h-4'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={3}
+              d='M10 19l-7-7m0 0l7-7m-7 7h18'
+            />
+          </svg>
+        </button>
+      )}
 
-      <div className='font-title z-10 font-semibold text-white'>
-        <p className='text-sm text-right'>{subject.species.name}</p>
-        <p className='text-xs text-right'>
-          {subject.ivs.atk} - {subject.ivs.def} - {subject.ivs.sta}
-        </p>
+      <div className='flex-grow z-10 '>
+        <h2 className='font-semibold leading-none flex-grow'>{league.name}</h2>
+
+        {displayMode === 'top' ? (
+          <p className='font-semibold text-xs mt-1'>
+            Top IV Spreads for {subject.species.name}, Level{' '}
+            {inspectedLevelCap.level}, {floor.name}
+          </p>
+        ) : (
+          <p className='font-semibold text-xs mt-1'>
+            {subject.species.name}, {subject.ivs.atk}/{subject.ivs.def}/
+            {subject.ivs.sta}, {floor.name}
+          </p>
+        )}
       </div>
     </div>
   );
