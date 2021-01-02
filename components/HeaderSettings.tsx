@@ -9,6 +9,7 @@ const HeaderSettings: FunctionComponent = () => {
     <button
       onClick={show}
       className='text-gray-400 focus:ring-2 ring-offset-4 ring-offset-gray-800 ring-blue-600 focus:outline-none rounded-full sm:rounded flex justify-start items-center'
+      aria-label='Settings'
     >
       <span className='hidden sm:inline mr-2 text-sm font-semibold'>
         Settings
