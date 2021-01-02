@@ -9,9 +9,31 @@ const Header: FunctionComponent = () => {
       <div className='container mx-auto px-4 flex justify-between items-center py-4'>
         <div className='font-title flex-grow flex justify-start items-center'>
           <h1 className='text-gray-200 text-xl'>pvpiv.app</h1>
-          <span className='text-gray-600 text-sm ml-1 transform translate-y-0.5'>
-            v{version}
-          </span>
+
+          <a
+            href='https://github.com/jgmcelwain/pvpiv/releases'
+            target='_blank'
+            rel='noreferrer'
+            className='text-gray-600 hover:text-blue-500 text-sm ml-1 transform translate-y-0.5 group inline-flex justify-start items-center transition-colors'
+            title='View Releases'
+          >
+            <span>v{version}</span>
+
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              className='w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+              />
+            </svg>
+          </a>
         </div>
 
         <HeaderSettings />
