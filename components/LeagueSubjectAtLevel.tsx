@@ -51,16 +51,17 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
 
   return (
     <tr className={`${colors.background} ${colors.text}`}>
+      {settings.outputData.rank && (
+        <LeagueTableCells.Body>{result.rank}</LeagueTableCells.Body>
+      )}
+
       {settings.outputData.level && (
         <LeagueTableCells.Body>
           <>
-            {result.level} / {levelCap.level}
+            {result.level}
+            <span className='text-xs'> / {levelCap.level}</span>
           </>
         </LeagueTableCells.Body>
-      )}
-
-      {settings.outputData.rank && (
-        <LeagueTableCells.Body>{result.rank}</LeagueTableCells.Body>
       )}
 
       {settings.outputData.cp && (

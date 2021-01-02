@@ -13,12 +13,12 @@ const LeagueSubject: FunctionComponent = () => {
     <table className='w-full border-collapse table-auto'>
       <thead>
         <tr>
-          {settings.outputData.level && (
-            <LeagueTableCells.Header>Level</LeagueTableCells.Header>
-          )}
-
           {settings.outputData.rank && (
             <LeagueTableCells.Header>Rank</LeagueTableCells.Header>
+          )}
+
+          {settings.outputData.level && (
+            <LeagueTableCells.Header>Level</LeagueTableCells.Header>
           )}
 
           {settings.outputData.cp && (
