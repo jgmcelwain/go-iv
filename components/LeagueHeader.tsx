@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useContext, useMemo } from 'react';
 
-import { IV_FLOORS, League } from '../data/reference';
+import { IV_FLOORS } from '../data/reference';
 
 import { Context as SubjectContext } from './SubjectContext';
-import { LeagueDisplayModeContext } from './League';
+import { Context as LeagueContext } from './LeagueContext';
 
 const LEAGUE_COLORS = {
   great: {
@@ -20,12 +20,10 @@ const LEAGUE_COLORS = {
   },
 };
 
-const LeagueHeader: FunctionComponent<{
-  league: League;
-}> = ({ league }) => {
+const LeagueHeader: FunctionComponent = () => {
   const { subject } = useContext(SubjectContext);
-  const { displayMode, inspectedLevelCap, setDisplayMode } = useContext(
-    LeagueDisplayModeContext,
+  const { league, displayMode, inspectedLevelCap, setDisplayMode } = useContext(
+    LeagueContext,
   );
 
   const floor = useMemo(

@@ -1,16 +1,14 @@
 import React, { FunctionComponent, useContext, useMemo } from 'react';
 
+import { Context as LeagueContext } from './LeagueContext';
 import { Context as SubjectContext } from './SubjectContext';
 import { generateRankedSpreads } from '../lib/generateRankedSpreads';
-import { League, LevelCap } from '../data/reference';
 
 import * as LeagueTableCells from './LeagueTableCells';
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
-const LeagueTopSpreadsForLevel: FunctionComponent<{
-  league: League;
-  levelCap: LevelCap;
-}> = ({ league, levelCap }) => {
+const LeagueTopSpreadsForLevel: FunctionComponent = () => {
+  const { league, inspectedLevelCap } = useContext(LeagueContext);
   const { subject } = useContext(SubjectContext);
 
   const displayedSpreads = useMemo(() => {
@@ -18,7 +16,7 @@ const LeagueTopSpreadsForLevel: FunctionComponent<{
       subject.species,
       subject.floor,
       league.cp,
-      levelCap.level,
+      inspectedLevelCap.level,
     );
 
     const subjectSpread = rankedSpreads.find(

@@ -4,17 +4,17 @@ import { getRankedSpreadColors } from '../utils/getRankColors';
 
 import { Context as SubjectContext } from './SubjectContext';
 import { Context as SettingsContext } from './SettingsContext';
+import { Context as LeagueContext } from './LeagueContext';
+
 import { generateRankedSpreads } from '../lib/generateRankedSpreads';
-import { IV_FLOORS, League, LevelCap } from '../data/reference';
+import { IV_FLOORS, LevelCap } from '../data/reference';
 
 import * as LeagueTableCells from './LeagueTableCells';
-import { LeagueDisplayModeContext } from './League';
 
-const LeagueSubjectAtLevel: FunctionComponent<{
-  league: League;
-  levelCap: LevelCap;
-}> = ({ league, levelCap }) => {
-  const { setDisplayMode } = useContext(LeagueDisplayModeContext);
+const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
+  levelCap,
+}) => {
+  const { league, setDisplayMode } = useContext(LeagueContext);
   const { subject } = useContext(SubjectContext);
   const { settings } = useContext(SettingsContext);
 

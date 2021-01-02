@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useContext } from 'react';
-import { League, LEVEL_CAPS } from '../data/reference';
+import { LEVEL_CAPS } from '../data/reference';
 
 import { Context as SettingsContext } from './SettingsContext';
 
 import * as LeagueTableCells from './LeagueTableCells';
 import LeagueSubjectAtLevel from './LeagueSubjectAtLevel';
 
-const LeagueSubject: FunctionComponent<{ league: League }> = ({ league }) => {
+const LeagueSubject: FunctionComponent = () => {
   const { settings } = useContext(SettingsContext);
 
   return (
@@ -45,11 +45,7 @@ const LeagueSubject: FunctionComponent<{ league: League }> = ({ league }) => {
         {LEVEL_CAPS.filter(
           (levelCap) => settings.levelCaps[levelCap.level] === true,
         ).map((levelCap) => (
-          <LeagueSubjectAtLevel
-            key={levelCap.level}
-            levelCap={levelCap}
-            league={league}
-          />
+          <LeagueSubjectAtLevel key={levelCap.level} levelCap={levelCap} />
         ))}
       </tbody>
     </table>
