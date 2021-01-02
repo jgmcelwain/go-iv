@@ -140,13 +140,13 @@ export const IV_RANGE: IV[] = Array.from({ length: 16 }).map((_, i) => i as IV);
 export type IVFloor = 0 | 1 | 2 | 3 | 4 | 5 | 10 | 12;
 export const IV_FLOORS: { value: IVFloor; name: string }[] = [
   { value: 0, name: 'Wild Catch' },
-  { value: 1, name: 'Good Friend' },
-  { value: 2, name: 'Great Friend' },
-  { value: 3, name: 'Ultra Friend' },
+  { value: 1, name: 'Good Friend Trade' },
+  { value: 2, name: 'Great Friend Trade' },
+  { value: 3, name: 'Ultra Friend Trade' },
   { value: 4, name: 'Weather Boost' },
-  { value: 5, name: 'Best Friend' },
+  { value: 5, name: 'Best Friend Trade' },
   { value: 10, name: 'Raid/Egg/Research' },
-  { value: 12, name: 'Lucky' },
+  { value: 12, name: 'Lucky Trade' },
 ];
 
 export type LeagueCPCap = 1500 | 2500 | 10000;
@@ -179,16 +179,16 @@ export type OutputDataKey =
   | 'cp'
   | 'stats'
   | 'statProduct'
-  | 'statProductPercent'
-  | 'maximizeButton';
+  | 'statProductPercent';
+
 export type OutputDataName =
   | 'Level'
   | 'Rank'
   | 'CP'
   | 'Stats'
   | 'Product'
-  | 'Product % of Max'
-  | 'Maximize Button';
+  | 'Product % of Max';
+
 export type OutputDataPoint = { key: OutputDataKey; name: OutputDataName };
 export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'level', name: 'Level' },
@@ -197,7 +197,6 @@ export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'stats', name: 'Stats' },
   { key: 'statProduct', name: 'Product' },
   { key: 'statProductPercent', name: 'Product % of Max' },
-  { key: 'maximizeButton', name: 'Maximize Button' },
 ];
 
 export type PokemonID = string;
