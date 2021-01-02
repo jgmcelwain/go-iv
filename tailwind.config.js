@@ -17,7 +17,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      padding: ['first'],
+      padding: ['first', 'last'],
     },
   },
   plugins: [require('@tailwindcss/custom-forms')],
