@@ -9,14 +9,22 @@ const LEAGUE_COLORS = {
   great: {
     background: 'from-blue-400 to-blue-500',
     stripe: 'from-red-500 to-red-600',
+    text: 'text-white',
   },
   ultra: {
     background: 'from-gray-700 to-gray-800',
     stripe: 'from-yellow-500 to-yellow-600',
+    text: 'text-white',
   },
   master: {
     background: 'from-purple-500 to-purple-600',
     stripe: 'from-pink-500 to-pink-600',
+    text: 'text-white',
+  },
+  little: {
+    background: 'from-white to-gray-100',
+    stripe: 'from-red-500 to-red-600',
+    text: 'text-gray-600',
   },
 };
 
@@ -35,7 +43,9 @@ const LeagueHeader: FunctionComponent = () => {
     <div
       className={`w-full p-4 bg-gradient-to-br ${
         LEAGUE_COLORS[league.key].background
-      } sticky top-0 left-0 flex justify-between items-center overflow-hidden font-title text-white`}
+      } sticky top-0 left-0 flex justify-between items-center overflow-hidden font-title ${
+        LEAGUE_COLORS[league.key].text
+      } border-b border-gray-200`}
     >
       <div
         className={`absolute z-0 right-0 top-0 transform rotate-45 w-5 h-48 opacity-90 -translate-x-20 -translate-y-10 bg-gradient-to-b ${
@@ -47,7 +57,7 @@ const LeagueHeader: FunctionComponent = () => {
         <button
           onClick={() => setDisplayMode('subject')}
           title={`Back`}
-          className='text-white p-1 mr-3 focus:ring-2 ring-white focus:outline-none rounded'
+          className='p-1 mr-3 focus:ring-2 ring-white focus:outline-none rounded'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
