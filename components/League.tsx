@@ -13,9 +13,7 @@ const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
       <div className='w-full sm:rounded-lg overflow-hidden'>
         <LeagueHeader />
 
-        <div className='w-full overflow-x-scroll bg-gray-100'>
-          <LeagueContent />
-        </div>
+        <LeagueContent />
       </div>
     </LeagueContextWrapper>
   );
