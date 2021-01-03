@@ -1,23 +1,15 @@
 import React, { FunctionComponent } from 'react';
 
-import { STATS } from '../data/reference';
-
-import SubjectBuilderPokemon from './SubjectBuilderPokemon';
-import SubjectBuilderStatIV from './SubjectBuilderStatIV';
+import SubjectBuilderSpecies from './SubjectBuilderSpecies';
+import SubjectBuilderIVs from './SubjectBuilderIVs';
 import SubjectBuilderIVFloor from './SubjectBuilderIVFloor';
 
 const SubjectBuilder: FunctionComponent = () => {
   return (
-    <div className='w-full flex justify-start items-center flex-wrap mb-4 px-4 sm:px-0'>
-      <div className='mr-6'>
-        <SubjectBuilderPokemon />
-      </div>
+    <div className='w-full flex justify-start items-start flex-wrap mb-4 px-4 sm:px-0'>
+      <SubjectBuilderSpecies />
 
-      <div className='grid grid-cols-3 gap-2 mr-6'>
-        {STATS.map((stat) => (
-          <SubjectBuilderStatIV key={stat} stat={stat} />
-        ))}
-      </div>
+      <SubjectBuilderIVs />
 
       <SubjectBuilderIVFloor />
     </div>

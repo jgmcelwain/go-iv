@@ -111,12 +111,11 @@ export const CPMs = [
 ];
 
 export type Stat = 'atk' | 'def' | 'sta';
-export const STATS: Stat[] = ['atk', 'def', 'sta'];
-export const STAT_MAP: { [K in Stat]: string } = {
-  atk: 'Attack',
-  def: 'Defence',
-  sta: 'HP',
-};
+export const STATS: { key: Stat; name: string }[] = [
+  { key: 'atk', name: 'Attack' },
+  { key: 'def', name: 'Defence' },
+  { key: 'sta', name: 'Stamina' },
+];
 
 export type IV =
   | 0

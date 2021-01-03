@@ -1,12 +1,11 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Context as SubjectContext } from './SubjectContext';
-import { SubjectActionTypes } from '../hooks/useSubject';
+import { useSubject, SubjectActionTypes } from '../hooks/useSubject';
 
 import { IVFloor, IV_FLOORS } from '../data/reference';
 
 const SubjectBuilderIVFloor: FunctionComponent = () => {
-  const { subject, dispatch } = useContext(SubjectContext);
+  const { subject, dispatch } = useSubject();
 
   return (
     <label className='block mb-2'>
