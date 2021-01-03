@@ -8,6 +8,5 @@ export function setSettingsCookie(settings: Settings) {
     path: '/',
     expires: new Date((Math.pow(2, 32) - 1) * 1000),
     sameSite: true,
-    secure: true,
   });
 }
