@@ -1,21 +1,15 @@
 import React, {
   FunctionComponent,
   ReactChild,
-  createContext,
   useReducer,
   useEffect,
 } from 'react';
 
+import { Context, Subject } from '.';
+
 import { useRouter } from 'next/router';
-import { subjectReducer, Dispatch } from './subjectReducer';
+import { subjectReducer } from './subjectReducer';
 import { setRouteParams } from './setRouteParams';
-
-import { Subject } from '.';
-
-export const Context = createContext<{
-  subject: Subject;
-  dispatch: Dispatch;
-}>(null);
 
 export const Provider: FunctionComponent<{
   initialValue: Subject;

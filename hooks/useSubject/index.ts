@@ -1,8 +1,11 @@
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import { IV, IVFloor, Pokemon } from '../../data/reference';
+import { Dispatch } from './subjectReducer';
 
-import { Context } from './Context';
+export { Provider } from './Provider';
+export { SubjectActionTypes } from './subjectReducer';
+export { getInitialSubject } from './getInitialSubject';
 
 export type Subject = {
   species: Pokemon;
@@ -10,15 +13,10 @@ export type Subject = {
   floor: IVFloor;
 };
 
-export * from './Context';
-export * from './subjectReducer';
-export * from './getInitialSubject';
-
-export function useSettings() {
-  const value = useContext(Context);
-
-  return value;
-}
+export const Context = createContext<{
+  subject: Subject;
+  dispatch: Dispatch;
+}>(null);
 
 export function useSubject() {
   const value = useContext(Context);

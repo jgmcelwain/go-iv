@@ -1,20 +1,14 @@
 import React, {
   FunctionComponent,
   ReactChild,
-  createContext,
   useReducer,
   useEffect,
 } from 'react';
 
-import { Settings } from '.';
+import { Context, Settings } from '.';
 
-import { settingsReducer, Dispatch } from './settingsReducer';
+import { settingsReducer } from './settingsReducer';
 import { setSettingsCookie } from './setSettingsCookie';
-
-export const Context = createContext<{
-  settings: Settings;
-  dispatch: Dispatch;
-}>(null);
 
 export const Provider: FunctionComponent<{
   initialValue: Settings;

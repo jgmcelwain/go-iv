@@ -4,11 +4,19 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'abomasnow',
     name: 'Abomasnow',
+    family: {
+      id: 'snover',
+      stage: 2,
+    },
     stats: { atk: 178, def: 158, sta: 207 },
   },
   {
     id: 'abomasnow_mega',
     name: 'Abomasnow (Mega)',
+    family: {
+      id: 'snover',
+      stage: 3,
+    },
     stats: { atk: 240, def: 191, sta: 207 },
   },
   { id: 'abra', name: 'Abra', stats: { atk: 195, def: 82, sta: 93 } },
@@ -735,6 +743,11 @@ export const POKEDEX: Pokemon[] = [
     stats: { atk: 164, def: 164, sta: 146 },
   },
   { id: 'greninja', name: 'Greninja', stats: { atk: 223, def: 152, sta: 176 } },
+  {
+    id: 'greninja_ash',
+    name: 'Greninja (Ash)',
+    stats: { atk: 339, def: 155, sta: 176 },
+  },
   { id: 'grimer', name: 'Grimer', stats: { atk: 135, def: 90, sta: 190 } },
   {
     id: 'grimer_alolan',
@@ -1659,7 +1672,15 @@ export const POKEDEX: Pokemon[] = [
   { id: 'snivy', name: 'Snivy', stats: { atk: 88, def: 107, sta: 128 } },
   { id: 'snorlax', name: 'Snorlax', stats: { atk: 190, def: 169, sta: 330 } },
   { id: 'snorunt', name: 'Snorunt', stats: { atk: 95, def: 95, sta: 137 } },
-  { id: 'snover', name: 'Snover', stats: { atk: 115, def: 105, sta: 155 } },
+  {
+    id: 'snover',
+    name: 'Snover',
+    family: {
+      id: 'snover',
+      stage: 1,
+    },
+    stats: { atk: 115, def: 105, sta: 155 },
+  },
   { id: 'snubbull', name: 'Snubbull', stats: { atk: 137, def: 85, sta: 155 } },
   { id: 'solosis', name: 'Solosis', stats: { atk: 170, def: 83, sta: 128 } },
   { id: 'solrock', name: 'Solrock', stats: { atk: 178, def: 153, sta: 207 } },

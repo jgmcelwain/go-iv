@@ -12,7 +12,7 @@ import {
   Settings as SettingsType,
   Provider as SettingsContextProvider,
 } from '../hooks/useSettings';
-import { Wrapper as SettingsShownContextWrapper } from '../components/SettingsShownContext';
+import { Provider as SettingsShownProvider } from '../hooks/useSettingsShown';
 
 import Header from '../components/Header';
 import SubjectBuilder from '../components/SubjectBuilder';
@@ -28,7 +28,7 @@ const IndexPage: FunctionComponent<{
     <CookiesProvider>
       <SettingsContextProvider initialValue={props.settings}>
         <SubjectContextProvider initialValue={props.subject}>
-          <SettingsShownContextWrapper>
+          <SettingsShownProvider>
             <Header />
 
             <div className='container mx-auto px-0 sm:px-4'>
@@ -40,7 +40,7 @@ const IndexPage: FunctionComponent<{
 
               <Settings />
             </div>
-          </SettingsShownContextWrapper>
+          </SettingsShownProvider>
         </SubjectContextProvider>
       </SettingsContextProvider>
     </CookiesProvider>

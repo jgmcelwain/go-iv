@@ -1,18 +1,8 @@
-import React, {
-  FunctionComponent,
-  ReactChild,
-  createContext,
-  useState,
-} from 'react';
+import React, { FunctionComponent, ReactChild, useState } from 'react';
 
-export const Context = createContext<{
-  isShown: boolean;
-  toggle: () => void;
-  show: () => void;
-  hide: () => void;
-}>(null);
+import { Context } from '.';
 
-export const Wrapper: FunctionComponent<{
+export const Provider: FunctionComponent<{
   children: ReactChild | ReactChild[];
 }> = ({ children }) => {
   const [value, setValue] = useState(false);

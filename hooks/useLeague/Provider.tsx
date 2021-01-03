@@ -1,22 +1,10 @@
-import React, {
-  FunctionComponent,
-  ReactChild,
-  createContext,
-  useState,
-  useMemo,
-} from 'react';
+import React, { FunctionComponent, ReactChild, useState, useMemo } from 'react';
 
-import { League, LevelCap } from '../data/reference';
+import { League, LevelCap } from '../../data/reference';
 
-type DisplayMode = 'subject' | 'top';
-export const Context = createContext<{
-  league: League;
-  displayMode: DisplayMode;
-  inspectedLevelCap: LevelCap;
-  setDisplayMode: (arg0: DisplayMode, arg2?: LevelCap) => void;
-}>(null);
+import { Context } from '.';
 
-export const Wrapper: FunctionComponent<{
+export const Provider: FunctionComponent<{
   league: League;
   children: ReactChild | ReactChild[];
 }> = ({ league, children }) => {

@@ -1,18 +1,22 @@
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import { LeagueKey, LevelCapNumber, OutputDataKey } from '../../data/reference';
+import { Dispatch } from './settingsReducer';
 
-import { Context } from './Context';
+export { Provider } from './Provider';
+export { SettingsActionTypes } from './settingsReducer';
+export { getInitialSettings } from './getInitialSettings';
+
+export const Context = createContext<{
+  settings: Settings;
+  dispatch: Dispatch;
+}>(null);
 
 export type Settings = {
   leagues: { [key in LeagueKey]: boolean };
   levelCaps: { [key in LevelCapNumber]: boolean };
   outputData: { [key in OutputDataKey]: boolean };
 };
-
-export * from './Context';
-export * from './settingsReducer';
-export * from './getInitialSettings';
 
 export function useSettings() {
   const value = useContext(Context);

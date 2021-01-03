@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Context as SettingsShownContext } from './SettingsShownContext';
+import { useSettingsShown } from '../hooks/useSettingsShown';
 
 const HeaderSettings: FunctionComponent = () => {
-  const { show } = useContext(SettingsShownContext);
+  const { show } = useSettingsShown();
 
   return (
     <button

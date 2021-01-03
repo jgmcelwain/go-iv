@@ -1,13 +1,13 @@
-import React, { FunctionComponent, useContext, useEffect, useRef } from 'react';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 
-import { Context as LeagueContext } from './LeagueContext';
-import { Wrapper as LeagueSubjectSpreadsContextWrapper } from './LeagueSubjectSpreadsContext';
+import { useLeague } from '../hooks/useLeague';
+import { Provider as LeagueSubjectSpreadsProvider } from '../hooks/useLeagueSubjectSpreads';
 
 import LeagueSubject from './LeagueSubject';
 import LeagueTopSpreadsForLevel from './LeagueTopSpreadsForLevel';
 
 const LeagueContent: FunctionComponent = () => {
-  const { displayMode } = useContext(LeagueContext);
+  const { displayMode } = useLeague();
   const ref = useRef<HTMLDivElement>();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const LeagueContent: FunctionComponent = () => {
   }, [displayMode]);
 
   return (
-    <LeagueSubjectSpreadsContextWrapper>
+    <LeagueSubjectSpreadsProvider>
       <div className='w-full overflow-x-scroll bg-gray-100' ref={ref}>
         {displayMode === 'subject' ? (
           <LeagueSubject />
@@ -23,7 +23,7 @@ const LeagueContent: FunctionComponent = () => {
           <LeagueTopSpreadsForLevel />
         )}
       </div>
-    </LeagueSubjectSpreadsContextWrapper>
+    </LeagueSubjectSpreadsProvider>
   );
 };
 

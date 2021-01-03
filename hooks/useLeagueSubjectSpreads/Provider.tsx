@@ -1,35 +1,20 @@
-import React, {
-  FunctionComponent,
-  createContext,
-  useContext,
-  useMemo,
-  ReactChild,
-} from 'react';
+import React, { FunctionComponent, useMemo, ReactChild } from 'react';
 
-import { useSettings } from '../hooks/useSettings';
+import { Context, LeagueRankedSubjectSpreads } from '.';
 
-import { Context as LeagueContext } from './LeagueContext';
-import { useSubject } from '../hooks/useSubject';
+import { useSubject } from '../useSubject';
+import { useSettings } from '../useSettings';
+import { useLeague } from '../useLeague';
 
-import { generateRankedSpreads } from '../lib/generateRankedSpreads';
-import {
-  LevelCapNumber,
-  LEVEL_CAPS,
-  RankedSpreadStats,
-} from '../data/reference';
+import { generateRankedSpreads } from '../../lib/generateRankedSpreads';
+import { LEVEL_CAPS } from '../../data/reference';
 
-type LeagueRankedSubjectSpreads = {
-  [K in LevelCapNumber]?: RankedSpreadStats[];
-};
-
-export const Context = createContext<LeagueRankedSubjectSpreads>(null);
-
-export const Wrapper: FunctionComponent<{
+export const Provider: FunctionComponent<{
   children: ReactChild | ReactChild[];
 }> = ({ children }) => {
   const { subject } = useSubject();
   const { settings } = useSettings();
-  const { league } = useContext(LeagueContext);
+  const { league } = useLeague();
 
   const rankedSpreads = useMemo<LeagueRankedSubjectSpreads>(() => {
     const output = {};
