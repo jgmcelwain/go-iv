@@ -14,7 +14,6 @@ export function generateRankedSpreads(
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
 ) {
-  console.log(pokemon.id, floor, maxCP, maxLevel);
   return getIVSpreads(floor)
     .map((ivs) => getMaximizedStats(pokemon, ivs, maxCP, maxLevel))
     .sort((a, b) => {
