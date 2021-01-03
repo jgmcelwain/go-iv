@@ -2,15 +2,17 @@ import React, { FunctionComponent } from 'react';
 
 import { CookiesProvider } from 'react-cookie';
 
-import { Wrapper as SubjectContextWrapper } from '../components/SubjectContext';
-import { Wrapper as SettingsContextWrapper } from '../components/SettingsContext';
-import { Wrapper as SettingsShownContextWrapper } from '../components/SettingsShownContext';
-
 import {
-  Settings as SettingsType,
+  getInitialSubject,
+  Subject as SubjectType,
+  Provider as SubjectContextProvider,
+} from '../hooks/useSubject';
+import {
   getInitialSettings,
+  Settings as SettingsType,
+  Provider as SettingsContextProvider,
 } from '../hooks/useSettings';
-import { Subject as SubjectType, getInitialSubject } from '../hooks/useSubject';
+import { Wrapper as SettingsShownContextWrapper } from '../components/SettingsShownContext';
 
 import Header from '../components/Header';
 import SubjectBuilder from '../components/SubjectBuilder';
@@ -24,8 +26,8 @@ const IndexPage: FunctionComponent<{
 }> = (props) => {
   return (
     <CookiesProvider>
-      <SettingsContextWrapper initialValue={props.settings}>
-        <SubjectContextWrapper initialValue={props.subject}>
+      <SettingsContextProvider initialValue={props.settings}>
+        <SubjectContextProvider initialValue={props.subject}>
           <SettingsShownContextWrapper>
             <Header />
 
@@ -39,8 +41,8 @@ const IndexPage: FunctionComponent<{
               <Settings />
             </div>
           </SettingsShownContextWrapper>
-        </SubjectContextWrapper>
-      </SettingsContextWrapper>
+        </SubjectContextProvider>
+      </SettingsContextProvider>
     </CookiesProvider>
   );
 };

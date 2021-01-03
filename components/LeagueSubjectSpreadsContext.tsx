@@ -5,9 +5,11 @@ import React, {
   useMemo,
   ReactChild,
 } from 'react';
+
+import { useSettings } from '../hooks/useSettings';
+
 import { Context as LeagueContext } from './LeagueContext';
-import { Context as SettingsContext } from './SettingsContext';
-import { Context as SubjectContext } from './SubjectContext';
+import { useSubject } from '../hooks/useSubject';
 
 import { generateRankedSpreads } from '../lib/generateRankedSpreads';
 import {
@@ -25,8 +27,8 @@ export const Context = createContext<LeagueRankedSubjectSpreads>(null);
 export const Wrapper: FunctionComponent<{
   children: ReactChild | ReactChild[];
 }> = ({ children }) => {
-  const { subject } = useContext(SubjectContext);
-  const { settings } = useContext(SettingsContext);
+  const { subject } = useSubject();
+  const { settings } = useSettings();
   const { league } = useContext(LeagueContext);
 
   const rankedSpreads = useMemo<LeagueRankedSubjectSpreads>(() => {

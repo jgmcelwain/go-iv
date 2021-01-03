@@ -2,7 +2,7 @@ import React, { FunctionComponent, useContext, useMemo } from 'react';
 
 import { IV_FLOORS } from '../data/reference';
 
-import { Context as SubjectContext } from './SubjectContext';
+import { useSubject } from '../hooks/useSubject';
 import { Context as LeagueContext } from './LeagueContext';
 
 const LEAGUE_COLORS = {
@@ -29,7 +29,7 @@ const LEAGUE_COLORS = {
 };
 
 const LeagueHeader: FunctionComponent = () => {
-  const { subject } = useContext(SubjectContext);
+  const { subject } = useSubject();
   const { league, displayMode, inspectedLevelCap, setDisplayMode } = useContext(
     LeagueContext,
   );

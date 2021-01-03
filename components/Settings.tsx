@@ -2,9 +2,7 @@ import React, { FunctionComponent, useContext } from 'react';
 
 import { LEAGUES, LEVEL_CAPS, OUTPUT_DATA } from '../data/reference';
 
-import { SettingsActionTypes } from '../hooks/useSettings';
-
-import { Context as SettingsContext } from './SettingsContext';
+import { useSettings, SettingsActionTypes } from '../hooks/useSettings';
 import { Context as SettingsShownContext } from './SettingsShownContext';
 
 import SettingsWrapper from './SettingsWrapper';
@@ -14,7 +12,7 @@ import SettingsSectionCategoryInput from './SettingsSectionCategoryInput';
 
 const Settings: FunctionComponent = () => {
   const { isShown, hide } = useContext(SettingsShownContext);
-  const { settings, dispatch } = useContext(SettingsContext);
+  const { settings, dispatch } = useSettings();
 
   return (
     <SettingsWrapper onClose={hide} shown={isShown}>

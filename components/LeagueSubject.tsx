@@ -1,13 +1,13 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent } from 'react';
 import { LEVEL_CAPS } from '../data/reference';
 
-import { Context as SettingsContext } from './SettingsContext';
+import { useSettings } from '../hooks/useSettings';
 
 import * as LeagueTableCells from './LeagueTableCells';
 import LeagueSubjectAtLevel from './LeagueSubjectAtLevel';
 
 const LeagueSubject: FunctionComponent = () => {
-  const { settings } = useContext(SettingsContext);
+  const { settings } = useSettings();
 
   return (
     <table className='w-full border-collapse table-auto'>

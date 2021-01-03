@@ -2,8 +2,8 @@ import React, { FunctionComponent, useContext, useMemo } from 'react';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
-import { Context as SubjectContext } from './SubjectContext';
-import { Context as SettingsContext } from './SettingsContext';
+import { useSettings } from '../hooks/useSettings';
+import { useSubject } from '../hooks/useSubject';
 import { Context as LeagueContext } from './LeagueContext';
 import { Context as LeagueSubjectSpreadsContext } from './LeagueSubjectSpreadsContext';
 
@@ -15,8 +15,8 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
   levelCap,
 }) => {
   const { league, setDisplayMode } = useContext(LeagueContext);
-  const { subject } = useContext(SubjectContext);
-  const { settings } = useContext(SettingsContext);
+  const { subject } = useSubject();
+  const { settings } = useSettings();
   const leagueRankedSubjectSpreads = useContext(LeagueSubjectSpreadsContext);
 
   const result = useMemo(

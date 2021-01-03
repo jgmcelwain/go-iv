@@ -1,12 +1,12 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { LEAGUES } from '../data/reference';
 
-import { Context as SettingsContext } from './SettingsContext';
+import { useSettings } from '../hooks/useSettings';
 import League from './League';
 
 const LeagueGrid: FunctionComponent = () => {
-  const { settings } = useContext(SettingsContext);
+  const { settings } = useSettings();
 
   return (
     <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8'>
