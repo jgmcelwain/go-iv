@@ -6,7 +6,7 @@ const cookie = new Cookies();
 export function setSettingsCookie(settings: Settings) {
   cookie.set('settings', settings, {
     path: '/',
-    maxAge: 2147483647,
+    expires: new Date((Math.pow(2, 32) - 1) * 1000),
     sameSite: true,
     secure: true,
   });
