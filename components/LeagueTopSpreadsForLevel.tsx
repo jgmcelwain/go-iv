@@ -2,38 +2,34 @@ import React, { FunctionComponent, useContext, useMemo } from 'react';
 
 import { Context as LeagueContext } from './LeagueContext';
 import { Context as SubjectContext } from './SubjectContext';
-import { generateRankedSpreads } from '../lib/generateRankedSpreads';
+import { Context as LeagueSubjectSpreadsContext } from './LeagueSubjectSpreadsContext';
 
 import * as LeagueTableCells from './LeagueTableCells';
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
 const LeagueTopSpreadsForLevel: FunctionComponent = () => {
-  const { league, inspectedLevelCap } = useContext(LeagueContext);
+  const { inspectedLevelCap } = useContext(LeagueContext);
   const { subject } = useContext(SubjectContext);
+  const leagueRankedSubjectSpreads = useContext(LeagueSubjectSpreadsContext);
 
   const displayedSpreads = useMemo(() => {
-    const rankedSpreads = generateRankedSpreads(
-      subject.species,
-      subject.floor,
-      league.cp,
-      inspectedLevelCap.level,
-    );
+    const spreadsForLevel = leagueRankedSubjectSpreads[inspectedLevelCap.level];
 
-    const subjectSpread = rankedSpreads.find(
+    const subjectSpread = spreadsForLevel.find(
       (rankedSpread) =>
         rankedSpread.ivs.atk === subject.ivs.atk &&
         rankedSpread.ivs.def === subject.ivs.def &&
         rankedSpread.ivs.sta === subject.ivs.sta,
     );
 
-    return [subjectSpread, ...rankedSpreads.slice(0, 10)].map(
+    return [subjectSpread, ...spreadsForLevel.slice(0, 10)].map(
       (rankedSpread) => {
         const colors = getRankedSpreadColors(rankedSpread);
 
         return { ...rankedSpread, colors };
       },
     );
-  }, [subject.species, subject.ivs, subject.floor]);
+  }, [leagueRankedSubjectSpreads[inspectedLevelCap.level], subject.ivs]);
 
   if (subject === null) return null;
 

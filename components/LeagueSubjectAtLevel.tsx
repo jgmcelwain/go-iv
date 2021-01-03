@@ -5,8 +5,8 @@ import { getRankedSpreadColors } from '../utils/getRankColors';
 import { Context as SubjectContext } from './SubjectContext';
 import { Context as SettingsContext } from './SettingsContext';
 import { Context as LeagueContext } from './LeagueContext';
+import { Context as LeagueSubjectSpreadsContext } from './LeagueSubjectSpreadsContext';
 
-import { generateRankedSpreads } from '../lib/generateRankedSpreads';
 import { IV_FLOORS, LevelCap } from '../data/reference';
 
 import * as LeagueTableCells from './LeagueTableCells';
@@ -17,27 +17,17 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
   const { league, setDisplayMode } = useContext(LeagueContext);
   const { subject } = useContext(SubjectContext);
   const { settings } = useContext(SettingsContext);
-
-  const rankedSpreads = useMemo(
-    () =>
-      generateRankedSpreads(
-        subject.species,
-        subject.floor,
-        league.cp,
-        levelCap.level,
-      ),
-    [subject.species, subject.floor],
-  );
+  const leagueRankedSubjectSpreads = useContext(LeagueSubjectSpreadsContext);
 
   const result = useMemo(
     () =>
-      rankedSpreads.find(
+      leagueRankedSubjectSpreads[levelCap.level].find(
         (spread) =>
           spread.ivs.atk === subject.ivs.atk &&
           spread.ivs.def === subject.ivs.def &&
           spread.ivs.sta === subject.ivs.sta,
       ),
-    [rankedSpreads, subject.ivs],
+    [leagueRankedSubjectSpreads[levelCap.level], subject.ivs],
   );
 
   const floor = useMemo(
