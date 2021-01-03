@@ -46,7 +46,13 @@ export const Wrapper: FunctionComponent<{
     }
 
     return output;
-  }, [settings.levelCaps, subject.species, subject.floor]);
+  }, [
+    settings.levelCaps,
+    subject.species.stats.atk,
+    subject.species.stats.def,
+    subject.species.stats.sta,
+    subject.floor,
+  ]);
 
   return <Context.Provider value={rankedSpreads}>{children}</Context.Provider>;
 };
