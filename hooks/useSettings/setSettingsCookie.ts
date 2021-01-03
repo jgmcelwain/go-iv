@@ -4,6 +4,10 @@ import { Settings } from '.';
 const cookie = new Cookies();
 
 export function setSettingsCookie(settings: Settings) {
-  console.log('hi');
-  cookie.set('settings', settings, { path: '/', maxAge: 2147483647 });
+  cookie.set('settings', settings, {
+    path: '/',
+    maxAge: 2147483647,
+    sameSite: true,
+    secure: true,
+  });
 }
