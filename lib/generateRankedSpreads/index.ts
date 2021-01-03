@@ -6,7 +6,7 @@ import {
   RankedSpreadStats,
 } from '../../data/reference';
 import { getMaximizedStats } from './getMaximizedStats';
-import { getPossibleIVs } from './getPossibleIVs';
+import { getIVSpreads } from './getIVSpreads';
 
 export function generateRankedSpreads(
   pokemon: Pokemon,
@@ -14,7 +14,7 @@ export function generateRankedSpreads(
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
 ) {
-  return getPossibleIVs(floor)
+  return getIVSpreads(floor)
     .map((ivs) => getMaximizedStats(pokemon, ivs, maxCP, maxLevel))
     .sort((a, b) => {
       // in instances where two spreads have the same product (usually as a

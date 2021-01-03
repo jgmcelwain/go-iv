@@ -1,6 +1,6 @@
 import { IVFloor, PokemonIVs } from '../../data/reference';
 
-export function getPossibleIVs(floor: IVFloor) {
+export function getIVSpreads(floor: IVFloor) {
   const ivCombinations: PokemonIVs[] = [];
 
   for (let atk = floor; atk <= 15; atk++) {
