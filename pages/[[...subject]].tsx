@@ -1,7 +1,5 @@
 import React, { FunctionComponent } from 'react';
 
-import { CookiesProvider } from 'react-cookie';
-
 import {
   getInitialSubject,
   Subject as SubjectType,
@@ -19,42 +17,40 @@ import SubjectBuilder from '../components/SubjectBuilder';
 import LeagueGrid from '../components/LeagueGrid';
 import Footer from '../components/Footer';
 import Settings from '../components/Settings';
+import { NextPageContext } from 'next';
 
 const IndexPage: FunctionComponent<{
   settings: SettingsType;
   subject: SubjectType;
 }> = (props) => {
   return (
-    <CookiesProvider>
-      <SettingsContextProvider initialValue={props.settings}>
-        <SubjectContextProvider initialValue={props.subject}>
-          <SettingsShownProvider>
-            <Header />
+    <SettingsContextProvider initialValue={props.settings}>
+      <SubjectContextProvider initialValue={props.subject}>
+        <SettingsShownProvider>
+          <Header />
 
-            <div className='container mx-auto px-0 sm:px-4'>
-              <SubjectBuilder />
+          <div className='container mx-auto px-0 sm:px-4'>
+            <SubjectBuilder />
 
-              <LeagueGrid />
+            <LeagueGrid />
 
-              <Footer />
+            <Footer />
 
-              <Settings />
-            </div>
-          </SettingsShownProvider>
-        </SubjectContextProvider>
-      </SettingsContextProvider>
-    </CookiesProvider>
+            <Settings />
+          </div>
+        </SettingsShownProvider>
+      </SubjectContextProvider>
+    </SettingsContextProvider>
   );
 };
 
 export default IndexPage;
 
-export async function getServerSideProps({
-  req,
-  query,
-}): Promise<{ props: { settings: SettingsType; subject: SubjectType } }> {
-  const settings = getInitialSettings(req.cookies.settings);
-  const subject = getInitialSubject(query.subject);
+export async function getServerSideProps(
+  ctx: NextPageContext,
+): Promise<{ props: { settings: SettingsType; subject: SubjectType } }> {
+  const settings = getInitialSettings(ctx);
+  const subject = getInitialSubject(ctx);
 
   return { props: { settings, subject } };
 }

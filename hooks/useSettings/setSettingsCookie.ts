@@ -1,12 +1,10 @@
-import { Cookies } from 'react-cookie';
+import { setCookie } from 'nookies';
+
 import { Settings } from '.';
 
-const cookie = new Cookies();
-
 export function setSettingsCookie(settings: Settings) {
-  cookie.set('settings', settings, {
+  setCookie({}, 'settings', JSON.stringify(settings), {
     path: '/',
-    expires: new Date((Math.pow(2, 32) - 1) * 1000),
-    sameSite: true,
+    maxAge: 30 * 24 * 60 * 60,
   });
 }

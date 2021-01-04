@@ -1,3 +1,7 @@
+import { NextPageContext } from 'next';
+
+import { parseCookies } from 'nookies';
+
 import { Settings } from '.';
 
 const defaultSettings: Settings = {
@@ -13,9 +17,15 @@ const defaultSettings: Settings = {
   },
 };
 
-export function getInitialSettings(settingsCookie: string) {
+export function getInitialSettings(ctx: NextPageContext) {
   try {
-    const parsed = JSON.parse(settingsCookie) as Settings;
+    const cookies = parseCookies(ctx);
+
+    if (!cookies.settings) {
+      throw new Error('No settings cookie');
+    }
+
+    const parsed = JSON.parse(cookies.settings);
 
     return parsed;
   } catch (err) {

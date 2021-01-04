@@ -1,15 +1,20 @@
 import { POKEDEX } from '../../data/pokedex';
 import { IV, IVFloor, PokemonID } from '../../data/reference';
 import { Subject } from '.';
+import { NextPageContext } from 'next';
 
 type DirtyIV = IV | string;
 type DirtyIVFloor = IVFloor | string;
+type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
 
-export function getInitialSubject(
-  query: [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor],
-): Subject {
-  const [id = POKEDEX[0].id, atk = 0, def = 15, sta = 15, floor = 0] =
-    query ?? [];
+export function getInitialSubject(ctx: NextPageContext): Subject {
+  const [
+    id = POKEDEX[0].id,
+    atk = 0,
+    def = 15,
+    sta = 15,
+    floor = 0,
+  ]: Query = (ctx.query?.subject ?? []) as Query;
 
   function tidyInput<T>(val: number | string, min: IV, max: IV): T {
     let numeric = typeof val === 'number' ? val : parseInt(val);
@@ -21,7 +26,10 @@ export function getInitialSubject(
     return (Math.max(Math.min(numeric, max), min) as unknown) as T;
   }
 
-  const species = POKEDEX.find((pokemon) => pokemon.id === id) ?? POKEDEX[0];
+  const species =
+    id === 'favicon.ico'
+      ? POKEDEX[0]
+      : POKEDEX.find((pokemon) => pokemon.id === id) ?? POKEDEX[0];
   const outputFloor = tidyInput<IVFloor>(floor, 0, 12);
 
   return {
