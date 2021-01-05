@@ -3,12 +3,12 @@ import { LevelCapNumber, RankedSpreadStats } from '../../data/reference';
 
 export { Provider } from './Provider';
 
-export type LeagueRankedSubjectSpreads = {
-  [K in LevelCapNumber]?: RankedSpreadStats[];
+export type LeagueSubjectRankedSpreads = {
+  [K in LevelCapNumber]: RankedSpreadStats[];
 };
-export const Context = createContext<LeagueRankedSubjectSpreads>(null);
+export const Context = createContext<LeagueSubjectRankedSpreads>(null);
 
-export function useLeagueSubjectSpreads() {
+export function useLeagueSubjectRankedSpreads() {
   const value = useContext(Context);
 
   return value;

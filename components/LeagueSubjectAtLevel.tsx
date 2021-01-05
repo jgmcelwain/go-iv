@@ -5,7 +5,7 @@ import { getRankedSpreadColors } from '../utils/getRankColors';
 import { useSettings } from '../hooks/useSettings';
 import { useSubject } from '../hooks/useSubject';
 import { useLeague } from '../hooks/useLeague';
-import { useLeagueSubjectSpreads } from '../hooks/useLeagueSubjectSpreads';
+import { useLeagueSubjectRankedSpreads } from '../hooks/useLeagueSubjectRankedSpreads';
 
 import { IV_FLOORS, LevelCap } from '../data/reference';
 
@@ -17,17 +17,17 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
   const { league, setDisplayMode } = useLeague();
   const { subject } = useSubject();
   const { settings } = useSettings();
-  const leagueRankedSubjectSpreads = useLeagueSubjectSpreads();
+  const leagueSubjectRankedSpreads = useLeagueSubjectRankedSpreads();
 
   const result = useMemo(
     () =>
-      leagueRankedSubjectSpreads[levelCap.level].find(
+      leagueSubjectRankedSpreads[levelCap.level].find(
         (spread) =>
           spread.ivs.atk === subject.ivs.atk &&
           spread.ivs.def === subject.ivs.def &&
           spread.ivs.sta === subject.ivs.sta,
       ),
-    [leagueRankedSubjectSpreads[levelCap.level], subject.ivs],
+    [leagueSubjectRankedSpreads[levelCap.level], subject.ivs],
   );
 
   const floor = useMemo(

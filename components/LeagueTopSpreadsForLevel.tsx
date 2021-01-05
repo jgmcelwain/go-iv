@@ -2,7 +2,7 @@ import React, { FunctionComponent, useMemo } from 'react';
 
 import { useLeague } from '../hooks/useLeague';
 import { useSubject } from '../hooks/useSubject';
-import { useLeagueSubjectSpreads } from '../hooks/useLeagueSubjectSpreads';
+import { useLeagueSubjectRankedSpreads } from '../hooks/useLeagueSubjectRankedSpreads';
 
 import * as LeagueTableCells from './LeagueTableCells';
 import { getRankedSpreadColors } from '../utils/getRankColors';
@@ -10,10 +10,10 @@ import { getRankedSpreadColors } from '../utils/getRankColors';
 const LeagueTopSpreadsForLevel: FunctionComponent = () => {
   const { inspectedLevelCap } = useLeague();
   const { subject } = useSubject();
-  const leagueRankedSubjectSpreads = useLeagueSubjectSpreads();
+  const leagueSubjectRankedSpreads = useLeagueSubjectRankedSpreads();
 
   const displayedSpreads = useMemo(() => {
-    const spreadsForLevel = leagueRankedSubjectSpreads[inspectedLevelCap.level];
+    const spreadsForLevel = leagueSubjectRankedSpreads[inspectedLevelCap.level];
 
     const subjectSpread = spreadsForLevel.find(
       (rankedSpread) =>
@@ -29,7 +29,7 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
         return { ...rankedSpread, colors };
       },
     );
-  }, [leagueRankedSubjectSpreads[inspectedLevelCap.level], subject.ivs]);
+  }, [leagueSubjectRankedSpreads[inspectedLevelCap.level], subject.ivs]);
 
   if (subject === null) return null;
 

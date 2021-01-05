@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react';
 
 import { useLeague } from '../hooks/useLeague';
-import { Provider as LeagueSubjectSpreadsProvider } from '../hooks/useLeagueSubjectSpreads';
+import { Provider as LeagueSubjectRankedSpreadsProvider } from '../hooks/useLeagueSubjectRankedSpreads';
 
 import LeagueSubject from './LeagueSubject';
 import LeagueTopSpreadsForLevel from './LeagueTopSpreadsForLevel';
@@ -15,7 +15,7 @@ const LeagueContent: FunctionComponent = () => {
   }, [displayMode]);
 
   return (
-    <LeagueSubjectSpreadsProvider>
+    <LeagueSubjectRankedSpreadsProvider>
       <div className='w-full overflow-x-scroll bg-gray-100' ref={ref}>
         {displayMode === 'subject' ? (
           <LeagueSubject />
@@ -23,7 +23,7 @@ const LeagueContent: FunctionComponent = () => {
           <LeagueTopSpreadsForLevel />
         )}
       </div>
-    </LeagueSubjectSpreadsProvider>
+    </LeagueSubjectRankedSpreadsProvider>
   );
 };
 
