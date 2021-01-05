@@ -4,19 +4,11 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'abomasnow',
     name: 'Abomasnow',
-    family: {
-      id: 'snover',
-      stage: 2,
-    },
     stats: { atk: 178, def: 158, sta: 207 },
   },
   {
     id: 'abomasnow_mega',
     name: 'Abomasnow (Mega)',
-    family: {
-      id: 'snover',
-      stage: 3,
-    },
     stats: { atk: 240, def: 191, sta: 207 },
   },
   { id: 'abra', name: 'Abra', stats: { atk: 195, def: 82, sta: 93 } },
@@ -1675,10 +1667,6 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'snover',
     name: 'Snover',
-    family: {
-      id: 'snover',
-      stage: 1,
-    },
     stats: { atk: 115, def: 105, sta: 155 },
   },
   { id: 'snubbull', name: 'Snubbull', stats: { atk: 137, def: 85, sta: 155 } },

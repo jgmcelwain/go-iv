@@ -218,10 +218,6 @@ export type PokemonIVs = {
 export type Pokemon = {
   id: PokemonID;
   name: PokemonName;
-  family?: {
-    id: PokemonID;
-    stage: 1 | 2 | 3 | 4;
-  };
   stats: PokemonStats;
   floor?: IVFloor;
 };
