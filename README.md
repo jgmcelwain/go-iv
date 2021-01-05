@@ -1,3 +1,5 @@
+<p align="center"><a href="https://pvpiv.app" target="_blank" rel="noopener noreferrer"><img width="256" src="https://pvpiv.app/logo.png" alt="pvpiv.app logo"></a></p>
+
 # [pvpiv.app](https://pvpiv.app) - IV Checker for Pokémon GO
 
 pvpiv.app allows trainers to quickly evaluate the value of a catch and determine if its IV spread would be beneficial in any league. All three leagues, as well as all four level caps within each, are displayed simultaneously. This allows easier identification of good spreads without having to manually adjust league/level cap settings.
