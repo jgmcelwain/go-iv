@@ -26,10 +26,7 @@ export function getInitialSubject(ctx: NextPageContext): Subject {
     return (Math.max(Math.min(numeric, max), min) as unknown) as T;
   }
 
-  const species =
-    id === 'favicon.ico'
-      ? POKEDEX[0]
-      : POKEDEX.find((pokemon) => pokemon.id === id) ?? POKEDEX[0];
+  const species = POKEDEX.find((pokemon) => pokemon.id === id) ?? POKEDEX[0];
   const outputFloor = tidyInput<IVFloor>(floor, 0, 12);
 
   return {
