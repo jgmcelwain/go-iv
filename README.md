@@ -1,4 +1,4 @@
-<p align="center"><a href="https://pvpiv.app" target="_blank" rel="noopener noreferrer"><img width="256" src="https://pvpiv.app/logo.png" alt="pvpiv.app logo"></a></p>
+<p align="center"><a href="https://pvpiv.app" target="_blank" rel="noopener noreferrer"><img width="128" src="https://pvpiv.app/logo.png" alt="pvpiv.app logo"></a></p>
 
 # [pvpiv.app](https://pvpiv.app) - IV Checker for Pokémon GO
 
