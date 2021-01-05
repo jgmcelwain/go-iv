@@ -2,6 +2,7 @@ import React, {
   FunctionComponent,
   ReactChild,
   useReducer,
+  useState,
   useEffect,
 } from 'react';
 
@@ -16,9 +17,16 @@ export const Provider: FunctionComponent<{
   children: ReactChild | ReactChild[];
 }> = ({ initialValue, children }) => {
   const router = useRouter();
+  const [isInitial, setIsInitial] = useState(true);
   const [subject, dispatch] = useReducer(subjectReducer, initialValue);
 
-  useEffect(() => setRouteParams(router, subject), [
+  useEffect(() => {
+    if (isInitial) {
+      setIsInitial(false);
+    } else {
+      setRouteParams(router, subject);
+    }
+  }, [
     subject.species.id,
     subject.ivs.atk,
     subject.ivs.def,
