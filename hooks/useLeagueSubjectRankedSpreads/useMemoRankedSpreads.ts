@@ -1,34 +1,27 @@
 import { useMemo } from 'react';
 
-import {
-  LeagueCPCap,
-  LevelCapNumber,
-  RankedSpreadStats,
-} from '../../data/reference';
+import { LevelCapNumber, RankedSpreadStats } from '../../data/reference';
 
+import { useLeague } from '../useLeague';
 import { useSubject } from '../useSubject';
 import { useSettings } from '../useSettings';
 
 import { generateRankedSpreads } from '../../lib/generateRankedSpreads';
 
-export function useMemoRankedSpreads(
-  cp: LeagueCPCap,
-  levelCapNumber: LevelCapNumber,
-) {
+export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
+  const { league } = useLeague();
   const { subject } = useSubject();
   const { settings } = useSettings();
 
   const value = useMemo<RankedSpreadStats[]>(() => {
-    if (settings.levelCaps[levelCapNumber] === true) {
-      return generateRankedSpreads(
-        subject.species,
-        subject.floor,
-        cp,
-        levelCapNumber,
-      );
-    } else {
-      return [];
-    }
+    if (settings.levelCaps[levelCapNumber] === false) return [];
+
+    return generateRankedSpreads(
+      subject.species,
+      subject.floor,
+      league.cp,
+      levelCapNumber,
+    );
   }, [
     settings.levelCaps[levelCapNumber],
     subject.species.stats.atk,

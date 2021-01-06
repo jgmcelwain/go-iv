@@ -1,20 +1,18 @@
 import React, { FunctionComponent, ReactChild } from 'react';
 
 import { Context } from '.';
+import { LevelCapNumber, RankedSpreadStats } from '../../data/reference';
 
-import { useLeague } from '../useLeague';
 import { useMemoRankedSpreads } from './useMemoRankedSpreads';
 
 export const Provider: FunctionComponent<{
   children: ReactChild | ReactChild[];
 }> = ({ children }) => {
-  const { league } = useLeague();
-
-  const rankedSpreads = {
-    [40]: useMemoRankedSpreads(league.cp, 40),
-    [41]: useMemoRankedSpreads(league.cp, 41),
-    [50]: useMemoRankedSpreads(league.cp, 50),
-    [51]: useMemoRankedSpreads(league.cp, 51),
+  const rankedSpreads: { [K in LevelCapNumber]: RankedSpreadStats[] } = {
+    [40]: useMemoRankedSpreads(40),
+    [41]: useMemoRankedSpreads(41),
+    [50]: useMemoRankedSpreads(50),
+    [51]: useMemoRankedSpreads(51),
   };
 
   return <Context.Provider value={rankedSpreads}>{children}</Context.Provider>;
