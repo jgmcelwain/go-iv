@@ -1,4 +1,4 @@
-import { Pokemon } from './reference';
+import { Pokemon, PokemonID, PokemonName } from './reference';
 
 export const POKEDEX: Pokemon[] = [
   {
@@ -2025,3 +2025,10 @@ export const POKEDEX: Pokemon[] = [
   { id: 'zweilous', name: 'Zweilous', stats: { atk: 159, def: 135, sta: 176 } },
   { id: 'Zygarde', name: 'zygarde', stats: { atk: 203, def: 232, sta: 239 } },
 ];
+
+export function getPokemonByName(name: PokemonName) {
+  return POKEDEX.find((pokemon) => pokemon.name === name) ?? null;
+}
+export function getPokemonByID(id: PokemonID) {
+  return POKEDEX.find((pokemon) => pokemon.id === id) ?? null;
+}

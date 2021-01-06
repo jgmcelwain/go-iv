@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState, useEffect, useRef } from 'react';
 
 import { PokemonName } from '../data/reference';
-import { POKEDEX } from '../data/pokedex';
+import { getPokemonByName, POKEDEX } from '../data/pokedex';
 
 import { useSubject, SubjectActionTypes } from '../hooks/useSubject';
 
@@ -13,7 +13,7 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
 
   useEffect(() => {
     if (subject.species.name !== value) {
-      const match = POKEDEX.find((pokemon) => pokemon.name === value);
+      const match = getPokemonByName(value);
 
       if (match) {
         dispatch({ type: SubjectActionTypes.Species, payload: match });
