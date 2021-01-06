@@ -6,15 +6,20 @@ import HeaderSettings from './HeaderSettings';
 const Header: FunctionComponent = () => {
   return (
     <div className='w-full mb-2 bg-gray-800'>
-      <div className='container mx-auto px-4 flex justify-between items-center py-4'>
+      <div className='container mx-auto px-4 flex justify-between items-center py-3'>
         <div className='font-title flex-grow flex justify-start items-center'>
-          <h1 className='text-gray-200 text-xl'>pvpiv.app</h1>
+          <img
+            src='/logo.png'
+            className='w-10 h-10'
+            alt='pvpiv.app Logo'
+            title='pvpiv.app'
+          />
 
           <a
             href='https://github.com/jgmcelwain/pvpiv/releases'
             target='_blank'
             rel='noreferrer'
-            className='text-gray-600 hover:text-blue-500 text-sm ml-1 transform translate-y-0.5 group inline-flex justify-start items-center transition-colors'
+            className='text-gray-600 hover:text-blue-500 text-sm ml-1 group inline-flex justify-start items-center transition-colors'
             title='View Releases'
           >
             <span>v{version}</span>
