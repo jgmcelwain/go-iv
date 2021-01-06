@@ -13,6 +13,8 @@ const Header: FunctionComponent = () => {
             className='w-10 h-10'
             alt='pvpiv.app Logo'
             title='pvpiv.app'
+            width='40'
+            height='40'
           />
 
           <a
