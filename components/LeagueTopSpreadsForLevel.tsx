@@ -45,7 +45,11 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
 
           <LeagueTableCells.Header>CP</LeagueTableCells.Header>
 
-          <LeagueTableCells.Header>Atk / Def / Sta</LeagueTableCells.Header>
+          <LeagueTableCells.Header>Atk</LeagueTableCells.Header>
+
+          <LeagueTableCells.Header>Def</LeagueTableCells.Header>
+
+          <LeagueTableCells.Header>Sta</LeagueTableCells.Header>
 
           <LeagueTableCells.Header>Product</LeagueTableCells.Header>
 
@@ -88,20 +92,14 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
             <LeagueTableCells.Body>{spread.cp}</LeagueTableCells.Body>
 
             <LeagueTableCells.Body>
-              <>
-                {spread.stats.atk.toFixed(2)}
-                <span className='transform scale-75 inline-block mx-1 font-semibold'>
-                  {' '}
-                  /{' '}
-                </span>
-                {spread.stats.def.toFixed(2)}
-                <span className='transform scale-75 inline-block mx-1 font-semibold'>
-                  {' '}
-                  /{' '}
-                </span>
-                {spread.stats.sta}
-              </>
+              {spread.stats.atk.toFixed(2)}
             </LeagueTableCells.Body>
+
+            <LeagueTableCells.Body>
+              {spread.stats.def.toFixed(2)}
+            </LeagueTableCells.Body>
+
+            <LeagueTableCells.Body>{spread.stats.sta}</LeagueTableCells.Body>
 
             <LeagueTableCells.Body>
               <span title={`${spread.product}`}>

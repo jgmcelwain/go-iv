@@ -26,7 +26,11 @@ const LeagueSubject: FunctionComponent = () => {
           )}
 
           {settings.outputData.stats && (
-            <LeagueTableCells.Header>Atk / Def / Sta</LeagueTableCells.Header>
+            <>
+              <LeagueTableCells.Header>Atk</LeagueTableCells.Header>
+              <LeagueTableCells.Header>Def</LeagueTableCells.Header>
+              <LeagueTableCells.Header>Sta</LeagueTableCells.Header>
+            </>
           )}
 
           {settings.outputData.statProduct && (

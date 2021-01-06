@@ -59,21 +59,15 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
       )}
 
       {settings.outputData.stats && (
-        <LeagueTableCells.Body>
-          <>
+        <>
+          <LeagueTableCells.Body>
             {result.stats.atk.toFixed(2)}
-            <span className='transform scale-75 inline-block mx-1 font-semibold'>
-              {' '}
-              /{' '}
-            </span>
+          </LeagueTableCells.Body>
+          <LeagueTableCells.Body>
             {result.stats.def.toFixed(2)}
-            <span className='transform scale-75 inline-block mx-1 font-semibold'>
-              {' '}
-              /{' '}
-            </span>
-            {result.stats.sta}
-          </>
-        </LeagueTableCells.Body>
+          </LeagueTableCells.Body>
+          <LeagueTableCells.Body>{result.stats.sta}</LeagueTableCells.Body>
+        </>
       )}
 
       {settings.outputData.statProduct && (
