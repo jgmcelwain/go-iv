@@ -17,8 +17,8 @@ export const Body: FunctionComponent<{
   children?: ReactChild | string[];
 }> = ({ right, children }) => (
   <td
-    className={`border-t border-gray-200 px-3 py-4 first:pl-4 ${
-      right && 'text-right'
+    className={`border-t border-gray-200 px-3 py-4 first:pl-4${
+      right ? ' text-right' : ''
     }`}
   >
     {children && (
