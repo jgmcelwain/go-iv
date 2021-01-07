@@ -4757,10 +4757,10 @@ export const POKEDEX: Pokemon[] = [
     family: { id: 'deino', stage: 2 },
   },
   {
-    id: 'Zygarde',
-    name: 'zygarde',
+    id: 'zygarde',
+    name: 'Zygarde',
     stats: { atk: 203, def: 232, sta: 239 },
-    family: { id: 'zygarde', stage: 0 },
+    family: { id: 'zygarde', stage: 1 },
   },
 ];
 
