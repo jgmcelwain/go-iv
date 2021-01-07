@@ -11,7 +11,7 @@ pvpiv.app allows trainers to quickly evaluate a catch and determine the value of
 - Support for Great League, Ultra League and Master League (and Little Cup!)
 - Rank checking for Level 40, Level 41 (Best Buddy), Level 50 (Candy XL) and Level 51 (Candy XL + Best Buddy)
 - View rank data for all Leagues and Level Caps simultaneously
-- Options to hide Leagues and Level Caps which you aren't interested in
+- Options to hide Leagues and Level Caps that you aren't interested in
 
 ## Development
 
