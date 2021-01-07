@@ -220,6 +220,10 @@ export type Pokemon = {
   name: PokemonName;
   stats: PokemonStats;
   floor?: IVFloor;
+  family: {
+    id: PokemonID;
+    stage: 1 | 2 | 3 | 4;
+  };
 };
 
 export type SpreadStats = {
