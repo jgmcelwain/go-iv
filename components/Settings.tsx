@@ -50,7 +50,7 @@ const Settings: FunctionComponent = () => {
         </SettingsSectionCategory>
       </SettingsSection>
 
-      <SettingsSection title='Display'>
+      <SettingsSection title='Output'>
         <SettingsSectionCategory description='Selected fields will be displayed in the calculation output.'>
           {OUTPUT_DATA.map((dataPoint) => (
             <SettingsSectionCategoryInput

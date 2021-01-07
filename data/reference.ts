@@ -184,7 +184,6 @@ export type OutputDataKey =
   | 'stats'
   | 'statProduct'
   | 'statProductPercent';
-
 export type OutputDataName =
   | 'Level'
   | 'Rank'
@@ -192,7 +191,6 @@ export type OutputDataName =
   | 'Stats'
   | 'Product'
   | 'Product % of Max';
-
 export type OutputDataPoint = { key: OutputDataKey; name: OutputDataName };
 export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'level', name: 'Level' },
