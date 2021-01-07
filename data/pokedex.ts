@@ -643,26 +643,6 @@ export const POKEDEX: Pokemon[] = [
     stats: { atk: 252, def: 199, sta: 174 },
     floor: 10,
   },
-  {
-    id: 'genesect_burn',
-    name: 'Genesect (Burn)',
-    stats: { atk: 252, def: 199, sta: 174 },
-  },
-  {
-    id: 'genesect_chill',
-    name: 'Genesect (Chill)',
-    stats: { atk: 252, def: 199, sta: 174 },
-  },
-  {
-    id: 'genesect_douse',
-    name: 'Genesect (Douse)',
-    stats: { atk: 252, def: 199, sta: 174 },
-  },
-  {
-    id: 'genesect_shock',
-    name: 'Genesect (Shock)',
-    stats: { atk: 252, def: 199, sta: 174 },
-  },
   { id: 'gengar', name: 'Gengar', stats: { atk: 261, def: 149, sta: 155 } },
   {
     id: 'gengar_mega',
@@ -1119,12 +1099,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'meowstic',
-    name: 'Meowstic (Male)',
-    stats: { atk: 166, def: 167, sta: 179 },
-  },
-  {
-    id: 'meowstic_female',
-    name: 'Meowstic (Female)',
+    name: 'Meowstic',
     stats: { atk: 166, def: 167, sta: 179 },
   },
   { id: 'meowth', name: 'Meowth', stats: { atk: 92, def: 78, sta: 120 } },
@@ -1331,16 +1306,6 @@ export const POKEDEX: Pokemon[] = [
   { id: 'pignite', name: 'Pignite', stats: { atk: 173, def: 106, sta: 207 } },
   { id: 'pikachu', name: 'Pikachu', stats: { atk: 112, def: 96, sta: 111 } },
   {
-    id: 'pikachu_flying',
-    name: 'Pikachu (Flying)',
-    stats: { atk: 112, def: 96, sta: 111 },
-  },
-  {
-    id: 'pikachu_libre',
-    name: 'Pikachu (Libre)',
-    stats: { atk: 112, def: 96, sta: 111 },
-  },
-  {
     id: 'piloswine',
     name: 'Piloswine',
     stats: { atk: 181, def: 138, sta: 225 },
@@ -1387,11 +1352,6 @@ export const POKEDEX: Pokemon[] = [
   { id: 'purrloin', name: 'Purrloin', stats: { atk: 98, def: 73, sta: 121 } },
   { id: 'purugly', name: 'Purugly', stats: { atk: 172, def: 133, sta: 174 } },
   { id: 'pyroar', name: 'Pyroar', stats: { atk: 221, def: 149, sta: 200 } },
-  {
-    id: 'pyroar_female',
-    name: 'Pyroar_female',
-    stats: { atk: 221, def: 149, sta: 200 },
-  },
   { id: 'quagsire', name: 'Quagsire', stats: { atk: 152, def: 143, sta: 216 } },
   { id: 'quilava', name: 'Quilava', stats: { atk: 158, def: 126, sta: 151 } },
   {
@@ -1499,31 +1459,6 @@ export const POKEDEX: Pokemon[] = [
   { id: 'roselia', name: 'Roselia', stats: { atk: 186, def: 131, sta: 137 } },
   { id: 'roserade', name: 'Roserade', stats: { atk: 243, def: 185, sta: 155 } },
   { id: 'rotom', name: 'Rotom', stats: { atk: 185, def: 159, sta: 137 } },
-  {
-    id: 'rotom_fan',
-    name: 'Rotom (Fan)',
-    stats: { atk: 204, def: 219, sta: 137 },
-  },
-  {
-    id: 'rotom_frost',
-    name: 'Rotom (Frost)',
-    stats: { atk: 204, def: 219, sta: 137 },
-  },
-  {
-    id: 'rotom_heat',
-    name: 'Rotom (Heat)',
-    stats: { atk: 204, def: 219, sta: 137 },
-  },
-  {
-    id: 'rotom_mow',
-    name: 'Rotom (Mow)',
-    stats: { atk: 204, def: 219, sta: 137 },
-  },
-  {
-    id: 'rotom_wash',
-    name: 'Rotom (Wash)',
-    stats: { atk: 204, def: 219, sta: 137 },
-  },
   { id: 'rufflet', name: 'Rufflet', stats: { atk: 150, def: 97, sta: 172 } },
   {
     id: 'runerigus',
