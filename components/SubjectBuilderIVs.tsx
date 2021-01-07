@@ -8,10 +8,10 @@ const SubjectBuilderIVs: FunctionComponent = () => {
   const { subject, dispatch } = useSubject();
 
   return (
-    <div className='grid grid-cols-3 gap-2 mr-6'>
+    <div className='order-3 grid grid-cols-3 gap-2 mr-6'>
       {STATS.map((stat) => (
         <label key={stat.key} className='block mb-2'>
-          <span className='text-gray-300 text-xs'>{stat.name}</span>
+          <span className='text-gray-400 text-xs'>{stat.name}</span>
 
           <select
             onChange={(evt) =>

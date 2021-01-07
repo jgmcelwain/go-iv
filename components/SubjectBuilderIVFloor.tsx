@@ -8,8 +8,8 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
   const { subject, dispatch } = useSubject();
 
   return (
-    <label className='block mb-2'>
-      <span className='text-gray-300 text-xs'>IV Floor</span>
+    <label className='order-4 block mb-2'>
+      <span className='text-gray-400 text-xs'>IV Floor</span>
 
       <select
         onChange={(evt) =>
