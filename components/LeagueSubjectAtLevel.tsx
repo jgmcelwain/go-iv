@@ -26,7 +26,7 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
           spread.ivs.atk === subject.ivs.atk &&
           spread.ivs.def === subject.ivs.def &&
           spread.ivs.sta === subject.ivs.sta,
-      ),
+      ) ?? null,
     [leagueSubjectRankedSpreads[levelCap.level], subject.ivs],
   );
 
@@ -37,7 +37,7 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
 
   const colors = useMemo(() => getRankedSpreadColors(result), [result]);
 
-  if (subject === null) return null;
+  if (result === null) return null;
 
   return (
     <tr className={`${colors.background} ${colors.text}`}>

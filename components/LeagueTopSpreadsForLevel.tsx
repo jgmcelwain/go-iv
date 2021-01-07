@@ -31,8 +31,6 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
     );
   }, [leagueSubjectRankedSpreads[inspectedLevelCap.level], subject.ivs]);
 
-  if (subject === null) return null;
-
   return (
     <table className='w-full border-collapse table-auto'>
       <thead>
