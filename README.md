@@ -4,7 +4,16 @@
 
 # [pvpiv.app](https://pvpiv.app) - IV Checker for Pokémon GO
 
-pvpiv.app allows trainers to quickly evaluate the value of a catch and determine if its IV spread would be beneficial in any league. All three leagues, as well as all four level caps within each, are displayed simultaneously. This allows easier identification of good spreads without having to manually adjust league/level cap settings.
+pvpiv.app allows trainers to quickly evaluate a catch and determine the value of its IV spread for PVP.
+
+## Features
+
+- Support for Great League, Ultra League and Master League (and Little Cup!)
+- Rank checking for Level 40, Level 41 (Best Buddy), Level 50 (Candy XL) and Level 51 (Candy XL + Best Buddy)
+- View rank data for all Leagues and Level Caps simultaneously
+- Options to hide Leagues and Level Caps which you aren't interested in
+
+---
 
 ## Development
 
@@ -26,6 +35,8 @@ $ yarn
 ```bash
 $ yarn dev
 ```
+
+---
 
 ## Special Thanks
 
