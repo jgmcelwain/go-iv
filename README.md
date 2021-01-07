@@ -13,8 +13,6 @@ pvpiv.app allows trainers to quickly evaluate a catch and determine the value of
 - View rank data for all Leagues and Level Caps simultaneously
 - Options to hide Leagues and Level Caps which you aren't interested in
 
----
-
 ## Development
 
 pvpiv.app is built on [Next.js](https://nextjs.org/).
@@ -35,8 +33,6 @@ $ yarn
 ```bash
 $ yarn dev
 ```
-
----
 
 ## Special Thanks
 
