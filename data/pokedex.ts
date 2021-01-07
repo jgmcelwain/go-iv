@@ -74,7 +74,6 @@ export const POKEDEX: Pokemon[] = [
     id: 'azelf',
     name: 'Azelf',
     stats: { atk: 270, def: 151, sta: 181 },
-    floor: 1,
   },
   {
     id: 'azumarill',
@@ -1143,7 +1142,6 @@ export const POKEDEX: Pokemon[] = [
     id: 'mesprit',
     name: 'Mesprit',
     stats: { atk: 212, def: 212, sta: 190 },
-    floor: 1,
   },
   {
     id: 'metagross',
@@ -1849,7 +1847,6 @@ export const POKEDEX: Pokemon[] = [
     id: 'uxie',
     name: 'Uxie',
     stats: { atk: 156, def: 270, sta: 181 },
-    floor: 1,
   },
   {
     id: 'vanillish',
