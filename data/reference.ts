@@ -220,7 +220,7 @@ export type Pokemon = {
   floor?: IVFloor;
   family: {
     id: PokemonID;
-    stage: 1 | 2 | 3 | 4;
+    stage: 1 | 2 | 3 | 4 | 5;
   };
 };
 

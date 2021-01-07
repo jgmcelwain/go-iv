@@ -511,7 +511,7 @@ export const POKEDEX: Pokemon[] = [
     id: 'cascoon',
     name: 'Cascoon',
     stats: { atk: 60, def: 77, sta: 137 },
-    family: { id: 'wurmple', stage: 2 },
+    family: { id: 'wurmple', stage: 4 },
   },
   {
     id: 'castform',
@@ -1120,7 +1120,7 @@ export const POKEDEX: Pokemon[] = [
     id: 'dustox',
     name: 'Dustox',
     stats: { atk: 98, def: 162, sta: 155 },
-    family: { id: 'wurmple', stage: 3 },
+    family: { id: 'wurmple', stage: 5 },
   },
   {
     id: 'dwebble',
