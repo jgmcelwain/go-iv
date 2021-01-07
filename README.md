@@ -1,5 +1,6 @@
 <p align="center"><a href="https://pvpiv.app" target="_blank" rel="noopener noreferrer"><img width="128" src="https://pvpiv.app/logo.png" alt="pvpiv.app logo"></a></p>
-<p align="center"><a href="https://github.com/jgmcelwain/pvpiv/releases"><img src="https://img.shields.io/badge/dynamic/json.svg?label=stable%20version&uri=https%3A%2F%pvpiv.app%2Fversion&query=%24.version&colorB=34D399&style=flat-square"></a></p>
+                                                                                
+<p align="center"><a href="https://github.com/jgmcelwain/pvpiv/releases"><img src="https://img.shields.io/badge/dynamic/json?color=34D399&label=Stable%20Version&query=version&url=https%3A%2F%2Fpvpiv.app%2Fapi%2Fversion&prefix=v&style=flat-square"></a></p>
 
 # [pvpiv.app](https://pvpiv.app) - IV Checker for Pokémon GO
 
