@@ -5,7 +5,7 @@ import HeaderSettings from './HeaderSettings';
 
 const Header: FunctionComponent = () => {
   return (
-    <div className='w-full mb-2 bg-gray-800'>
+    <div className='w-full mb-2 bg-gray-800 border-b border-gray-700'>
       <div className='container mx-auto px-4 flex justify-between items-center py-3'>
         <div className='font-title flex-grow flex justify-start items-center'>
           <img
