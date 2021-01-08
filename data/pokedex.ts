@@ -2842,7 +2842,7 @@ export const POKEDEX: Pokemon[] = [
     id: 'ninetales_alolan',
     name: 'Ninetales (Alolan)',
     stats: { atk: 170, def: 193, sta: 177 },
-    family: { id: 'vulplx_alolan', stage: 2 },
+    family: { id: 'vulpix_alolan', stage: 2 },
   },
   {
     id: 'ninjask',
