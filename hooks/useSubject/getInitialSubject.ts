@@ -7,6 +7,20 @@ type DirtyIV = IV | string;
 type DirtyIVFloor = IVFloor | string;
 type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
 
+export function tidyNumericInput<T extends number>(
+  val: number | string,
+  min: T,
+  max: T,
+): T {
+  let numeric = typeof val === 'number' ? val : parseInt(val);
+
+  if (isNaN(numeric)) {
+    numeric = 0;
+  }
+
+  return (Math.max(Math.min(numeric, max), min) as unknown) as T;
+}
+
 export function getInitialSubject(ctx: NextPageContext): Subject {
   const [
     id = POKEDEX[0].id,
@@ -16,25 +30,15 @@ export function getInitialSubject(ctx: NextPageContext): Subject {
     floor = 0,
   ]: Query = (ctx.query?.subject ?? []) as Query;
 
-  function tidyInput<T>(val: number | string, min: IV, max: IV): T {
-    let numeric = typeof val === 'number' ? val : parseInt(val);
-
-    if (isNaN(numeric)) {
-      numeric = 0;
-    }
-
-    return (Math.max(Math.min(numeric, max), min) as unknown) as T;
-  }
-
   const species = getPokemonByID(id) ?? POKEDEX[0];
-  const outputFloor = tidyInput<IVFloor>(floor, 0, 12);
+  const outputFloor = tidyNumericInput<IVFloor>(floor, 0, 12);
 
   return {
     species,
     ivs: {
-      atk: tidyInput<IV>(atk, outputFloor, 15),
-      def: tidyInput<IV>(def, outputFloor, 15),
-      sta: tidyInput<IV>(sta, outputFloor, 15),
+      atk: tidyNumericInput<IV>(atk, outputFloor, 15),
+      def: tidyNumericInput<IV>(def, outputFloor, 15),
+      sta: tidyNumericInput<IV>(sta, outputFloor, 15),
     },
     floor: outputFloor,
   };
