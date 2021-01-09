@@ -1,6 +1,6 @@
 {
   "name": "pvpiv.app",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "scripts": {
     "dev": "next",
     "build": "next build",
