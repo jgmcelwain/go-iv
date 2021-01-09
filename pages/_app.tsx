@@ -7,10 +7,10 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>pvpiv.app - Pokémon GO PVP IV Checker</title>
+        <title>PVPIV.app - Pokémon GO PVP IV Checker</title>
         <meta
           name='description'
-          content='Check PVP IV ranks for Great League, Ultra League and Master League simultaneously, including Buddy Boost and Candy XL level caps.'
+          content='Check PVP IV ranks for Great League, Ultra League and Master League simultaneously. Includes support for Best Buddy and Candy XL level caps.'
         />
       </Head>
 

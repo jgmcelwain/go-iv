@@ -8,7 +8,7 @@ const Footer: FunctionComponent = () => (
     </p>
 
     <p className='text-center text-xs text-gray-400'>
-      pvpiv.app is open source on GitHub -{' '}
+      PVPIV.app is open source on GitHub -{' '}
       <a
         href='https://github.com/jgmcelwain/pvpiv'
         rel='noreferrer'

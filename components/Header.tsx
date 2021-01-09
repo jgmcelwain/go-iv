@@ -11,8 +11,8 @@ const Header: FunctionComponent = () => {
           <img
             src='/logo.png'
             className='w-10 h-10'
-            alt='pvpiv.app Logo'
-            title='pvpiv.app'
+            alt='PVPIV.app Logo'
+            title='PVPIV.app'
             width='40'
             height='40'
           />
