@@ -1,4 +1,4 @@
-import { getPokemonByID, POKEDEX } from '../../data/pokedex';
+import { getPokemonByID } from '../../data/pokedex';
 import { IV, IVFloor, PokemonID } from '../../data/reference';
 import { Subject } from '.';
 import { NextPageContext } from 'next';
@@ -21,16 +21,16 @@ export function tidyNumericInput<T extends number>(
   return (Math.max(Math.min(numeric, max), min) as unknown) as T;
 }
 
-export function getInitialSubject(ctx: NextPageContext): Subject {
+export function getInitialSubject({ query }: NextPageContext): Subject {
   const [
-    id = POKEDEX[0].id,
+    id = null,
     atk = 0,
     def = 15,
     sta = 15,
     floor = 0,
-  ]: Query = (ctx.query?.subject ?? []) as Query;
+  ]: Query = (query?.subject ?? []) as Query;
 
-  const species = getPokemonByID(id) ?? POKEDEX[0];
+  const species = getPokemonByID(id) ?? getPokemonByID('abomasnow');
   const outputFloor = tidyNumericInput<IVFloor>(floor, 0, 12);
 
   return {

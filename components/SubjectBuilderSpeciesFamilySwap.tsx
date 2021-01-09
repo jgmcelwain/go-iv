@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react';
 
-import { POKEDEX } from '../data/pokedex';
+import { getPokemonFamilyMembers } from '../data/pokedex';
 import { Pokemon } from '../data/reference';
 
 import { useSubject } from '../hooks/useSubject';
@@ -11,11 +11,7 @@ const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
   const { subject } = useSubject();
 
   const iterableFamily = useMemo(() => {
-    if (subject?.species.family === undefined) return [];
-
-    const familyMembers = POKEDEX.filter(
-      (pokemon) => pokemon.family?.id === subject.species.family?.id,
-    );
+    const familyMembers = getPokemonFamilyMembers(subject.species.family?.id);
 
     return familyMembers.sort((a, b) => a.family.stage - b.family.stage);
   }, [subject.species.id]);

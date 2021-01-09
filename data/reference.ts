@@ -213,6 +213,7 @@ export type PokemonIVs = {
   def: IV;
   sta: IV;
 };
+export type PokemonFamilyStage = 1 | 2 | 3 | 4 | 5;
 export type Pokemon = {
   id: PokemonID;
   name: PokemonName;
@@ -220,7 +221,7 @@ export type Pokemon = {
   floor?: IVFloor;
   family: {
     id: PokemonID;
-    stage: 1 | 2 | 3 | 4 | 5;
+    stage: PokemonFamilyStage;
   };
 };
 
