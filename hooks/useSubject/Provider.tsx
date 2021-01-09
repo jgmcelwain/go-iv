@@ -21,10 +21,10 @@ export const Provider: FunctionComponent<{
   const [subject, dispatch] = useReducer(subjectReducer, initialValue);
 
   useEffect(() => {
-    if (isInitial) {
-      setIsInitial(false);
-    } else {
+    if (!isInitial || router.query.subject !== undefined) {
       setRouteParams(router, subject);
+
+      setIsInitial(false);
     }
   }, [
     subject.species.id,
