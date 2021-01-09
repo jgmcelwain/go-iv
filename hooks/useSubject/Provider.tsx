@@ -23,7 +23,9 @@ export const Provider: FunctionComponent<{
   useEffect(() => {
     if (!isInitial || router.query.subject !== undefined) {
       setRouteParams(router, subject);
+    }
 
+    if (isInitial) {
       setIsInitial(false);
     }
   }, [
