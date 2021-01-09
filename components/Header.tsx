@@ -1,21 +1,35 @@
 import React, { FunctionComponent } from 'react';
 import { version } from '../package.json';
 
+import { useRouter } from 'next/router';
+
+import Link from 'next/link';
 import HeaderSettings from './HeaderSettings';
 
 const Header: FunctionComponent = () => {
+  const router = useRouter();
+
   return (
     <div className='w-full mb-2 bg-gray-800 border-b border-gray-700'>
       <div className='container mx-auto px-4 flex justify-between items-center py-3'>
         <div className='font-title flex-grow flex justify-start items-center'>
-          <img
-            src='/logo.png'
-            className='w-10 h-10'
-            alt='PVPIV.app Logo'
-            title='PVPIV.app'
-            width='40'
-            height='40'
-          />
+          <Link
+            href={{
+              pathname: '/[[...subject]]',
+              query: { subject: router.query.subject },
+            }}
+          >
+            <a>
+              <img
+                src='/logo.png'
+                className='w-10 h-10'
+                alt='PVPIV.app Logo'
+                title='PVPIV.app'
+                width='40'
+                height='40'
+              />
+            </a>
+          </Link>
 
           <a
             href='https://github.com/jgmcelwain/pvpiv/releases'
