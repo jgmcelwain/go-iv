@@ -13,6 +13,7 @@ module.exports = {
     colors: {
       ...defaultTheme.colors,
       orange: colors.orange,
+      yellow: colors.yellow,
     },
     fontFamily: {
       ...defaultTheme.fontFamily,
