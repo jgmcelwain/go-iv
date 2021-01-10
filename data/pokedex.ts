@@ -1003,6 +1003,12 @@ export const POKEDEX: Pokemon[] = [
     family: { id: 'phanpy', stage: 2 },
   },
   {
+    id: 'doublade',
+    name: 'Doublade',
+    stats: { atk: 188, def: 206, sta: 153 },
+    family: { id: 'honedge', stage: 2 },
+  },
+  {
     id: 'dragalge',
     name: 'Dragalge',
     stats: { atk: 177, def: 207, sta: 163 },
@@ -1854,6 +1860,12 @@ export const POKEDEX: Pokemon[] = [
     name: 'Honchkrow',
     stats: { atk: 243, def: 103, sta: 225 },
     family: { id: 'murkrow', stage: 2 },
+  },
+  {
+    id: 'honedge',
+    name: 'Honedge',
+    stats: { atk: 135, def: 139, sta: 128 },
+    family: { id: 'honedge', stage: 1 },
   },
   {
     id: 'hoothoot',
