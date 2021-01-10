@@ -921,7 +921,7 @@ export const POKEDEX: Pokemon[] = [
     family: { id: 'deoxys', stage: 1 },
   },
   {
-    id: 'deoxys_atk',
+    id: 'deoxys_attack',
     name: 'Deoxys (Attack)',
     stats: { atk: 414, def: 46, sta: 137 },
     floor: 10,
