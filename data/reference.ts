@@ -113,7 +113,7 @@ export const CPMs = [
 export type Stat = 'atk' | 'def' | 'sta';
 export const STATS: { key: Stat; name: string }[] = [
   { key: 'atk', name: 'Attack' },
-  { key: 'def', name: 'Defence' },
+  { key: 'def', name: 'Defense' },
   { key: 'sta', name: 'Stamina' },
 ];
 
