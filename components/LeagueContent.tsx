@@ -8,15 +8,10 @@ import LeagueTopSpreadsForLevel from './LeagueTopSpreadsForLevel';
 
 const LeagueContent: FunctionComponent = () => {
   const { displayMode } = useLeague();
-  const ref = useRef<HTMLDivElement>();
-
-  useEffect(() => {
-    ref.current.scrollTo({ left: 0, behavior: 'smooth' });
-  }, [displayMode]);
 
   return (
     <LeagueSubjectRankedSpreadsProvider>
-      <div className='w-full overflow-x-scroll bg-gray-100' ref={ref}>
+      <div className='w-full bg-gray-100'>
         {displayMode === 'subject' ? (
           <LeagueSubject />
         ) : (
