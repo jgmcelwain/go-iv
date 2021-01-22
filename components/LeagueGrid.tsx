@@ -9,7 +9,7 @@ const LeagueGrid: FunctionComponent = () => {
   const { settings } = useSettings();
 
   return (
-    <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8'>
+    <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 items-start'>
       {LEAGUES.filter((league) => settings.leagues[league.key] === true).map(
         (league) => (
           <League key={league.key} league={league} />
