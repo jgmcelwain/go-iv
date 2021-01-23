@@ -30,7 +30,11 @@ export function getInitialSubject({ query }: NextPageContext): Subject {
     floor = 0,
   ]: Query = (query?.subject ?? []) as Query;
 
-  const species = getPokemonByID(id) ?? getPokemonByID('abomasnow');
+  const species =
+    getPokemonByID(id) ??
+    getPokemonByID(process.env.NEXT_PUBLIC_DEFAULT_POKEMON) ??
+    getPokemonByID('azumarill');
+
   const outputFloor = tidyNumericInput<IVFloor>(floor, 0, 12);
 
   return {
