@@ -10,37 +10,36 @@ import {
 import { Subject } from '.';
 import { NextPageContext } from 'next';
 
-type DirtyIV = IV | string;
-type DirtyIVFloor = IVFloor | string;
+type DirtyIV = IV | number;
+type DirtyIVFloor = IVFloor | number;
 type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
 
 export function tidyNumericInput<T extends number>(
-  val: number | string,
+  val: number,
   min: T,
   max: T,
 ): T {
-  let numeric = typeof val === 'number' ? val : parseInt(val);
-
-  if (isNaN(numeric)) {
-    numeric = 0;
-  }
-
-  return (Math.max(Math.min(numeric, max), min) as unknown) as T;
+  return Math.max(Math.min(val, max), min) as T;
 }
+
+const SUBJECT_DEFAULTS = {
+  id: process.env.NEXT_PUBLIC_DEFAULT_POKEMON ?? 'azumarill',
+  atk: parseInt(process.env.NEXT_PUBLIC_DEFAULT_ATK ?? '0'),
+  def: parseInt(process.env.NEXT_PUBLIC_DEFAULT_DEF ?? '15'),
+  sta: parseInt(process.env.NEXT_PUBLIC_DEFAULT_STA ?? '15'),
+  floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
+};
 
 export function getInitialSubject({ query }: NextPageContext): Subject {
   const [
-    id = null,
-    atk = 0,
-    def = 15,
-    sta = 15,
-    floor = 0,
+    id = SUBJECT_DEFAULTS.id,
+    atk = SUBJECT_DEFAULTS.atk,
+    def = SUBJECT_DEFAULTS.def,
+    sta = SUBJECT_DEFAULTS.sta,
+    floor = SUBJECT_DEFAULTS.floor,
   ]: Query = (query?.subject ?? []) as Query;
 
-  const species =
-    getPokemonByID(id) ??
-    getPokemonByID(process.env.NEXT_PUBLIC_DEFAULT_POKEMON) ??
-    getPokemonByID('azumarill');
+  const species = getPokemonByID(id) ?? getPokemonByID(SUBJECT_DEFAULTS.id);
 
   const outputFloor = tidyNumericInput<IVFloor>(
     floor,
