@@ -7,20 +7,15 @@ import {
   MIN_IV_FLOOR,
   MAX_IV_FLOOR,
 } from '../../data/reference';
+
+import { tidyNumericInput } from '../../utils/tidyNumericInput';
+
 import { Subject } from '.';
 import { NextPageContext } from 'next';
 
 type DirtyIV = IV | number;
 type DirtyIVFloor = IVFloor | number;
 type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
-
-export function tidyNumericInput<T extends number>(
-  val: number,
-  min: T,
-  max: T,
-): T {
-  return Math.max(Math.min(val, max), min) as T;
-}
 
 const SUBJECT_DEFAULTS = {
   id: process.env.NEXT_PUBLIC_DEFAULT_POKEMON ?? 'azumarill',
