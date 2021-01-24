@@ -2566,7 +2566,6 @@ export const POKEDEX: Pokemon[] = [
     id: 'melmetal',
     name: 'Melmetal',
     stats: { atk: 226, def: 190, sta: 264 },
-    floor: 1,
     family: { id: 'meltan', stage: 2 },
   },
   {
@@ -2585,7 +2584,6 @@ export const POKEDEX: Pokemon[] = [
     id: 'meltan',
     name: 'Meltan',
     stats: { atk: 118, def: 99, sta: 130 },
-    floor: 1,
     family: { id: 'meltan', stage: 1 },
   },
   {
