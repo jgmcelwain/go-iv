@@ -135,6 +135,8 @@ export type IV =
   | 14
   | 15;
 export const IV_RANGE: IV[] = Array.from({ length: 16 }).map((_, i) => i as IV);
+export const MIN_IV = IV_RANGE[0];
+export const MAX_IV = IV_RANGE[IV_RANGE.length - 1];
 
 export type IVFloor = 0 | 1 | 2 | 3 | 4 | 5 | 10 | 12;
 export const IV_FLOORS: { value: IVFloor; name: string }[] = [
@@ -147,6 +149,8 @@ export const IV_FLOORS: { value: IVFloor; name: string }[] = [
   { value: 10, name: 'Raid/Egg/Research' },
   { value: 12, name: 'Lucky Trade' },
 ];
+export const MIN_IV_FLOOR = IV_FLOORS[0].value;
+export const MAX_IV_FLOOR = IV_FLOORS[IV_FLOORS.length - 1].value;
 
 export type LeagueCPCap = 500 | 1500 | 2500 | 10000;
 export type LeagueKey = 'little' | 'great' | 'ultra' | 'master';

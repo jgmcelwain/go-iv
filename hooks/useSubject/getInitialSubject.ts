@@ -1,5 +1,12 @@
 import { getPokemonByID } from '../../data/pokedex';
-import { IV, IVFloor, PokemonID } from '../../data/reference';
+import {
+  IV,
+  IVFloor,
+  PokemonID,
+  MAX_IV,
+  MIN_IV_FLOOR,
+  MAX_IV_FLOOR,
+} from '../../data/reference';
 import { Subject } from '.';
 import { NextPageContext } from 'next';
 
@@ -35,14 +42,18 @@ export function getInitialSubject({ query }: NextPageContext): Subject {
     getPokemonByID(process.env.NEXT_PUBLIC_DEFAULT_POKEMON) ??
     getPokemonByID('azumarill');
 
-  const outputFloor = tidyNumericInput<IVFloor>(floor, 0, 12);
+  const outputFloor = tidyNumericInput<IVFloor>(
+    floor,
+    MIN_IV_FLOOR,
+    MAX_IV_FLOOR,
+  );
 
   return {
     species,
     ivs: {
-      atk: tidyNumericInput<IV>(atk, outputFloor, 15),
-      def: tidyNumericInput<IV>(def, outputFloor, 15),
-      sta: tidyNumericInput<IV>(sta, outputFloor, 15),
+      atk: tidyNumericInput<IV>(atk, outputFloor, MAX_IV),
+      def: tidyNumericInput<IV>(def, outputFloor, MAX_IV),
+      sta: tidyNumericInput<IV>(sta, outputFloor, MAX_IV),
     },
     floor: outputFloor,
   };
