@@ -1,61 +1,25 @@
 import React, { FunctionComponent } from 'react';
-import { LEVEL_CAPS } from '../data/reference';
 
-import { useSettings } from '../hooks/useSettings';
+import { useLeague } from '../hooks/useLeague';
+import { Provider as LeagueSubjectRankedSpreadsProvider } from '../hooks/useLeagueSubjectRankedSpreads';
 
-import * as LeagueTableCells from './LeagueTableCells';
-import LeagueSubjectAtLevel from './LeagueSubjectAtLevel';
+import LeagueSubjectRanked from './LeagueSubjectRanked';
+import LeagueSubjectTopSpreadsForLevel from './LeagueSubjectTopSpreadsForLevel';
 
-const LeagueSubject: FunctionComponent = () => {
-  const { settings } = useSettings();
+const LeagueContent: FunctionComponent = () => {
+  const { displayMode } = useLeague();
 
   return (
-    <div className='w-full overflow-x-scroll'>
-      <table className='w-full border-collapse table-auto'>
-        <thead>
-          <tr>
-            {settings.outputData.rank && (
-              <LeagueTableCells.Header>Rank</LeagueTableCells.Header>
-            )}
-
-            {settings.outputData.level && (
-              <LeagueTableCells.Header>Level</LeagueTableCells.Header>
-            )}
-
-            {settings.outputData.cp && (
-              <LeagueTableCells.Header>CP</LeagueTableCells.Header>
-            )}
-
-            {settings.outputData.stats && (
-              <>
-                <LeagueTableCells.Header>Atk</LeagueTableCells.Header>
-                <LeagueTableCells.Header>Def</LeagueTableCells.Header>
-                <LeagueTableCells.Header>Sta</LeagueTableCells.Header>
-              </>
-            )}
-
-            {settings.outputData.statProduct && (
-              <LeagueTableCells.Header>Product</LeagueTableCells.Header>
-            )}
-
-            {settings.outputData.statProductPercent && (
-              <LeagueTableCells.Header>Product%</LeagueTableCells.Header>
-            )}
-
-            <LeagueTableCells.Header />
-          </tr>
-        </thead>
-
-        <tbody>
-          {LEVEL_CAPS.filter(
-            (levelCap) => settings.levelCaps[levelCap.level] === true,
-          ).map((levelCap) => (
-            <LeagueSubjectAtLevel key={levelCap.level} levelCap={levelCap} />
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <LeagueSubjectRankedSpreadsProvider>
+      <div className='w-full bg-gray-100'>
+        {displayMode === 'subject' ? (
+          <LeagueSubjectRanked />
+        ) : (
+          <LeagueSubjectTopSpreadsForLevel />
+        )}
+      </div>
+    </LeagueSubjectRankedSpreadsProvider>
   );
 };
 
-export default LeagueSubject;
+export default LeagueContent;

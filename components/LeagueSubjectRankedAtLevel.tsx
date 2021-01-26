@@ -9,7 +9,7 @@ import { useLeagueSubjectRankedSpreads } from '../hooks/useLeagueSubjectRankedSp
 
 import { IV_FLOORS, LevelCap } from '../data/reference';
 
-import * as LeagueTableCells from './LeagueTableCells';
+import * as LeagueSubjectTableCells from './LeagueSubjectTableCells';
 
 const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
   levelCap,
@@ -42,49 +42,53 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
   return (
     <tr className={`${colors.background} ${colors.text}`}>
       {settings.outputData.rank && (
-        <LeagueTableCells.Body>{result.rank}</LeagueTableCells.Body>
+        <LeagueSubjectTableCells.Body>
+          {result.rank}
+        </LeagueSubjectTableCells.Body>
       )}
 
       {settings.outputData.level && (
-        <LeagueTableCells.Body>
+        <LeagueSubjectTableCells.Body>
           <>
             {result.level}
             <span className='text-xs'> / {levelCap.level}</span>
           </>
-        </LeagueTableCells.Body>
+        </LeagueSubjectTableCells.Body>
       )}
 
       {settings.outputData.cp && (
-        <LeagueTableCells.Body>{result.cp}</LeagueTableCells.Body>
+        <LeagueSubjectTableCells.Body>{result.cp}</LeagueSubjectTableCells.Body>
       )}
 
       {settings.outputData.stats && (
         <>
-          <LeagueTableCells.Body>
+          <LeagueSubjectTableCells.Body>
             {result.stats.atk.toFixed(2)}
-          </LeagueTableCells.Body>
-          <LeagueTableCells.Body>
+          </LeagueSubjectTableCells.Body>
+          <LeagueSubjectTableCells.Body>
             {result.stats.def.toFixed(2)}
-          </LeagueTableCells.Body>
-          <LeagueTableCells.Body>{result.stats.sta}</LeagueTableCells.Body>
+          </LeagueSubjectTableCells.Body>
+          <LeagueSubjectTableCells.Body>
+            {result.stats.sta}
+          </LeagueSubjectTableCells.Body>
         </>
       )}
 
       {settings.outputData.statProduct && (
-        <LeagueTableCells.Body>
+        <LeagueSubjectTableCells.Body>
           <span title={`${result.product}`}>
             {(result.product / 1000).toFixed(2)}
           </span>
-        </LeagueTableCells.Body>
+        </LeagueSubjectTableCells.Body>
       )}
 
       {settings.outputData.statProductPercent && (
-        <LeagueTableCells.Body>
+        <LeagueSubjectTableCells.Body>
           {(result.percent * 100).toFixed(2)}%
-        </LeagueTableCells.Body>
+        </LeagueSubjectTableCells.Body>
       )}
 
-      <LeagueTableCells.Body right>
+      <LeagueSubjectTableCells.Body right>
         <button
           onClick={() => setDisplayMode('top', levelCap)}
           className='focus:ring-2 p-0.5 ring-blue-600 focus:outline-none rounded mr-2'
@@ -105,7 +109,7 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
             />
           </svg>
         </button>
-      </LeagueTableCells.Body>
+      </LeagueSubjectTableCells.Body>
     </tr>
   );
 };

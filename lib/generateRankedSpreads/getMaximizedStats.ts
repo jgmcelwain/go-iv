@@ -2,7 +2,7 @@ import {
   LeagueCPCap,
   Pokemon,
   PokemonIVs,
-  SpreadStats,
+  Spread,
   LevelCapNumber,
 } from '../../data/reference';
 
@@ -15,7 +15,7 @@ export function getMaximizedStats(
   ivs: PokemonIVs,
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
-): SpreadStats {
+): Spread {
   const atk = ivs.atk + species.stats.atk;
   const def = ivs.def + species.stats.def;
   const sta = ivs.sta + species.stats.sta;

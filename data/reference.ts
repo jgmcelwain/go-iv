@@ -229,14 +229,14 @@ export type Pokemon = {
   };
 };
 
-export type SpreadStats = {
+export type Spread = {
   ivs: PokemonIVs;
   cp: number;
   level: number;
   stats: PokemonStats;
   product: number;
 };
-export type RankedSpreadStats = SpreadStats & {
+export type RankedSpread = Spread & {
   rank: number;
   percent: number;
 };

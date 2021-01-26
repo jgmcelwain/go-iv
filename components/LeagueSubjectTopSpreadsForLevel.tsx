@@ -6,8 +6,8 @@ import { useLeagueSubjectRankedSpreads } from '../hooks/useLeagueSubjectRankedSp
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
-import * as LeagueTableCells from './LeagueTableCells';
-import LeagueTopSpreadsForLevelDownload from './LeagueTopSpreadsForLevelDownload';
+import * as LeagueSubjectTableCells from './LeagueSubjectTableCells';
+import LeagueSubjectTopSpreadsForLevelDownload from './LeagueSubjectTopSpreadsForLevelDownload';
 
 const LeagueTopSpreadsForLevel: FunctionComponent = () => {
   const { inspectedLevelCap } = useLeague();
@@ -39,23 +39,41 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
         <table className='w-full border-collapse table-auto'>
           <thead>
             <tr>
-              <LeagueTableCells.Header>Rank</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                Rank
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>IVs</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                IVs
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>Level</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                Level
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>CP</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                CP
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>Atk</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                Atk
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>Def</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                Def
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>Sta</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                Sta
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>Product</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                Product
+              </LeagueSubjectTableCells.Header>
 
-              <LeagueTableCells.Header>Product%</LeagueTableCells.Header>
+              <LeagueSubjectTableCells.Header>
+                Product%
+              </LeagueSubjectTableCells.Header>
             </tr>
           </thead>
 
@@ -69,11 +87,11 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
                     : `${spread.colors.background} ${spread.colors.text}`
                 }
               >
-                <LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
                   <>{spread.rank}</>
-                </LeagueTableCells.Body>
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
                   <>
                     {spread.ivs.atk}
                     <span className='transform scale-75 inline-block mx-1 font-semibold'>
@@ -87,40 +105,44 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
                     </span>
                     {spread.ivs.sta}
                   </>
-                </LeagueTableCells.Body>
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>{spread.level}</LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
+                  {spread.level}
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>{spread.cp}</LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
+                  {spread.cp}
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
                   {spread.stats.atk.toFixed(2)}
-                </LeagueTableCells.Body>
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
                   {spread.stats.def.toFixed(2)}
-                </LeagueTableCells.Body>
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
                   {spread.stats.sta}
-                </LeagueTableCells.Body>
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
                   <span title={`${spread.product}`}>
                     {(spread.product / 1000).toFixed(2)}
                   </span>
-                </LeagueTableCells.Body>
+                </LeagueSubjectTableCells.Body>
 
-                <LeagueTableCells.Body>
-                  {(spread.percent * 100).toFixed(2)}%
-                </LeagueTableCells.Body>
+                <LeagueSubjectTableCells.Body>
+                  {(spread.percent.product * 100).toFixed(2)}%
+                </LeagueSubjectTableCells.Body>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <LeagueTopSpreadsForLevelDownload />
+      <LeagueSubjectTopSpreadsForLevelDownload />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { LevelCapNumber, RankedSpreadStats } from '../../data/reference';
+import { LevelCapNumber, RankedSpread } from '../../data/reference';
 
 import { useLeague } from '../useLeague';
 import { useSubject } from '../useSubject';
@@ -13,7 +13,7 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
   const { subject } = useSubject();
   const { settings } = useSettings();
 
-  const value = useMemo<RankedSpreadStats[]>(() => {
+  const value = useMemo<RankedSpread[]>(() => {
     if (settings.levelCaps[levelCapNumber] === false) return [];
 
     return generateRankedSpreads(

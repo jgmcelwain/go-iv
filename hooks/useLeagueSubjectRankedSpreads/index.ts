@@ -1,10 +1,10 @@
 import { createContext, useContext } from 'react';
-import { LevelCapNumber, RankedSpreadStats } from '../../data/reference';
+import { LevelCapNumber, RankedSpread } from '../../data/reference';
 
 export { Provider } from './Provider';
 
 export type LeagueSubjectRankedSpreads = {
-  [K in LevelCapNumber]: RankedSpreadStats[];
+  [K in LevelCapNumber]: RankedSpread[];
 };
 export const Context = createContext<LeagueSubjectRankedSpreads>(null);
 

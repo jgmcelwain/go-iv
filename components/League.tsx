@@ -4,7 +4,7 @@ import { League } from '../data/reference';
 import { Provider as LeagueContextProvider } from '../hooks/useLeague';
 
 import LeagueHeader from './LeagueHeader';
-import LeagueContent from './LeagueContent';
+import LeagueSubject from './LeagueSubject';
 
 const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
   return (
@@ -12,7 +12,7 @@ const LeagueWrapper: FunctionComponent<{ league: League }> = ({ league }) => {
       <div className='w-full sm:rounded-lg overflow-hidden'>
         <LeagueHeader />
 
-        <LeagueContent />
+        <LeagueSubject />
       </div>
     </LeagueContextProvider>
   );
