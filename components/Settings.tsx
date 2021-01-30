@@ -51,7 +51,7 @@ const Settings: FunctionComponent = () => {
       </SettingsSection>
 
       <SettingsSection title='Output'>
-        <SettingsSectionCategory description='Selected fields will be displayed in the calculation output.'>
+        <SettingsSectionCategory description='Selected fields will be displayed in the subject calculation output.'>
           {OUTPUT_DATA.map((dataPoint) => (
             <SettingsSectionCategoryInput
               key={dataPoint.key}

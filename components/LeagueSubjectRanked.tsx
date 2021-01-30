@@ -52,12 +52,6 @@ const LeagueSubject: FunctionComponent = () => {
               </LeagueSubjectTableCells.Header>
             )}
 
-            {settings.outputData.statProductPercent && (
-              <LeagueSubjectTableCells.Header>
-                Product%
-              </LeagueSubjectTableCells.Header>
-            )}
-
             <LeagueSubjectTableCells.Header />
           </tr>
         </thead>

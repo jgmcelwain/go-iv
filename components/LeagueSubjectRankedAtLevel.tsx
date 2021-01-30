@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useMemo } from 'react';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
+import { formatPercent } from '../utils/formatPercent';
 
 import { useSettings } from '../hooks/useSettings';
 import { useSubject } from '../hooks/useSubject';
@@ -19,7 +20,7 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
   const { settings } = useSettings();
   const leagueSubjectRankedSpreads = useLeagueSubjectRankedSpreads();
 
-  const result = useMemo(
+  const subjectAtLevel = useMemo(
     () =>
       leagueSubjectRankedSpreads[levelCap.level].find(
         (spread) =>
@@ -35,56 +36,86 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
     [subject.floor],
   );
 
-  const colors = useMemo(() => getRankedSpreadColors(result), [result]);
+  const colors = useMemo(() => getRankedSpreadColors(subjectAtLevel), [
+    subjectAtLevel,
+  ]);
 
-  if (result === null) return null;
+  if (subjectAtLevel === null) return null;
 
   return (
     <tr className={`${colors.background} ${colors.text}`}>
       {settings.outputData.rank && (
         <LeagueSubjectTableCells.Body>
-          {result.rank}
+          {subjectAtLevel.rank}
         </LeagueSubjectTableCells.Body>
       )}
 
       {settings.outputData.level && (
         <LeagueSubjectTableCells.Body>
           <>
-            {result.level}
+            {subjectAtLevel.level}
             <span className='text-xs'> / {levelCap.level}</span>
           </>
         </LeagueSubjectTableCells.Body>
       )}
 
       {settings.outputData.cp && (
-        <LeagueSubjectTableCells.Body>{result.cp}</LeagueSubjectTableCells.Body>
+        <LeagueSubjectTableCells.Body>
+          {subjectAtLevel.cp}
+        </LeagueSubjectTableCells.Body>
       )}
 
       {settings.outputData.stats && (
         <>
           <LeagueSubjectTableCells.Body>
-            {result.stats.atk.toFixed(2)}
+            <>
+              {subjectAtLevel.stats.atk.value.toFixed(2)}
+
+              {settings.outputData.percent && (
+                <span className='block text-xs opacity-70'>
+                  {formatPercent(subjectAtLevel.stats.atk.percentOfMax)}
+                </span>
+              )}
+            </>
           </LeagueSubjectTableCells.Body>
           <LeagueSubjectTableCells.Body>
-            {result.stats.def.toFixed(2)}
+            <>
+              {subjectAtLevel.stats.def.value.toFixed(2)}
+
+              {settings.outputData.percent && (
+                <span className='block text-xs opacity-70'>
+                  {formatPercent(subjectAtLevel.stats.def.percentOfMax)}
+                </span>
+              )}
+            </>
           </LeagueSubjectTableCells.Body>
           <LeagueSubjectTableCells.Body>
-            {result.stats.sta}
+            <>
+              {subjectAtLevel.stats.sta.value}
+
+              {settings.outputData.percent && (
+                <span className='block text-xs opacity-70'>
+                  {formatPercent(subjectAtLevel.stats.sta.percentOfMax)}
+                </span>
+              )}
+            </>
           </LeagueSubjectTableCells.Body>
         </>
       )}
 
       {settings.outputData.statProduct && (
         <LeagueSubjectTableCells.Body>
-          <span title={`${result.product}`}>
-            {(result.product / 1000).toFixed(2)}
-          </span>
-        </LeagueSubjectTableCells.Body>
-      )}
+          <>
+            <span title={`${subjectAtLevel.product}`}>
+              {(subjectAtLevel.product.value / 1000).toFixed(2)}
+            </span>
 
-      {settings.outputData.statProductPercent && (
-        <LeagueSubjectTableCells.Body>
-          {(result.percent * 100).toFixed(2)}%
+            {settings.outputData.percent && (
+              <span className='block text-xs opacity-70'>
+                {formatPercent(subjectAtLevel.product.percentOfMax)}
+              </span>
+            )}
+          </>
         </LeagueSubjectTableCells.Body>
       )}
 

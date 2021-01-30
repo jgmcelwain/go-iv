@@ -12,8 +12,8 @@ const defaultSettings: Settings = {
     rank: true,
     cp: true,
     stats: true,
-    statProduct: false,
-    statProductPercent: true,
+    statProduct: true,
+    percent: true,
   },
 };
 

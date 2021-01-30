@@ -187,14 +187,14 @@ export type OutputDataKey =
   | 'cp'
   | 'stats'
   | 'statProduct'
-  | 'statProductPercent';
+  | 'percent';
 export type OutputDataName =
   | 'Level'
   | 'Rank'
   | 'CP'
   | 'Stats'
   | 'Product'
-  | 'Product % of Max';
+  | '% of Rank 1';
 export type OutputDataPoint = { key: OutputDataKey; name: OutputDataName };
 export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'level', name: 'Level' },
@@ -202,7 +202,7 @@ export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'cp', name: 'CP' },
   { key: 'stats', name: 'Stats' },
   { key: 'statProduct', name: 'Product' },
-  { key: 'statProductPercent', name: 'Product % of Max' },
+  { key: 'percent', name: '% of Rank 1' },
 ];
 
 export type PokemonID = string;
@@ -236,9 +236,18 @@ export type Spread = {
   stats: PokemonStats;
   product: number;
 };
-export type RankedSpread = Spread & {
+export type ComparableToMax = {
+  value: number;
+  percentOfMax: number;
+};
+export type RankedSpread = Pick<Spread, 'ivs' | 'cp' | 'level'> & {
   rank: number;
-  percent: number;
+  product: ComparableToMax;
+  stats: {
+    atk: ComparableToMax;
+    def: ComparableToMax;
+    sta: ComparableToMax;
+  };
 };
 
 export type ActionMap<M extends { [index: string]: unknown }> = {

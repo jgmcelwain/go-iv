@@ -116,25 +116,25 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
                 </LeagueSubjectTableCells.Body>
 
                 <LeagueSubjectTableCells.Body>
-                  {spread.stats.atk.toFixed(2)}
+                  {spread.stats.atk.value.toFixed(2)}
                 </LeagueSubjectTableCells.Body>
 
                 <LeagueSubjectTableCells.Body>
-                  {spread.stats.def.toFixed(2)}
+                  {spread.stats.def.value.toFixed(2)}
                 </LeagueSubjectTableCells.Body>
 
                 <LeagueSubjectTableCells.Body>
-                  {spread.stats.sta}
+                  {spread.stats.sta.value}
                 </LeagueSubjectTableCells.Body>
 
                 <LeagueSubjectTableCells.Body>
                   <span title={`${spread.product}`}>
-                    {(spread.product / 1000).toFixed(2)}
+                    {(spread.product.value / 1000).toFixed(2)}
                   </span>
                 </LeagueSubjectTableCells.Body>
 
                 <LeagueSubjectTableCells.Body>
-                  {(spread.percent.product * 100).toFixed(2)}%
+                  {(spread.product.percentOfMax * 100).toFixed(2)}%
                 </LeagueSubjectTableCells.Body>
               </tr>
             ))}
