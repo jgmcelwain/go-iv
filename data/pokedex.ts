@@ -4774,16 +4774,19 @@ export const POKEDEX: Pokemon[] = [
   },
 ];
 
-export function getPokemonByName(name: PokemonName) {
+export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
   if (!name) return null;
 
-  return POKEDEX.find((pokemon) => pokemon.name === name) ?? null;
+  return list.find((pokemon) => pokemon.name === name) ?? null;
 }
-export function getPokemonByID(id: PokemonID) {
+export function getPokemonByID(id: PokemonID, list: Pokemon[] = POKEDEX) {
   if (!id) return null;
 
-  return POKEDEX.find((pokemon) => pokemon.id === id) ?? null;
+  return list.find((pokemon) => pokemon.id === id) ?? null;
 }
-export function getPokemonFamilyMembers(family_id: PokemonID) {
-  return POKEDEX.filter((pokemon) => pokemon.family.id === family_id);
+export function getPokemonFamilyMembers(
+  family_id: PokemonID,
+  list: Pokemon[] = POKEDEX,
+) {
+  return list.filter((pokemon) => pokemon.family.id === family_id);
 }
