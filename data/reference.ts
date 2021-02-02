@@ -223,6 +223,7 @@ export type Pokemon = {
   name: PokemonName;
   stats: PokemonStats;
   floor?: IVFloor;
+  speculative?: boolean;
   family: {
     id: PokemonID;
     stage: PokemonFamilyStage;
