@@ -16,6 +16,7 @@ export type Settings = {
   leagues: { [key in LeagueKey]: boolean };
   levelCaps: { [key in LevelCapNumber]: boolean };
   outputData: { [key in OutputDataKey]: boolean };
+  showSpeculative: boolean;
 };
 
 export function useSettings() {

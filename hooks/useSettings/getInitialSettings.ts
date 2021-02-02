@@ -15,6 +15,7 @@ const defaultSettings: Settings = {
     statProduct: true,
     percent: true,
   },
+  showSpeculative: false,
 };
 
 export function getInitialSettings(ctx: NextPageContext) {

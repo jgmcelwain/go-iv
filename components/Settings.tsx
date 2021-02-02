@@ -67,6 +67,21 @@ const Settings: FunctionComponent = () => {
           ))}
         </SettingsSectionCategory>
       </SettingsSection>
+
+      <SettingsSection title='Data'>
+        <SettingsSectionCategory description='Toggle available data sources.'>
+          <SettingsSectionCategoryInput
+            onInput={(value) =>
+              dispatch({
+                type: SettingsActionTypes.Speculative,
+                payload: value,
+              })
+            }
+            value={settings.showSpeculative}
+            label='Speculative Pokemon (unreleased Mega Evolutions)'
+          />
+        </SettingsSectionCategory>
+      </SettingsSection>
     </SettingsWrapper>
   );
 };
