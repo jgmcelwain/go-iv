@@ -12,6 +12,8 @@ PVPIV.app allows trainers to quickly evaluate a catch and determine the value of
 - Rank checking for Level 40, Level 41 (Best Buddy), Level 50 (Candy XL) and Level 51 (Candy XL + Best Buddy)
 - View rank data for all Leagues and Level Caps simultaneously
 - Options to hide Leagues and Level Caps that you aren't interested in
+- Export ranking data to CSV
+- View forecast data for unreleased Mega Evolutions
 
 ## Development
 
