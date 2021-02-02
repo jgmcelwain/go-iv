@@ -18,7 +18,7 @@ const LeagueTopSpreadsForLevelDownload: FunctionComponent = () => {
     const csvContent = spreads.reduce(
       (output, spread) =>
         output.concat(
-          `\n${spread.rank},${spread.ivs.atk},${spread.ivs.def},${spread.ivs.sta},${spread.level},${spread.cp},${spread.stats.atk},${spread.stats.def},${spread.stats.sta},${spread.product}`,
+          `\n${spread.rank},${spread.ivs.atk},${spread.ivs.def},${spread.ivs.sta},${spread.level},${spread.cp},${spread.stats.atk.value},${spread.stats.def.value},${spread.stats.sta.value},${spread.product.value}`,
         ),
       'Rank,Atk IV,Def IV,Sta IV,Level,CP,Attack,Defense,Stamina,Product',
     );
