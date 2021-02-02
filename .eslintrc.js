@@ -17,9 +17,10 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'eslint-plugin-tsdoc'],
   rules: {
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'tsdoc/syntax': 'warn',
   },
 };

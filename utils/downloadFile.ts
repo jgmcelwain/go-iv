@@ -1,3 +1,10 @@
+/**
+ * Downloads a file
+ *
+ * @param fileName - The name of the file to be downloaded
+ * @param fileType - The type of content in the file
+ * @param content - The data to include in the file
+ */
 export function downloadFile(
   fileName: string,
   fileType: string,

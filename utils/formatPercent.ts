@@ -1,7 +1,13 @@
-export function formatPercent(val: number) {
-  if (val === 1 || val === 0) {
-    return `${val * 100}%`;
+/**
+ * Format a numerical value as a percentage.
+ *
+ * @param value - The number to be formatted.
+ * @returns Formatted % string
+ */
+export function formatPercent(value: number) {
+  if (value === 1 || value === 0) {
+    return `${value * 100}%`;
   }
 
-  return `${(val * 100).toFixed(2)}%`;
+  return `${(value * 100).toFixed(2)}%`;
 }
