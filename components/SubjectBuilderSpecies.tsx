@@ -8,9 +8,9 @@ import { usePokedex } from '../hooks/usePokedex';
 import SubjectBuilderSpeciesFamilySwap from './SubjectBuilderSpeciesFamilySwap';
 
 const SubjectBuilderSpecies: FunctionComponent = () => {
-  const pokedex = usePokedex();
   const input = useRef<HTMLInputElement>();
 
+  const pokedex = usePokedex();
   const { subject, dispatch } = useSubject();
   const [value, setValue] = useState<PokemonName>(subject.species.name);
 
