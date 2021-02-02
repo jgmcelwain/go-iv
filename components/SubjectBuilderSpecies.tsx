@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useState, useEffect, useRef } from 'react';
 
 import { PokemonName } from '../data/reference';
-import { getPokemonByName, POKEDEX } from '../data/pokedex';
 
 import { useSubject, SubjectActionTypes } from '../hooks/useSubject';
+import { usePokedex } from '../hooks/usePokedex';
 
 import SubjectBuilderSpeciesFamilySwap from './SubjectBuilderSpeciesFamilySwap';
 
 const SubjectBuilderSpecies: FunctionComponent = () => {
+  const pokedex = usePokedex();
   const input = useRef<HTMLInputElement>();
 
   const { subject, dispatch } = useSubject();
@@ -15,7 +16,7 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
 
   useEffect(() => {
     if (subject.species.name !== value) {
-      const match = getPokemonByName(value);
+      const match = pokedex.getPokemonByName(value);
 
       if (match) {
         dispatch({ type: SubjectActionTypes.Species, payload: match });
@@ -51,7 +52,7 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
           />
 
           <datalist id='pokemon-list'>
-            {POKEDEX.map((pokemon) => (
+            {pokedex.list.map((pokemon) => (
               <option key={pokemon.id} value={pokemon.name} />
             ))}
           </datalist>

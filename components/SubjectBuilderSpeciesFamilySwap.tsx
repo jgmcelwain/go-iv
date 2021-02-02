@@ -1,20 +1,23 @@
 import React, { FunctionComponent, useMemo } from 'react';
 
-import { getPokemonFamilyMembers } from '../data/pokedex';
 import { Pokemon } from '../data/reference';
 
 import { useSubject } from '../hooks/useSubject';
+import { usePokedex } from '../hooks/usePokedex';
 
 const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
   onChange: (arg0: Pokemon) => void;
 }> = ({ onChange }) => {
   const { subject } = useSubject();
+  const pokedex = usePokedex();
 
   const iterableFamily = useMemo(() => {
-    const familyMembers = getPokemonFamilyMembers(subject.species.family?.id);
+    const familyMembers = pokedex.getPokemonFamilyMembers(
+      subject.species.family?.id,
+    );
 
     return familyMembers.sort((a, b) => a.family.stage - b.family.stage);
-  }, [subject.species.id]);
+  }, [subject.species.id, pokedex.list.length]);
 
   if (iterableFamily.length === 0) return null;
 
