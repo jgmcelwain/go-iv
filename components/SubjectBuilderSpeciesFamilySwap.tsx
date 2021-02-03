@@ -12,9 +12,7 @@ const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
   const pokedex = usePokedex();
 
   const iterableFamily = useMemo(() => {
-    const familyMembers = pokedex.getPokemonFamilyMembers(
-      subject.species.family?.id,
-    );
+    const familyMembers = pokedex.familyMembers(subject.species.family?.id);
 
     return familyMembers.sort((a, b) => a.family.stage - b.family.stage);
   }, [subject.species.id, pokedex.list.length]);

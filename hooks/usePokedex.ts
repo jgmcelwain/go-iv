@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useSettings } from './useSettings';
 
 import { PokemonName, PokemonID } from '../data/reference';
@@ -24,11 +24,20 @@ export function usePokedex() {
     [settings.showSpeculative],
   );
 
+  const byName = useCallback(
+    (name: PokemonName) => getPokemonByName(name, list),
+    [list],
+  );
+  const byId = useCallback((id: PokemonID) => getPokemonByID(id, list), [list]);
+  const familyMembers = useCallback(
+    (familyId: PokemonID) => getPokemonFamilyMembers(familyId, list),
+    [list],
+  );
+
   return {
     list,
-    getPokemonByName: (name: PokemonName) => getPokemonByName(name, list),
-    getPokemonByID: (id: PokemonID) => getPokemonByID(id, list),
-    getPokemonFamilyMembers: (family_id: PokemonID) =>
-      getPokemonFamilyMembers(family_id, list),
+    byName,
+    byId,
+    familyMembers,
   };
 }

@@ -10840,8 +10840,8 @@ export function getPokemonByID(id: PokemonID, list: Pokemon[] = POKEDEX) {
   return list.find((pokemon) => pokemon.id === id) ?? null;
 }
 export function getPokemonFamilyMembers(
-  family_id: PokemonID,
+  familyID: PokemonID,
   list: Pokemon[] = POKEDEX,
 ) {
-  return list.filter((pokemon) => pokemon.family.id === family_id);
+  return list.filter((pokemon) => pokemon.family.id === familyID);
 }

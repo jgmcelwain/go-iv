@@ -16,7 +16,7 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
 
   useEffect(() => {
     if (subject.species.name !== value) {
-      const match = pokedex.getPokemonByName(value);
+      const match = pokedex.byName(value);
 
       if (match) {
         dispatch({ type: SubjectActionTypes.Species, payload: match });
