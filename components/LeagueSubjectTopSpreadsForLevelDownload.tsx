@@ -30,7 +30,7 @@ const LeagueTopSpreadsForLevelDownload: FunctionComponent = () => {
     <div className='w-full py-2 flex justify-center items-center bg-white border-t border-gray-200'>
       <button
         onClick={exportToCSV}
-        className='z-10 text-gray-700 hover:text-black focus:ring-2 ring-offset-1 p-1 ring-blue-400 focus:outline-none rounded-full sm:rounded flex justify-start items-center'
+        className='z-10 text-gray-700 hover:text-black focus-ring p-1 rounded-full sm:rounded flex justify-start items-center'
       >
         <span className='mr-2 text-xs font-semibold'>
           Export All{' '}

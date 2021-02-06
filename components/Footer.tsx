@@ -13,7 +13,7 @@ const Footer: FunctionComponent = () => (
         href='https://github.com/jgmcelwain/pvpiv'
         rel='noreferrer'
         target='_blank'
-        className='text-blue-400 hover:underline'
+        className='text-blue-400 hover:underline focus-ring ring-offset-gray-900 rounded-sm'
       >
         jgmcelwain/pvpiv
       </a>

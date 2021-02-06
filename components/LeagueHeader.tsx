@@ -60,7 +60,7 @@ const LeagueHeader: FunctionComponent = () => {
         <button
           onClick={() => setDisplayMode('subject')}
           title={`Back`}
-          className='p-1 mr-3 focus:ring-2 ring-white focus:outline-none rounded'
+          className='p-1 mr-3 focus-visible:ring-2 ring-white rounded'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

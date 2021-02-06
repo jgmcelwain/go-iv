@@ -24,7 +24,7 @@ const SubjectBuilderIVs: FunctionComponent = () => {
               })
             }
             value={subject.ivs[stat.key]}
-            className='form-select rounded mt-1 block w-full focus:ring-2 ring-offset-2 ring-offset-gray-900 ring-blue-600'
+            className='form-select rounded mt-1 block w-full focus-ring ring-offset-gray-900'
           >
             {IV_RANGE.filter((iv) => iv >= subject.floor).map((iv) => (
               <option key={iv} value={iv}>

@@ -122,7 +122,7 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
       <LeagueSubjectTableCells.Body right>
         <button
           onClick={() => setDisplayMode('top', levelCap)}
-          className='focus:ring-2 p-0.5 ring-blue-600 focus:outline-none rounded mr-2'
+          className='focus-ring p-0.5 rounded mr-2'
           title={`View top ${league.name} IV spreads for ${subject.species.name}, Level ${levelCap.level}, ${floor.name}`}
         >
           <svg

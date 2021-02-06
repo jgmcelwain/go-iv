@@ -24,6 +24,8 @@ module.exports = {
     extend: {
       padding: ['first', 'last'],
       margin: ['last'],
+      ringWidth: ['focus-visible'],
+      outline: ['focus-visible'],
     },
   },
   plugins: [require('@tailwindcss/custom-forms')],

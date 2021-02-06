@@ -19,7 +19,7 @@ const Header: FunctionComponent = () => {
               query: { subject: router.query.subject },
             }}
           >
-            <a>
+            <a className='focus-ring ring-offset-gray-800 rounded-full'>
               <img
                 src='/logo.png'
                 className='w-10 h-10'
@@ -35,7 +35,7 @@ const Header: FunctionComponent = () => {
             href='https://github.com/jgmcelwain/pvpiv/releases'
             target='_blank'
             rel='noreferrer'
-            className='text-gray-600 hover:text-blue-500 text-sm ml-1 group inline-flex justify-start items-center transition-colors'
+            className='text-gray-600 hover:text-blue-500 text-sm ml-1 group inline-flex justify-start items-center transition-colors focus-ring ring-offset-gray-800 rounded-sm'
             title='View Releases'
           >
             <span>v{version}</span>
