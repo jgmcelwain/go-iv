@@ -1,88 +1,79 @@
 import React, { FunctionComponent } from 'react';
 
-import { LEAGUES, LEVEL_CAPS, OUTPUT_DATA } from '../data/reference';
-
-import { useSettings, SettingsActionTypes } from '../hooks/useSettings';
 import { useSettingsShown } from '../hooks/useSettingsShown';
+import { Provider as SettingsNavigationProvider } from '../hooks/useSettingsNavigation';
 
-import SettingsWrapper from './SettingsWrapper';
-import SettingsSection from './SettingsSection';
-import SettingsSectionCategory from './SettingsSectionCategory';
-import SettingsSectionCategoryInput from './SettingsSectionCategoryInput';
+import { Transition } from '@headlessui/react';
+import SettingsNavigation from './SettingsNavigation';
+import SettingsContent from './SettingsContent';
 
 const Settings: FunctionComponent = () => {
-  const { settings, dispatch } = useSettings();
   const { isShown, hide } = useSettingsShown();
 
   return (
-    <SettingsWrapper onClose={hide} shown={isShown}>
-      <SettingsSection title='Calculation'>
-        <SettingsSectionCategory description='Leagues for which rank data should be calculated for.'>
-          {LEAGUES.map((league) => (
-            <SettingsSectionCategoryInput
-              key={league.key}
-              onInput={(value) =>
-                dispatch({
-                  type: SettingsActionTypes.League,
-                  payload: { key: league.key, value },
-                })
-              }
-              value={settings.leagues[league.key]}
-              label={league.name}
-            />
-          ))}
-        </SettingsSectionCategory>
+    <div
+      className={`fixed z-10 inset-0 overflow-y-auto ${
+        isShown ? 'pointer-events-auto' : 'pointer-events-none'
+      }`}
+    >
+      <div className='flex items-center justify-center min-h-screen px-4 text-center'>
+        <Transition
+          show={isShown}
+          enter='ease-out duration-300'
+          enterFrom='opacity-0'
+          enterTo='opacity-100'
+          leave='ease-in duration-200'
+          leaveFrom='opacity-100'
+          leaveTo='opacity-0'
+        >
+          {(ref) => (
+            <div
+              ref={ref}
+              className='fixed inset-0 transition-opacity'
+              aria-hidden='true'
+            >
+              <div
+                onClick={hide}
+                className='absolute inset-0 bg-gray-900 opacity-90'
+              ></div>
+            </div>
+          )}
+        </Transition>
 
-        <SettingsSectionCategory description='Level caps for which rank data should be calculated for.'>
-          {LEVEL_CAPS.map((levelCap) => (
-            <SettingsSectionCategoryInput
-              key={levelCap.level}
-              onInput={(value) =>
-                dispatch({
-                  type: SettingsActionTypes.LevelCap,
-                  payload: { key: levelCap.level, value },
-                })
-              }
-              value={settings.levelCaps[levelCap.level]}
-              label={levelCap.name}
-            />
-          ))}
-        </SettingsSectionCategory>
-      </SettingsSection>
+        <span
+          className='hidden sm:inline-block sm:align-middle sm:h-screen'
+          aria-hidden='true'
+        >
+          &#8203;
+        </span>
 
-      <SettingsSection title='Output'>
-        <SettingsSectionCategory description='Selected fields will be displayed in the subject calculation output.'>
-          {OUTPUT_DATA.map((dataPoint) => (
-            <SettingsSectionCategoryInput
-              key={dataPoint.key}
-              onInput={(value) =>
-                dispatch({
-                  type: SettingsActionTypes.OutputData,
-                  payload: { key: dataPoint.key, value },
-                })
-              }
-              value={settings.outputData[dataPoint.key]}
-              label={dataPoint.name}
-            />
-          ))}
-        </SettingsSectionCategory>
-      </SettingsSection>
+        <Transition
+          show={isShown}
+          enter='ease-out duration-300'
+          enterFrom='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
+          enterTo='opacity-100 translate-y-0 sm:scale-100'
+          leave='ease-in duration-200'
+          leaveFrom='opacity-100 translate-y-0 sm:scale-100'
+          leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
+        >
+          {(ref) => (
+            <div
+              ref={ref}
+              className='inline-block bg-white my-4 rounded-lg text-left overflow-hidden shadow-xl transform transition-all max-w-lg w-full'
+              role='dialog'
+              aria-modal='true'
+              aria-labelledby='modal-headline'
+            >
+              <SettingsNavigationProvider>
+                <SettingsNavigation />
 
-      <SettingsSection title='Data'>
-        <SettingsSectionCategory description='Toggle available data sources.'>
-          <SettingsSectionCategoryInput
-            onInput={(value) =>
-              dispatch({
-                type: SettingsActionTypes.Speculative,
-                payload: value,
-              })
-            }
-            value={settings.showSpeculative}
-            label='Speculative Pokemon (unreleased Mega Evolutions)'
-          />
-        </SettingsSectionCategory>
-      </SettingsSection>
-    </SettingsWrapper>
+                <SettingsContent />
+              </SettingsNavigationProvider>
+            </div>
+          )}
+        </Transition>
+      </div>
+    </div>
   );
 };
 

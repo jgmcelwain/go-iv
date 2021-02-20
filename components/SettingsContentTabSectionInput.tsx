@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-const SettingsSectionCategoryInput: FunctionComponent<{
+const SettingsContentTabSectionInput: FunctionComponent<{
   label: string;
   value: boolean;
   onInput: (value: boolean) => void;
@@ -10,7 +10,7 @@ const SettingsSectionCategoryInput: FunctionComponent<{
       <input
         onChange={(evt) => onInput(evt.target.checked)}
         type='checkbox'
-        className='form-checkbox rounded bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+        className='form-checkbox rounded bg-gray-200 focus-ring'
         checked={value}
       />
       <span className='ml-2 text-sm cursor-pointer'>{label}</span>
@@ -18,4 +18,4 @@ const SettingsSectionCategoryInput: FunctionComponent<{
   );
 };
 
-export default SettingsSectionCategoryInput;
+export default SettingsContentTabSectionInput;
