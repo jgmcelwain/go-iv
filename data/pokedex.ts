@@ -280,6 +280,19 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'ampharos_mega',
+    name: 'Ampharos (Mega)',
+    stats: {
+      atk: 294,
+      def: 203,
+      sta: 207,
+    },
+    family: {
+      id: 'mareep',
+      stage: 4,
+    },
+  },
+  {
     id: 'anorith',
     name: 'Anorith',
     stats: {
