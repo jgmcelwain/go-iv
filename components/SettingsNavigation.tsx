@@ -9,7 +9,7 @@ const Settings: FunctionComponent = () => {
   const { tabs, activeTab, setActiveTab } = useSettingsNavigation();
 
   useEffect(() => {
-    const activeTabButton =
+    const activeTabButton: HTMLButtonElement =
       tabsContainer.current?.querySelector(`[data-tab-key="${activeTab}"]`) ??
       null;
 
@@ -21,7 +21,7 @@ const Settings: FunctionComponent = () => {
   return (
     <nav className='w-full bg-gray-100 pr-12 relative border-b border-gray-200'>
       <div
-        className='w-full max-w-full transform translate-y-px pt-2 px-2 overflow-x-scroll flex justify-start items-start'
+        className='w-full max-w-full transform relative translate-y-px pt-2 px-2 overflow-x-scroll flex justify-start items-start'
         ref={tabsContainer}
       >
         {tabs.map((tab) => (
@@ -47,6 +47,8 @@ const Settings: FunctionComponent = () => {
             </svg>
           </button>
         ))}
+
+        <div className='w-px h-full block text-3xl'>&nbsp;</div>
       </div>
 
       <button
