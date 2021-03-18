@@ -5658,7 +5658,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'electrike',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'mankey',
