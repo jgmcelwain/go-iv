@@ -197,8 +197,8 @@ export type OutputDataName =
   | '% of Rank 1';
 export type OutputDataPoint = { key: OutputDataKey; name: OutputDataName };
 export const OUTPUT_DATA: OutputDataPoint[] = [
-  { key: 'level', name: 'Level' },
   { key: 'rank', name: 'Rank' },
+  { key: 'level', name: 'Level' },
   { key: 'cp', name: 'CP' },
   { key: 'stats', name: 'Stats' },
   { key: 'statProduct', name: 'Product' },
