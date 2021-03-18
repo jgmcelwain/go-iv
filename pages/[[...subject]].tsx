@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import dynamic from 'next/dynamic';
 
 import {
   getInitialSubject,
@@ -7,10 +8,13 @@ import {
 } from '../hooks/useSubject';
 
 import SubjectBuilder from '../components/SubjectBuilder';
-import LeagueGrid from '../components/LeagueGrid';
 import Footer from '../components/Footer';
 import Settings from '../components/Settings';
 import { NextPageContext } from 'next';
+
+const LeagueGrid = dynamic(() => import('../components/LeagueGrid'), {
+  ssr: false,
+});
 
 const IndexPage: FunctionComponent<{
   subject: SubjectType;
