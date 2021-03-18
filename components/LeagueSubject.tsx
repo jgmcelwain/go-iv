@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import { useLeague } from '../hooks/useLeague';
-import { Provider as LeagueSubjectRankedSpreadsProvider } from '../hooks/useLeagueSubjectRankedSpreads';
+import { Provider as LeagueSubjectRankedSpreadsProvider } from '../hooks/useRankedSpreads';
 
 import LeagueSubjectRanked from './LeagueSubjectRanked';
 import LeagueSubjectTopSpreadsForLevel from './LeagueSubjectTopSpreadsForLevel';

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { useLeagueSubjectRankedSpreads } from '../hooks/useLeagueSubjectRankedSpreads';
+import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { useLeague } from '../hooks/useLeague';
 import { useSubject } from '../hooks/useSubject';
 
@@ -9,10 +9,10 @@ import { downloadFile } from '../utils/downloadFile';
 const LeagueTopSpreadsForLevelDownload: FunctionComponent = () => {
   const { subject } = useSubject();
   const { league, inspectedLevelCap } = useLeague();
-  const leagueSubjectRankedSpreads = useLeagueSubjectRankedSpreads();
+  const rankedSpreads = useRankedSpreads();
 
   function exportToCSV() {
-    const spreads = leagueSubjectRankedSpreads[inspectedLevelCap.level];
+    const spreads = rankedSpreads[inspectedLevelCap.level];
     const fileName = `${subject.species.id}-${league.cp}-${inspectedLevelCap.level}-${subject.floor}.csv`;
 
     const csvContent = spreads.reduce(
@@ -33,8 +33,7 @@ const LeagueTopSpreadsForLevelDownload: FunctionComponent = () => {
         className='z-10 text-gray-700 hover:text-black focus-ring p-1 rounded-full sm:rounded flex justify-start items-center'
       >
         <span className='mr-2 text-xs font-semibold'>
-          Export All{' '}
-          {leagueSubjectRankedSpreads[inspectedLevelCap.level].length} to CSV
+          Export All {rankedSpreads[inspectedLevelCap.level].length} to CSV
         </span>
 
         <svg

@@ -2,7 +2,7 @@ import React, { FunctionComponent, useMemo } from 'react';
 
 import { useLeague } from '../hooks/useLeague';
 import { useSubject } from '../hooks/useSubject';
-import { useLeagueSubjectRankedSpreads } from '../hooks/useLeagueSubjectRankedSpreads';
+import { useRankedSpreads } from '../hooks/useRankedSpreads';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
@@ -12,10 +12,10 @@ import LeagueSubjectTopSpreadsForLevelDownload from './LeagueSubjectTopSpreadsFo
 const LeagueTopSpreadsForLevel: FunctionComponent = () => {
   const { inspectedLevelCap } = useLeague();
   const { subject } = useSubject();
-  const leagueSubjectRankedSpreads = useLeagueSubjectRankedSpreads();
+  const rankedSpreads = useRankedSpreads();
 
   const displayedSpreads = useMemo(() => {
-    const spreadsForLevel = leagueSubjectRankedSpreads[inspectedLevelCap.level];
+    const spreadsForLevel = rankedSpreads[inspectedLevelCap.level];
 
     const subjectSpread = spreadsForLevel.find(
       (rankedSpread) =>
@@ -31,7 +31,7 @@ const LeagueTopSpreadsForLevel: FunctionComponent = () => {
         return { ...rankedSpread, colors };
       },
     );
-  }, [leagueSubjectRankedSpreads, inspectedLevelCap.level, subject.ivs]);
+  }, [rankedSpreads, inspectedLevelCap.level, subject.ivs]);
 
   return (
     <>
