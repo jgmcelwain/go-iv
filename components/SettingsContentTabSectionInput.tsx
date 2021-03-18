@@ -6,14 +6,18 @@ const SettingsContentTabSectionInput: FunctionComponent<{
   onInput: (value: boolean) => void;
 }> = ({ label, value, onInput }) => {
   return (
-    <label className='flex justify-start items-center mb-1'>
-      <input
-        onChange={(evt) => onInput(evt.target.checked)}
-        type='checkbox'
-        className='form-checkbox rounded bg-gray-200 focus-ring'
-        checked={value}
-      />
-      <span className='ml-2 text-sm cursor-pointer'>{label}</span>
+    <label className='flex justify-start items-start mb-1'>
+      <span className='text-sm leading-normal'>
+        <input
+          onChange={(evt) => onInput(evt.target.checked)}
+          type='checkbox'
+          className='form-checkbox rounded bg-gray-200 focus-ring'
+          checked={value}
+        />
+      </span>
+      <span className='ml-2 text-sm leading-normal cursor-pointer'>
+        {label}
+      </span>
     </label>
   );
 };
