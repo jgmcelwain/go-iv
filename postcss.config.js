@@ -1,3 +1,7 @@
 module.exports = {
-  plugins: { tailwindcss: {}, 'postcss-focus-visible': {}, autoprefixer: {} },
+  plugins: {
+    '@tailwindcss/jit': {},
+    'postcss-focus-visible': {},
+    autoprefixer: {},
+  },
 };

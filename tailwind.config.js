@@ -7,7 +7,6 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './utils/**/*.{js,ts,jsx,jsx}',
   ],
-  darkMode: 'media', // 'media' or 'class'
   theme: {
     extend: {},
     colors: {
@@ -18,14 +17,6 @@ module.exports = {
     fontFamily: {
       ...defaultTheme.fontFamily,
       title: ['Poppins', 'sans-serif'],
-    },
-  },
-  variants: {
-    extend: {
-      padding: ['first', 'last'],
-      margin: ['last'],
-      ringWidth: ['focus-visible'],
-      outline: ['focus-visible'],
     },
   },
   plugins: [require('@tailwindcss/custom-forms')],
