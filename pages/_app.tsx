@@ -6,23 +6,25 @@ import Head from 'next/head';
 import { AppContext, AppProps } from 'next/app';
 
 import {
-  Provider as SettingsContextProvider,
-  Settings,
+  Provider as SettingsProvider,
+  Settings as SettingsType,
   getInitialSettings,
 } from '../hooks/useSettings';
 import { Provider as SettingsShownProvider } from '../hooks/useSettingsShown';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Settings from '../components/Settings';
 
 import '../styles/index.css';
 
-type InitialProps = { settings: Settings };
+type InitialProps = { settings: SettingsType };
 
 const App: FunctionComponent<AppProps & InitialProps> & {
   getInitialProps: (arg0: AppContext) => Promise<InitialProps>;
 } = ({ Component, pageProps, settings }) => {
   return (
-    <SettingsContextProvider initialValue={settings}>
+    <SettingsProvider initialValue={settings}>
       <SettingsShownProvider>
         <Head>
           <title>PVPIV.app - Pokémon GO PVP IV Checker</title>
@@ -36,9 +38,13 @@ const App: FunctionComponent<AppProps & InitialProps> & {
           <Header />
 
           <Component {...pageProps} />
+
+          <Footer />
+
+          <Settings />
         </>
       </SettingsShownProvider>
-    </SettingsContextProvider>
+    </SettingsProvider>
   );
 };
 

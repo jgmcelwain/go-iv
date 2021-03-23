@@ -1,34 +1,36 @@
 import React, { FunctionComponent } from 'react';
-import dynamic from 'next/dynamic';
+
+import { LEAGUES } from '../data/reference';
 
 import {
   getInitialSubject,
   Subject as SubjectType,
   Provider as SubjectContextProvider,
 } from '../hooks/useSubject';
+import { useSettings } from '../hooks/useSettings';
 
+import SubjectLeague from '../components/SubjectLeague';
 import SubjectBuilder from '../components/SubjectBuilder';
-import Footer from '../components/Footer';
-import Settings from '../components/Settings';
-import { NextPageContext } from 'next';
 
-const LeagueGrid = dynamic(() => import('../components/LeagueGrid'), {
-  ssr: false,
-});
+import { NextPageContext } from 'next';
 
 const IndexPage: FunctionComponent<{
   subject: SubjectType;
 }> = (props) => {
+  const { settings } = useSettings();
+
   return (
     <SubjectContextProvider initialValue={props.subject}>
       <div className='container mx-auto px-0 sm:px-4'>
         <SubjectBuilder />
 
-        <LeagueGrid />
-
-        <Footer />
-
-        <Settings />
+        <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 items-start'>
+          {LEAGUES.filter(
+            (league) => settings.leagues[league.key] === true,
+          ).map((league) => (
+            <SubjectLeague key={league.key} league={league} />
+          ))}
+        </div>
       </div>
     </SubjectContextProvider>
   );

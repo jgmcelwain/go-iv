@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 const Footer: FunctionComponent = () => (
-  <div className='w-full my-8 pt-8 px-4 border-t border-gray-800'>
+  <div className='container mx-auto my-8 pt-8 px-4 border-t border-gray-800'>
     <p className='text-center text-xs text-gray-400 mb-2'>
       Pokémon are copyright of The Pokémon Company and Nintendo. All data used
       in this application is for educational purposes only.

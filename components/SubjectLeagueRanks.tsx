@@ -3,10 +3,10 @@ import { LEVEL_CAPS } from '../data/reference';
 
 import { useSettings } from '../hooks/useSettings';
 
-import * as LeagueSubjectTableCells from './LeagueSubjectTableCells';
-import LeagueSubjectRankedAtLevel from './LeagueSubjectRankedAtLevel';
+import * as SubjectLeagueTableCells from './SubjectLeagueTableCells';
+import SubjectLeagueRanksAtLevelCap from './SubjectLeagueRanksAtLevelCap';
 
-const LeagueSubject: FunctionComponent = () => {
+const SubjectLeagueRanks: FunctionComponent = () => {
   const { settings } = useSettings();
 
   return (
@@ -15,44 +15,44 @@ const LeagueSubject: FunctionComponent = () => {
         <thead>
           <tr>
             {settings.outputData.rank && (
-              <LeagueSubjectTableCells.Header>
+              <SubjectLeagueTableCells.Header>
                 Rank
-              </LeagueSubjectTableCells.Header>
+              </SubjectLeagueTableCells.Header>
             )}
 
             {settings.outputData.level && (
-              <LeagueSubjectTableCells.Header>
+              <SubjectLeagueTableCells.Header>
                 Level
-              </LeagueSubjectTableCells.Header>
+              </SubjectLeagueTableCells.Header>
             )}
 
             {settings.outputData.cp && (
-              <LeagueSubjectTableCells.Header>
+              <SubjectLeagueTableCells.Header>
                 CP
-              </LeagueSubjectTableCells.Header>
+              </SubjectLeagueTableCells.Header>
             )}
 
             {settings.outputData.stats && (
               <>
-                <LeagueSubjectTableCells.Header>
+                <SubjectLeagueTableCells.Header>
                   Atk
-                </LeagueSubjectTableCells.Header>
-                <LeagueSubjectTableCells.Header>
+                </SubjectLeagueTableCells.Header>
+                <SubjectLeagueTableCells.Header>
                   Def
-                </LeagueSubjectTableCells.Header>
-                <LeagueSubjectTableCells.Header>
+                </SubjectLeagueTableCells.Header>
+                <SubjectLeagueTableCells.Header>
                   Sta
-                </LeagueSubjectTableCells.Header>
+                </SubjectLeagueTableCells.Header>
               </>
             )}
 
             {settings.outputData.statProduct && (
-              <LeagueSubjectTableCells.Header>
+              <SubjectLeagueTableCells.Header>
                 Product
-              </LeagueSubjectTableCells.Header>
+              </SubjectLeagueTableCells.Header>
             )}
 
-            <LeagueSubjectTableCells.Header />
+            <SubjectLeagueTableCells.Header />
           </tr>
         </thead>
 
@@ -60,7 +60,7 @@ const LeagueSubject: FunctionComponent = () => {
           {LEVEL_CAPS.filter(
             (levelCap) => settings.levelCaps[levelCap.level] === true,
           ).map((levelCap) => (
-            <LeagueSubjectRankedAtLevel
+            <SubjectLeagueRanksAtLevelCap
               key={levelCap.level}
               levelCap={levelCap}
             />
@@ -71,4 +71,4 @@ const LeagueSubject: FunctionComponent = () => {
   );
 };
 
-export default LeagueSubject;
+export default SubjectLeagueRanks;

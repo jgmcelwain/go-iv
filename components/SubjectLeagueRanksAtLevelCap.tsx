@@ -10,11 +10,11 @@ import { useRankedSpreads } from '../hooks/useRankedSpreads';
 
 import { IV_FLOORS, LevelCap } from '../data/reference';
 
-import * as LeagueSubjectTableCells from './LeagueSubjectTableCells';
+import * as SubjectLeagueTableCells from './SubjectLeagueTableCells';
 
-const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
-  levelCap,
-}) => {
+const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
+  levelCap: LevelCap;
+}> = ({ levelCap }) => {
   const { league, setDisplayMode } = useLeague();
   const { subject } = useSubject();
   const { settings } = useSettings();
@@ -45,29 +45,29 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
   return (
     <tr className={`${colors.background} ${colors.text}`}>
       {settings.outputData.rank && (
-        <LeagueSubjectTableCells.Body>
+        <SubjectLeagueTableCells.Body>
           {subjectAtLevel.rank}
-        </LeagueSubjectTableCells.Body>
+        </SubjectLeagueTableCells.Body>
       )}
 
       {settings.outputData.level && (
-        <LeagueSubjectTableCells.Body>
+        <SubjectLeagueTableCells.Body>
           <>
             {subjectAtLevel.level}
             <span className='text-xs'> / {levelCap.level}</span>
           </>
-        </LeagueSubjectTableCells.Body>
+        </SubjectLeagueTableCells.Body>
       )}
 
       {settings.outputData.cp && (
-        <LeagueSubjectTableCells.Body>
+        <SubjectLeagueTableCells.Body>
           {subjectAtLevel.cp}
-        </LeagueSubjectTableCells.Body>
+        </SubjectLeagueTableCells.Body>
       )}
 
       {settings.outputData.stats && (
         <>
-          <LeagueSubjectTableCells.Body>
+          <SubjectLeagueTableCells.Body>
             <>
               {subjectAtLevel.stats.atk.value.toFixed(2)}
 
@@ -77,8 +77,8 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
                 </span>
               )}
             </>
-          </LeagueSubjectTableCells.Body>
-          <LeagueSubjectTableCells.Body>
+          </SubjectLeagueTableCells.Body>
+          <SubjectLeagueTableCells.Body>
             <>
               {subjectAtLevel.stats.def.value.toFixed(2)}
 
@@ -88,8 +88,8 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
                 </span>
               )}
             </>
-          </LeagueSubjectTableCells.Body>
-          <LeagueSubjectTableCells.Body>
+          </SubjectLeagueTableCells.Body>
+          <SubjectLeagueTableCells.Body>
             <>
               {subjectAtLevel.stats.sta.value}
 
@@ -99,12 +99,12 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
                 </span>
               )}
             </>
-          </LeagueSubjectTableCells.Body>
+          </SubjectLeagueTableCells.Body>
         </>
       )}
 
       {settings.outputData.statProduct && (
-        <LeagueSubjectTableCells.Body>
+        <SubjectLeagueTableCells.Body>
           <>
             <span title={`${subjectAtLevel.product}`}>
               {(subjectAtLevel.product.value / 1000).toFixed(2)}
@@ -116,10 +116,10 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
               </span>
             )}
           </>
-        </LeagueSubjectTableCells.Body>
+        </SubjectLeagueTableCells.Body>
       )}
 
-      <LeagueSubjectTableCells.Body right>
+      <SubjectLeagueTableCells.Body right>
         <button
           onClick={() => setDisplayMode('top', levelCap)}
           className='focus-ring p-0.5 rounded mr-2'
@@ -140,9 +140,9 @@ const LeagueSubjectAtLevel: FunctionComponent<{ levelCap: LevelCap }> = ({
             />
           </svg>
         </button>
-      </LeagueSubjectTableCells.Body>
+      </SubjectLeagueTableCells.Body>
     </tr>
   );
 };
 
-export default LeagueSubjectAtLevel;
+export default SubjectLeagueRanksAtLevelCap;

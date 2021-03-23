@@ -3,23 +3,23 @@ import React, { FunctionComponent } from 'react';
 import { useLeague } from '../hooks/useLeague';
 import { Provider as LeagueSubjectRankedSpreadsProvider } from '../hooks/useRankedSpreads';
 
-import LeagueSubjectRanked from './LeagueSubjectRanked';
-import LeagueSubjectTopSpreadsForLevel from './LeagueSubjectTopSpreadsForLevel';
+import SubjectLeagueTopSpreadsAtLevelCap from './SubjectLeagueTopSpreadsAtLevelCap';
+import SubjectLeagueRanks from './SubjectLeagueRanks';
 
-const LeagueContent: FunctionComponent = () => {
+const SubjectLeagueContent: FunctionComponent = () => {
   const { displayMode } = useLeague();
 
   return (
     <LeagueSubjectRankedSpreadsProvider>
       <div className='w-full bg-gray-100'>
-        {displayMode === 'subject' ? (
-          <LeagueSubjectRanked />
+        {displayMode === 'top' ? (
+          <SubjectLeagueTopSpreadsAtLevelCap />
         ) : (
-          <LeagueSubjectTopSpreadsForLevel />
+          <SubjectLeagueRanks />
         )}
       </div>
     </LeagueSubjectRankedSpreadsProvider>
   );
 };
 
-export default LeagueContent;
+export default SubjectLeagueContent;

@@ -28,7 +28,7 @@ const LEAGUE_COLORS = {
   },
 };
 
-const LeagueHeader: FunctionComponent = () => {
+const SubjectLeagueHeader: FunctionComponent = () => {
   const { subject } = useSubject();
   const {
     league,
@@ -98,4 +98,4 @@ const LeagueHeader: FunctionComponent = () => {
   );
 };
 
-export default LeagueHeader;
+export default SubjectLeagueHeader;

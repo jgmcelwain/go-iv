@@ -6,16 +6,15 @@ import { useSubject } from '../hooks/useSubject';
 
 import { downloadFile } from '../utils/downloadFile';
 
-const LeagueTopSpreadsForLevelDownload: FunctionComponent = () => {
+const SubjectLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
   const { subject } = useSubject();
   const { league, inspectedLevelCap } = useLeague();
   const rankedSpreads = useRankedSpreads();
 
   function exportToCSV() {
-    const spreads = rankedSpreads[inspectedLevelCap.level];
     const fileName = `${subject.species.id}-${league.cp}-${inspectedLevelCap.level}-${subject.floor}.csv`;
 
-    const csvContent = spreads.reduce(
+    const csvContent = rankedSpreads[inspectedLevelCap.level].reduce(
       (output, spread) =>
         output.concat(
           `\n${spread.rank},${spread.ivs.atk},${spread.ivs.def},${spread.ivs.sta},${spread.level},${spread.cp},${spread.stats.atk.value},${spread.stats.def.value},${spread.stats.sta.value},${spread.product.value}`,
@@ -55,4 +54,4 @@ const LeagueTopSpreadsForLevelDownload: FunctionComponent = () => {
   );
 };
 
-export default LeagueTopSpreadsForLevelDownload;
+export default SubjectLeagueTopSpreadsAtLevelCapDownload;
