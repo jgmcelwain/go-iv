@@ -5290,7 +5290,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'buneary',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'lotad',
