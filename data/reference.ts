@@ -110,8 +110,8 @@ export const CPMs = [
   0.865299999713897,
 ];
 
-export type Stat = 'atk' | 'def' | 'sta';
-export const STATS: { key: Stat; name: string }[] = [
+export type StatKey = 'atk' | 'def' | 'sta';
+export const STATS: { key: StatKey; name: string }[] = [
   { key: 'atk', name: 'Attack' },
   { key: 'def', name: 'Defense' },
   { key: 'sta', name: 'Stamina' },
@@ -152,8 +152,8 @@ export const IV_FLOORS: { value: IVFloor; name: string }[] = [
 export const MIN_IV_FLOOR = IV_FLOORS[0].value;
 export const MAX_IV_FLOOR = IV_FLOORS[IV_FLOORS.length - 1].value;
 
-export type LeagueCPCap = 500 | 1500 | 2500 | 10000;
 export type LeagueKey = 'little' | 'great' | 'ultra' | 'master';
+export type LeagueCPCap = 500 | 1500 | 2500 | 10000;
 export type LeagueName =
   | 'Little Cup'
   | 'Great League'

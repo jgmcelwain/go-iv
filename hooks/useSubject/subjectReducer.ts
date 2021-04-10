@@ -1,6 +1,6 @@
 import { Dispatch as ReactDispatch } from 'react';
 
-import { IV, IVFloor, Pokemon, Stat, ActionMap } from '../../data/reference';
+import { IV, IVFloor, Pokemon, StatKey, ActionMap } from '../../data/reference';
 
 import { Subject } from '.';
 
@@ -13,7 +13,7 @@ export enum SubjectActionTypes {
 
 type PayloadTypes = {
   [SubjectActionTypes.Species]: Pokemon;
-  [SubjectActionTypes.IV]: { stat: Stat; value: IV };
+  [SubjectActionTypes.IV]: { stat: StatKey; value: IV };
   [SubjectActionTypes.IVs]: { atk: IV; def: IV; sta: IV };
   [SubjectActionTypes.Floor]: IVFloor;
 };
