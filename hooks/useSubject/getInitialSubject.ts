@@ -38,7 +38,7 @@ export function getInitialSubject({ query }: NextPageContext): Subject {
 
   const outputFloor = tidyNumericInput<IVFloor>(
     floor,
-    MIN_IV_FLOOR,
+    species.floor ?? MIN_IV_FLOOR,
     MAX_IV_FLOOR,
   );
 
