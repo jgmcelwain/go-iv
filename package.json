@@ -1,13 +1,14 @@
 {
   "name": "pvpiv.app",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production next start"
   },
   "dependencies": {
-    "@headlessui/react": "^0.2.0",
+    "@headlessui/react": "^1.0.0",
+    "@heroicons/react": "^1.0.0",
     "focus-visible": "^5.2.0",
     "next": "latest",
     "nookies": "^2.5.0",
