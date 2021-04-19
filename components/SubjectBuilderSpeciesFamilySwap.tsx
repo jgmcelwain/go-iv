@@ -29,7 +29,7 @@ const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
           onClick={() => {
             onChange(familyMember);
           }}
-          className={`flex justify-start items-center transition-colors border mr-2 mb-2 last:mr-0 py-1 px-2 focus-ring ring-offset-gray-800 hover:text-blue-100 rounded bg-gray-800 ${
+          className={`flex justify-start items-center transition-colors border mr-2 mb-2 last:mr-0 py-1 px-2 focus-ring ring-offset-gray-800 hover:text-blue-300 rounded bg-gray-800 ${
             subject.species.id === familyMember.id
               ? 'text-blue-300 border-gray-700'
               : 'text-gray-400 border-transparent'
