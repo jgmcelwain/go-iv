@@ -168,17 +168,20 @@ export const LEAGUES: League[] = [
 ];
 
 export type LevelCapNumber = 40 | 41 | 50 | 51;
-export type LevelCapName =
-  | 'Level 40'
-  | 'Level 41 (Best Buddy)'
-  | 'Level 50 (Candy XL)'
-  | 'Level 51 (Candy XL + Best Buddy)';
-export type LevelCap = { level: LevelCapNumber; name: LevelCapName };
+export type LevelCap = {
+  level: LevelCapNumber;
+  name: string;
+  description: string;
+};
 export const LEVEL_CAPS: LevelCap[] = [
-  { level: 40, name: 'Level 40' },
-  { level: 41, name: 'Level 41 (Best Buddy)' },
-  { level: 50, name: 'Level 50 (Candy XL)' },
-  { level: 51, name: 'Level 51 (Candy XL + Best Buddy)' },
+  { level: 40, name: 'Level 40', description: 'Standard' },
+  { level: 41, name: 'Level 41', description: 'Best Buddy' },
+  { level: 50, name: 'Level 50', description: 'Candy XL' },
+  {
+    level: 51,
+    name: 'Level 51',
+    description: 'Candy XL + Best Buddy',
+  },
 ];
 
 export type OutputDataKey =
@@ -188,21 +191,18 @@ export type OutputDataKey =
   | 'stats'
   | 'statProduct'
   | 'percent';
-export type OutputDataName =
-  | 'Level'
-  | 'Rank'
-  | 'CP'
-  | 'Stats'
-  | 'Product'
-  | '% of Rank 1';
-export type OutputDataPoint = { key: OutputDataKey; name: OutputDataName };
+export type OutputDataPoint = {
+  key: OutputDataKey;
+  name: string;
+  description: string;
+};
 export const OUTPUT_DATA: OutputDataPoint[] = [
-  { key: 'rank', name: 'Rank' },
-  { key: 'level', name: 'Level' },
-  { key: 'cp', name: 'CP' },
-  { key: 'stats', name: 'Stats' },
-  { key: 'statProduct', name: 'Product' },
-  { key: 'percent', name: '% of Rank 1' },
+  { key: 'rank', name: 'Rank', description: '' },
+  { key: 'level', name: 'Level', description: '' },
+  { key: 'cp', name: 'CP', description: '' },
+  { key: 'stats', name: 'Stats', description: '' },
+  { key: 'statProduct', name: 'Product', description: '' },
+  { key: 'percent', name: '% of Max', description: '' },
 ];
 
 export type PokemonID = string;

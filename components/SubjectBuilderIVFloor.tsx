@@ -9,7 +9,7 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
 
   return (
     <label className='order-4 block mb-2'>
-      <span className='text-gray-400 text-xs'>IV Floor</span>
+      <span className='text-xs text-gray-400'>IV Floor</span>
 
       <select
         onChange={(evt) =>
@@ -19,7 +19,7 @@ const SubjectBuilderIVFloor: FunctionComponent = () => {
           })
         }
         value={subject.floor}
-        className='form-select rounded mt-1 block w-full focus-ring ring-offset-gray-900'
+        className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-900'
       >
         {IV_FLOORS.filter(
           (floor) => floor.value >= (subject.species.floor ?? 0),

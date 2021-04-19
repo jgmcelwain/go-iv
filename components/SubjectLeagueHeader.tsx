@@ -5,6 +5,8 @@ import { IV_FLOORS } from '../data/reference';
 import { useSubject } from '../hooks/useSubject';
 import { useLeague } from '../hooks/useLeague';
 
+import { ArrowLeftIcon } from '@heroicons/react/solid';
+
 const LEAGUE_COLORS = {
   great: {
     background: 'from-blue-400 to-blue-500',
@@ -60,35 +62,22 @@ const SubjectLeagueHeader: FunctionComponent = () => {
         <button
           onClick={() => setDisplayMode('subject')}
           title={`Back`}
-          className='p-1 mr-3 focus-visible:ring-2 ring-white rounded'
+          className='p-1 mr-3 rounded focus-visible:ring-2 ring-white'
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            className='w-4 h-4'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={3}
-              d='M10 19l-7-7m0 0l7-7m-7 7h18'
-            />
-          </svg>
+          <ArrowLeftIcon className='w-4 h-4' />
         </button>
       )}
 
-      <div className='flex-grow z-10 '>
-        <h2 className='font-semibold leading-none flex-grow'>{league.name}</h2>
+      <div className='z-10 flex-grow'>
+        <h2 className='flex-grow font-semibold leading-none'>{league.name}</h2>
 
         {displayMode === 'top' ? (
-          <p className='font-semibold text-xs mt-1'>
+          <p className='mt-1 text-xs font-semibold'>
             Top IV Spreads for {subject.species.name}, Level{' '}
             {inspectedLevelCap.level}, {floor.name}
           </p>
         ) : (
-          <p className='font-semibold text-xs mt-1'>
+          <p className='mt-1 text-xs font-semibold'>
             {subject.species.name}, {subject.ivs.atk}/{subject.ivs.def}/
             {subject.ivs.sta}, {floor.name}
           </p>

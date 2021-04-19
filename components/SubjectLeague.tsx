@@ -9,7 +9,7 @@ import SubjectLeagueContent from './SubjectLeagueContent';
 const SubjectLeague: FunctionComponent<{ league: League }> = ({ league }) => {
   return (
     <LeagueContextProvider league={league}>
-      <div className='w-full sm:rounded-lg overflow-hidden'>
+      <div className='w-full overflow-hidden shadow-xl sm:rounded-lg'>
         <SubjectLeagueHeader />
 
         <SubjectLeagueContent />

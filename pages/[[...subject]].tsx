@@ -14,17 +14,17 @@ import SubjectBuilder from '../components/SubjectBuilder';
 
 import { NextPageContext } from 'next';
 
-const IndexPage: FunctionComponent<{
+const SubjectPage: FunctionComponent<{
   subject: SubjectType;
 }> = (props) => {
   const { settings } = useSettings();
 
   return (
     <SubjectContextProvider initialValue={props.subject}>
-      <div className='container mx-auto px-0 sm:px-4'>
+      <div className='w-full'>
         <SubjectBuilder />
 
-        <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 items-start'>
+        <div className='grid items-start w-full grid-cols-1 gap-8 mb-8 xl:grid-cols-2'>
           {LEAGUES.filter(
             (league) => settings.leagues[league.key] === true,
           ).map((league) => (
@@ -36,7 +36,7 @@ const IndexPage: FunctionComponent<{
   );
 };
 
-export default IndexPage;
+export default SubjectPage;
 
 export async function getServerSideProps(
   ctx: NextPageContext,

@@ -8,10 +8,10 @@ const SubjectBuilderIVs: FunctionComponent = () => {
   const { subject, dispatch } = useSubject();
 
   return (
-    <div className='order-3 grid grid-cols-3 gap-2 mr-6'>
+    <div className='order-3 mr-6 grid grid-cols-3 gap-2'>
       {STATS.map((stat) => (
         <label key={stat.key} className='block mb-2'>
-          <span className='text-gray-400 text-xs'>{stat.name}</span>
+          <span className='text-xs text-gray-400'>{stat.name}</span>
 
           <select
             onChange={(evt) =>
@@ -24,7 +24,7 @@ const SubjectBuilderIVs: FunctionComponent = () => {
               })
             }
             value={subject.ivs[stat.key]}
-            className='form-select rounded mt-1 block w-full focus-ring ring-offset-gray-900'
+            className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-900'
           >
             {IV_RANGE.filter((iv) => iv >= subject.floor).map((iv) => (
               <option key={iv} value={iv}>

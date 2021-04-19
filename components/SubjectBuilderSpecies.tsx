@@ -8,8 +8,6 @@ import { usePokedex } from '../hooks/usePokedex';
 import SubjectBuilderSpeciesFamilySwap from './SubjectBuilderSpeciesFamilySwap';
 
 const SubjectBuilderSpecies: FunctionComponent = () => {
-  const input = useRef<HTMLInputElement>();
-
   const pokedex = usePokedex();
   const { subject, dispatch } = useSubject();
   const [value, setValue] = useState<PokemonName>(subject.species.name);
@@ -29,11 +27,13 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
     }
   }, [subject.species.name]);
 
+  const input = useRef<HTMLInputElement>();
+
   return (
     <>
       <div className='order-1 mb-2 mr-6'>
-        <label className='w-full block mr-2'>
-          <span className='text-gray-400 text-xs'>Species</span>
+        <label className='block w-full mr-2'>
+          <span className='text-xs text-gray-400'>Species</span>
 
           <input
             onFocus={() => {
@@ -46,7 +46,7 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
             type='text'
             list='pokemon-list'
             value={value}
-            className='form-input rounded mt-1 block w-full focus-ring ring-offset-gray-900'
+            className='block w-full mt-1 rounded form-input focus-ring ring-offset-gray-900'
             placeholder='Pokémon'
             ref={input}
           />

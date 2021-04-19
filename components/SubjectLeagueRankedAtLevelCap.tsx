@@ -11,8 +11,9 @@ import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { IV_FLOORS, LevelCap } from '../data/reference';
 
 import * as SubjectLeagueTableCells from './SubjectLeagueTableCells';
+import { MenuIcon } from '@heroicons/react/solid';
 
-const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
+const SubjectLeagueRankedAtLevelCap: FunctionComponent<{
   levelCap: LevelCap;
 }> = ({ levelCap }) => {
   const { league, setDisplayMode } = useLeague();
@@ -43,7 +44,10 @@ const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
   if (subjectAtLevel === null) return null;
 
   return (
-    <tr className={`${colors.background} ${colors.text}`}>
+    <tr
+      onClick={() => setDisplayMode('top', levelCap)}
+      className={`${colors.background} ${colors.text} cursor-pointer`}
+    >
       {settings.outputData.rank && (
         <SubjectLeagueTableCells.Body>
           {subjectAtLevel.rank}
@@ -72,7 +76,7 @@ const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
               {subjectAtLevel.stats.atk.value.toFixed(2)}
 
               {settings.outputData.percent && (
-                <span className='block text-xs opacity-70'>
+                <span className='block text-xs opacity-90'>
                   {formatPercent(subjectAtLevel.stats.atk.percentOfMax)}
                 </span>
               )}
@@ -83,7 +87,7 @@ const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
               {subjectAtLevel.stats.def.value.toFixed(2)}
 
               {settings.outputData.percent && (
-                <span className='block text-xs opacity-70'>
+                <span className='block text-xs opacity-90'>
                   {formatPercent(subjectAtLevel.stats.def.percentOfMax)}
                 </span>
               )}
@@ -94,7 +98,7 @@ const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
               {subjectAtLevel.stats.sta.value}
 
               {settings.outputData.percent && (
-                <span className='block text-xs opacity-70'>
+                <span className='block text-xs opacity-90'>
                   {formatPercent(subjectAtLevel.stats.sta.percentOfMax)}
                 </span>
               )}
@@ -106,12 +110,12 @@ const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
       {settings.outputData.statProduct && (
         <SubjectLeagueTableCells.Body>
           <>
-            <span title={`${subjectAtLevel.product}`}>
+            <span title={`${subjectAtLevel.product.value}`}>
               {(subjectAtLevel.product.value / 1000).toFixed(2)}
             </span>
 
             {settings.outputData.percent && (
-              <span className='block text-xs opacity-70'>
+              <span className='block text-xs opacity-90'>
                 {formatPercent(subjectAtLevel.product.percentOfMax)}
               </span>
             )}
@@ -125,24 +129,11 @@ const SubjectLeagueRanksAtLevelCap: FunctionComponent<{
           className='focus-ring p-0.5 rounded mr-2'
           title={`View top ${league.name} IV spreads for ${subject.species.name}, Level ${levelCap.level}, ${floor.name}`}
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            className='w-4 h-4'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M4 6h16M4 10h16M4 14h16M4 18h16'
-            />
-          </svg>
+          <MenuIcon className='w-4 h-4' />
         </button>
       </SubjectLeagueTableCells.Body>
     </tr>
   );
 };
 
-export default SubjectLeagueRanksAtLevelCap;
+export default SubjectLeagueRankedAtLevelCap;

@@ -9,7 +9,11 @@ module.exports = {
     './utils/**/*.{js,ts,jsx,jsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '8xl': '96rem',
+      },
+    },
     colors: {
       ...defaultTheme.colors,
       orange: colors.orange,

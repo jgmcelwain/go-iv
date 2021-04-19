@@ -94,12 +94,12 @@ const SubjectLeagueTopSpreadsAtLevelCap: FunctionComponent = () => {
                 <SubjectLeagueTableCells.Body>
                   <>
                     {spread.ivs.atk}
-                    <span className='transform scale-75 inline-block mx-1 font-semibold'>
+                    <span className='inline-block mx-1 font-semibold transform scale-75'>
                       {' '}
                       /{' '}
                     </span>
                     {spread.ivs.def}
-                    <span className='transform scale-75 inline-block mx-1 font-semibold'>
+                    <span className='inline-block mx-1 font-semibold transform scale-75'>
                       {' '}
                       /{' '}
                     </span>

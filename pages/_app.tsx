@@ -2,7 +2,6 @@ import 'focus-visible';
 
 import React, { FunctionComponent } from 'react';
 
-import Head from 'next/head';
 import { AppContext, AppProps } from 'next/app';
 
 import {
@@ -10,11 +9,9 @@ import {
   Settings as SettingsType,
   getInitialSettings,
 } from '../hooks/useSettings';
-import { Provider as SettingsShownProvider } from '../hooks/useSettingsShown';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Settings from '../components/Settings';
+import Head from 'next/head';
+import AppSidebar from '../components/AppSidebar';
 
 import '../styles/index.css';
 
@@ -25,25 +22,21 @@ const App: FunctionComponent<AppProps & InitialProps> & {
 } = ({ Component, pageProps, settings }) => {
   return (
     <SettingsProvider initialValue={settings}>
-      <SettingsShownProvider>
-        <Head>
-          <title>PVPIV.app - Pokémon GO PVP IV Checker</title>
-          <meta
-            name='description'
-            content='Check PVP IV ranks for Great League, Ultra League and Master League simultaneously. Includes support for Best Buddy and Candy XL level caps.'
-          />
-        </Head>
+      <Head>
+        <title>PVPIV.app - Pokémon GO PVP IV Checker</title>
+        <meta
+          name='description'
+          content='Check PVP IV ranks for Great League, Ultra League and Master League simultaneously. Includes support for Best Buddy and Candy XL level caps.'
+        />
+      </Head>
 
-        <>
-          <Header />
+      <div className='w-full pt-16 pl-0 md:pl-64 md:pt-0'>
+        <AppSidebar />
 
+        <main className='flex-auto w-full px-0 pt-4 mx-auto max-w-8xl sm:px-4 md:px-8'>
           <Component {...pageProps} />
-
-          <Footer />
-
-          <Settings />
-        </>
-      </SettingsShownProvider>
+        </main>
+      </div>
     </SettingsProvider>
   );
 };

@@ -4,7 +4,7 @@ import { LEVEL_CAPS } from '../data/reference';
 import { useSettings } from '../hooks/useSettings';
 
 import * as SubjectLeagueTableCells from './SubjectLeagueTableCells';
-import SubjectLeagueRanksAtLevelCap from './SubjectLeagueRanksAtLevelCap';
+import SubjectLeagueRankedAtLevelCap from './SubjectLeagueRankedAtLevelCap';
 
 const SubjectLeagueRanks: FunctionComponent = () => {
   const { settings } = useSettings();
@@ -60,7 +60,7 @@ const SubjectLeagueRanks: FunctionComponent = () => {
           {LEVEL_CAPS.filter(
             (levelCap) => settings.levelCaps[levelCap.level] === true,
           ).map((levelCap) => (
-            <SubjectLeagueRanksAtLevelCap
+            <SubjectLeagueRankedAtLevelCap
               key={levelCap.level}
               levelCap={levelCap}
             />

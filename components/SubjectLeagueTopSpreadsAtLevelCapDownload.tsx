@@ -5,6 +5,7 @@ import { useLeague } from '../hooks/useLeague';
 import { useSubject } from '../hooks/useSubject';
 
 import { downloadFile } from '../utils/downloadFile';
+import { DownloadIcon } from '@heroicons/react/solid';
 
 const SubjectLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
   const { subject } = useSubject();
@@ -26,29 +27,16 @@ const SubjectLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
   }
 
   return (
-    <div className='w-full py-2 flex justify-center items-center bg-white border-t border-gray-200'>
+    <div className='flex items-center justify-center w-full py-2 bg-white border-t border-gray-200'>
       <button
         onClick={exportToCSV}
-        className='z-10 text-gray-700 hover:text-black focus-ring p-1 rounded-full sm:rounded flex justify-start items-center'
+        className='z-10 flex items-center justify-start p-1 text-gray-700 rounded-full hover:text-black focus-ring sm:rounded'
       >
         <span className='mr-2 text-xs font-semibold'>
           Export All {rankedSpreads[inspectedLevelCap.level].length} to CSV
         </span>
 
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-          className='w-4 h-4'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth={2}
-            d='M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4'
-          />
-        </svg>
+        <DownloadIcon className='w-4 h-4' />
       </button>
     </div>
   );

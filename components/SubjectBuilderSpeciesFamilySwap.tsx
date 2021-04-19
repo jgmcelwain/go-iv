@@ -5,6 +5,8 @@ import { Pokemon } from '../data/reference';
 import { useSubject } from '../hooks/useSubject';
 import { usePokedex } from '../hooks/usePokedex';
 
+import { SwitchVerticalIcon } from '@heroicons/react/solid';
+
 const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
   onChange: (arg0: Pokemon) => void;
 }> = ({ onChange }) => {
@@ -20,36 +22,24 @@ const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
   if (iterableFamily.length === 0) return null;
 
   return (
-    <div className='order-2 md:order-5 w-full flex flex-wrap justify-start items-center my-1'>
+    <div className='flex flex-wrap items-center justify-start order-2 w-full my-1 md:order-5'>
       {iterableFamily.map((familyMember) => (
         <button
           key={familyMember.id}
           onClick={() => {
             onChange(familyMember);
           }}
-          className={`flex justify-start items-center bg-gray-800 text-gray-400 hover:text-gray-300 transition-colors mr-2 mb-2 last:mr-0 py-1 px-2 focus-ring ring-offset-gray-800 rounded ${
+          className={`flex justify-start items-center transition-colors border mr-2 mb-2 last:mr-0 py-1 px-2 focus-ring ring-offset-gray-800 hover:text-blue-100 rounded bg-gray-800 ${
             subject.species.id === familyMember.id
-              ? ' text-blue-300 hover:text-blue-200'
-              : ''
+              ? 'text-blue-300 border-gray-700'
+              : 'text-gray-400 border-transparent'
           }`}
         >
-          <span className='font-semibold text-sm mr-2'>
+          <span className='mr-2 text-sm font-semibold'>
             {familyMember.name}
           </span>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            className='w-4 h-4'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4'
-            />
-          </svg>
+
+          <SwitchVerticalIcon className='w-4 h-4' />
         </button>
       ))}
     </div>
