@@ -11,7 +11,7 @@ import {
 import { tidyNumericInput } from '../../utils/tidyNumericInput';
 
 import { Subject } from '.';
-import { NextPageContext } from 'next';
+import { ParsedUrlQuery } from 'node:querystring';
 
 type DirtyIV = IV | number;
 type DirtyIVFloor = IVFloor | number;
@@ -25,7 +25,7 @@ const SUBJECT_DEFAULTS = {
   floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
 };
 
-export function getInitialSubject({ query }: NextPageContext): Subject {
+export function getInitialSubject(query: ParsedUrlQuery): Subject {
   const [
     id = SUBJECT_DEFAULTS.id,
     atk = SUBJECT_DEFAULTS.atk,

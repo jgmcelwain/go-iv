@@ -6,19 +6,22 @@ import React, {
   useEffect,
 } from 'react';
 
-import { Context, Subject } from '.';
+import { Context } from '.';
 
 import { useRouter } from 'next/router';
 import { subjectReducer } from './subjectReducer';
 import { setRouteParams } from './setRouteParams';
+import { getInitialSubject } from './getInitialSubject';
 
 export const Provider: FunctionComponent<{
-  initialValue: Subject;
   children: ReactChild | ReactChild[];
-}> = ({ initialValue, children }) => {
+}> = ({ children }) => {
   const router = useRouter();
   const [isInitial, setIsInitial] = useState(true);
-  const [subject, dispatch] = useReducer(subjectReducer, initialValue);
+  const [subject, dispatch] = useReducer(
+    subjectReducer,
+    getInitialSubject(router.query),
+  );
 
   useEffect(() => {
     if (!isInitial || router.query.subject !== undefined) {

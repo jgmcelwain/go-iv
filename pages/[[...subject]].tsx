@@ -2,25 +2,17 @@ import React, { FunctionComponent } from 'react';
 
 import { LEAGUES } from '../data/reference';
 
-import {
-  getInitialSubject,
-  Subject as SubjectType,
-  Provider as SubjectContextProvider,
-} from '../hooks/useSubject';
+import { Provider as SubjectContextProvider } from '../hooks/useSubject';
 import { useSettings } from '../hooks/useSettings';
 
 import SubjectLeague from '../components/SubjectLeague';
 import SubjectBuilder from '../components/SubjectBuilder';
 
-import { NextPageContext } from 'next';
-
-const SubjectPage: FunctionComponent<{
-  subject: SubjectType;
-}> = (props) => {
+const SubjectPage: FunctionComponent = () => {
   const { settings } = useSettings();
 
   return (
-    <SubjectContextProvider initialValue={props.subject}>
+    <SubjectContextProvider>
       <div className='w-full'>
         <SubjectBuilder />
 
@@ -37,11 +29,3 @@ const SubjectPage: FunctionComponent<{
 };
 
 export default SubjectPage;
-
-export async function getServerSideProps(
-  ctx: NextPageContext,
-): Promise<{ props: { subject: SubjectType } }> {
-  const subject = getInitialSubject(ctx);
-
-  return { props: { subject } };
-}
