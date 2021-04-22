@@ -24,28 +24,28 @@ const PAGES: Page[] = [
     href: '/',
     pathname: '/[[...subject]]',
     enabled: true,
-    icon: <CalculatorIcon />,
+    icon: <CalculatorIcon className='w-full h-full' />,
   },
   {
     name: 'Settings',
     href: '/settings',
     pathname: '/settings',
     enabled: true,
-    icon: <CogIcon />,
+    icon: <CogIcon className='w-full h-full' />,
   },
   {
     name: 'Pokedex',
     href: '/pokedex',
     pathname: '/pokedex',
     enabled: false,
-    icon: <BookOpenIcon />,
+    icon: <BookOpenIcon className='w-full h-full' />,
   },
   {
     name: 'Movedex',
     href: '/movedex',
     pathname: '/movedex',
     enabled: false,
-    icon: <DatabaseIcon />,
+    icon: <DatabaseIcon className='w-full h-full' />,
   },
 ];
 
