@@ -14,5 +14,9 @@ body {
 }
 
 .focus-ring {
+  @apply focus:outline-none focus:ring-2 ring-offset-2 ring-blue-600;
+}
+
+.focus-visible-ring {
   @apply focus:outline-none focus-visible:ring-2 ring-offset-2 ring-blue-600;
 }

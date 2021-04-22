@@ -8,7 +8,7 @@ const SubjectBuilderIVs: FunctionComponent = () => {
   const { subject, dispatch } = useSubject();
 
   return (
-    <div className='order-3 mr-6 grid grid-cols-3 gap-2'>
+    <div className='grid order-3 grid-cols-3 gap-2 mr-6'>
       {STATS.map((stat) => (
         <label key={stat.key} className='block mb-2'>
           <span className='text-xs text-gray-400'>{stat.name}</span>

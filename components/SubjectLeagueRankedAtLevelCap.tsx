@@ -126,7 +126,7 @@ const SubjectLeagueRankedAtLevelCap: FunctionComponent<{
       <SubjectLeagueTableCells.Body right>
         <button
           onClick={() => setDisplayMode('top', levelCap)}
-          className='focus-ring p-0.5 rounded mr-2'
+          className='focus-visible-ring p-0.5 rounded mr-2'
           title={`View top ${league.name} IV spreads for ${subject.species.name}, Level ${levelCap.level}, ${floor.name}`}
         >
           <MenuIcon className='w-4 h-4' />

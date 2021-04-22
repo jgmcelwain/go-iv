@@ -46,7 +46,7 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
             type='text'
             list='pokemon-list'
             value={value}
-            className='block w-full mt-1 rounded form-input focus-ring ring-offset-gray-900'
+            className='block w-full mt-1 rounded form-input focus-visible-ring ring-offset-gray-900'
             placeholder='Pokémon'
             ref={input}
           />
