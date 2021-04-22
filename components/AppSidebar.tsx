@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
-import { version } from '../package.json';
+import pkg from '../package.json';
 
 import { useRouter } from 'next/router';
 
@@ -67,7 +67,7 @@ const AppNavigation: FunctionComponent = () => {
             rel='noreferrer'
             className='text-gray-400 transition-colors hover:text-gray-300'
           >
-            v{version}
+            v{pkg.version}
           </a>
         </div>
       </div>
