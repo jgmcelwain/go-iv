@@ -13,7 +13,6 @@ import {
 type Page = {
   icon: JSX.Element;
   name: string;
-  href: string;
   pathname: string;
   enabled: boolean;
 };
@@ -21,28 +20,24 @@ type Page = {
 const PAGES: Page[] = [
   {
     name: 'Rank Checker',
-    href: '/',
     pathname: '/[[...subject]]',
     enabled: true,
     icon: <CalculatorIcon className='w-full h-full' />,
   },
   {
     name: 'Settings',
-    href: '/settings',
     pathname: '/settings',
     enabled: true,
     icon: <CogIcon className='w-full h-full' />,
   },
   {
     name: 'Pokedex',
-    href: '/pokedex',
     pathname: '/pokedex',
     enabled: false,
     icon: <BookOpenIcon className='w-full h-full' />,
   },
   {
     name: 'Movedex',
-    href: '/movedex',
     pathname: '/movedex',
     enabled: false,
     icon: <DatabaseIcon className='w-full h-full' />,
