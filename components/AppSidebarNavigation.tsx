@@ -72,13 +72,14 @@ const AppSidebarNavigation: FunctionComponent = () => {
           replace
         >
           <a
-            className={`mb-2 last:mb-0 p-2 flex-wrap cursor-pointer rounded group flex justify-start items-center transition-colors ${
+            className={`mb-2 last:mb-0 p-2 flex-wrap cursor-pointer rounded group flex justify-start items-center focus-visible-ring ring-offset-gray-800 transition-colors ${
               page.active
                 ? 'text-blue-300 hover:text-blue-200 bg-gray-700'
                 : !page.enabled
                 ? 'text-gray-400 pointer-events-none'
                 : 'text-gray-300 hover:text-blue-100'
             }`}
+            tabIndex={page.enabled ? 0 : -1}
           >
             <div className='flex items-center justify-center w-4 h-4'>
               {page.icon}

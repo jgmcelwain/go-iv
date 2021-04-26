@@ -26,7 +26,7 @@ const SettingsContentTabSectionInput: FunctionComponent<{
           checked={value}
           onChange={onInput}
           className={`${value ? 'bg-green-500' : 'bg-gray-700'}
-      relative inline-flex flex-shrink-0 h-6 w-10 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+      relative inline-flex flex-shrink-0 h-6 w-10 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus-visible-ring ring-offset-gray-800`}
         >
           <span
             aria-hidden='true'

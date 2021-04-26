@@ -36,7 +36,7 @@ const AppNavigation: FunctionComponent = () => {
             pathname: '/',
           }}
         >
-          <a>
+          <a className='rounded-full focus-visible-ring ring-offset-gray-800'>
             <img
               src='/logo.png'
               className='w-8 h-8 md:w-12 md:h-12'
@@ -48,7 +48,10 @@ const AppNavigation: FunctionComponent = () => {
           </a>
         </Link>
 
-        <button onClick={() => toggleMenu()} className='block md:hidden'>
+        <button
+          onClick={() => toggleMenu()}
+          className='block focus-visible-ring ring-offset-gray-800 md:hidden'
+        >
           <MenuIcon className='w-5 h-5 text-gray-300' />
         </button>
       </div>
