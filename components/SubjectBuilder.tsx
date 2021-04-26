@@ -6,7 +6,7 @@ import SubjectBuilderIVFloor from './SubjectBuilderIVFloor';
 
 const SubjectBuilder: FunctionComponent = () => {
   return (
-    <div className='flex flex-wrap items-start justify-start w-full px-4 mb-8 sm:px-0'>
+    <div className='flex flex-wrap items-start justify-start w-full px-4 mb-8 sm:mb-4 sm:px-0'>
       <SubjectBuilderSpecies />
 
       <SubjectBuilderIVs />
