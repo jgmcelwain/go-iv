@@ -11,8 +11,23 @@ import { MenuIcon } from '@heroicons/react/solid';
 function useMenuShown(): [boolean, () => void] {
   const router = useRouter();
   const [menuShown, setMenuShown] = useState(false);
+  function hideMenu() {
+    setMenuShown(false);
+  }
 
-  useEffect(() => setMenuShown(false), [router.pathname]);
+  useEffect(() => {
+    hideMenu();
+  }, [router.pathname]);
+
+  useEffect(() => {
+    if (menuShown) {
+      window.addEventListener('click', hideMenu, { passive: true });
+
+      return () => {
+        window.removeEventListener('click', hideMenu);
+      };
+    }
+  }, [menuShown]);
 
   function toggleMenu() {
     setMenuShown(!menuShown);
