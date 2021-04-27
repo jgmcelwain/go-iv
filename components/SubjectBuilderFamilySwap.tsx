@@ -2,16 +2,14 @@ import React, { FunctionComponent, useMemo } from 'react';
 
 import { Pokemon } from '../data/reference';
 
-import { useSubject } from '../hooks/useSubject';
+import { SubjectActionTypes, useSubject } from '../hooks/useSubject';
 import { usePokedex } from '../hooks/usePokedex';
 
 import { RadioGroup } from '@headlessui/react';
 import { SwitchVerticalIcon } from '@heroicons/react/solid';
 
-const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
-  onChange: (arg0: Pokemon) => void;
-}> = ({ onChange }) => {
-  const { subject } = useSubject();
+const SubjectBuilderFamilySwap: FunctionComponent = () => {
+  const { subject, dispatch } = useSubject();
   const pokedex = usePokedex();
 
   const iterableFamily = useMemo(() => {
@@ -25,7 +23,9 @@ const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
   return (
     <RadioGroup
       value={subject.species}
-      onChange={(val: Pokemon) => onChange(val)}
+      onChange={(val: Pokemon) =>
+        dispatch({ type: SubjectActionTypes.Species, payload: val })
+      }
       as='div'
       className='flex flex-wrap items-center justify-start order-2 w-full my-1 md:order-5'
     >
@@ -63,4 +63,4 @@ const SubjectBuilderSpeciesFamilySwap: FunctionComponent<{
   );
 };
 
-export default SubjectBuilderSpeciesFamilySwap;
+export default SubjectBuilderFamilySwap;
