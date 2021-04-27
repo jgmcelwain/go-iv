@@ -11,7 +11,7 @@ import {
 } from '../hooks/useSettings';
 
 import Head from 'next/head';
-import AppSidebar from '../components/AppSidebar';
+import AppNavigation from '../components/AppNavigation';
 
 import '../styles/index.css';
 
@@ -31,7 +31,7 @@ const App: FunctionComponent<AppProps & InitialProps> & {
       </Head>
 
       <div className='w-full pt-16 pl-0 md:pl-64 md:pt-0'>
-        <AppSidebar />
+        <AppNavigation />
 
         <main className='flex-auto w-full px-0 pt-4 mx-auto max-w-8xl sm:px-4 md:px-8'>
           <Component {...pageProps} />

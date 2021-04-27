@@ -5,7 +5,7 @@ import pkg from '../package.json';
 import { useRouter } from 'next/router';
 
 import Link from 'next/link';
-import AppSidebarNavigation from './AppSidebarNavigation';
+import AppNavigationLinks from './AppNavigationLinks';
 import { MenuIcon } from '@heroicons/react/solid';
 
 function useMenuShown(): [boolean, () => void] {
@@ -50,7 +50,7 @@ const AppNavigation: FunctionComponent = () => {
 
         <button
           onClick={() => toggleMenu()}
-          className='block focus-visible-ring ring-offset-gray-800 md:hidden'
+          className='block rounded focus-visible-ring ring-offset-gray-800 md:hidden'
         >
           <MenuIcon className='w-5 h-5 text-gray-300' />
         </button>
@@ -61,7 +61,7 @@ const AppNavigation: FunctionComponent = () => {
           menuShown === false ? 'hidden' : 'block'
         } md:flex mt-4 md:mt-6`}
       >
-        <AppSidebarNavigation />
+        <AppNavigationLinks />
 
         <div className='mt-4 text-sm font-semibold text-right md:text-center'>
           <a
