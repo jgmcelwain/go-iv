@@ -38,7 +38,9 @@ const CandidatePage: FunctionComponent<{ cachedCandidate: Candidate }> = ({
 
 export default CandidatePage;
 
-export async function getServerSideProps(ctx: NextPageContext) {
+export const getServerSideProps = async (
+  ctx: NextPageContext,
+): Promise<{ props: { cachedCandidate: Candidate } }> => {
   try {
     const cookies = parseCookies(ctx);
     const cachedCandidate = JSON.parse(cookies.candidate);
@@ -47,4 +49,4 @@ export async function getServerSideProps(ctx: NextPageContext) {
   } catch (err) {
     return { props: { cachedCandidate: null } };
   }
-}
+};
