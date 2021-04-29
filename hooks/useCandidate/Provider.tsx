@@ -10,7 +10,7 @@ import { Context } from '.';
 
 import { useRouter } from 'next/router';
 import { candidateReducer } from './candidateReducer';
-import { setRouteParams } from './setRouteParams';
+import { cacheCandidate } from './cacheCandidate';
 import { getInitialCandidate } from './getInitialCandidate';
 
 export const Provider: FunctionComponent<{
@@ -24,13 +24,7 @@ export const Provider: FunctionComponent<{
   );
 
   useEffect(() => {
-    if (!isInitial || router.query.candidate !== undefined) {
-      setRouteParams(router, candidate);
-    }
-
-    if (isInitial) {
-      setIsInitial(false);
-    }
+    cacheCandidate(router, candidate);
   }, [
     candidate.species.id,
     candidate.ivs.atk,
