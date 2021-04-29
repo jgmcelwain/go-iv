@@ -1,18 +1,26 @@
 import React, { FunctionComponent } from 'react';
 
 import { LEAGUES } from '../data/reference';
+import { NextPageContext } from 'next';
 
-import { Provider as CandidateContextProvider } from '../hooks/useCandidate';
+import { parseCookies } from 'nookies';
+
+import {
+  Candidate,
+  Provider as CandidateContextProvider,
+} from '../hooks/useCandidate';
 import { useSettings } from '../hooks/useSettings';
 
 import CandidateLeague from '../components/CandidateLeague';
 import CandidateBuilder from '../components/CandidateBuilder';
 
-const CandidatePage: FunctionComponent = () => {
+const CandidatePage: FunctionComponent<{ cachedCandidate: Candidate }> = ({
+  cachedCandidate,
+}) => {
   const { settings } = useSettings();
 
   return (
-    <CandidateContextProvider>
+    <CandidateContextProvider cachedCandidate={cachedCandidate}>
       <div className='w-full'>
         <CandidateBuilder />
 
@@ -29,3 +37,14 @@ const CandidatePage: FunctionComponent = () => {
 };
 
 export default CandidatePage;
+
+export async function getServerSideProps(ctx: NextPageContext) {
+  try {
+    const cookies = parseCookies(ctx);
+    const cachedCandidate = JSON.parse(cookies.candidate);
+
+    return { props: { cachedCandidate } };
+  } catch (err) {
+    return { props: { cachedCandidate: null } };
+  }
+}

@@ -2,11 +2,10 @@ import React, {
   FunctionComponent,
   ReactChild,
   useReducer,
-  useState,
   useEffect,
 } from 'react';
 
-import { Context } from '.';
+import { Candidate, Context } from '.';
 
 import { useRouter } from 'next/router';
 import { candidateReducer } from './candidateReducer';
@@ -14,13 +13,13 @@ import { cacheCandidate } from './cacheCandidate';
 import { getInitialCandidate } from './getInitialCandidate';
 
 export const Provider: FunctionComponent<{
+  cachedCandidate: Candidate;
   children: ReactChild | ReactChild[];
-}> = ({ children }) => {
+}> = ({ cachedCandidate, children }) => {
   const router = useRouter();
-  const [isInitial, setIsInitial] = useState(true);
   const [candidate, dispatch] = useReducer(
     candidateReducer,
-    getInitialCandidate(router.query),
+    getInitialCandidate(router.query, cachedCandidate),
   );
 
   useEffect(() => {
