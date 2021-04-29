@@ -3,19 +3,19 @@ import React, { FunctionComponent } from 'react';
 import { League } from '../data/reference';
 import { Provider as LeagueContextProvider } from '../hooks/useLeague';
 
-import SubjectLeagueHeader from './SubjectLeagueHeader';
-import SubjectLeagueContent from './SubjectLeagueContent';
+import CandidateLeagueHeader from './CandidateLeagueHeader';
+import CandidateLeagueContent from './CandidateLeagueContent';
 
-const SubjectLeague: FunctionComponent<{ league: League }> = ({ league }) => {
+const CandidateLeague: FunctionComponent<{ league: League }> = ({ league }) => {
   return (
     <LeagueContextProvider league={league}>
       <div className='w-full overflow-hidden shadow-xl sm:rounded-lg'>
-        <SubjectLeagueHeader />
+        <CandidateLeagueHeader />
 
-        <SubjectLeagueContent />
+        <CandidateLeagueContent />
       </div>
     </LeagueContextProvider>
   );
 };
 
-export default SubjectLeague;
+export default CandidateLeague;

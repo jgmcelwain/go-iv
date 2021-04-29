@@ -20,7 +20,7 @@ type Page = {
 const PAGES: Page[] = [
   {
     name: 'Rank Checker',
-    pathname: '/[[...subject]]',
+    pathname: '/[[...candidate]]',
     enabled: true,
     icon: <CalculatorIcon className='w-full h-full' />,
   },

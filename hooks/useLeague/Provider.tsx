@@ -10,7 +10,7 @@ export const Provider: FunctionComponent<{
 }> = ({ league, children }) => {
   const [inspectedLevelCap, setInspectedLevelCap] = useState<LevelCap>(null);
   const displayMode = useMemo(
-    () => (inspectedLevelCap !== null ? 'top' : 'subject'),
+    () => (inspectedLevelCap !== null ? 'top' : 'candidate'),
     [inspectedLevelCap],
   );
 
@@ -21,7 +21,7 @@ export const Provider: FunctionComponent<{
         displayMode,
         inspectedLevelCap,
         setDisplayMode: (mode, levelCap) => {
-          setInspectedLevelCap(mode === 'subject' ? null : levelCap);
+          setInspectedLevelCap(mode === 'candidate' ? null : levelCap);
         },
       }}
     >

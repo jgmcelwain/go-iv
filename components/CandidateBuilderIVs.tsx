@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
-import { useSubject, SubjectActionTypes } from '../hooks/useSubject';
+import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 
 import { IV, IV_RANGE, STATS } from '../data/reference';
 
-const SubjectBuilderIVs: FunctionComponent = () => {
-  const { subject, dispatch } = useSubject();
+const CandidateBuilderIVs: FunctionComponent = () => {
+  const { candidate, dispatch } = useCandidate();
 
   return (
     <div className='grid order-3 grid-cols-3 gap-2 mr-6'>
@@ -16,17 +16,17 @@ const SubjectBuilderIVs: FunctionComponent = () => {
           <select
             onChange={(evt) =>
               dispatch({
-                type: SubjectActionTypes.IV,
+                type: CandidateActionTypes.IV,
                 payload: {
                   stat: stat.key,
                   value: parseInt(evt.target.value) as IV,
                 },
               })
             }
-            value={subject.ivs[stat.key]}
+            value={candidate.ivs[stat.key]}
             className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-900'
           >
-            {IV_RANGE.filter((iv) => iv >= subject.floor).map((iv) => (
+            {IV_RANGE.filter((iv) => iv >= candidate.floor).map((iv) => (
               <option key={iv} value={iv}>
                 {iv}
               </option>
@@ -38,4 +38,4 @@ const SubjectBuilderIVs: FunctionComponent = () => {
   );
 };
 
-export default SubjectBuilderIVs;
+export default CandidateBuilderIVs;

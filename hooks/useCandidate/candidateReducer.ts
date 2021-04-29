@@ -2,9 +2,9 @@ import { Dispatch as ReactDispatch } from 'react';
 
 import { IV, IVFloor, Pokemon, StatKey, ActionMap } from '../../data/reference';
 
-import { Subject } from '.';
+import { Candidate } from '.';
 
-export enum SubjectActionTypes {
+export enum CandidateActionTypes {
   Species,
   IV,
   IVs,
@@ -12,18 +12,18 @@ export enum SubjectActionTypes {
 }
 
 type PayloadTypes = {
-  [SubjectActionTypes.Species]: Pokemon;
-  [SubjectActionTypes.IV]: { stat: StatKey; value: IV };
-  [SubjectActionTypes.IVs]: { atk: IV; def: IV; sta: IV };
-  [SubjectActionTypes.Floor]: IVFloor;
+  [CandidateActionTypes.Species]: Pokemon;
+  [CandidateActionTypes.IV]: { stat: StatKey; value: IV };
+  [CandidateActionTypes.IVs]: { atk: IV; def: IV; sta: IV };
+  [CandidateActionTypes.Floor]: IVFloor;
 };
 
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
 export type Dispatch = ReactDispatch<Actions>;
 
-export function subjectReducer(state: Subject, action: Actions): Subject {
+export function candidateReducer(state: Candidate, action: Actions): Candidate {
   switch (action.type) {
-    case SubjectActionTypes.Species: {
+    case CandidateActionTypes.Species: {
       // state floor cannot be lower than the floor of the new species
       if (action.payload.floor > state.floor) {
         return {
@@ -42,7 +42,7 @@ export function subjectReducer(state: Subject, action: Actions): Subject {
         species: action.payload,
       };
     }
-    case SubjectActionTypes.IV: {
+    case CandidateActionTypes.IV: {
       const ivKey = action.payload.stat;
 
       return {
@@ -50,10 +50,10 @@ export function subjectReducer(state: Subject, action: Actions): Subject {
         ivs: { ...state.ivs, [ivKey]: action.payload.value },
       };
     }
-    case SubjectActionTypes.IVs: {
+    case CandidateActionTypes.IVs: {
       return { ...state, ivs: action.payload };
     }
-    case SubjectActionTypes.Floor: {
+    case CandidateActionTypes.Floor: {
       return {
         ...state,
         ivs: {

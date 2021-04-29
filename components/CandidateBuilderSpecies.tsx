@@ -2,28 +2,28 @@ import React, { FunctionComponent, useState, useEffect, useRef } from 'react';
 
 import { PokemonName } from '../data/reference';
 
-import { useSubject, SubjectActionTypes } from '../hooks/useSubject';
+import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';
 
-const SubjectBuilderSpecies: FunctionComponent = () => {
+const CandidateBuilderSpecies: FunctionComponent = () => {
   const pokedex = usePokedex();
-  const { subject, dispatch } = useSubject();
-  const [value, setValue] = useState<PokemonName>(subject.species.name);
+  const { candidate, dispatch } = useCandidate();
+  const [value, setValue] = useState<PokemonName>(candidate.species.name);
 
   useEffect(() => {
-    if (subject.species.name !== value) {
+    if (candidate.species.name !== value) {
       const match = pokedex.byName(value);
 
       if (match) {
-        dispatch({ type: SubjectActionTypes.Species, payload: match });
+        dispatch({ type: CandidateActionTypes.Species, payload: match });
       }
     }
   }, [value]);
   useEffect(() => {
-    if (subject.species.name !== value) {
-      setValue(subject.species.name);
+    if (candidate.species.name !== value) {
+      setValue(candidate.species.name);
     }
-  }, [subject.species.name]);
+  }, [candidate.species.name]);
 
   const input = useRef<HTMLInputElement>();
 
@@ -37,7 +37,7 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
             input.current.value = '';
           }}
           onBlur={() => {
-            input.current.value = subject.species.name;
+            input.current.value = candidate.species.name;
           }}
           onChange={(evt) => setValue(evt.target.value)}
           type='text'
@@ -58,4 +58,4 @@ const SubjectBuilderSpecies: FunctionComponent = () => {
   );
 };
 
-export default SubjectBuilderSpecies;
+export default CandidateBuilderSpecies;

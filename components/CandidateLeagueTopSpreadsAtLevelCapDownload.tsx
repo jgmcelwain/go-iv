@@ -2,18 +2,18 @@ import React, { FunctionComponent } from 'react';
 
 import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { useLeague } from '../hooks/useLeague';
-import { useSubject } from '../hooks/useSubject';
+import { useCandidate } from '../hooks/useCandidate';
 
 import { downloadFile } from '../utils/downloadFile';
 import { DownloadIcon } from '@heroicons/react/solid';
 
-const SubjectLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
-  const { subject } = useSubject();
+const CandidateLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
+  const { candidate } = useCandidate();
   const { league, inspectedLevelCap } = useLeague();
   const rankedSpreads = useRankedSpreads();
 
   function exportToCSV() {
-    const fileName = `${subject.species.id}-${league.cp}-${inspectedLevelCap.level}-${subject.floor}.csv`;
+    const fileName = `${candidate.species.id}-${league.cp}-${inspectedLevelCap.level}-${candidate.floor}.csv`;
 
     const csvContent = rankedSpreads[inspectedLevelCap.level].reduce(
       (output, spread) =>
@@ -42,4 +42,4 @@ const SubjectLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
   );
 };
 
-export default SubjectLeagueTopSpreadsAtLevelCapDownload;
+export default CandidateLeagueTopSpreadsAtLevelCapDownload;

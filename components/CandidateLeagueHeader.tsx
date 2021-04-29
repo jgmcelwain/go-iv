@@ -2,7 +2,7 @@ import React, { FunctionComponent, useMemo } from 'react';
 
 import { IV_FLOORS } from '../data/reference';
 
-import { useSubject } from '../hooks/useSubject';
+import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
 
 import { ArrowLeftIcon } from '@heroicons/react/solid';
@@ -30,8 +30,8 @@ const LEAGUE_COLORS = {
   },
 };
 
-const SubjectLeagueHeader: FunctionComponent = () => {
-  const { subject } = useSubject();
+const CandidateLeagueHeader: FunctionComponent = () => {
+  const { candidate } = useCandidate();
   const {
     league,
     displayMode,
@@ -40,8 +40,8 @@ const SubjectLeagueHeader: FunctionComponent = () => {
   } = useLeague();
 
   const floor = useMemo(
-    () => IV_FLOORS.find((floor) => floor.value === subject.floor),
-    [subject.floor],
+    () => IV_FLOORS.find((floor) => floor.value === candidate.floor),
+    [candidate.floor],
   );
 
   return (
@@ -60,7 +60,7 @@ const SubjectLeagueHeader: FunctionComponent = () => {
 
       {displayMode === 'top' && (
         <button
-          onClick={() => setDisplayMode('subject')}
+          onClick={() => setDisplayMode('candidate')}
           title={`Back`}
           className='p-1 mr-3 rounded focus-visible:ring-2 ring-white'
         >
@@ -73,13 +73,13 @@ const SubjectLeagueHeader: FunctionComponent = () => {
 
         {displayMode === 'top' ? (
           <p className='mt-1 text-xs font-semibold'>
-            Top IV Spreads for {subject.species.name}, Level{' '}
+            Top IV Spreads for {candidate.species.name}, Level{' '}
             {inspectedLevelCap.level}, {floor.name}
           </p>
         ) : (
           <p className='mt-1 text-xs font-semibold'>
-            {subject.species.name}, {subject.ivs.atk}/{subject.ivs.def}/
-            {subject.ivs.sta}, {floor.name}
+            {candidate.species.name}, {candidate.ivs.atk}/{candidate.ivs.def}/
+            {candidate.ivs.sta}, {floor.name}
           </p>
         )}
       </div>
@@ -87,4 +87,4 @@ const SubjectLeagueHeader: FunctionComponent = () => {
   );
 };
 
-export default SubjectLeagueHeader;
+export default CandidateLeagueHeader;

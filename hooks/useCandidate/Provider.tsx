@@ -9,38 +9,38 @@ import React, {
 import { Context } from '.';
 
 import { useRouter } from 'next/router';
-import { subjectReducer } from './subjectReducer';
+import { candidateReducer } from './candidateReducer';
 import { setRouteParams } from './setRouteParams';
-import { getInitialSubject } from './getInitialSubject';
+import { getInitialCandidate } from './getInitialCandidate';
 
 export const Provider: FunctionComponent<{
   children: ReactChild | ReactChild[];
 }> = ({ children }) => {
   const router = useRouter();
   const [isInitial, setIsInitial] = useState(true);
-  const [subject, dispatch] = useReducer(
-    subjectReducer,
-    getInitialSubject(router.query),
+  const [candidate, dispatch] = useReducer(
+    candidateReducer,
+    getInitialCandidate(router.query),
   );
 
   useEffect(() => {
-    if (!isInitial || router.query.subject !== undefined) {
-      setRouteParams(router, subject);
+    if (!isInitial || router.query.candidate !== undefined) {
+      setRouteParams(router, candidate);
     }
 
     if (isInitial) {
       setIsInitial(false);
     }
   }, [
-    subject.species.id,
-    subject.ivs.atk,
-    subject.ivs.def,
-    subject.ivs.sta,
-    subject.floor,
+    candidate.species.id,
+    candidate.ivs.atk,
+    candidate.ivs.def,
+    candidate.ivs.sta,
+    candidate.floor,
   ]);
 
   return (
-    <Context.Provider value={{ subject, dispatch }}>
+    <Context.Provider value={{ candidate, dispatch }}>
       {children}
     </Context.Provider>
   );

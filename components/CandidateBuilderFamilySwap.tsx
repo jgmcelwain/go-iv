@@ -2,29 +2,29 @@ import React, { FunctionComponent, useMemo } from 'react';
 
 import { Pokemon } from '../data/reference';
 
-import { SubjectActionTypes, useSubject } from '../hooks/useSubject';
+import { CandidateActionTypes, useCandidate } from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';
 
 import { RadioGroup } from '@headlessui/react';
 import { SwitchVerticalIcon } from '@heroicons/react/solid';
 
-const SubjectBuilderFamilySwap: FunctionComponent = () => {
-  const { subject, dispatch } = useSubject();
+const CandidateBuilderFamilySwap: FunctionComponent = () => {
+  const { candidate, dispatch } = useCandidate();
   const pokedex = usePokedex();
 
   const iterableFamily = useMemo(() => {
-    const familyMembers = pokedex.familyMembers(subject.species.family?.id);
+    const familyMembers = pokedex.familyMembers(candidate.species.family?.id);
 
     return familyMembers.sort((a, b) => a.family.stage - b.family.stage);
-  }, [subject.species.id, pokedex.list.length]);
+  }, [candidate.species.id, pokedex.list.length]);
 
   if (iterableFamily.length === 0) return null;
 
   return (
     <RadioGroup
-      value={subject.species}
+      value={candidate.species}
       onChange={(val: Pokemon) =>
-        dispatch({ type: SubjectActionTypes.Species, payload: val })
+        dispatch({ type: CandidateActionTypes.Species, payload: val })
       }
       as='div'
       className='flex flex-wrap items-center justify-start order-2 w-full my-1 md:order-5'
@@ -63,4 +63,4 @@ const SubjectBuilderFamilySwap: FunctionComponent = () => {
   );
 };
 
-export default SubjectBuilderFamilySwap;
+export default CandidateBuilderFamilySwap;

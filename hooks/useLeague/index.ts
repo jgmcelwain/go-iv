@@ -3,7 +3,7 @@ import { League, LevelCap } from '../../data/reference';
 
 export { Provider } from './Provider';
 
-type DisplayMode = 'subject' | 'top';
+type DisplayMode = 'candidate' | 'top';
 export const Context = createContext<{
   league: League;
   displayMode: DisplayMode;

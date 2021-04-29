@@ -10,14 +10,14 @@ import {
 
 import { tidyNumericInput } from '../../utils/tidyNumericInput';
 
-import { Subject } from '.';
+import { Candidate } from '.';
 import { ParsedUrlQuery } from 'node:querystring';
 
 type DirtyIV = IV | number;
 type DirtyIVFloor = IVFloor | number;
 type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
 
-const SUBJECT_DEFAULTS = {
+const CANDIDATE_DEFAULTS = {
   id: process.env.NEXT_PUBLIC_DEFAULT_POKEMON ?? 'azumarill',
   atk: parseInt(process.env.NEXT_PUBLIC_DEFAULT_ATK ?? '0'),
   def: parseInt(process.env.NEXT_PUBLIC_DEFAULT_DEF ?? '15'),
@@ -25,16 +25,16 @@ const SUBJECT_DEFAULTS = {
   floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
 };
 
-export function getInitialSubject(query: ParsedUrlQuery): Subject {
+export function getInitialCandidate(query: ParsedUrlQuery): Candidate {
   const [
-    id = SUBJECT_DEFAULTS.id,
-    atk = SUBJECT_DEFAULTS.atk,
-    def = SUBJECT_DEFAULTS.def,
-    sta = SUBJECT_DEFAULTS.sta,
-    floor = SUBJECT_DEFAULTS.floor,
-  ]: Query = (query?.subject ?? []) as Query;
+    id = CANDIDATE_DEFAULTS.id,
+    atk = CANDIDATE_DEFAULTS.atk,
+    def = CANDIDATE_DEFAULTS.def,
+    sta = CANDIDATE_DEFAULTS.sta,
+    floor = CANDIDATE_DEFAULTS.floor,
+  ]: Query = (query?.candidate ?? []) as Query;
 
-  const species = getPokemonByID(id) ?? getPokemonByID(SUBJECT_DEFAULTS.id);
+  const species = getPokemonByID(id) ?? getPokemonByID(CANDIDATE_DEFAULTS.id);
 
   const outputFloor = tidyNumericInput<IVFloor>(
     floor,
