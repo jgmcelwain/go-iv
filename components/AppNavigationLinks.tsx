@@ -65,9 +65,9 @@ const AppSidebarNavigation: FunctionComponent = () => {
 
   return (
     <nav className='md:flex-grow'>
-      {pages.map((page, i) => (
+      {pages.map((page) => (
         <Link
-          key={i}
+          key={page.pathname}
           href={page.enabled ? { pathname: page.pathname } : '/'}
           replace
         >
