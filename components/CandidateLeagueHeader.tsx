@@ -73,13 +73,15 @@ const CandidateLeagueHeader: FunctionComponent = () => {
 
         {displayMode === 'top' ? (
           <p className='mt-1 text-xs font-semibold'>
-            Top IV Spreads for {candidate.species.name}, Level{' '}
-            {inspectedLevelCap.level}, {floor.name}
+            Top IV Spreads for{' '}
+            <span key={candidate.species.name}>{candidate.species.name}</span>,
+            Level {inspectedLevelCap.level}, {floor.name}
           </p>
         ) : (
           <p className='mt-1 text-xs font-semibold'>
-            {candidate.species.name}, {candidate.ivs.atk}/{candidate.ivs.def}/
-            {candidate.ivs.sta}, {floor.name}
+            <span key={candidate.species.name}>{candidate.species.name}</span>,{' '}
+            {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
+            {floor.name}
           </p>
         )}
       </div>
