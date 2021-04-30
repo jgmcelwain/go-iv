@@ -138,7 +138,7 @@ export const IV_RANGE: IV[] = Array.from({ length: 16 }).map((_, i) => i as IV);
 export const MIN_IV = IV_RANGE[0];
 export const MAX_IV = IV_RANGE[IV_RANGE.length - 1];
 
-export type IVFloor = 0 | 1 | 2 | 3 | 4 | 5 | 10 | 12;
+export type IVFloor = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 10 | 12;
 export const IV_FLOORS: { value: IVFloor; name: string }[] = [
   { value: 0, name: 'Wild Catch' },
   { value: 1, name: 'Good Friend Trade' },
@@ -146,6 +146,7 @@ export const IV_FLOORS: { value: IVFloor; name: string }[] = [
   { value: 3, name: 'Ultra Friend Trade' },
   { value: 4, name: 'Weather Boosted Catch' },
   { value: 5, name: 'Best Friend Trade' },
+  { value: 6, name: 'Shadow Legendary' },
   { value: 10, name: 'Raid/Egg/Research' },
   { value: 12, name: 'Lucky Trade' },
 ];
