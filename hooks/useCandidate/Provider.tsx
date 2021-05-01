@@ -23,14 +23,8 @@ export const Provider: FunctionComponent<{
   );
 
   useEffect(() => {
-    cacheCandidate(router, candidate);
-  }, [
-    candidate.species.id,
-    candidate.ivs.atk,
-    candidate.ivs.def,
-    candidate.ivs.sta,
-    candidate.floor,
-  ]);
+    cacheCandidate(candidate);
+  }, [candidate]);
 
   return (
     <Context.Provider value={{ candidate, dispatch }}>

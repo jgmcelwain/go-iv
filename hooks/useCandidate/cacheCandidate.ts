@@ -1,16 +1,9 @@
-import { NextRouter } from 'next/router';
 import { Candidate } from '.';
 import { setCookie } from 'nookies';
 
 import * as gtag from '../../utils/gtag';
 
-export function cacheCandidate(router: NextRouter, candidate: Candidate) {
-  router.replace(
-    `/${candidate.species.id}/${candidate.ivs.atk}/${candidate.ivs.def}/${candidate.ivs.sta}/${candidate.floor}`,
-    undefined,
-    { shallow: true },
-  );
-
+export function cacheCandidate(candidate: Candidate) {
   gtag.event('candidate_created', {
     species_id: candidate.species.id,
     iv_atk: candidate.ivs.atk,
