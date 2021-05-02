@@ -45,7 +45,7 @@ const CandidateLeagueHeader: FunctionComponent = () => {
   );
 
   return (
-    <div
+    <header
       className={`w-full p-4 bg-gradient-to-br ${
         LEAGUE_COLORS[league.key].background
       } sticky top-0 left-0 flex justify-between items-center overflow-hidden font-title ${
@@ -85,7 +85,7 @@ const CandidateLeagueHeader: FunctionComponent = () => {
           </p>
         )}
       </div>
-    </div>
+    </header>
   );
 };
 

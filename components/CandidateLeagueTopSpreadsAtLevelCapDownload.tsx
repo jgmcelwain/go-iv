@@ -27,7 +27,7 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
   }
 
   return (
-    <div className='flex items-center justify-center w-full py-2 bg-white border-t border-gray-200'>
+    <footer className='flex items-center justify-center w-full py-2 bg-white border-t border-gray-200'>
       <button
         onClick={exportToCSV}
         className='z-10 flex items-center justify-start p-1 text-gray-700 rounded-full hover:text-black focus-visible-ring sm:rounded'
@@ -38,7 +38,7 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
 
         <DownloadIcon className='w-4 h-4' />
       </button>
-    </div>
+    </footer>
   );
 };
 

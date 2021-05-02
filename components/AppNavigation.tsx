@@ -45,7 +45,7 @@ const AppNavigation: FunctionComponent = () => {
         menuShown === false ? 'h-16' : 'h-auto'
       }`}
     >
-      <div className='flex items-center justify-between w-full px-1 md:justify-center md:px-0'>
+      <section className='flex items-center justify-between w-full px-1 md:justify-center md:px-0'>
         <Link
           href={{
             pathname: '/',
@@ -69,9 +69,9 @@ const AppNavigation: FunctionComponent = () => {
         >
           <MenuIcon className='w-5 h-5 text-gray-300' />
         </button>
-      </div>
+      </section>
 
-      <div
+      <section
         className={`w-full flex-col items-stretch justify-start flex-grow ${
           menuShown === false ? 'hidden' : 'block'
         } md:flex mt-4 md:mt-6`}
@@ -88,7 +88,7 @@ const AppNavigation: FunctionComponent = () => {
             v{pkg.version}
           </a>
         </div>
-      </div>
+      </section>
     </aside>
   );
 };

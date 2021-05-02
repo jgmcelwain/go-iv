@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 const AppFooter: FunctionComponent = () => (
-  <div className='container px-4 pt-12 pb-8 mx-auto mt-12 border-t border-gray-800'>
+  <footer className='container px-4 pt-12 pb-8 mx-auto mt-12 border-t border-gray-800'>
     <p className='mb-2 text-xs text-center text-gray-400'>
       Pokémon are copyright of The Pokémon Company and Nintendo. All data used
       in this application is for educational purposes only.
@@ -18,7 +18,7 @@ const AppFooter: FunctionComponent = () => (
         jgmcelwain/pvpiv
       </a>
     </p>
-  </div>
+  </footer>
 );
 
 export default AppFooter;

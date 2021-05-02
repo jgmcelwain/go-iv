@@ -34,13 +34,13 @@ const App: FunctionComponent<AppProps & InitialProps> & {
       <div className='w-full pt-16 pl-0 md:pl-64 md:pt-0'>
         <AppNavigation />
 
-        <div className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 pt-4 mx-auto max-w-8xl sm:px-4 md:px-8'>
+        <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 pt-4 mx-auto max-w-8xl sm:px-4 md:px-8'>
           <main className='flex-grow w-full'>
             <Component {...pageProps} />
           </main>
 
           <AppFooter />
-        </div>
+        </section>
       </div>
     </SettingsProvider>
   );

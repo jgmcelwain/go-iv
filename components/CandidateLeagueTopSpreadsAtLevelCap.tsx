@@ -35,7 +35,7 @@ const CandidateLeagueTopSpreadsAtLevelCap: FunctionComponent = () => {
 
   return (
     <>
-      <div className='w-full overflow-x-scroll'>
+      <section className='w-full overflow-x-scroll'>
         <table className='w-full border-collapse table-auto'>
           <thead>
             <tr>
@@ -140,7 +140,7 @@ const CandidateLeagueTopSpreadsAtLevelCap: FunctionComponent = () => {
             ))}
           </tbody>
         </table>
-      </div>
+      </section>
 
       <CandidateLeagueTopSpreadsAtLevelCapDownload />
     </>

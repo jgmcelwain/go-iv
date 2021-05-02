@@ -7,7 +7,7 @@ import CandidateBuilderIVFloor from './CandidateBuilderIVFloor';
 
 const CandidateBuilder: FunctionComponent = () => {
   return (
-    <div className='flex flex-wrap items-start justify-start w-full px-4 mb-8 sm:mb-4 sm:px-0'>
+    <section className='flex flex-wrap items-start justify-start w-full px-4 mb-8 sm:mb-4 sm:px-0'>
       <CandidateBuilderSpecies />
 
       <CandidateBuilderFamilySwap />
@@ -15,7 +15,7 @@ const CandidateBuilder: FunctionComponent = () => {
       <CandidateBuilderIVs />
 
       <CandidateBuilderIVFloor />
-    </div>
+    </section>
   );
 };
 

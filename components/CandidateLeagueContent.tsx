@@ -11,13 +11,11 @@ const CandidateLeagueContent: FunctionComponent = () => {
 
   return (
     <LeagueCandidateRankedSpreadsProvider>
-      <div className='w-full bg-gray-100'>
-        {displayMode === 'top' ? (
-          <CandidateLeagueTopSpreadsAtLevelCap />
-        ) : (
-          <CandidateLeagueRanks />
-        )}
-      </div>
+      {displayMode === 'top' ? (
+        <CandidateLeagueTopSpreadsAtLevelCap />
+      ) : (
+        <CandidateLeagueRanks />
+      )}
     </LeagueCandidateRankedSpreadsProvider>
   );
 };

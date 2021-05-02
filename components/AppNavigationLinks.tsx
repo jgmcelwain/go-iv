@@ -81,9 +81,9 @@ const AppSidebarNavigation: FunctionComponent = () => {
             }`}
             tabIndex={page.enabled ? 0 : -1}
           >
-            <div className='flex items-center justify-center w-4 h-4'>
+            <span className='flex items-center justify-center w-4 h-4'>
               {page.icon}
-            </div>
+            </span>
 
             <div className='flex-grow ml-2'>
               {!page.enabled && (

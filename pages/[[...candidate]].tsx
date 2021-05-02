@@ -21,17 +21,15 @@ const CandidatePage: FunctionComponent<{ cachedCandidate: Candidate }> = ({
 
   return (
     <CandidateContextProvider cachedCandidate={cachedCandidate}>
-      <div className='w-full'>
-        <CandidateBuilder />
+      <CandidateBuilder />
 
-        <div className='grid items-start w-full grid-cols-1 gap-4 mb-4 sm:mb-8 sm:gap-8 xl:grid-cols-2'>
-          {LEAGUES.filter(
-            (league) => settings.leagues[league.key] === true,
-          ).map((league) => (
+      <section className='grid items-start w-full grid-cols-1 gap-4 mb-4 sm:mb-8 sm:gap-8 xl:grid-cols-2'>
+        {LEAGUES.filter((league) => settings.leagues[league.key] === true).map(
+          (league) => (
             <CandidateLeague key={league.key} league={league} />
-          ))}
-        </div>
-      </div>
+          ),
+        )}
+      </section>
     </CandidateContextProvider>
   );
 };
