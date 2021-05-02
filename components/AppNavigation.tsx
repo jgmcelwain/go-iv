@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 import AppNavigationLinks from './AppNavigationLinks';
-import { MenuIcon } from '@heroicons/react/solid';
+import { DotsVerticalIcon } from '@heroicons/react/solid';
 
 function useMenuShown(): [boolean, () => void] {
   const router = useRouter();
@@ -45,7 +45,7 @@ const AppNavigation: FunctionComponent = () => {
         menuShown === false ? 'h-16' : 'h-auto'
       }`}
     >
-      <section className='flex items-center justify-between w-full px-1 md:justify-center md:px-0'>
+      <section className='flex items-center justify-between w-full pl-1 md:justify-center md:pl-0'>
         <Link
           href={{
             pathname: '/',
@@ -68,7 +68,7 @@ const AppNavigation: FunctionComponent = () => {
           className='flex items-center justify-center w-8 h-8 rounded focus-visible-ring ring-offset-gray-800 md:hidden'
           aria-label='Toggle Menu'
         >
-          <MenuIcon className='w-5 h-5 text-gray-300' />
+          <DotsVerticalIcon className='w-5 h-5 text-gray-300' />
         </button>
       </section>
 
