@@ -1,10 +1,10 @@
-import React, { FunctionComponent, ReactChild } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 const SettingsSection: FunctionComponent<{
   id: string;
   title: string;
   description?: string;
-  children: ReactChild | ReactChild[];
+  children: ReactNode;
 }> = ({ id, description = null, title, children }) => {
   return (
     <section

@@ -1,8 +1,8 @@
 import React, {
   FunctionComponent,
-  ReactChild,
   useReducer,
   useEffect,
+  ReactNode,
 } from 'react';
 
 import { Candidate, Context } from '.';
@@ -14,7 +14,7 @@ import { getInitialCandidate } from './getInitialCandidate';
 
 export const Provider: FunctionComponent<{
   cachedCandidate: Candidate;
-  children: ReactChild | ReactChild[];
+  children: ReactNode;
 }> = ({ cachedCandidate, children }) => {
   const router = useRouter();
   const [candidate, dispatch] = useReducer(

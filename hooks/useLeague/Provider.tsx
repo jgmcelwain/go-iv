@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactChild, useState, useMemo } from 'react';
+import React, { FunctionComponent, ReactNode, useState, useMemo } from 'react';
 
 import { League, LevelCap } from '../../data/reference';
 
@@ -6,7 +6,7 @@ import { Context } from '.';
 
 export const Provider: FunctionComponent<{
   league: League;
-  children: ReactChild | ReactChild[];
+  children: ReactNode;
 }> = ({ league, children }) => {
   const [inspectedLevelCap, setInspectedLevelCap] = useState<LevelCap>(null);
   const displayMode = useMemo(
