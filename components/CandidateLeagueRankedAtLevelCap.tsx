@@ -11,7 +11,7 @@ import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { IV_FLOORS, LevelCap } from '../data/reference';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
-import { MenuIcon } from '@heroicons/react/solid';
+import { ViewListIcon } from '@heroicons/react/solid';
 
 const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
   levelCap: LevelCap;
@@ -129,7 +129,7 @@ const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
           className='focus-visible-ring p-0.5 rounded mr-2'
           title={`View top ${league.name} IV spreads for ${candidate.species.name}, Level ${levelCap.level}, ${floor.name}`}
         >
-          <MenuIcon className='w-4 h-4' />
+          <ViewListIcon className='w-4 h-4' />
         </button>
       </CandidateLeagueTableCells.Body>
     </tr>
