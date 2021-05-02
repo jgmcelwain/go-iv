@@ -13,7 +13,7 @@ const AppFooter: FunctionComponent = () => (
         href='https://github.com/jgmcelwain/pvpiv'
         rel='noreferrer'
         target='_blank'
-        className='text-blue-400 rounded-sm hover:underline focus-ring ring-offset-gray-900'
+        className='text-blue-400 rounded-sm hover:underline focus-visible-ring ring-offset-gray-900'
       >
         jgmcelwain/pvpiv
       </a>
