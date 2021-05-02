@@ -12,6 +12,7 @@ import {
 
 import Head from 'next/head';
 import AppNavigation from '../components/AppNavigation';
+import AppFooter from '../components/AppFooter';
 
 import '../styles/index.css';
 
@@ -33,9 +34,13 @@ const App: FunctionComponent<AppProps & InitialProps> & {
       <div className='w-full pt-16 pl-0 md:pl-64 md:pt-0'>
         <AppNavigation />
 
-        <main className='flex-auto w-full px-0 pt-4 mx-auto max-w-8xl sm:px-4 md:px-8'>
-          <Component {...pageProps} />
-        </main>
+        <div className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 pt-4 mx-auto max-w-8xl sm:px-4 md:px-8'>
+          <main className='flex-grow w-full'>
+            <Component {...pageProps} />
+          </main>
+
+          <AppFooter />
+        </div>
       </div>
     </SettingsProvider>
   );
