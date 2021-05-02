@@ -72,11 +72,18 @@ const CandidateLeagueHeader: FunctionComponent = () => {
         <h2 className='flex-grow font-semibold leading-none'>{league.name}</h2>
 
         {displayMode === 'top' ? (
-          <p className='mt-1 text-xs font-semibold'>
-            Top IV Spreads for{' '}
-            <span key={candidate.species.name}>{candidate.species.name}</span>,
-            Level {inspectedLevelCap.level}, {floor.name}
-          </p>
+          <>
+            <p className='mt-1 text-xs font-semibold'>
+              Top IV Spreads for{' '}
+              <span key={candidate.species.name}>{candidate.species.name}</span>
+            </p>
+            <p className='mt-1 text-xs font-semibold'>
+              Level {inspectedLevelCap.level} ({inspectedLevelCap.description})
+            </p>
+            <p className='mt-1 text-xs font-semibold'>
+              {floor.value} IV Floor ({floor.name})
+            </p>
+          </>
         ) : (
           <p className='mt-1 text-xs font-semibold'>
             <span key={candidate.species.name}>{candidate.species.name}</span>,{' '}
