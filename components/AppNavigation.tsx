@@ -66,6 +66,7 @@ const AppNavigation: FunctionComponent = () => {
         <button
           onClick={() => toggleMenu()}
           className='flex items-center justify-center w-8 h-8 rounded focus-visible-ring ring-offset-gray-800 md:hidden'
+          aria-label='Toggle Menu'
         >
           <MenuIcon className='w-5 h-5 text-gray-300' />
         </button>
