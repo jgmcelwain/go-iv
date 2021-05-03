@@ -11,6 +11,7 @@ export type Candidate = {
   species: Pokemon;
   ivs: { atk: IV; def: IV; sta: IV };
   floor: IVFloor;
+  shadow: boolean;
 };
 
 export const Context = createContext<{

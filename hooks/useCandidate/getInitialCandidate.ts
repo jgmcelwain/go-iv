@@ -15,7 +15,7 @@ import { ParsedUrlQuery } from 'node:querystring';
 
 type DirtyIV = IV | number;
 type DirtyIVFloor = IVFloor | number;
-type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
+type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor, boolean];
 
 const CANDIDATE_DEFAULTS = {
   id: process.env.NEXT_PUBLIC_DEFAULT_POKEMON ?? 'azumarill',
@@ -23,6 +23,7 @@ const CANDIDATE_DEFAULTS = {
   def: parseInt(process.env.NEXT_PUBLIC_DEFAULT_DEF ?? '15'),
   sta: parseInt(process.env.NEXT_PUBLIC_DEFAULT_STA ?? '15'),
   floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
+  shadow: false,
 };
 
 function sanitizeCandidate(
@@ -31,6 +32,7 @@ function sanitizeCandidate(
   def?: DirtyIV,
   sta?: DirtyIV,
   floor?: DirtyIVFloor,
+  shadow?: boolean,
 ) {
   const species = getPokemonByID(id) ?? getPokemonByID(CANDIDATE_DEFAULTS.id);
 
@@ -62,6 +64,7 @@ function sanitizeCandidate(
     species,
     ivs,
     floor: outputFloor,
+    shadow: shadow ?? false,
   };
 }
 
@@ -76,9 +79,10 @@ export function getInitialCandidate(
       def = CANDIDATE_DEFAULTS.def,
       sta = CANDIDATE_DEFAULTS.sta,
       floor = CANDIDATE_DEFAULTS.floor,
+      shadow = CANDIDATE_DEFAULTS.shadow,
     ]: Query = (query?.candidate ?? []) as Query;
 
-    return sanitizeCandidate(id, atk, def, sta, floor);
+    return sanitizeCandidate(id, atk, def, sta, floor, shadow);
   } else if (cachedCandidate !== null) {
     return sanitizeCandidate(
       cachedCandidate.species.id,
@@ -86,6 +90,7 @@ export function getInitialCandidate(
       cachedCandidate.ivs.def,
       cachedCandidate.ivs.sta,
       cachedCandidate.floor,
+      cachedCandidate.shadow,
     );
   } else {
     return sanitizeCandidate(null);

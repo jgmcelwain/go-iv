@@ -9,6 +9,7 @@ export enum CandidateActionTypes {
   IV,
   IVs,
   Floor,
+  Shadow,
 }
 
 type PayloadTypes = {
@@ -16,6 +17,7 @@ type PayloadTypes = {
   [CandidateActionTypes.IV]: { stat: StatKey; value: IV };
   [CandidateActionTypes.IVs]: { atk: IV; def: IV; sta: IV };
   [CandidateActionTypes.Floor]: IVFloor;
+  [CandidateActionTypes.Shadow]: boolean;
 };
 
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
@@ -27,6 +29,7 @@ export function candidateReducer(state: Candidate, action: Actions): Candidate {
       // state floor cannot be lower than the floor of the new species
       if (action.payload.floor > state.floor) {
         return {
+          ...state,
           species: action.payload,
           floor: action.payload.floor,
           ivs: {
@@ -47,11 +50,17 @@ export function candidateReducer(state: Candidate, action: Actions): Candidate {
 
       return {
         ...state,
-        ivs: { ...state.ivs, [ivKey]: action.payload.value },
+        ivs: {
+          ...state.ivs,
+          [ivKey]: action.payload.value,
+        },
       };
     }
     case CandidateActionTypes.IVs: {
-      return { ...state, ivs: action.payload };
+      return {
+        ...state,
+        ivs: action.payload,
+      };
     }
     case CandidateActionTypes.Floor: {
       return {
@@ -63,6 +72,12 @@ export function candidateReducer(state: Candidate, action: Actions): Candidate {
           sta: Math.max(state.ivs.sta, action.payload) as IV,
         },
         floor: action.payload,
+      };
+    }
+    case CandidateActionTypes.Shadow: {
+      return {
+        ...state,
+        shadow: action.payload,
       };
     }
     default: {
