@@ -10618,9 +10618,9 @@ export const POKEDEX: Pokemon[] = [
     id: 'xerneas',
     name: 'Xerneas',
     stats: {
-      atk: 275,
-      def: 203,
-      sta: 270,
+      atk: 250,
+      def: 185,
+      sta: 246,
     },
     family: {
       id: 'xerneas',
