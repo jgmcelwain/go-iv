@@ -1,24 +1,24 @@
 import { createContext, useContext } from 'react';
 
 import { IV, IVFloor, Pokemon } from '../../data/reference';
-import { Dispatch } from './subjectReducer';
+import { Dispatch } from './candidateReducer';
 
 export { Provider } from './Provider';
-export { SubjectActionTypes } from './subjectReducer';
-export { getInitialSubject } from './getInitialSubject';
+export { CandidateActionTypes } from './candidateReducer';
+export { getInitialCandidate } from './getInitialCandidate';
 
-export type Subject = {
+export type Candidate = {
   species: Pokemon;
   ivs: { atk: IV; def: IV; sta: IV };
   floor: IVFloor;
 };
 
 export const Context = createContext<{
-  subject: Subject;
+  candidate: Candidate;
   dispatch: Dispatch;
 }>(null);
 
-export function useSubject() {
+export function useCandidate() {
   const value = useContext(Context);
 
   return value;

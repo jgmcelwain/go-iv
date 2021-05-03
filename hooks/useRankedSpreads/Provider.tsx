@@ -1,11 +1,11 @@
-import React, { FunctionComponent, ReactChild } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import { Context } from '.';
 
 import { useMemoRankedSpreads } from './useMemoRankedSpreads';
 
 export const Provider: FunctionComponent<{
-  children: ReactChild | ReactChild[];
+  children: ReactNode;
 }> = ({ children }) => {
   const rankedSpreads = {
     [40]: useMemoRankedSpreads(40),

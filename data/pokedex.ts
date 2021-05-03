@@ -225,7 +225,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'swablu',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'amaura',

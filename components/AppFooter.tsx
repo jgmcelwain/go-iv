@@ -1,24 +1,24 @@
 import React, { FunctionComponent } from 'react';
 
-const Footer: FunctionComponent = () => (
-  <div className='container mx-auto my-8 pt-8 px-4 border-t border-gray-800'>
-    <p className='text-center text-xs text-gray-400 mb-2'>
+const AppFooter: FunctionComponent = () => (
+  <footer className='container px-4 pt-12 pb-8 mx-auto mt-12 border-t border-gray-800'>
+    <p className='mb-2 text-xs text-center text-gray-400'>
       Pokémon are copyright of The Pokémon Company and Nintendo. All data used
       in this application is for educational purposes only.
     </p>
 
-    <p className='text-center text-xs text-gray-400'>
+    <p className='text-xs text-center text-gray-400'>
       PVPIV.app is open source on GitHub -{' '}
       <a
         href='https://github.com/jgmcelwain/pvpiv'
         rel='noreferrer'
         target='_blank'
-        className='text-blue-400 hover:underline focus-ring ring-offset-gray-900 rounded-sm'
+        className='text-blue-400 rounded-sm hover:underline focus-visible-ring ring-offset-gray-900'
       >
         jgmcelwain/pvpiv
       </a>
     </p>
-  </div>
+  </footer>
 );
 
-export default Footer;
+export default AppFooter;

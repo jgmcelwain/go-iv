@@ -1,6 +1,6 @@
 import React, {
   FunctionComponent,
-  ReactChild,
+  ReactNode,
   useReducer,
   useEffect,
 } from 'react';
@@ -12,7 +12,7 @@ import { setSettingsCookie } from './setSettingsCookie';
 
 export const Provider: FunctionComponent<{
   initialValue: Settings;
-  children: ReactChild | ReactChild[];
+  children: ReactNode;
 }> = ({ children, initialValue }) => {
   const [settings, dispatch] = useReducer(settingsReducer, initialValue);
 
