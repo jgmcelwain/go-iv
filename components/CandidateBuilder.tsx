@@ -11,13 +11,13 @@ const CandidateBuilder: FunctionComponent = () => {
     <section className='flex flex-wrap items-start justify-start w-full px-4 mb-8 sm:mb-4 sm:px-0'>
       <CandidateBuilderSpecies />
 
+      <CandidateBuilderShadow />
+
       <CandidateBuilderFamilySwap />
 
       <CandidateBuilderIVs />
 
       <CandidateBuilderIVFloor />
-
-      <CandidateBuilderShadow />
     </section>
   );
 };
