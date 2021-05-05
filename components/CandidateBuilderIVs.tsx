@@ -9,7 +9,7 @@ const CandidateBuilderIVs: FunctionComponent = () => {
   const { candidate, dispatch } = useCandidate();
 
   return (
-    <div className='grid order-3 grid-cols-3 gap-2 mr-6'>
+    <div className='grid order-4 grid-cols-3 gap-2 mr-6 md:order-3'>
       {STATS.map((stat) => (
         <label key={stat.key} className='block mb-2'>
           <span className='text-xs text-gray-400'>{stat.name}</span>
