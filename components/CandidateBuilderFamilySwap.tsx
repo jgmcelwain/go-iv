@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react';
 
-import { Pokemon } from '../data/reference';
+import { Pokemon } from '../data/pokedex';
 
 import { CandidateActionTypes, useCandidate } from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';

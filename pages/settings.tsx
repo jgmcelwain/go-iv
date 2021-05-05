@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-import { LEAGUES, LEVEL_CAPS, OUTPUT_DATA } from '../data/reference';
+import { LEAGUES } from '../data/league';
+import { LEVEL_CAPS } from '../data/levelCap';
+import { OUTPUT_DATA } from '../data/outputData';
 
 import { useSettings, SettingsActionTypes } from '../hooks/useSettings';
 

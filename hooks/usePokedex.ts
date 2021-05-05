@@ -1,12 +1,13 @@
 import { useCallback, useMemo } from 'react';
 import { useSettings } from './useSettings';
 
-import { PokemonName, PokemonID } from '../data/reference';
 import {
   POKEDEX,
   getPokemonByName,
   getPokemonByID,
   getPokemonFamilyMembers,
+  PokemonName,
+  PokemonID,
 } from '../data/pokedex';
 
 export function usePokedex() {

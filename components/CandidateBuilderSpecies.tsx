@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useEffect, useRef } from 'react';
 
-import { PokemonName } from '../data/reference';
+import { PokemonName } from '../data/pokedex';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';

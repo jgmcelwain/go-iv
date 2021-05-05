@@ -1,9 +1,7 @@
-import {
-  CPMs,
-  LeagueCPCap,
-  PokemonStats,
-  LevelCapNumber,
-} from '../../data/reference';
+import { CPMs } from '../../data/cpm';
+import { LeagueCPCap } from '../../data/league';
+import { LevelCapNumber } from '../../data/levelCap';
+import { PokemonStats } from '../../data/pokedex';
 
 export function getLevel(
   atk: PokemonStats['atk'],

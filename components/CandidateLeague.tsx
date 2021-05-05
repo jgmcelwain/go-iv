@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { League } from '../data/reference';
+import { League } from '../data/league';
 import { Provider as LeagueContextProvider } from '../hooks/useLeague';
 
 import CandidateLeagueHeader from './CandidateLeagueHeader';

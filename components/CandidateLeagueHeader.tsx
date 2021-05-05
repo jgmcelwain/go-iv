@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react';
 
-import { IV_FLOORS } from '../data/reference';
+import { IV_FLOORS } from '../data/ivFloor';
 
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';

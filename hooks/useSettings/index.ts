@@ -1,6 +1,8 @@
 import { createContext, useContext } from 'react';
 
-import { LeagueKey, LevelCapNumber, OutputDataKey } from '../../data/reference';
+import { LeagueKey } from '../../data/league';
+import { LevelCapNumber } from '../../data/levelCap';
+import { OutputDataKey } from '../../data/outputData';
 import { Dispatch } from './settingsReducer';
 
 export { Provider } from './Provider';

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 
-import { IVFloor, IV_FLOORS } from '../data/reference';
+import { IVFloor, IV_FLOORS } from '../data/ivFloor';
 
 const CandidateBuilderIVFloor: FunctionComponent = () => {
   const { candidate, dispatch } = useCandidate();

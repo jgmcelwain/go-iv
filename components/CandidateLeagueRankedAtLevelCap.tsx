@@ -8,7 +8,8 @@ import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
 import { useRankedSpreads } from '../hooks/useRankedSpreads';
 
-import { IV_FLOORS, LevelCap } from '../data/reference';
+import { IV_FLOORS } from '../data/ivFloor';
+import { LevelCap } from '../data/levelCap';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import { ViewListIcon } from '@heroicons/react/solid';

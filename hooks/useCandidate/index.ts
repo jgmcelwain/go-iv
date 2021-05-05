@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
-
-import { IV, IVFloor, Pokemon } from '../../data/reference';
+import { Pokemon } from '../../data/pokedex';
+import { IV } from '../../data/iv';
+import { IVFloor } from '../../data/ivFloor';
 import { Dispatch } from './candidateReducer';
 
 export { Provider } from './Provider';

@@ -1,6 +1,10 @@
 import { Dispatch as ReactDispatch } from 'react';
 
-import { IV, IVFloor, Pokemon, StatKey, ActionMap } from '../../data/reference';
+import { IV } from '../../data/iv';
+import { IVFloor } from '../../data/ivFloor';
+import { StatKey } from '../../data/stat';
+import { Pokemon } from '../../data/pokedex';
+import { ActionMap } from '../../utils/actionMap';
 
 import { Candidate } from '.';
 

@@ -2,7 +2,8 @@ import React, { FunctionComponent } from 'react';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 
-import { IV, IV_RANGE, STATS } from '../data/reference';
+import { IV, IV_RANGE } from '../data/iv';
+import { STATS } from '../data/stat';
 
 const CandidateBuilderIVs: FunctionComponent = () => {
   const { candidate, dispatch } = useCandidate();

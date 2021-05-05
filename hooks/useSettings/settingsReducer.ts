@@ -1,11 +1,9 @@
 import { Dispatch as ReactDispatch } from 'react';
 
-import {
-  ActionMap,
-  LeagueKey,
-  LevelCapNumber,
-  OutputDataKey,
-} from '../../data/reference';
+import { LeagueKey } from '../../data/league';
+import { LevelCapNumber } from '../../data/levelCap';
+import { OutputDataKey } from '../../data/outputData';
+import { ActionMap } from '../../utils/actionMap';
 
 import { Settings } from '.';
 
