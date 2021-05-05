@@ -4,6 +4,7 @@ import CandidateBuilderSpecies from './CandidateBuilderSpecies';
 import CandidateBuilderFamilySwap from './CandidateBuilderFamilySwap';
 import CandidateBuilderIVs from './CandidateBuilderIVs';
 import CandidateBuilderIVFloor from './CandidateBuilderIVFloor';
+import CandidateBuilderShadow from './CandidateBuilderShadow';
 
 const CandidateBuilder: FunctionComponent = () => {
   return (
@@ -15,6 +16,8 @@ const CandidateBuilder: FunctionComponent = () => {
       <CandidateBuilderIVs />
 
       <CandidateBuilderIVFloor />
+
+      <CandidateBuilderShadow />
     </section>
   );
 };
