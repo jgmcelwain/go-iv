@@ -7,6 +7,7 @@ import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
+import CandidateLeagueTableCellShadowStat from './CandidateLeagueTableCellShadowStat';
 import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpreadsAtLevelCapDownload';
 
 const CandidateLeagueTopSpreadsAtLevelCap: FunctionComponent = () => {
@@ -116,11 +117,19 @@ const CandidateLeagueTopSpreadsAtLevelCap: FunctionComponent = () => {
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
-                  {spread.stats.atk.value.toFixed(2)}
+                  <CandidateLeagueTableCellShadowStat
+                    value={spread.stats.atk.value}
+                    stat='atk'
+                    shadow={candidate.shadow}
+                  />
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
-                  {spread.stats.def.value.toFixed(2)}
+                  <CandidateLeagueTableCellShadowStat
+                    value={spread.stats.def.value}
+                    stat='def'
+                    shadow={candidate.shadow}
+                  />
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>

@@ -12,7 +12,8 @@ import { IV_FLOORS } from '../data/ivFloor';
 import { LevelCap } from '../data/levelCap';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
-import { ViewListIcon } from '@heroicons/react/solid';
+import { FireIcon, ViewListIcon } from '@heroicons/react/solid';
+import CandidateLeagueTableCellShadowStat from './CandidateLeagueTableCellShadowStat';
 
 const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
   levelCap: LevelCap;
@@ -74,7 +75,11 @@ const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
         <>
           <CandidateLeagueTableCells.Body>
             <>
-              {candidateAtLevel.stats.atk.value.toFixed(2)}
+              <CandidateLeagueTableCellShadowStat
+                value={candidateAtLevel.stats.atk.value}
+                stat='atk'
+                shadow={candidate.shadow}
+              />
 
               {settings.outputData.percent && (
                 <span className='block text-xs opacity-90'>
@@ -85,7 +90,11 @@ const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
             <>
-              {candidateAtLevel.stats.def.value.toFixed(2)}
+              <CandidateLeagueTableCellShadowStat
+                value={candidateAtLevel.stats.def.value}
+                stat='def'
+                shadow={candidate.shadow}
+              />
 
               {settings.outputData.percent && (
                 <span className='block text-xs opacity-90'>
@@ -96,7 +105,7 @@ const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
             <>
-              {candidateAtLevel.stats.sta.value}
+              <span className='block'>{candidateAtLevel.stats.sta.value}</span>
 
               {settings.outputData.percent && (
                 <span className='block text-xs opacity-90'>
@@ -111,9 +120,7 @@ const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
       {settings.outputData.statProduct && (
         <CandidateLeagueTableCells.Body>
           <>
-            <span title={`${candidateAtLevel.product.value}`}>
-              {(candidateAtLevel.product.value / 1000).toFixed(2)}
-            </span>
+            <span>{(candidateAtLevel.product.value / 1000).toFixed(2)}</span>
 
             {settings.outputData.percent && (
               <span className='block text-xs opacity-90'>
