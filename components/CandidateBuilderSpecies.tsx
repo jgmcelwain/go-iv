@@ -28,7 +28,7 @@ const CandidateBuilderSpecies: FunctionComponent = () => {
   const input = useRef<HTMLInputElement>();
 
   return (
-    <label className='order-1 block mb-2 mr-3'>
+    <label className='order-1 block mb-2 mr-6'>
       <span className='text-xs text-gray-400'>Species</span>
 
       <input

@@ -27,7 +27,7 @@ const CandidateBuilderShadow: FunctionComponent = () => {
       }
       className={`${
         candidate.shadow ? 'bg-purple-600' : 'bg-gray-700'
-      } relative inline-flex items-center h-8 rounded-full w-14 transition-colors ease-in-out duration-200 order-2 mt-8 mr-6`}
+      } relative inline-flex items-center h-8 rounded-full w-14 transition-colors ease-in-out duration-200 order-2 mt-8 mr-6 -ml-3`}
     >
       <span className='sr-only'>Shadow</span>
 
