@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { LEVEL_CAPS } from '../data/reference';
+
+import { LEVEL_CAPS } from '../data/levelCap';
 
 import { useSettings } from '../hooks/useSettings';
 

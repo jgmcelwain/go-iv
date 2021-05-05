@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactNode, useState, useMemo } from 'react';
 
-import { League, LevelCap } from '../../data/reference';
+import { League } from '../../data/league';
+import { LevelCap } from '../../data/levelCap';
 
 import { Context } from '.';
 

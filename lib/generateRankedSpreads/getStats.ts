@@ -1,4 +1,5 @@
-import { CPMs, PokemonStats } from '../../data/reference';
+import { CPMs } from '../../data/cpm';
+import { PokemonStats } from '../../data/pokedex';
 
 export function getStats(
   atk: PokemonStats['atk'],

@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
-import { LevelCapNumber, RankedSpread } from '../../data/reference';
+
+import { LevelCapNumber } from '../../data/levelCap';
+import { RankedSpread } from '../../lib/generateRankedSpreads';
 
 export { Provider } from './Provider';
 

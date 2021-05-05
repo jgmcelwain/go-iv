@@ -1,12 +1,6 @@
-import { getPokemonByID } from '../../data/pokedex';
-import {
-  IV,
-  IVFloor,
-  PokemonID,
-  MAX_IV,
-  MIN_IV_FLOOR,
-  MAX_IV_FLOOR,
-} from '../../data/reference';
+import { getPokemonByID, PokemonID } from '../../data/pokedex';
+import { IV, MAX_IV } from '../../data/iv';
+import { IVFloor, MIN_IV_FLOOR, MAX_IV_FLOOR } from '../../data/ivFloor';
 
 import { tidyNumericInput } from '../../utils/tidyNumericInput';
 

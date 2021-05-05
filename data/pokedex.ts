@@ -1,4 +1,35 @@
-import { Pokemon, PokemonID, PokemonName } from './reference';
+import { IV } from './iv';
+import { IVFloor } from './ivFloor';
+
+export type PokemonID = string;
+
+export type PokemonName = string;
+
+export type PokemonStats = {
+  atk: number;
+  def: number;
+  sta: number;
+};
+
+export type PokemonIVs = {
+  atk: IV;
+  def: IV;
+  sta: IV;
+};
+
+export type PokemonFamilyStage = 1 | 2 | 3 | 4 | 5;
+
+export type Pokemon = {
+  id: PokemonID;
+  name: PokemonName;
+  stats: PokemonStats;
+  floor?: IVFloor;
+  speculative?: boolean;
+  family: {
+    id: PokemonID;
+    stage: PokemonFamilyStage;
+  };
+};
 
 export const POKEDEX: Pokemon[] = [
   {
@@ -10844,11 +10875,13 @@ export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
 
   return list.find((pokemon) => pokemon.name === name) ?? null;
 }
+
 export function getPokemonByID(id: PokemonID, list: Pokemon[] = POKEDEX) {
   if (!id) return null;
 
   return list.find((pokemon) => pokemon.id === id) ?? null;
 }
+
 export function getPokemonFamilyMembers(
   familyID: PokemonID,
   list: Pokemon[] = POKEDEX,

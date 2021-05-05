@@ -1,12 +1,15 @@
 import { useMemo } from 'react';
 
-import { LevelCapNumber, RankedSpread } from '../../data/reference';
+import { LevelCapNumber } from '../../data/levelCap';
 
 import { useLeague } from '../useLeague';
 import { useCandidate } from '../useCandidate';
 import { useSettings } from '../useSettings';
 
-import { generateRankedSpreads } from '../../lib/generateRankedSpreads';
+import {
+  generateRankedSpreads,
+  RankedSpread,
+} from '../../lib/generateRankedSpreads';
 
 export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
   const { league } = useLeague();

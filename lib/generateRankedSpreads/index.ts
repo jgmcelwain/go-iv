@@ -1,13 +1,27 @@
-import {
-  IVFloor,
-  LeagueCPCap,
-  LevelCapNumber,
-  Pokemon,
-  RankedSpread,
-  ComparableToMax,
-} from '../../data/reference';
+import { LeagueCPCap } from '../../data/league';
+import { LevelCapNumber } from '../../data/levelCap';
+import { IVFloor } from '../../data/ivFloor';
+import { Pokemon, PokemonIVs } from '../../data/pokedex';
+
 import { getMaximizedStats } from './getMaximizedStats';
 import { getIVSpreads } from './getIVSpreads';
+
+export type ComparableToMax = {
+  value: number;
+  percentOfMax: number;
+};
+export type RankedSpread = {
+  ivs: PokemonIVs;
+  cp: number;
+  level: number;
+  rank: number;
+  product: ComparableToMax;
+  stats: {
+    atk: ComparableToMax;
+    def: ComparableToMax;
+    sta: ComparableToMax;
+  };
+};
 
 const compareToMax = (value: number, max: number): ComparableToMax => ({
   value,

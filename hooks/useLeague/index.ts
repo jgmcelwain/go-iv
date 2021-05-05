@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
-import { League, LevelCap } from '../../data/reference';
+
+import { League } from '../../data/league';
+import { LevelCap } from '../../data/levelCap';
 
 export { Provider } from './Provider';
 

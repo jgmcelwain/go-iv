@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { LEAGUES } from '../data/reference';
+import { LEAGUES } from '../data/league';
 import { NextPageContext } from 'next';
 
 import { parseCookies } from 'nookies';
