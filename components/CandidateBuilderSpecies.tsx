@@ -29,7 +29,7 @@ const CandidateBuilderSpecies: FunctionComponent = () => {
 
   return (
     <label className='order-1 block mb-2 mr-6'>
-      <span className='text-xs text-gray-400'>Species</span>
+      <span className='text-xs text-gray-400'>Pokémon</span>
 
       <input
         onFocus={() => {
@@ -43,7 +43,7 @@ const CandidateBuilderSpecies: FunctionComponent = () => {
         list='pokemon-list'
         value={value}
         className='block w-full mt-1 rounded form-input focus-visible-ring ring-offset-gray-900'
-        placeholder='Pokémon'
+        placeholder='Pokémon Name'
         ref={input}
       />
 
