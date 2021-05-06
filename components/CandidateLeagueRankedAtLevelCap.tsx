@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
-import { formatPercent } from '../utils/formatPercent';
 
 import { useSettings } from '../hooks/useSettings';
 import { useCandidate } from '../hooks/useCandidate';
@@ -12,6 +11,7 @@ import { IV_FLOORS } from '../data/ivFloor';
 import { LevelCap } from '../data/levelCap';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
+import CandidateLeagueTableCellsPercentOfMax from './CandidateLeagueTableCellsPercentOfMax';
 import { ViewListIcon } from '@heroicons/react/solid';
 
 const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
@@ -76,33 +76,27 @@ const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
             <>
               {candidateAtLevel.stats.atk.value.toFixed(2)}
 
-              {settings.outputData.percent && (
-                <span className='block text-xs opacity-90'>
-                  {formatPercent(candidateAtLevel.stats.atk.percentOfMax)}
-                </span>
-              )}
+              <CandidateLeagueTableCellsPercentOfMax
+                value={candidateAtLevel.stats.atk.percentOfMax}
+              />
             </>
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
             <>
               {candidateAtLevel.stats.def.value.toFixed(2)}
 
-              {settings.outputData.percent && (
-                <span className='block text-xs opacity-90'>
-                  {formatPercent(candidateAtLevel.stats.def.percentOfMax)}
-                </span>
-              )}
+              <CandidateLeagueTableCellsPercentOfMax
+                value={candidateAtLevel.stats.def.percentOfMax}
+              />
             </>
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
             <>
               {candidateAtLevel.stats.sta.value}
 
-              {settings.outputData.percent && (
-                <span className='block text-xs opacity-90'>
-                  {formatPercent(candidateAtLevel.stats.sta.percentOfMax)}
-                </span>
-              )}
+              <CandidateLeagueTableCellsPercentOfMax
+                value={candidateAtLevel.stats.sta.percentOfMax}
+              />
             </>
           </CandidateLeagueTableCells.Body>
         </>
@@ -115,11 +109,9 @@ const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
               {(candidateAtLevel.product.value / 1000).toFixed(2)}
             </span>
 
-            {settings.outputData.percent && (
-              <span className='block text-xs opacity-90'>
-                {formatPercent(candidateAtLevel.product.percentOfMax)}
-              </span>
-            )}
+            <CandidateLeagueTableCellsPercentOfMax
+              value={candidateAtLevel.product.percentOfMax}
+            />
           </>
         </CandidateLeagueTableCells.Body>
       )}
