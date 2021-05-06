@@ -13,7 +13,7 @@ const defaultSettings: Settings = {
     cp: true,
     stats: true,
     statProduct: true,
-    percent: true,
+    percent: false,
   },
   showSpeculative: false,
 };
