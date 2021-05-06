@@ -19,16 +19,18 @@ export const OUTPUT_DATA: OutputDataPoint[] = [
   {
     key: 'stats',
     name: 'Stats',
-    description: '',
+    description: 'Attack, Defense and Stamina, as calculated in-game.',
   },
   {
     key: 'statProduct',
     name: 'Stat Product',
-    description: '',
+    description:
+      'The metric used to rank spreads - calculated by multiplying the generated Attack, Defense and Stamina values together.',
   },
   {
     key: 'percent',
     name: '% of Rank 1',
-    description: '',
+    description:
+      'Display a percentage under Stat and the Stat Product for a Candidate comparing the value to that of the Rank 1 spread.',
   },
 ];
