@@ -31,6 +31,6 @@ export const OUTPUT_DATA: OutputDataPoint[] = [
     key: 'percent',
     name: '% of Rank 1',
     description:
-      'Display a percentage under Stat and the Stat Product for a Candidate comparing the value to that of the Rank 1 spread.',
+      'Display a percentage under each Stat and the Stat Product comparing the value to that of the Rank 1 spread.',
   },
 ];
