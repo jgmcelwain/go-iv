@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -60,7 +60,7 @@ export function useNavigationPages() {
   return links;
 }
 
-const AppSidebarNavigation: FunctionComponent = () => {
+const AppSidebarNavigation: FC = () => {
   const pages = useNavigationPages();
 
   return (

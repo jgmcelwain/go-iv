@@ -1,16 +1,11 @@
-import React, {
-  FunctionComponent,
-  ReactNode,
-  useReducer,
-  useEffect,
-} from 'react';
+import React, { FC, ReactNode, useReducer, useEffect } from 'react';
 
 import { Context, Settings } from '.';
 
 import { settingsReducer } from './settingsReducer';
 import { setSettingsCookie } from './setSettingsCookie';
 
-export const Provider: FunctionComponent<{
+export const Provider: FC<{
   initialValue: Settings;
   children: ReactNode;
 }> = ({ children, initialValue }) => {

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { LEVEL_CAPS } from '../data/levelCap';
 
@@ -7,7 +7,7 @@ import { useSettings } from '../hooks/useSettings';
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueRankedAtLevelCap from './CandidateLeagueRankedAtLevelCap';
 
-const CandidateLeagueRanks: FunctionComponent = () => {
+const CandidateLeagueRanks: FC = () => {
   const { settings } = useSettings();
 
   return (

@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { Switch } from '@headlessui/react';
 
-const SettingsContentTabSectionInput: FunctionComponent<{
+const SettingsContentTabSectionInput: FC<{
   label: string;
   description: string;
   value: boolean;

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { LEAGUES } from '../data/league';
 import { LEVEL_CAPS } from '../data/levelCap';
@@ -10,7 +10,7 @@ import Head from 'next/head';
 import SettingsSection from '../components/SettingsSection';
 import SettingsInput from '../components/SettingsInput';
 
-const SettingsPage: FunctionComponent = () => {
+const SettingsPage: FC = () => {
   const { settings, dispatch } = useSettings();
 
   return (

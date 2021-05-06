@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { useLeague } from '../hooks/useLeague';
 import { Provider as LeagueCandidateRankedSpreadsProvider } from '../hooks/useRankedSpreads';
@@ -6,7 +6,7 @@ import { Provider as LeagueCandidateRankedSpreadsProvider } from '../hooks/useRa
 import CandidateLeagueTopSpreadsAtLevelCap from './CandidateLeagueTopSpreadsAtLevelCap';
 import CandidateLeagueRanks from './CandidateLeagueRanks';
 
-const CandidateLeagueContent: FunctionComponent = () => {
+const CandidateLeagueContent: FC = () => {
   const { displayMode } = useLeague();
 
   return (

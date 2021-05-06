@@ -1,11 +1,11 @@
-import React, { FunctionComponent, ReactNode, useState, useMemo } from 'react';
+import React, { FC, ReactNode, useState, useMemo } from 'react';
 
 import { League } from '../../data/league';
 import { LevelCap } from '../../data/levelCap';
 
 import { Context } from '.';
 
-export const Provider: FunctionComponent<{
+export const Provider: FC<{
   league: League;
   children: ReactNode;
 }> = ({ league, children }) => {

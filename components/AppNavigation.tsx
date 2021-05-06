@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import pkg from '../package.json';
 
@@ -36,7 +36,7 @@ function useMenuShown(): [boolean, () => void] {
   return [menuShown, toggleMenu];
 }
 
-const AppNavigation: FunctionComponent = () => {
+const AppNavigation: FC = () => {
   const [menuShown, toggleMenu] = useMenuShown();
 
   return (

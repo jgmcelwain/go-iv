@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { useLeague } from '../hooks/useLeague';
@@ -7,7 +7,7 @@ import { useCandidate } from '../hooks/useCandidate';
 import { downloadFile } from '../utils/downloadFile';
 import { DownloadIcon } from '@heroicons/react/solid';
 
-const CandidateLeagueTopSpreadsAtLevelCapDownload: FunctionComponent = () => {
+const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
   const { candidate } = useCandidate();
   const { league, inspectedLevelCap } = useLeague();
   const rankedSpreads = useRankedSpreads();

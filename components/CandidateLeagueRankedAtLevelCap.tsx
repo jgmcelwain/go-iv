@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
@@ -14,7 +14,7 @@ import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTableCellsPercentOfMax from './CandidateLeagueTableCellsPercentOfMax';
 import { ViewListIcon } from '@heroicons/react/solid';
 
-const CandidateLeagueRankedAtLevelCap: FunctionComponent<{
+const CandidateLeagueRankedAtLevelCap: FC<{
   levelCap: LevelCap;
 }> = ({ levelCap }) => {
   const { league, setDisplayMode } = useLeague();

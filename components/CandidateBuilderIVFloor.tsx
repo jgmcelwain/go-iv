@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 
 import { IVFloor, IV_FLOORS } from '../data/ivFloor';
 
-const CandidateBuilderIVFloor: FunctionComponent = () => {
+const CandidateBuilderIVFloor: FC = () => {
   const { candidate, dispatch } = useCandidate();
 
   return (

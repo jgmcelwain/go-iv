@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { IV_FLOORS } from '../data/ivFloor';
 
@@ -30,7 +30,7 @@ const LEAGUE_COLORS = {
   },
 };
 
-const CandidateLeagueHeader: FunctionComponent = () => {
+const CandidateLeagueHeader: FC = () => {
   const { candidate } = useCandidate();
   const {
     league,

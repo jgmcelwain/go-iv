@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 
 import { IV, IV_RANGE } from '../data/iv';
 import { STATS } from '../data/stat';
 
-const CandidateBuilderIVs: FunctionComponent = () => {
+const CandidateBuilderIVs: FC = () => {
   const { candidate, dispatch } = useCandidate();
 
   return (

@@ -1,6 +1,6 @@
 import 'focus-visible';
 
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { AppContext, AppProps } from 'next/app';
 
@@ -18,7 +18,7 @@ import '../styles/index.css';
 
 type InitialProps = { settings: SettingsType };
 
-const App: FunctionComponent<AppProps & InitialProps> & {
+const App: FC<AppProps & InitialProps> & {
   getInitialProps: (arg0: AppContext) => Promise<InitialProps>;
 } = ({ Component, pageProps, settings }) => {
   return (

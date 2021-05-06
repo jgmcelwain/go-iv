@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { LEAGUES } from '../data/league';
 import { NextPageContext } from 'next';
@@ -14,7 +14,7 @@ import { useSettings } from '../hooks/useSettings';
 import CandidateLeague from '../components/CandidateLeague';
 import CandidateBuilder from '../components/CandidateBuilder';
 
-const CandidatePage: FunctionComponent<{ cachedCandidate: Candidate }> = ({
+const CandidatePage: FC<{ cachedCandidate: Candidate }> = ({
   cachedCandidate,
 }) => {
   const { settings } = useSettings();

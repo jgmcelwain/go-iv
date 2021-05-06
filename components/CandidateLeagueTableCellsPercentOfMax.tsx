@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { useSettings } from '../hooks/useSettings';
 import { formatPercent } from '../utils/formatPercent';
 
-const CandidateLeagueTableCellsPercentOfMax: FunctionComponent<{
+const CandidateLeagueTableCellsPercentOfMax: FC<{
   value: number;
 }> = ({ value }) => {
   const { settings } = useSettings();

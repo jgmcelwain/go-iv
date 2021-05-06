@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
-const AppFooter: FunctionComponent = () => (
+const AppFooter: FC = () => (
   <footer className='container px-4 pt-12 pb-8 mx-auto mt-12 border-t border-gray-800'>
     <p className='mb-2 text-xs text-center text-gray-400'>
       Pokémon are copyright of The Pokémon Company and Nintendo. All data used

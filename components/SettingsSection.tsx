@@ -1,6 +1,6 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const SettingsSection: FunctionComponent<{
+const SettingsSection: FC<{
   id: string;
   title: string;
   description?: string;

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { useLeague } from '../hooks/useLeague';
 import { useCandidate } from '../hooks/useCandidate';
@@ -9,7 +9,7 @@ import { getRankedSpreadColors } from '../utils/getRankColors';
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpreadsAtLevelCapDownload';
 
-const CandidateLeagueTopSpreadsAtLevelCap: FunctionComponent = () => {
+const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
   const { inspectedLevelCap } = useLeague();
   const { candidate } = useCandidate();
   const rankedSpreads = useRankedSpreads();

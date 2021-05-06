@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useState, useEffect, useRef } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 
 import { PokemonName } from '../data/pokedex';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';
 
-const CandidateBuilderSpecies: FunctionComponent = () => {
+const CandidateBuilderSpecies: FC = () => {
   const pokedex = usePokedex();
   const { candidate, dispatch } = useCandidate();
   const [value, setValue] = useState<PokemonName>(candidate.species.name);

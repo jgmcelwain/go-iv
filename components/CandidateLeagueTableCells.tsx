@@ -1,6 +1,6 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
-export const Header: FunctionComponent<{
+export const Header: FC<{
   children?: ReactNode;
 }> = ({ children }) => (
   <th className='px-3 py-2 text-left bg-gray-100 first:pl-4 last:pr-4'>
@@ -12,7 +12,7 @@ export const Header: FunctionComponent<{
   </th>
 );
 
-export const Body: FunctionComponent<{
+export const Body: FC<{
   right?: boolean;
   children?: ReactNode;
 }> = ({ right, children }) => (

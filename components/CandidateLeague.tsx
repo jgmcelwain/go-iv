@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import { League } from '../data/league';
 import { Provider as LeagueContextProvider } from '../hooks/useLeague';
@@ -6,7 +6,7 @@ import { Provider as LeagueContextProvider } from '../hooks/useLeague';
 import CandidateLeagueHeader from './CandidateLeagueHeader';
 import CandidateLeagueContent from './CandidateLeagueContent';
 
-const CandidateLeague: FunctionComponent<{ league: League }> = ({ league }) => {
+const CandidateLeague: FC<{ league: League }> = ({ league }) => {
   return (
     <LeagueContextProvider league={league}>
       <div className='w-full overflow-hidden bg-gray-100 shadow-xl sm:rounded-lg'>

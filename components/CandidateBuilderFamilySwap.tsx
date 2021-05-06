@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { Pokemon } from '../data/pokedex';
 
@@ -8,7 +8,7 @@ import { usePokedex } from '../hooks/usePokedex';
 import { RadioGroup } from '@headlessui/react';
 import { SwitchVerticalIcon } from '@heroicons/react/solid';
 
-const CandidateBuilderFamilySwap: FunctionComponent = () => {
+const CandidateBuilderFamilySwap: FC = () => {
   const { candidate, dispatch } = useCandidate();
   const pokedex = usePokedex();
 

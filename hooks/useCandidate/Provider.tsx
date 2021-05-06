@@ -1,9 +1,4 @@
-import React, {
-  FunctionComponent,
-  useReducer,
-  useEffect,
-  ReactNode,
-} from 'react';
+import React, { FC, useReducer, useEffect, ReactNode } from 'react';
 
 import { Candidate, Context } from '.';
 
@@ -12,7 +7,7 @@ import { candidateReducer } from './candidateReducer';
 import { cacheCandidate } from './cacheCandidate';
 import { getInitialCandidate } from './getInitialCandidate';
 
-export const Provider: FunctionComponent<{
+export const Provider: FC<{
   cachedCandidate: Candidate;
   children: ReactNode;
 }> = ({ cachedCandidate, children }) => {
