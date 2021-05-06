@@ -6,7 +6,7 @@ import { Settings } from '.';
 
 const defaultSettings: Settings = {
   leagues: { great: true, ultra: true, master: true, little: false },
-  levelCaps: { 40: true, 41: true, 50: true, 51: true },
+  levelCaps: { 40: false, 41: false, 50: true, 51: true },
   outputData: {
     level: true,
     rank: true,
