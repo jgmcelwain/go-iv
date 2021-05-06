@@ -4,22 +4,19 @@ import { Switch } from '@headlessui/react';
 
 const SettingsContentTabSectionInput: FC<{
   label: string;
-  description: string;
+  description?: string;
   value: boolean;
   onInput: (value: boolean) => void;
-}> = ({
-  label,
-  description = 'Lorem ipsum dolor sit amet',
-  value,
-  onInput,
-}) => {
+}> = ({ label, description, value, onInput }) => {
   return (
     <Switch.Group>
       <div className='flex items-center justify-between pb-5 mb-5 border-b border-gray-700 last:border-none last:pb-0 last:mb-0'>
         <Switch.Label className='flex-grow pr-4 cursor-pointer select-none'>
           <p className='font-semibold leading-normal text-white'>{label}</p>
 
-          <p className='text-sm text-gray-400'>{description}</p>
+          {description && (
+            <p className='text-sm text-gray-400'>{description}</p>
+          )}
         </Switch.Label>
 
         <Switch

@@ -9,13 +9,13 @@ export type OutputDataKey =
 export type OutputDataPoint = {
   key: OutputDataKey;
   name: string;
-  description: string;
+  description?: string;
 };
 
 export const OUTPUT_DATA: OutputDataPoint[] = [
-  { key: 'rank', name: 'Rank', description: '' },
-  { key: 'level', name: 'Level', description: '' },
-  { key: 'cp', name: 'CP', description: '' },
+  { key: 'rank', name: 'Rank' },
+  { key: 'level', name: 'Level' },
+  { key: 'cp', name: 'CP' },
   {
     key: 'stats',
     name: 'Stats',
