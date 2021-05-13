@@ -58,14 +58,14 @@ function sanitizeCandidate(
     ),
   };
 
-  const outputRankBy: RankableMetric =
+  const outputRankingMetric: RankableMetric =
     RANKABLE_METRICS.find(({ key }) => key === rankingMetric)?.key ?? 'product';
 
   return {
     species,
     ivs,
     floor: outputFloor,
-    rankingMetric: outputRankBy,
+    rankingMetric: outputRankingMetric,
     shadow: shadow ?? false,
   };
 }
