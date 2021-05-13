@@ -14,6 +14,7 @@ export enum CandidateActionTypes {
   IVs,
   Floor,
   RankBy,
+  Shadow,
 }
 
 type PayloadTypes = {
@@ -22,6 +23,7 @@ type PayloadTypes = {
   [CandidateActionTypes.IVs]: { atk: IV; def: IV; sta: IV };
   [CandidateActionTypes.Floor]: IVFloor;
   [CandidateActionTypes.RankBy]: RankableMetric;
+  [CandidateActionTypes.Shadow]: boolean;
 };
 
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
@@ -54,11 +56,17 @@ export function candidateReducer(state: Candidate, action: Actions): Candidate {
 
       return {
         ...state,
-        ivs: { ...state.ivs, [ivKey]: action.payload.value },
+        ivs: {
+          ...state.ivs,
+          [ivKey]: action.payload.value,
+        },
       };
     }
     case CandidateActionTypes.IVs: {
-      return { ...state, ivs: action.payload };
+      return {
+        ...state,
+        ivs: action.payload,
+      };
     }
     case CandidateActionTypes.Floor: {
       return {
@@ -76,6 +84,12 @@ export function candidateReducer(state: Candidate, action: Actions): Candidate {
       return {
         ...state,
         rankingMetric: action.payload,
+      };
+    }
+    case CandidateActionTypes.Shadow: {
+      return {
+        ...state,
+        shadow: action.payload,
       };
     }
     default: {

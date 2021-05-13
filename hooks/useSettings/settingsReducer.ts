@@ -12,6 +12,7 @@ export enum SettingsActionTypes {
   LevelCap,
   OutputData,
   Speculative,
+  ShadowToggle,
 }
 type PayloadTypes = {
   [SettingsActionTypes.League]: { key: LeagueKey; value: boolean };
@@ -24,6 +25,7 @@ type PayloadTypes = {
     value: boolean;
   };
   [SettingsActionTypes.Speculative]: boolean;
+  [SettingsActionTypes.ShadowToggle]: boolean;
 };
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
 export type Dispatch = ReactDispatch<Actions>;
@@ -61,6 +63,12 @@ export function settingsReducer(state: Settings, action: Actions): Settings {
       return {
         ...state,
         showSpeculative: action.payload,
+      };
+    }
+    case SettingsActionTypes.ShadowToggle: {
+      return {
+        ...state,
+        showShadowToggle: action.payload,
       };
     }
     default: {

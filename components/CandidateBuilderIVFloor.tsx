@@ -8,7 +8,7 @@ const CandidateBuilderIVFloor: FC = () => {
   const { candidate, dispatch } = useCandidate();
 
   return (
-    <label className='order-4 block mb-2'>
+    <label className='order-4 block mb-2 md:order-3'>
       <span className='text-xs text-gray-400'>IV Floor</span>
 
       <select

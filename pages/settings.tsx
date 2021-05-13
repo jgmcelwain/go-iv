@@ -70,7 +70,7 @@ const SettingsPage: FC = () => {
         ))}
       </SettingsSection>
 
-      <SettingsSection id='data-sources' title='Data Sources'>
+      <SettingsSection id='data-sources' title='Candidate Creation'>
         <SettingsInput
           onInput={(value) =>
             dispatch({
@@ -79,8 +79,20 @@ const SettingsPage: FC = () => {
             })
           }
           value={settings.showSpeculative}
-          label='Speculative Pokemon'
+          label='Show Speculative Pokemon'
           description='Unreleased Generations, Forms and Mega Evolutions'
+        />
+
+        <SettingsInput
+          onInput={(value) =>
+            dispatch({
+              type: SettingsActionTypes.ShadowToggle,
+              payload: value,
+            })
+          }
+          value={settings.showShadowToggle}
+          label='Shadow Toggle'
+          description='Add a switch to toggle whether your candidate is a Shadow Pokémon. Note: Shadow bonus does NOT affect CMP ties.'
         />
       </SettingsSection>
     </div>

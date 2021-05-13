@@ -17,12 +17,10 @@ export const Body: FC<{
   children?: ReactNode;
 }> = ({ right, children }) => (
   <td
-    className={`border-t border-gray-200 px-3 py-4 first:pl-4${
+    className={`border-t border-gray-200 px-3 py-4 text-sm whitespace-nowrap first:pl-4${
       right ? ' text-right' : ''
     }`}
   >
-    {children && (
-      <span className='text-xs sm:text-sm whitespace-nowrap'>{children}</span>
-    )}
+    {children}
   </td>
 );

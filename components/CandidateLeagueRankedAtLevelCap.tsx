@@ -12,6 +12,7 @@ import { LevelCap } from '../data/levelCap';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTableCellsPercentOfMax from './CandidateLeagueTableCellsPercentOfMax';
+import CandidateLeagueTableCellShadowStat from './CandidateLeagueTableCellShadowStat';
 import { ViewListIcon } from '@heroicons/react/solid';
 
 const CandidateLeagueRankedAtLevelCap: FC<{
@@ -75,7 +76,11 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         <>
           <CandidateLeagueTableCells.Body>
             <>
-              {candidateAtLevel.stats.atk.value.toFixed(2)}
+              <CandidateLeagueTableCellShadowStat
+                value={candidateAtLevel.stats.atk.value}
+                stat='atk'
+                shadow={candidate.shadow}
+              />
 
               <CandidateLeagueTableCellsPercentOfMax
                 value={candidateAtLevel.stats.atk.percentOfMax}
@@ -84,7 +89,11 @@ const CandidateLeagueRankedAtLevelCap: FC<{
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
             <>
-              {candidateAtLevel.stats.def.value.toFixed(2)}
+              <CandidateLeagueTableCellShadowStat
+                value={candidateAtLevel.stats.def.value}
+                stat='def'
+                shadow={candidate.shadow}
+              />
 
               <CandidateLeagueTableCellsPercentOfMax
                 value={candidateAtLevel.stats.def.percentOfMax}
@@ -93,7 +102,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
             <>
-              {candidateAtLevel.stats.sta.value}
+              <span className='block'>{candidateAtLevel.stats.sta.value}</span>
 
               <CandidateLeagueTableCellsPercentOfMax
                 value={candidateAtLevel.stats.sta.percentOfMax}
@@ -106,9 +115,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       {settings.outputData.statProduct && (
         <CandidateLeagueTableCells.Body>
           <>
-            <span title={`${candidateAtLevel.product.value}`}>
-              {(candidateAtLevel.product.value / 1000).toFixed(2)}
-            </span>
+            <span>{(candidateAtLevel.product.value / 1000).toFixed(2)}</span>
 
             <CandidateLeagueTableCellsPercentOfMax
               value={candidateAtLevel.product.percentOfMax}

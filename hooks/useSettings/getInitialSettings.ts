@@ -16,6 +16,7 @@ const defaultSettings: Settings = {
     percent: false,
   },
   showSpeculative: false,
+  showShadowToggle: false,
 };
 
 export function getInitialSettings(ctx: NextPageContext) {

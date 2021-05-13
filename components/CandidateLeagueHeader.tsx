@@ -75,7 +75,10 @@ const CandidateLeagueHeader: FC = () => {
           <>
             <p className='mt-1 text-xs font-semibold'>
               Top IV Spreads for{' '}
-              <span key={candidate.species.name}>{candidate.species.name}</span>
+              <span key={candidate.species.name}>
+                {candidate.shadow && 'Shadow '}
+                {candidate.species.name}
+              </span>
             </p>
             <p className='mt-1 text-xs font-semibold'>
               Level {inspectedLevelCap.level} ({inspectedLevelCap.description})
@@ -86,8 +89,11 @@ const CandidateLeagueHeader: FC = () => {
           </>
         ) : (
           <p className='mt-1 text-xs font-semibold'>
-            <span key={candidate.species.name}>{candidate.species.name}</span>,{' '}
-            {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
+            <span key={candidate.species.name}>
+              {candidate.shadow && 'Shadow '}
+              {candidate.species.name}
+            </span>
+            , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
             {floor.name}
           </p>
         )}

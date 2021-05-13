@@ -20,6 +20,7 @@ const CANDIDATE_DEFAULTS = {
   sta: parseInt(process.env.NEXT_PUBLIC_DEFAULT_STA ?? '15'),
   floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
   rankingMetric: process.env.NEXT_PUBLIC_DEFAULT_RANKING_METRIC ?? 'product',
+  shadow: false,
 };
 
 function sanitizeCandidate(
@@ -29,6 +30,7 @@ function sanitizeCandidate(
   sta?: DirtyIV,
   floor?: DirtyIVFloor,
   rankingMetric?: DirtyRankableMetric,
+  shadow?: boolean,
 ) {
   const species = getPokemonByID(id) ?? getPokemonByID(CANDIDATE_DEFAULTS.id);
 
@@ -64,6 +66,7 @@ function sanitizeCandidate(
     ivs,
     floor: outputFloor,
     rankingMetric: outputRankBy,
+    shadow: shadow ?? false,
   };
 }
 
@@ -89,6 +92,7 @@ export function getInitialCandidate(
       cachedCandidate.ivs.sta,
       cachedCandidate.floor,
       cachedCandidate.rankingMetric,
+      cachedCandidate.shadow,
     );
   } else {
     return sanitizeCandidate(null);
