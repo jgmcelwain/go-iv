@@ -14,7 +14,5 @@ export const Context = createContext<{
 }>(null);
 
 export function useLeague() {
-  const value = useContext(Context);
-
-  return value;
+  return useContext(Context);
 }

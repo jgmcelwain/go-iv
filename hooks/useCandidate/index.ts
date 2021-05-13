@@ -23,7 +23,5 @@ export const Context = createContext<{
 }>(null);
 
 export function useCandidate() {
-  const value = useContext(Context);
-
-  return value;
+  return useContext(Context);
 }

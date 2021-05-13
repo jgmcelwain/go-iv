@@ -12,7 +12,5 @@ export const Context = createContext<
 >(null);
 
 export function useRankedSpreads() {
-  const value = useContext(Context);
-
-  return value;
+  return useContext(Context);
 }

@@ -23,7 +23,5 @@ export type Settings = {
 };
 
 export function useSettings() {
-  const value = useContext(Context);
-
-  return value;
+  return useContext(Context);
 }
