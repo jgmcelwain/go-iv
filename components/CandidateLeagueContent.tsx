@@ -4,7 +4,7 @@ import { useLeague } from '../hooks/useLeague';
 import { Provider as LeagueCandidateRankedSpreadsProvider } from '../hooks/useRankedSpreads';
 
 import CandidateLeagueTopSpreadsAtLevelCap from './CandidateLeagueTopSpreadsAtLevelCap';
-import CandidateLeagueRanks from './CandidateLeagueRanks';
+import CandidateLeagueRanked from './CandidateLeagueRanked';
 
 const CandidateLeagueContent: FC = () => {
   const { displayMode } = useLeague();
@@ -14,7 +14,7 @@ const CandidateLeagueContent: FC = () => {
       {displayMode === 'top' ? (
         <CandidateLeagueTopSpreadsAtLevelCap />
       ) : (
-        <CandidateLeagueRanks />
+        <CandidateLeagueRanked />
       )}
     </LeagueCandidateRankedSpreadsProvider>
   );

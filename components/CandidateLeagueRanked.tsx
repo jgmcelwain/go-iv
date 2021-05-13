@@ -7,7 +7,7 @@ import { useSettings } from '../hooks/useSettings';
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueRankedAtLevelCap from './CandidateLeagueRankedAtLevelCap';
 
-const CandidateLeagueRanks: FC = () => {
+const CandidateLeagueRanked: FC = () => {
   const { settings } = useSettings();
 
   return (
@@ -72,4 +72,4 @@ const CandidateLeagueRanks: FC = () => {
   );
 };
 
-export default CandidateLeagueRanks;
+export default CandidateLeagueRanked;
