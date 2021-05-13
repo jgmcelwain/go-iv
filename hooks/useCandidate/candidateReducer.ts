@@ -2,7 +2,7 @@ import { Dispatch as ReactDispatch } from 'react';
 
 import { IV } from '../../data/iv';
 import { IVFloor } from '../../data/ivFloor';
-import { StatKey } from '../../data/stat';
+import { StatKey, RankableMetric } from '../../data/stat';
 import { Pokemon } from '../../data/pokedex';
 import { ActionMap } from '../../utils/actionMap';
 
@@ -13,6 +13,7 @@ export enum CandidateActionTypes {
   IV,
   IVs,
   Floor,
+  RankBy,
 }
 
 type PayloadTypes = {
@@ -20,6 +21,7 @@ type PayloadTypes = {
   [CandidateActionTypes.IV]: { stat: StatKey; value: IV };
   [CandidateActionTypes.IVs]: { atk: IV; def: IV; sta: IV };
   [CandidateActionTypes.Floor]: IVFloor;
+  [CandidateActionTypes.RankBy]: RankableMetric;
 };
 
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
@@ -31,6 +33,7 @@ export function candidateReducer(state: Candidate, action: Actions): Candidate {
       // state floor cannot be lower than the floor of the new species
       if (action.payload.floor > state.floor) {
         return {
+          ...state,
           species: action.payload,
           floor: action.payload.floor,
           ivs: {
@@ -67,6 +70,12 @@ export function candidateReducer(state: Candidate, action: Actions): Candidate {
           sta: Math.max(state.ivs.sta, action.payload) as IV,
         },
         floor: action.payload,
+      };
+    }
+    case CandidateActionTypes.RankBy: {
+      return {
+        ...state,
+        rankingMetric: action.payload,
       };
     }
     default: {

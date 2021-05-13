@@ -5,6 +5,7 @@ import { Pokemon, PokemonIVs } from '../../data/pokedex';
 
 import { getMaximizedStats } from './getMaximizedStats';
 import { getIVSpreads } from './getIVSpreads';
+import { RankableMetric } from '../../data/stat';
 
 export type ComparableToMax = {
   value: number;
@@ -33,17 +34,26 @@ export function generateRankedSpreads(
   floor: IVFloor,
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
+  rankingMetric: RankableMetric,
 ) {
   return getIVSpreads(floor)
     .map((ivs) => getMaximizedStats(pokemon, ivs, maxCP, maxLevel))
     .sort((a, b) => {
-      // in instances where two spreads have the same product (usually as a
-      // result of hp rounding) give preference to the spread with higher cp.
-      if (b.product === a.product) {
+      function getRankableMetric(x: typeof a) {
+        if (rankingMetric === 'product') {
+          return x.product;
+        } else {
+          return x.stats[rankingMetric];
+        }
+      }
+
+      // in instances where two spreads have the same rankable metric value we
+      // should give preference to the spread with higher cp.
+      if (getRankableMetric(b) === getRankableMetric(a)) {
         return b.cp - a.cp;
       }
 
-      return b.product - a.product;
+      return getRankableMetric(b) - getRankableMetric(a);
     })
     .map(
       (spread, i, all): RankedSpread => {

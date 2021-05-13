@@ -38,9 +38,10 @@ const CandidateLeagueRankedAtLevelCap: FC<{
     [candidate.floor],
   );
 
-  const colors = useMemo(() => getRankedSpreadColors(candidateAtLevel), [
-    candidateAtLevel,
-  ]);
+  const colors = useMemo(
+    () => getRankedSpreadColors(candidateAtLevel, candidate.rankingMetric),
+    [candidateAtLevel],
+  );
 
   if (candidateAtLevel === null) return null;
 

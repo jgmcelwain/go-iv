@@ -24,6 +24,7 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
       candidate.floor,
       league.cp,
       levelCapNumber,
+      candidate.rankingMetric,
     );
   }, [
     settings.levelCaps[levelCapNumber],
@@ -31,6 +32,7 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
     candidate.species.stats.def,
     candidate.species.stats.sta,
     candidate.floor,
+    candidate.rankingMetric,
   ]);
 
   return value;

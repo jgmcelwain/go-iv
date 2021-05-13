@@ -26,12 +26,15 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
 
     return [candidateSpread, ...spreadsForLevel.slice(0, 10)].map(
       (rankedSpread) => {
-        const colors = getRankedSpreadColors(rankedSpread);
+        const colors = getRankedSpreadColors(
+          rankedSpread,
+          candidate.rankingMetric,
+        );
 
         return { ...rankedSpread, colors };
       },
     );
-  }, [rankedSpreads, inspectedLevelCap.level, candidate.ivs]);
+  }, [rankedSpreads[inspectedLevelCap.level], candidate.ivs]);
 
   return (
     <>

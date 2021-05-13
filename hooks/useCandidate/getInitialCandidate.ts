@@ -6,9 +6,11 @@ import { tidyNumericInput } from '../../utils/tidyNumericInput';
 
 import { Candidate } from '.';
 import { ParsedUrlQuery } from 'node:querystring';
+import { RankableMetric, RANKABLE_METRICS } from '../../data/stat';
 
 type DirtyIV = IV | number;
 type DirtyIVFloor = IVFloor | number;
+type DirtyRankableMetric = RankableMetric | string;
 type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
 
 const CANDIDATE_DEFAULTS = {
@@ -17,6 +19,7 @@ const CANDIDATE_DEFAULTS = {
   def: parseInt(process.env.NEXT_PUBLIC_DEFAULT_DEF ?? '15'),
   sta: parseInt(process.env.NEXT_PUBLIC_DEFAULT_STA ?? '15'),
   floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
+  rankingMetric: process.env.NEXT_PUBLIC_DEFAULT_RANKING_METRIC ?? 'product',
 };
 
 function sanitizeCandidate(
@@ -25,6 +28,7 @@ function sanitizeCandidate(
   def?: DirtyIV,
   sta?: DirtyIV,
   floor?: DirtyIVFloor,
+  rankingMetric?: DirtyRankableMetric,
 ) {
   const species = getPokemonByID(id) ?? getPokemonByID(CANDIDATE_DEFAULTS.id);
 
@@ -52,10 +56,14 @@ function sanitizeCandidate(
     ),
   };
 
+  const outputRankBy: RankableMetric =
+    RANKABLE_METRICS.find(({ key }) => key === rankingMetric)?.key ?? 'product';
+
   return {
     species,
     ivs,
     floor: outputFloor,
+    rankingMetric: outputRankBy,
   };
 }
 
@@ -80,6 +88,7 @@ export function getInitialCandidate(
       cachedCandidate.ivs.def,
       cachedCandidate.ivs.sta,
       cachedCandidate.floor,
+      cachedCandidate.rankingMetric,
     );
   } else {
     return sanitizeCandidate(null);
