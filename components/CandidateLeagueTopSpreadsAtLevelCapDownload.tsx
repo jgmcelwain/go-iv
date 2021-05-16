@@ -13,7 +13,7 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
   const rankedSpreads = useRankedSpreads();
 
   function exportToCSV() {
-    const fileName = `${candidate.species.id}-${league.cp}-${inspectedLevelCap.level}-${candidate.floor}.csv`;
+    const fileName = `${candidate.species.id}-${league.cp}-${inspectedLevelCap.level}-${candidate.floor}-${candidate.rankingMetric}.csv`;
 
     const csvContent = rankedSpreads[inspectedLevelCap.level].reduce(
       (output, spread) =>
