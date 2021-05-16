@@ -3,9 +3,11 @@ import React, { FC } from 'react';
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 
 import { IVFloor, IV_FLOORS } from '../data/ivFloor';
+import { useSettings } from '../hooks/useSettings';
 
 const CandidateBuilderIVFloor: FC = () => {
   const { candidate, dispatch } = useCandidate();
+  const { settings } = useSettings();
 
   return (
     <label className='order-4 block mb-2 md:order-3'>
@@ -21,9 +23,13 @@ const CandidateBuilderIVFloor: FC = () => {
         value={candidate.floor}
         className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-900'
       >
-        {IV_FLOORS.filter(
-          (floor) => floor.value >= (candidate.species.floor ?? 0),
-        ).map((floor) => (
+        {IV_FLOORS.filter((floor) => {
+          if (settings.allowImpossibleFloors) {
+            return true;
+          } else {
+            return floor.value >= (candidate.species.floor ?? 0);
+          }
+        }).map((floor) => (
           <option key={floor.value} value={floor.value}>
             {floor.value} - {floor.name}
           </option>

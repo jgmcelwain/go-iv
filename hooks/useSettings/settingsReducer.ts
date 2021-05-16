@@ -12,7 +12,7 @@ export enum SettingsActionTypes {
   LevelCap,
   OutputData,
   Speculative,
-  ShadowToggle,
+  ImpossibleFloors,
 }
 type PayloadTypes = {
   [SettingsActionTypes.League]: { key: LeagueKey; value: boolean };
@@ -25,7 +25,7 @@ type PayloadTypes = {
     value: boolean;
   };
   [SettingsActionTypes.Speculative]: boolean;
-  [SettingsActionTypes.ShadowToggle]: boolean;
+  [SettingsActionTypes.ImpossibleFloors]: boolean;
 };
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
 export type Dispatch = ReactDispatch<Actions>;
@@ -65,10 +65,10 @@ export function settingsReducer(state: Settings, action: Actions): Settings {
         showSpeculative: action.payload,
       };
     }
-    case SettingsActionTypes.ShadowToggle: {
+    case SettingsActionTypes.ImpossibleFloors: {
       return {
         ...state,
-        showShadowToggle: action.payload,
+        allowImpossibleFloors: action.payload,
       };
     }
     default: {

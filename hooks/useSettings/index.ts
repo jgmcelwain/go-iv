@@ -19,7 +19,7 @@ export type Settings = {
   levelCaps: { [key in LevelCapNumber]: boolean };
   outputData: { [key in OutputDataKey]: boolean };
   showSpeculative: boolean;
-  showShadowToggle: boolean;
+  allowImpossibleFloors: boolean;
 };
 
 export function useSettings() {

@@ -82,6 +82,18 @@ const SettingsPage: FC = () => {
           label='Show Speculative Pokemon'
           description='Unreleased Generations, Forms and Mega Evolutions'
         />
+
+        <SettingsInput
+          onInput={(value) =>
+            dispatch({
+              type: SettingsActionTypes.ImpossibleFloors,
+              payload: value,
+            })
+          }
+          value={settings.allowImpossibleFloors}
+          label='Allow Impossible IV Floors'
+          description='Allow any IV floor to be picked when creating a Candidate, regardless of acquisition method limitations (un-tradeable Mythicals etc.)'
+        />
       </SettingsSection>
     </div>
   );
