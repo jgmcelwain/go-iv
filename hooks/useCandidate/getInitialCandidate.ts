@@ -4,8 +4,8 @@ import { IVFloor, MIN_IV_FLOOR, MAX_IV_FLOOR } from '../../data/ivFloor';
 
 import { tidyNumericInput } from '../../utils/tidyNumericInput';
 
+import { NextRouter } from 'next/router';
 import { Candidate } from '.';
-import { ParsedUrlQuery } from 'node:querystring';
 import { RankableMetric, RANKABLE_METRICS } from '../../data/stat';
 
 type DirtyIV = IV | number;
@@ -71,7 +71,7 @@ function sanitizeCandidate(
 }
 
 export function getInitialCandidate(
-  query: ParsedUrlQuery,
+  query: NextRouter['query'],
   cachedCandidate: Candidate,
 ): Candidate {
   if (query?.candidate) {
