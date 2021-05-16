@@ -10,7 +10,7 @@ const CandidateBuilderIVFloor: FC = () => {
   const { settings } = useSettings();
 
   return (
-    <label className='order-4 block mb-2 md:order-3'>
+    <label className='order-3 block mb-2 md:order-4'>
       <span className='text-xs text-gray-400'>IV Floor</span>
 
       <select

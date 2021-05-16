@@ -27,7 +27,7 @@ const CandidateBuilderFamilySwap: FC = () => {
         dispatch({ type: CandidateActionTypes.Species, payload: val })
       }
       as='div'
-      className='flex flex-wrap items-center justify-start order-2 w-full my-1 sm:order-5'
+      className='flex flex-wrap items-center justify-start order-2 w-full my-1 xl:order-5'
     >
       <RadioGroup.Label className='sr-only'>
         Other family members
