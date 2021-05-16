@@ -12,6 +12,7 @@ export enum SettingsActionTypes {
   LevelCap,
   OutputData,
   Speculative,
+  ShadowToggle,
   ImpossibleFloors,
 }
 type PayloadTypes = {
@@ -25,6 +26,7 @@ type PayloadTypes = {
     value: boolean;
   };
   [SettingsActionTypes.Speculative]: boolean;
+  [SettingsActionTypes.ShadowToggle]: boolean;
   [SettingsActionTypes.ImpossibleFloors]: boolean;
 };
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
@@ -63,6 +65,12 @@ export function settingsReducer(state: Settings, action: Actions): Settings {
       return {
         ...state,
         showSpeculative: action.payload,
+      };
+    }
+    case SettingsActionTypes.ShadowToggle: {
+      return {
+        ...state,
+        showShadowToggle: action.payload,
       };
     }
     case SettingsActionTypes.ImpossibleFloors: {
