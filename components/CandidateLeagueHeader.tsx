@@ -69,33 +69,37 @@ const CandidateLeagueHeader: FC = () => {
       )}
 
       <div className='z-10 flex-grow'>
-        <h2 className='flex-grow font-semibold leading-none'>{league.name}</h2>
-
         {displayMode === 'top' ? (
           <>
-            <p className='mt-1 text-xs font-semibold'>
-              Top IV Spreads for{' '}
+            <h2 className='flex-grow font-semibold leading-none'>
+              Top {league.name} IV Spreads for{' '}
               <span key={candidate.species.name}>
                 {candidate.shadow && 'Shadow '}
                 {candidate.species.name}
               </span>
+            </h2>
+
+            <p className='mt-1 text-xs font-semibold'>
+              Level: {inspectedLevelCap.level} ({inspectedLevelCap.description})
             </p>
             <p className='mt-1 text-xs font-semibold'>
-              Level {inspectedLevelCap.level} ({inspectedLevelCap.description})
-            </p>
-            <p className='mt-1 text-xs font-semibold'>
-              {floor.value} IV Floor ({floor.name})
+              IV Floor: {floor.value} ({floor.name})
             </p>
           </>
         ) : (
-          <p className='mt-1 text-xs font-semibold'>
-            <span key={candidate.species.name}>
-              {candidate.shadow && 'Shadow '}
-              {candidate.species.name}
-            </span>
-            , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
-            {floor.name}
-          </p>
+          <>
+            <h2 className='flex-grow font-semibold leading-none'>
+              {league.name}
+            </h2>
+            <p className='mt-1 text-xs font-semibold'>
+              <span key={candidate.species.name}>
+                {candidate.shadow && 'Shadow '}
+                {candidate.species.name}
+              </span>
+              , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
+              {floor.name}
+            </p>
+          </>
         )}
       </div>
     </header>
