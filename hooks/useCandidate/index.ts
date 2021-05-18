@@ -17,10 +17,11 @@ export type Candidate = {
   shadow: boolean;
 };
 
-export const Context = createContext<{
-  candidate: Candidate;
-  dispatch: Dispatch;
-}>(null);
+export const Context =
+  createContext<{
+    candidate: Candidate;
+    dispatch: Dispatch;
+  }>(null);
 
 export function useCandidate() {
   return useContext(Context);

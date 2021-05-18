@@ -9,10 +9,11 @@ export { Provider } from './Provider';
 export { SettingsActionTypes } from './settingsReducer';
 export { getInitialSettings } from './getInitialSettings';
 
-export const Context = createContext<{
-  settings: Settings;
-  dispatch: Dispatch;
-}>(null);
+export const Context =
+  createContext<{
+    settings: Settings;
+    dispatch: Dispatch;
+  }>(null);
 
 export type Settings = {
   leagues: { [key in LeagueKey]: boolean };

@@ -32,12 +32,8 @@ const LEAGUE_COLORS = {
 
 const CandidateLeagueHeader: FC = () => {
   const { candidate } = useCandidate();
-  const {
-    league,
-    displayMode,
-    inspectedLevelCap,
-    setDisplayMode,
-  } = useLeague();
+  const { league, displayMode, inspectedLevelCap, setDisplayMode } =
+    useLeague();
 
   const floor = useMemo(
     () => IV_FLOORS.find((floor) => floor.value === candidate.floor),
