@@ -29,7 +29,9 @@ const CandidateBuilderSpecies: FC = () => {
 
   return (
     <label className='order-1 block mb-2 mr-6'>
-      <span className='text-xs text-gray-400'>Pokémon</span>
+      <span className='text-xs text-gray-400 sr-only md:not-sr-only'>
+        Pokémon
+      </span>
 
       <input
         onFocus={() => {
