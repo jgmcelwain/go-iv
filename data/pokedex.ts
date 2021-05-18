@@ -10653,6 +10653,7 @@ export const POKEDEX: Pokemon[] = [
       def: 185,
       sta: 246,
     },
+    floor: 1,
     family: {
       id: 'xerneas',
       stage: 1,
@@ -10718,6 +10719,7 @@ export const POKEDEX: Pokemon[] = [
       def: 185,
       sta: 246,
     },
+    floor: 1,
     family: {
       id: 'yveltal',
       stage: 1,
