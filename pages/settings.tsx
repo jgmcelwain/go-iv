@@ -92,7 +92,7 @@ const SettingsPage: FC = () => {
           }
           value={settings.showRankingMetric}
           label='Alternate Ranking Metrics'
-          description='Sort by Attack, Defense and Stamina as well as the default Stat Product'
+          description='Options to sort by Attack, Defense and Stamina as well as the default Stat Product'
         />
 
         <SettingsInput
