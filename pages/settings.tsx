@@ -80,7 +80,7 @@ const SettingsPage: FC = () => {
           }
           value={settings.showSpeculative}
           label='Show Speculative Pokemon'
-          description='Unreleased Generations, Forms and Mega Evolutions'
+          description='Unreleased Generations, Forms and Mega Evolutions.'
         />
 
         <SettingsInput
@@ -92,7 +92,7 @@ const SettingsPage: FC = () => {
           }
           value={settings.showRankingMetric}
           label='Alternate Ranking Metrics'
-          description='Options to sort by Attack, Defense and Stamina as well as the default Stat Product'
+          description='Options to sort by Attack, Defense and Stamina as well as the default Stat Product.'
         />
 
         <SettingsInput
@@ -104,7 +104,7 @@ const SettingsPage: FC = () => {
           }
           value={settings.allowImpossibleFloors}
           label='Allow Impossible IV Floors'
-          description='Allow any IV floor to be picked when creating a Candidate, regardless of acquisition method limitations (un-tradeable Mythicals etc.)'
+          description='Allow any IV floor to be picked when creating a Candidate, regardless of acquisition method limitations.'
         />
       </SettingsSection>
     </div>
