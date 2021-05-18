@@ -21,6 +21,7 @@ export type Settings = {
   outputData: { [key in OutputDataKey]: boolean };
   showSpeculative: boolean;
   showShadowToggle: boolean;
+  showRankingMetric: boolean;
   allowImpossibleFloors: boolean;
 };
 

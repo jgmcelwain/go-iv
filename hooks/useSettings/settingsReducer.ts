@@ -13,6 +13,7 @@ export enum SettingsActionTypes {
   OutputData,
   Speculative,
   ShadowToggle,
+  RankingMetric,
   ImpossibleFloors,
 }
 type PayloadTypes = {
@@ -27,6 +28,7 @@ type PayloadTypes = {
   };
   [SettingsActionTypes.Speculative]: boolean;
   [SettingsActionTypes.ShadowToggle]: boolean;
+  [SettingsActionTypes.RankingMetric]: boolean;
   [SettingsActionTypes.ImpossibleFloors]: boolean;
 };
 type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
@@ -71,6 +73,12 @@ export function settingsReducer(state: Settings, action: Actions): Settings {
       return {
         ...state,
         showShadowToggle: action.payload,
+      };
+    }
+    case SettingsActionTypes.RankingMetric: {
+      return {
+        ...state,
+        showRankingMetric: action.payload,
       };
     }
     case SettingsActionTypes.ImpossibleFloors: {

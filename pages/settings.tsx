@@ -86,6 +86,18 @@ const SettingsPage: FC = () => {
         <SettingsInput
           onInput={(value) =>
             dispatch({
+              type: SettingsActionTypes.RankingMetric,
+              payload: value,
+            })
+          }
+          value={settings.showRankingMetric}
+          label='Alternate Ranking Metrics'
+          description='Sort by Attack, Defense and Stamina as well as the default Stat Product'
+        />
+
+        <SettingsInput
+          onInput={(value) =>
+            dispatch({
               type: SettingsActionTypes.ImpossibleFloors,
               payload: value,
             })

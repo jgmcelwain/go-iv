@@ -6,6 +6,7 @@ import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
 
 import { ArrowLeftIcon } from '@heroicons/react/solid';
+import { RANKABLE_METRICS } from '../data/stat';
 
 const LEAGUE_COLORS = {
   great: {
@@ -35,6 +36,11 @@ const CandidateLeagueHeader: FC = () => {
   const { league, displayMode, inspectedLevelCap, setDisplayMode } =
     useLeague();
 
+  const rankingMetric = useMemo(
+    () =>
+      RANKABLE_METRICS.find((metric) => metric.key === candidate.rankingMetric),
+    [candidate.rankingMetric],
+  );
   const floor = useMemo(
     () => IV_FLOORS.find((floor) => floor.value === candidate.floor),
     [candidate.floor],
@@ -81,6 +87,9 @@ const CandidateLeagueHeader: FC = () => {
             <p className='mt-1 text-xs font-semibold'>
               IV Floor: {floor.value} ({floor.name})
             </p>
+            <p className='mt-1 text-xs font-semibold'>
+              Ranked By: {rankingMetric.name}
+            </p>
           </>
         ) : (
           <>
@@ -93,7 +102,7 @@ const CandidateLeagueHeader: FC = () => {
                 {candidate.species.name}
               </span>
               , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
-              {floor.name}
+              {floor.name}, By {rankingMetric.name}
             </p>
           </>
         )}

@@ -1,15 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
+import { useSettings } from '../hooks/useSettings';
 
 import { RankableMetric, RANKABLE_METRICS } from '../data/stat';
 
 const CandidateBuilderRankingMetric: FC = () => {
   const { candidate, dispatch } = useCandidate();
+  const { settings } = useSettings();
 
-  return (
+  useEffect(() => {
+    if (settings.showRankingMetric === false) {
+      dispatch({
+        type: CandidateActionTypes.RankingMetric,
+        payload: 'product',
+      });
+    }
+  }, [settings.showRankingMetric]);
+
+  return settings.showRankingMetric ? (
     <label className='order-4 block mb-2 mr-6 md:order-5'>
-      <span className='text-xs text-gray-400'>Ranking Metric</span>
+      <span className='text-xs text-gray-400'>Rank By</span>
 
       <select
         onChange={(evt) =>
@@ -28,6 +39,8 @@ const CandidateBuilderRankingMetric: FC = () => {
         ))}
       </select>
     </label>
+  ) : (
+    <></>
   );
 };
 
