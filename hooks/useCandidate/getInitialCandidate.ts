@@ -11,7 +11,14 @@ import { RankableMetric, RANKABLE_METRICS } from '../../data/stat';
 type DirtyIV = IV | number;
 type DirtyIVFloor = IVFloor | number;
 type DirtyRankableMetric = RankableMetric | string;
-type Query = [PokemonID, DirtyIV, DirtyIV, DirtyIV, DirtyIVFloor];
+type Query = [
+  PokemonID,
+  DirtyIV,
+  DirtyIV,
+  DirtyIV,
+  DirtyIVFloor,
+  DirtyRankableMetric,
+];
 
 const CANDIDATE_DEFAULTS = {
   id: process.env.NEXT_PUBLIC_DEFAULT_POKEMON ?? 'azumarill',
@@ -81,9 +88,10 @@ export function getInitialCandidate(
       def = CANDIDATE_DEFAULTS.def,
       sta = CANDIDATE_DEFAULTS.sta,
       floor = CANDIDATE_DEFAULTS.floor,
-    ]: Query = (query?.candidate ?? []) as Query;
+      rankingMetric = CANDIDATE_DEFAULTS.rankingMetric,
+    ]: Query = query.candidate as Query;
 
-    return sanitizeCandidate(id, atk, def, sta, floor);
+    return sanitizeCandidate(id, atk, def, sta, floor, rankingMetric);
   } else if (cachedCandidate !== null) {
     return sanitizeCandidate(
       cachedCandidate.species.id,
