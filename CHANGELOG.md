@@ -1,3 +1,11 @@
+
+### [2.3.1](https://github.com/jgmcelwain/pvpiv/compare/v2.3.0...v2.3.1) (2021-06-08)
+
+
+### Bug Fixes
+
+* remove header from changelog ([ffb1dce](https://github.com/jgmcelwain/pvpiv/commits/ffb1dce2b37b9c66f3668425b16a193db6314f46))
+
 ## [2.3.0](https://github.com/jgmcelwain/pvpiv/compare/v2.2.0...v2.3.0) (2021-06-08)
 
 
