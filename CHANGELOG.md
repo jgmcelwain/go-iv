@@ -1,4 +1,12 @@
 
+### [2.3.2](https://github.com/jgmcelwain/pvpiv/compare/v2.3.1...v2.3.2) (2021-06-08)
+
+
+### Bug Fixes
+
+* correct commitUrlFormat ([e078de1](https://github.com/jgmcelwain/pvpiv/commit/e078de15d5cae9cda01528231d00292331d5e27a))
+* correct previously generated commit urls ([1eb0b0c](https://github.com/jgmcelwain/pvpiv/commit/1eb0b0cedc14c25ccafde23ed51d7d441dae1102))
+
 ### [2.3.1](https://github.com/jgmcelwain/pvpiv/compare/v2.3.0...v2.3.1) (2021-06-08)
 
 
