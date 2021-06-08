@@ -17,15 +17,15 @@ export const OUTPUT_DATA: OutputDataPoint[] = [
   { key: 'level', name: 'Level' },
   { key: 'cp', name: 'CP' },
   {
-    key: 'stats',
-    name: 'Stats',
-    description: 'Attack, Defense and Stamina, as calculated in-game.',
-  },
-  {
     key: 'statProduct',
     name: 'Stat Product',
     description:
       'The metric used to rank spreads - calculated by multiplying the generated Attack, Defense and Stamina values together.',
+  },
+  {
+    key: 'stats',
+    name: 'Stats',
+    description: 'Attack, Defense and Stamina, as calculated in-game.',
   },
   {
     key: 'percent',

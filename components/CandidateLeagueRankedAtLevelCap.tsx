@@ -61,7 +61,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         <CandidateLeagueTableCells.Body>
           <>
             {candidateAtLevel.level}
-            <span className='text-xs'> / {levelCap.level}</span>
+            <span className='text-xs'> /{levelCap.level}</span>
           </>
         </CandidateLeagueTableCells.Body>
       )}
@@ -69,6 +69,18 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       {settings.outputData.cp && (
         <CandidateLeagueTableCells.Body>
           {candidateAtLevel.cp}
+        </CandidateLeagueTableCells.Body>
+      )}
+
+      {settings.outputData.statProduct && (
+        <CandidateLeagueTableCells.Body>
+          <>
+            <span>{(candidateAtLevel.product.value / 1000).toFixed(2)}</span>
+
+            <CandidateLeagueTableCellsPercentOfMax
+              value={candidateAtLevel.product.percentOfMax}
+            />
+          </>
         </CandidateLeagueTableCells.Body>
       )}
 
@@ -110,18 +122,6 @@ const CandidateLeagueRankedAtLevelCap: FC<{
             </>
           </CandidateLeagueTableCells.Body>
         </>
-      )}
-
-      {settings.outputData.statProduct && (
-        <CandidateLeagueTableCells.Body>
-          <>
-            <span>{(candidateAtLevel.product.value / 1000).toFixed(2)}</span>
-
-            <CandidateLeagueTableCellsPercentOfMax
-              value={candidateAtLevel.product.percentOfMax}
-            />
-          </>
-        </CandidateLeagueTableCells.Body>
       )}
 
       <CandidateLeagueTableCells.Body right>

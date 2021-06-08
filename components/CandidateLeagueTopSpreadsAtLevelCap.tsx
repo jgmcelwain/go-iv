@@ -60,6 +60,14 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
               </CandidateLeagueTableCells.Header>
 
               <CandidateLeagueTableCells.Header>
+                Product
+              </CandidateLeagueTableCells.Header>
+
+              <CandidateLeagueTableCells.Header>
+                %
+              </CandidateLeagueTableCells.Header>
+
+              <CandidateLeagueTableCells.Header>
                 Atk
               </CandidateLeagueTableCells.Header>
 
@@ -69,14 +77,6 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
 
               <CandidateLeagueTableCells.Header>
                 Sta
-              </CandidateLeagueTableCells.Header>
-
-              <CandidateLeagueTableCells.Header>
-                Product
-              </CandidateLeagueTableCells.Header>
-
-              <CandidateLeagueTableCells.Header>
-                Product%
               </CandidateLeagueTableCells.Header>
             </tr>
           </thead>
@@ -120,6 +120,16 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
+                  <span title={`${spread.product}`}>
+                    {(spread.product.value / 1000).toFixed(2)}
+                  </span>
+                </CandidateLeagueTableCells.Body>
+
+                <CandidateLeagueTableCells.Body>
+                  {(spread.product.percentOfMax * 100).toFixed(2)}%
+                </CandidateLeagueTableCells.Body>
+
+                <CandidateLeagueTableCells.Body>
                   <CandidateLeagueTableCellShadowStat
                     value={spread.stats.atk.value}
                     stat='atk'
@@ -137,16 +147,6 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
 
                 <CandidateLeagueTableCells.Body>
                   {spread.stats.sta.value}
-                </CandidateLeagueTableCells.Body>
-
-                <CandidateLeagueTableCells.Body>
-                  <span title={`${spread.product}`}>
-                    {(spread.product.value / 1000).toFixed(2)}
-                  </span>
-                </CandidateLeagueTableCells.Body>
-
-                <CandidateLeagueTableCells.Body>
-                  {(spread.product.percentOfMax * 100).toFixed(2)}%
                 </CandidateLeagueTableCells.Body>
               </tr>
             ))}

@@ -33,6 +33,12 @@ const CandidateLeagueRanked: FC = () => {
               </CandidateLeagueTableCells.Header>
             )}
 
+            {settings.outputData.statProduct && (
+              <CandidateLeagueTableCells.Header>
+                Product
+              </CandidateLeagueTableCells.Header>
+            )}
+
             {settings.outputData.stats && (
               <>
                 <CandidateLeagueTableCells.Header>
@@ -45,12 +51,6 @@ const CandidateLeagueRanked: FC = () => {
                   Sta
                 </CandidateLeagueTableCells.Header>
               </>
-            )}
-
-            {settings.outputData.statProduct && (
-              <CandidateLeagueTableCells.Header>
-                Product
-              </CandidateLeagueTableCells.Header>
             )}
 
             <CandidateLeagueTableCells.Header />
