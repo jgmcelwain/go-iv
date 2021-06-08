@@ -13,7 +13,7 @@ const CandidateLeagueTableCellShadowStat: FunctionComponent<{
 }> = ({ shadow, value, stat }) => {
   return (
     <span
-      className={`flex items-center justify-start${shadow ? '' : ' pr-4'}`}
+      className={`flex items-center justify-start${shadow ? ' pr-4' : ''}`}
       title={
         shadow
           ? `Shadow Bonus Applied (${SHADOW_BONUS[stat].toFixed(2)}x)`
