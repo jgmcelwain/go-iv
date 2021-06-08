@@ -10,6 +10,6 @@
     { "type": "perf", "hidden": true },
     { "type": "test", "hidden": true }
   ],
-  "commitUrlFormat": "https://github.com/jgmcelwain/pvpiv/commits/{{hash}}",
+  "commitUrlFormat": "https://github.com/jgmcelwain/pvpiv/commit/{{hash}}",
   "compareUrlFormat": "https://github.com/jgmcelwain/pvpiv/compare/{{previousTag}}...{{currentTag}}"
 }
