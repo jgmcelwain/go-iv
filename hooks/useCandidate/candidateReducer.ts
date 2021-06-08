@@ -11,7 +11,6 @@ import { Candidate } from '.';
 export enum CandidateActionTypes {
   Species,
   IV,
-  IVs,
   Floor,
   RankingMetric,
   Shadow,
@@ -20,7 +19,6 @@ export enum CandidateActionTypes {
 type PayloadTypes = {
   [CandidateActionTypes.Species]: Pokemon;
   [CandidateActionTypes.IV]: { stat: StatKey; value: IV };
-  [CandidateActionTypes.IVs]: { atk: IV; def: IV; sta: IV };
   [CandidateActionTypes.Floor]: IVFloor;
   [CandidateActionTypes.RankingMetric]: RankableMetric;
   [CandidateActionTypes.Shadow]: boolean;
@@ -60,12 +58,6 @@ export function candidateReducer(state: Candidate, action: Action): Candidate {
           ...state.ivs,
           [ivKey]: action.payload.value,
         },
-      };
-    }
-    case CandidateActionTypes.IVs: {
-      return {
-        ...state,
-        ivs: action.payload,
       };
     }
     case CandidateActionTypes.Floor: {
