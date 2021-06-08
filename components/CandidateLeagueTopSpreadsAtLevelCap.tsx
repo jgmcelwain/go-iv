@@ -60,7 +60,7 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
               </CandidateLeagueTableCells.Header>
 
               <CandidateLeagueTableCells.Header>
-                Product
+                Prod
               </CandidateLeagueTableCells.Header>
 
               <CandidateLeagueTableCells.Header>

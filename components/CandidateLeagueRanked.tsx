@@ -35,7 +35,7 @@ const CandidateLeagueRanked: FC = () => {
 
             {settings.outputData.statProduct && (
               <CandidateLeagueTableCells.Header>
-                Product
+                Prod
               </CandidateLeagueTableCells.Header>
             )}
 
