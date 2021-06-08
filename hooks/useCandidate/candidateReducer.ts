@@ -26,10 +26,10 @@ type PayloadTypes = {
   [CandidateActionTypes.Shadow]: boolean;
 };
 
-type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
-export type Dispatch = ReactDispatch<Actions>;
+type Action = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
+export type Dispatch = ReactDispatch<Action>;
 
-export function candidateReducer(state: Candidate, action: Actions): Candidate {
+export function candidateReducer(state: Candidate, action: Action): Candidate {
   switch (action.type) {
     case CandidateActionTypes.Species: {
       // state floor cannot be lower than the floor of the new species

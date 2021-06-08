@@ -31,10 +31,10 @@ type PayloadTypes = {
   [SettingsActionTypes.RankingMetric]: boolean;
   [SettingsActionTypes.ImpossibleFloors]: boolean;
 };
-type Actions = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
-export type Dispatch = ReactDispatch<Actions>;
+type Action = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
+export type Dispatch = ReactDispatch<Action>;
 
-export function settingsReducer(state: Settings, action: Actions): Settings {
+export function settingsReducer(state: Settings, action: Action): Settings {
   switch (action.type) {
     case SettingsActionTypes.League: {
       return {
