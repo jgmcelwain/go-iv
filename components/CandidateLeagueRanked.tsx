@@ -12,7 +12,7 @@ const CandidateLeagueRanked: FC = () => {
 
   return (
     <section className='w-full overflow-x-scroll'>
-      <table className='w-full border-collapse table-auto'>
+      <table className='w-full border-collapse table-fixed'>
         <thead>
           <tr>
             {settings.outputData.rank && (

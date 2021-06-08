@@ -3,7 +3,7 @@ import React, { FC, ReactNode } from 'react';
 export const Header: FC<{
   children?: ReactNode;
 }> = ({ children }) => (
-  <th className='px-3 py-2 text-left bg-gray-100 first:pl-4 last:pr-4'>
+  <th className='w-20 px-3 py-2 text-left bg-gray-100 first:pl-4 last:pr-4'>
     {children && (
       <span className='text-xs font-semibold tracking-wider text-gray-600 uppercase font-title'>
         {children}
@@ -17,7 +17,7 @@ export const Body: FC<{
   children?: ReactNode;
 }> = ({ right, children }) => (
   <td
-    className={`border-t border-gray-200 px-3 py-4 text-sm whitespace-nowrap first:pl-4${
+    className={`w-20 border-t border-gray-200 px-3 py-4 text-sm whitespace-nowrap first:pl-4${
       right ? ' text-right' : ''
     }`}
   >

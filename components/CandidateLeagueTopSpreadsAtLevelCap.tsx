@@ -40,7 +40,7 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
   return (
     <>
       <section className='w-full overflow-x-scroll'>
-        <table className='w-full border-collapse table-auto'>
+        <table className='w-full border-collapse table-fixed'>
           <thead>
             <tr>
               <CandidateLeagueTableCells.Header>
@@ -98,14 +98,12 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
                 <CandidateLeagueTableCells.Body>
                   <>
                     {spread.ivs.atk}
-                    <span className='inline-block mx-1 font-semibold transform scale-75'>
-                      {' '}
-                      /{' '}
+                    <span className='inline-block mx-0.5 font-semibold transform scale-75'>
+                      /
                     </span>
                     {spread.ivs.def}
-                    <span className='inline-block mx-1 font-semibold transform scale-75'>
-                      {' '}
-                      /{' '}
+                    <span className='inline-block mx-0.5 font-semibold transform scale-75'>
+                      /
                     </span>
                     {spread.ivs.sta}
                   </>
