@@ -4,7 +4,11 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production next start"
+    "start": "NODE_ENV=production next start",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "dependencies": {
     "@headlessui/react": "^1.0.0",
@@ -31,6 +35,7 @@
     "postcss": "^8.2.8",
     "postcss-focus-visible": "^5.0.0",
     "prettier": "^2.3.0",
+    "standard-version": "^9.3.0",
     "tailwindcss": "^2.1.2",
     "typescript": "^4.1.3"
   },
