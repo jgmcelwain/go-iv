@@ -41,7 +41,7 @@ const AppNavigation: FC = () => {
 
   return (
     <aside
-      className={`fixed top-0 left-0 z-20 flex flex-col items-center justify-between w-full px-3 py-4 overflow-hidden bg-gray-800 border-gray-700 shadow-xl md:border-r md:h-screen md:overflow-scroll md:px-2 md:w-64 md:shadow-none ${
+      className={`fixed top-0 left-0 z-20 flex flex-col items-center justify-between w-full px-3 py-4 overflow-hidden bg-gray-800 border-gray-700 shadow-xl md:border-r md:h-screen md:overflow-auto md:px-2 md:w-64 md:shadow-none ${
         menuShown === false ? 'h-16' : 'h-auto'
       }`}
     >
