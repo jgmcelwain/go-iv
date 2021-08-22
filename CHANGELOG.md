@@ -1,4 +1,18 @@
 
+## [2.4.0](https://github.com/jgmcelwain/pvpiv/compare/v2.3.2...v2.4.0) (2021-08-22)
+
+
+### Features
+
+* add gen 8 mons ([0ddaf40](https://github.com/jgmcelwain/pvpiv/commit/0ddaf40353bd9404e2015ab45c0c4a621bbdd69e))
+* add types to pokedex ([0521ae3](https://github.com/jgmcelwain/pvpiv/commit/0521ae300fe2f7c25a977b5f97b8e8809e5588ab))
+* allow ranking metric in initial candidate url query ([90e3cdd](https://github.com/jgmcelwain/pvpiv/commit/90e3cddda9240bf34dde43e6cc2679db6a474d61))
+
+
+### Bug Fixes
+
+* swap from overflow-scroll to overflow-auto ([3a18e37](https://github.com/jgmcelwain/pvpiv/commit/3a18e37bb00d24e6e816f04780370b0cfecfc474))
+
 ### [2.3.2](https://github.com/jgmcelwain/pvpiv/compare/v2.3.1...v2.3.2) (2021-06-08)
 
 
