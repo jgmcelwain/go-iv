@@ -1,4 +1,11 @@
 
+## [2.5.0](https://github.com/jgmcelwain/pvpiv/compare/v2.4.0...v2.5.0) (2021-08-30)
+
+
+### Features
+
+* add Diancie, Hoopa ([6a15a7a](https://github.com/jgmcelwain/pvpiv/commit/6a15a7ad6f46e564dfa51f7562058bf600de7406))
+
 ## [2.4.0](https://github.com/jgmcelwain/pvpiv/compare/v2.3.2...v2.4.0) (2021-08-22)
 
 
