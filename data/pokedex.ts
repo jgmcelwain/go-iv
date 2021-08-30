@@ -12442,6 +12442,51 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'diancie',
+    dexNumber: 719,
+    name: 'Diancie',
+    stats: {
+      atk: 190,
+      def: 285,
+      sta: 137,
+    },
+    types: ['rock', 'fairy'],
+    family: {
+      id: 'diancie',
+      stage: 1,
+    },
+  },
+  {
+    id: 'hoopa_confined',
+    dexNumber: 720,
+    name: 'Hoopa (Confined)',
+    stats: {
+      atk: 261,
+      def: 187,
+      sta: 173,
+    },
+    types: ['psychic', 'ghost'],
+    family: {
+      id: 'hoopa',
+      stage: 1,
+    },
+  },
+  {
+    id: 'hoopa_unbound',
+    dexNumber: 720,
+    name: 'Hoopa (Unbound)',
+    stats: {
+      atk: 311,
+      def: 191,
+      sta: 239,
+    },
+    types: ['psychic', 'dark'],
+    family: {
+      id: 'hoopa',
+      stage: 2,
+    },
+  },
+  {
     id: 'meltan',
     dexNumber: 808,
     name: 'Meltan',
