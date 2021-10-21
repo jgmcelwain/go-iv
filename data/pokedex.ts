@@ -11870,6 +11870,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'meowstic',
+    dexNumber: 678,
+    name: 'Meowstic',
+    stats: {
+      atk: 166,
+      def: 167,
+      sta: 179,
+    },
+    types: ['steel'],
+    family: {
+      id: 'espurr',
+      stage: 1,
+    },
+  },
+  {
     id: 'honedge',
     dexNumber: 679,
     name: 'Honedge',
@@ -12498,21 +12513,6 @@ export const POKEDEX: Pokemon[] = [
     types: ['steel'],
     family: {
       id: 'meltan',
-      stage: 1,
-    },
-  },
-  {
-    id: 'meowstic',
-    dexNumber: 808,
-    name: 'Meowstic',
-    stats: {
-      atk: 166,
-      def: 167,
-      sta: 179,
-    },
-    types: ['steel'],
-    family: {
-      id: 'espurr',
       stage: 1,
     },
   },
