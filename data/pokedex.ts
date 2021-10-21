@@ -12350,6 +12350,126 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'pumpkaboo_small',
+    dexNumber: 708,
+    name: 'Pumpkaboo (Small)',
+    stats: {
+      atk: 122,
+      def: 124,
+      sta: 127,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_small',
+      stage: 1,
+    },
+  },
+  {
+    id: 'pumpkaboo_average',
+    dexNumber: 708,
+    name: 'Pumpkaboo (Average)',
+    stats: {
+      atk: 121,
+      def: 123,
+      sta: 135,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_average',
+      stage: 1,
+    },
+  },
+  {
+    id: 'pumpkaboo_large',
+    dexNumber: 708,
+    name: 'Pumpkaboo (Large)',
+    stats: {
+      atk: 120,
+      def: 122,
+      sta: 144,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_large',
+      stage: 1,
+    },
+  },
+  {
+    id: 'pumpkaboo_super',
+    dexNumber: 708,
+    name: 'Pumpkaboo (Super)',
+    stats: {
+      atk: 118,
+      def: 120,
+      sta: 153,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_super',
+      stage: 1,
+    },
+  },
+  {
+    id: 'gourgeist_small',
+    dexNumber: 708,
+    name: 'Gourgeist (Small)',
+    stats: {
+      atk: 171,
+      def: 219,
+      sta: 146,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_small',
+      stage: 2,
+    },
+  },
+  {
+    id: 'gourgeist_average',
+    dexNumber: 708,
+    name: 'Gourgeist (Average)',
+    stats: {
+      atk: 175,
+      def: 213,
+      sta: 163,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_average',
+      stage: 2,
+    },
+  },
+  {
+    id: 'gourgeist_large',
+    dexNumber: 708,
+    name: 'Gourgeist (Large)',
+    stats: {
+      atk: 179,
+      def: 206,
+      sta: 181,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_large',
+      stage: 2,
+    },
+  },
+  {
+    id: 'gourgeist_super',
+    dexNumber: 708,
+    name: 'Gourgeist (Super)',
+    stats: {
+      atk: 182,
+      def: 200,
+      sta: 198,
+    },
+    types: ['ghost', 'grass'],
+    family: {
+      id: 'pumpkaboo_super',
+      stage: 2,
+    },
+  },
+  {
     id: 'bergmite',
     dexNumber: 712,
     name: 'Bergmite',
