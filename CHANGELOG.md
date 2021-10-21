@@ -1,4 +1,16 @@
 
+## [2.6.0](https://github.com/jgmcelwain/pvpiv/compare/v2.5.0...v2.6.0) (2021-10-21)
+
+
+### Features
+
+* add Pumpkaboo and Gourgeist ([6f44e10](https://github.com/jgmcelwain/pvpiv/commit/6f44e10345c5693c623df014be1923e137b3b68f))
+
+
+### Bug Fixes
+
+* correct dex number and position for meowstic ([f8af20c](https://github.com/jgmcelwain/pvpiv/commit/f8af20cdfc5df7cb6a1cccb48d052e357a8e720c))
+
 ## [2.5.0](https://github.com/jgmcelwain/pvpiv/compare/v2.4.0...v2.5.0) (2021-08-30)
 
 
