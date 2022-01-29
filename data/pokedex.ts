@@ -2024,6 +2024,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'voltorb_hisuian',
+    dexNumber: 100,
+    name: 'Voltorb (Hisuian)',
+    stats: {
+      atk: 109,
+      def: 111,
+      sta: 120,
+    },
+    types: ['electric', 'grass'],
+    family: {
+      id: 'voltorb_hisuian',
+      stage: 1,
+    },
+  },
+  {
     id: 'electrode',
     dexNumber: 101,
     name: 'Electrode',
@@ -2035,6 +2050,21 @@ export const POKEDEX: Pokemon[] = [
     types: ['electric'],
     family: {
       id: 'voltorb',
+      stage: 2,
+    },
+  },
+  {
+    id: 'electrode_hisuian',
+    dexNumber: 101,
+    name: 'Electrode (Hisuian)',
+    stats: {
+      atk: 173,
+      def: 173,
+      sta: 155,
+    },
+    types: ['electric', 'grass'],
+    family: {
+      id: 'voltorb_hisuian',
       stage: 2,
     },
   },
