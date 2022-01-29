@@ -1,4 +1,11 @@
 
+### [2.6.1](https://github.com/jgmcelwain/pvpiv/compare/v2.6.0...v2.6.1) (2022-01-29)
+
+
+### Features
+
+* add Hisuian Voltorb and Electrode ([85f745b](https://github.com/jgmcelwain/pvpiv/commit/85f745bf4db3484ae54e11ced80053b592d7ce3a))
+
 ## [2.6.0](https://github.com/jgmcelwain/pvpiv/compare/v2.5.0...v2.6.0) (2021-10-21)
 
 
