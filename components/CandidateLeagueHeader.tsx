@@ -47,7 +47,7 @@ const CandidateLeagueHeader: FC = () => {
   );
 
   const baseStats = (
-    <p className='mt-1 text-xs font-semibold'>
+    <p className='mt-0.5 text-xs font-semibold'>
       Base Stats: {candidate.species.stats.atk} Atk,{' '}
       {candidate.species.stats.def} Def, {candidate.species.stats.sta} Sta
     </p>
@@ -62,7 +62,7 @@ const CandidateLeagueHeader: FC = () => {
       } border-b border-gray-200`}
     >
       <div
-        className={`absolute z-0 right-0 top-0 transform rotate-45 w-5 h-48 opacity-90 -translate-x-20 -translate-y-10 bg-gradient-to-b ${
+        className={`absolute z-0 right-0 top-0 transform rotate-45 w-5 h-72 opacity-90 -translate-x-20 -translate-y-10 bg-gradient-to-b ${
           LEAGUE_COLORS[league.key].stripe
         }`}
       />
@@ -80,7 +80,7 @@ const CandidateLeagueHeader: FC = () => {
       <div className='z-10 flex-grow'>
         {displayMode === 'top' ? (
           <>
-            <h2 className='flex-grow font-semibold leading-none'>
+            <h2 className='flex-grow font-semibold leading-snug'>
               Top {league.name} IV Spreads for{' '}
               <span key={candidate.species.name}>
                 {candidate.shadow && 'Shadow '}
