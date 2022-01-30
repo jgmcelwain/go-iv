@@ -1,4 +1,11 @@
 
+## [2.7.0](https://github.com/jgmcelwain/pvpiv/compare/v2.6.2...v2.7.0) (2022-01-30)
+
+
+### Features
+
+* display base stats ([6242f44](https://github.com/jgmcelwain/pvpiv/commit/6242f4486b5e6df2be6daa8b28f5d4bf85b627da))
+
 ### [2.6.2](https://github.com/jgmcelwain/pvpiv/compare/v2.6.1...v2.6.2) (2022-01-30)
 
 
