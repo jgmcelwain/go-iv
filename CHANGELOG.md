@@ -1,4 +1,11 @@
 
+### [2.7.1](https://github.com/jgmcelwain/pvpiv/compare/v2.7.0...v2.7.1) (2022-01-30)
+
+
+### Bug Fixes
+
+* style tweaks to better accomodate base stats ([c88943a](https://github.com/jgmcelwain/pvpiv/commit/c88943add50b1842241bd6b69cdf82b091faffc2))
+
 ## [2.7.0](https://github.com/jgmcelwain/pvpiv/compare/v2.6.2...v2.7.0) (2022-01-30)
 
 
