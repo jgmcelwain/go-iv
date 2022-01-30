@@ -13,6 +13,7 @@ import { useSettings } from '../hooks/useSettings';
 
 import CandidateLeague from '../components/CandidateLeague';
 import CandidateBuilder from '../components/CandidateBuilder';
+import CandidateDisclaimer from '../components/CandidateDisclaimer';
 
 const CandidatePage: FC<{ cachedCandidate: Candidate }> = ({
   cachedCandidate,
@@ -22,6 +23,8 @@ const CandidatePage: FC<{ cachedCandidate: Candidate }> = ({
   return (
     <CandidateContextProvider cachedCandidate={cachedCandidate}>
       <CandidateBuilder />
+
+      <CandidateDisclaimer />
 
       <section className='grid items-start w-full grid-cols-1 gap-4 mb-4 sm:mb-8 sm:gap-8 xl:grid-cols-2'>
         {LEAGUES.filter((league) => settings.leagues[league.key] === true).map(
