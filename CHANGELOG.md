@@ -1,4 +1,12 @@
 
+### [2.6.2](https://github.com/jgmcelwain/pvpiv/compare/v2.6.1...v2.6.2) (2022-01-30)
+
+
+### Features
+
+* add release-tag workflow ([582ae75](https://github.com/jgmcelwain/pvpiv/commit/582ae750031eed25fdccd1ddee2c10039f97b9dd))
+* split electrode stats into "fixed" and "copied" ([b286037](https://github.com/jgmcelwain/pvpiv/commit/b2860378ce535f9cc03e31814e91948aa3ed52d0))
+
 ### [2.6.1](https://github.com/jgmcelwain/pvpiv/compare/v2.6.0...v2.6.1) (2022-01-29)
 
 
