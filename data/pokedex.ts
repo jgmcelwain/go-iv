@@ -2054,12 +2054,27 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'electrode_hisuian',
+    id: 'electrode_hisuian_kcopy',
     dexNumber: 101,
-    name: 'Electrode (Hisuian)',
+    name: 'Electrode (Hisuian w/ Kanto Stats)',
     stats: {
       atk: 173,
       def: 173,
+      sta: 155,
+    },
+    types: ['electric', 'grass'],
+    family: {
+      id: 'voltorb_hisuian',
+      stage: 2,
+    },
+  },
+  {
+    id: 'electrode_hisuian_fixed',
+    dexNumber: 101,
+    name: 'Electrode (Hisuian w/ "Fixed" Stats)',
+    stats: {
+      atk: 176,
+      def: 176,
       sta: 155,
     },
     types: ['electric', 'grass'],
