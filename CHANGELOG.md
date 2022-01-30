@@ -1,4 +1,11 @@
 
+### [2.7.2](https://github.com/jgmcelwain/pvpiv/compare/v2.7.1...v2.7.2) (2022-01-30)
+
+
+### Features
+
+* add disclaimer for candidates that need one ([b24df07](https://github.com/jgmcelwain/pvpiv/commit/b24df0767ae63a98abcd0406f77adf5219701616))
+
 ### [2.7.1](https://github.com/jgmcelwain/pvpiv/compare/v2.7.0...v2.7.1) (2022-01-30)
 
 
