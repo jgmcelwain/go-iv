@@ -1,4 +1,11 @@
 
+### [2.8.1](https://github.com/jgmcelwain/pvpiv/compare/v2.8.0...v2.8.1) (2022-02-01)
+
+
+### Bug Fixes
+
+* correct tailwind config ([4ab386f](https://github.com/jgmcelwain/pvpiv/commit/4ab386fa99bc1869527e195b107234891663f98a))
+
 ## [2.8.0](https://github.com/jgmcelwain/pvpiv/compare/v2.7.2...v2.8.0) (2022-02-01)
 
 
