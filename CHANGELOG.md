@@ -1,4 +1,11 @@
 
+### [2.8.2](https://github.com/jgmcelwain/pvpiv/compare/v2.8.1...v2.8.2) (2022-02-01)
+
+
+### Bug Fixes
+
+* remove margin on smaller screens ([1efe376](https://github.com/jgmcelwain/pvpiv/commit/1efe3767ae851d402ffa1e01afa5519d04710016))
+
 ### [2.8.1](https://github.com/jgmcelwain/pvpiv/compare/v2.8.0...v2.8.1) (2022-02-01)
 
 
