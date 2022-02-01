@@ -1,6 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
-
 module.exports = {
   content: [
     './components/**/*.{js,ts,jsx,tsx}',
@@ -14,7 +11,6 @@ module.exports = {
       },
     },
     fontFamily: {
-      ...defaultTheme.fontFamily,
       title: ['Poppins', 'sans-serif'],
     },
   },
