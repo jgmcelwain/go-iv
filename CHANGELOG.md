@@ -1,4 +1,11 @@
 
+### [2.8.3](https://github.com/jgmcelwain/pvpiv/compare/v2.8.2...v2.8.3) (2022-02-01)
+
+
+### Bug Fixes
+
+* better font import ([9ebcb45](https://github.com/jgmcelwain/pvpiv/commit/9ebcb459f8566957a6f3fb4d10ccbd4d7f8b3de4))
+
 ### [2.8.2](https://github.com/jgmcelwain/pvpiv/compare/v2.8.1...v2.8.2) (2022-02-01)
 
 
