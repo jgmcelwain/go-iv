@@ -1,4 +1,12 @@
 
+## [2.8.0](https://github.com/jgmcelwain/pvpiv/compare/v2.7.2...v2.8.0) (2022-02-01)
+
+
+### Features
+
+* full width species input ([ca66ed7](https://github.com/jgmcelwain/pvpiv/commit/ca66ed703f6dee48217b29ab32c85058646eaaa4))
+* only show ranking metric in league header if option is enabled ([3fcf69a](https://github.com/jgmcelwain/pvpiv/commit/3fcf69a6964c13c7474d64d401ea65d1507ad859))
+
 ### [2.7.2](https://github.com/jgmcelwain/pvpiv/compare/v2.7.1...v2.7.2) (2022-01-30)
 
 
