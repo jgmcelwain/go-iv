@@ -4,6 +4,7 @@ import { IV_FLOORS } from '../data/ivFloor';
 
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
+import { useSettings } from '../hooks/useSettings';
 
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 import { RANKABLE_METRICS } from '../data/stat';
@@ -33,6 +34,7 @@ const LEAGUE_COLORS = {
 
 const CandidateLeagueHeader: FC = () => {
   const { candidate } = useCandidate();
+  const { settings } = useSettings();
   const { league, displayMode, inspectedLevelCap, setDisplayMode } =
     useLeague();
 
@@ -112,7 +114,8 @@ const CandidateLeagueHeader: FC = () => {
                 {candidate.species.name}
               </span>
               , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
-              {floor.name}, By {rankingMetric.name}
+              {floor.name}
+              {settings.showRankingMetric && `, By ${rankingMetric.name}`}
             </p>
 
             {baseStats}
