@@ -1,4 +1,11 @@
 
+### [2.8.4](https://github.com/jgmcelwain/pvpiv/compare/v2.8.3...v2.8.4) (2022-02-17)
+
+
+### Bug Fixes
+
+* final stats for hisuian electrode ([ad43b4e](https://github.com/jgmcelwain/pvpiv/commit/ad43b4ecf93fa00f9b2787ebbeec1a648df3c451))
+
 ### [2.8.3](https://github.com/jgmcelwain/pvpiv/compare/v2.8.2...v2.8.3) (2022-02-01)
 
 
