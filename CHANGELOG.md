@@ -1,4 +1,11 @@
 
+## [2.9.0](https://github.com/jgmcelwain/pvpiv/compare/v2.8.4...v2.9.0) (2022-03-01)
+
+
+### Features
+
+* add gen 7 mons ([2de79ed](https://github.com/jgmcelwain/pvpiv/commit/2de79ed48e8a18baf83db02516adf94bee179d08))
+
 ### [2.8.4](https://github.com/jgmcelwain/pvpiv/compare/v2.8.3...v2.8.4) (2022-02-17)
 
 
