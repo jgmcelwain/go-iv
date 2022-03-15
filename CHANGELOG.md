@@ -1,4 +1,11 @@
 
+## [2.10.0](https://github.com/jgmcelwain/pvpiv/compare/v2.9.0...v2.10.0) (2022-03-15)
+
+
+### Features
+
+* add oricorio ([26ac3c5](https://github.com/jgmcelwain/pvpiv/commit/26ac3c568637332cca5201b5d23b5e261866d0a9))
+
 ## [2.9.0](https://github.com/jgmcelwain/pvpiv/compare/v2.8.4...v2.9.0) (2022-03-01)
 
 
