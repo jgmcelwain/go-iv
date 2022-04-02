@@ -13008,7 +13008,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Salazzle',
     stats: { atk: 228, def: 130, sta: 169 },
     types: ['poison', 'fire'],
-    family: { id: 'salazzle', stage: 2 },
+    family: { id: 'salandit', stage: 2 },
   },
   {
     id: 'stufful',
