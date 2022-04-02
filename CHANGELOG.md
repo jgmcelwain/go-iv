@@ -1,4 +1,11 @@
 
+### [2.10.1](https://github.com/jgmcelwain/pvpiv/compare/v2.10.0...v2.10.1) (2022-04-02)
+
+
+### Bug Fixes
+
+* correct family for salazzle ([fd46bbc](https://github.com/jgmcelwain/pvpiv/commit/fd46bbc0c9ffefde8587927831e3050f4c629bb0))
+
 ## [2.10.0](https://github.com/jgmcelwain/pvpiv/compare/v2.9.0...v2.10.0) (2022-03-15)
 
 
