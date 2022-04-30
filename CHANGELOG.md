@@ -1,4 +1,11 @@
 
+### [2.11.1](https://github.com/jgmcelwain/pvpiv/compare/v2.11.0...v2.11.1) (2022-04-30)
+
+
+### Bug Fixes
+
+* remove speculative from released megas ([c2a1d3b](https://github.com/jgmcelwain/pvpiv/commit/c2a1d3b41bd7201c56abf1871e59fa86add6959c))
+
 ## [2.11.0](https://github.com/jgmcelwain/pvpiv/compare/v2.10.1...v2.11.0) (2022-04-30)
 
 
