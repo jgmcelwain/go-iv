@@ -1,4 +1,17 @@
 
+## [2.11.0](https://github.com/jgmcelwain/pvpiv/compare/v2.10.1...v2.11.0) (2022-04-30)
+
+
+### Features
+
+* add theme color ([cd41841](https://github.com/jgmcelwain/pvpiv/commit/cd41841fa7a0f0cfb69b81f76dfb65a4f5cc86a5))
+
+
+### Bug Fixes
+
+* remove speculative tag from mega kangaskhan ([decf184](https://github.com/jgmcelwain/pvpiv/commit/decf18482e264121ee7b6ecbd77a93811612bbae))
+* remove speculative tag from mega lati@s ([ad20834](https://github.com/jgmcelwain/pvpiv/commit/ad208341c849a1d0861687e478ec4c8a419a4c1f))
+
 ### [2.10.1](https://github.com/jgmcelwain/pvpiv/compare/v2.10.0...v2.10.1) (2022-04-02)
 
 
