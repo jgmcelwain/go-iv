@@ -1631,7 +1631,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'slowpoke',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'magnemite',
@@ -2803,7 +2802,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'aerodactyl',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'snorlax',
@@ -3879,7 +3877,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'onix',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'snubbull',
@@ -6525,7 +6522,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'absol',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'wynaut',
