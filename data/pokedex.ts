@@ -6909,7 +6909,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'latias',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'latios',
@@ -6942,7 +6941,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'latios',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'kyogre',
