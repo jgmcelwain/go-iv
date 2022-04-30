@@ -30,6 +30,8 @@ const App: FC<AppProps & InitialProps> & {
           content='Check PVP IV ranks for Great League, Ultra League and Master League simultaneously. Includes support for Best Buddy and Candy XL level caps.'
         />
 
+        <meta name='theme-color' content='#1F2937' />
+
         <meta property='og:title' content='PVPIV.app' />
         <meta property='og:description' content='Pokémon GO PVP IV Checker' />
         <meta property='og:type' content='website' />
