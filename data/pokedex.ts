@@ -577,8 +577,8 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['electric', 'psychic'],
     family: {
-      id: 'raichu_alolan',
-      stage: 1,
+      id: 'pichu',
+      stage: 2,
     },
   },
   {
@@ -2108,7 +2108,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['grass', 'dragon'],
     family: {
-      id: 'exeggutor_alolan',
+      id: 'exeggcute',
       stage: 2,
     },
   },
@@ -2153,8 +2153,8 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['fire', 'ghost'],
     family: {
-      id: 'marowak_alolan',
-      stage: 1,
+      id: 'cubone',
+      stage: 2,
     },
   },
   {
@@ -2243,8 +2243,8 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['poison', 'fairy'],
     family: {
-      id: 'weezing_galarian',
-      stage: 1,
+      id: 'koffing',
+      stage: 2,
     },
   },
   {
