@@ -8,20 +8,22 @@ import { usePokedex } from '../hooks/usePokedex';
 const CandidateBuilderSpecies: FC = () => {
   const pokedex = usePokedex();
   const { candidate, dispatch } = useCandidate();
-  const [value, setValue] = useState<PokemonName>(candidate.species.name);
+  const [speciesInputValue, setSpeciesInputValue] = useState<PokemonName>(
+    candidate.species.name,
+  );
 
   useEffect(() => {
-    if (candidate.species.name !== value) {
-      const match = pokedex.byName(value);
+    if (candidate.species.name !== speciesInputValue) {
+      const match = pokedex.byName(speciesInputValue);
 
       if (match) {
         dispatch({ type: CandidateActionTypes.Species, payload: match });
       }
     }
-  }, [value]);
+  }, [speciesInputValue]);
   useEffect(() => {
-    if (candidate.species.name !== value) {
-      setValue(candidate.species.name);
+    if (candidate.species.name !== speciesInputValue) {
+      setSpeciesInputValue(candidate.species.name);
     }
   }, [candidate.species.name]);
 
@@ -40,10 +42,10 @@ const CandidateBuilderSpecies: FC = () => {
         onBlur={() => {
           input.current.value = candidate.species.name;
         }}
-        onChange={(evt) => setValue(evt.target.value)}
+        onChange={(evt) => setSpeciesInputValue(evt.target.value)}
         type='text'
         list='pokemon-list'
-        value={value}
+        value={speciesInputValue}
         className='block w-full mt-1 rounded form-input focus-visible-ring ring-offset-gray-900'
         placeholder='Pokémon Name'
         ref={input}
