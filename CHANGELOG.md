@@ -1,4 +1,19 @@
 
+## [2.12.0](https://github.com/jgmcelwain/pvpiv/compare/v2.11.1...v2.12.0) (2022-05-25)
+
+
+### Features
+
+* cross-generational regional form evolutions ([f491864](https://github.com/jgmcelwain/pvpiv/commit/f49186497165a629c2ec87c1a9b36e90fb276a57))
+* more descriptive input state variable names ([b185160](https://github.com/jgmcelwain/pvpiv/commit/b185160d680191c8c31afd1f8cb2e646981d5a83))
+* remove base stats from league header ([eb05e29](https://github.com/jgmcelwain/pvpiv/commit/eb05e29418caa74c8a6b82b4155514ca0eb3143d))
+* replace sidebar with header ([61137a8](https://github.com/jgmcelwain/pvpiv/commit/61137a8a1eddc7a5210f1964d2c1aa75ecc1706c))
+
+
+### Bug Fixes
+
+* update Stat Product description ([aae7228](https://github.com/jgmcelwain/pvpiv/commit/aae72282df269860c7a4c3fbdf1b50a16497b8cb))
+
 ### [2.11.1](https://github.com/jgmcelwain/pvpiv/compare/v2.11.0...v2.11.1) (2022-04-30)
 
 
