@@ -48,13 +48,6 @@ const CandidateLeagueHeader: FC = () => {
     [candidate.floor],
   );
 
-  const baseStats = (
-    <p className='mt-0.5 text-xs font-semibold'>
-      Base Stats: {candidate.species.stats.atk} Atk,{' '}
-      {candidate.species.stats.def} Def, {candidate.species.stats.sta} Sta
-    </p>
-  );
-
   return (
     <header
       className={`w-full p-4 bg-gradient-to-br ${
@@ -90,8 +83,6 @@ const CandidateLeagueHeader: FC = () => {
               </span>
             </h2>
 
-            {baseStats}
-
             <p className='mt-1 text-xs font-semibold'>
               Level: {inspectedLevelCap.level} ({inspectedLevelCap.description})
             </p>
@@ -115,10 +106,8 @@ const CandidateLeagueHeader: FC = () => {
               </span>
               , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
               {floor.name}
-              {settings.showRankingMetric && `, By ${rankingMetric.name}`}
+              {settings.showRankingMetric && `, by ${rankingMetric.name}`}
             </p>
-
-            {baseStats}
           </>
         )}
       </div>
