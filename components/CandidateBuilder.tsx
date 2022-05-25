@@ -8,7 +8,7 @@ import CandidateBuilderRankingMetric from './CandidateBuilderRankingMetric';
 
 const CandidateBuilder: FC = () => {
   return (
-    <section className='flex flex-wrap items-start justify-start w-full px-4 mb-8 sm:mb-4 sm:px-0'>
+    <section className='flex flex-wrap items-start justify-start w-full px-4 mb-4 sm:px-0'>
       <CandidateBuilderSpecies />
 
       <CandidateBuilderFamilySwap />

@@ -11,7 +11,7 @@ import {
 } from '../hooks/useSettings';
 
 import Head from 'next/head';
-import AppNavigation from '../components/AppNavigation';
+import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
 
 import '../styles/index.css';
@@ -39,18 +39,16 @@ const App: FC<AppProps & InitialProps> & {
         <meta property='og:image' content='https://pvpiv.app/og.png' />
       </Head>
 
+      <AppHeader />
+
       <SettingsProvider initialValue={settings}>
-        <div className='w-full pt-16 pl-0 md:pl-64 md:pt-0'>
-          <AppNavigation />
+        <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 pt-20 mx-auto max-w-8xl sm:px-4 md:px-8'>
+          <main className='flex-grow w-full'>
+            <Component {...pageProps} />
+          </main>
 
-          <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 pt-4 mx-auto max-w-8xl sm:px-4 md:px-8'>
-            <main className='flex-grow w-full'>
-              <Component {...pageProps} />
-            </main>
-
-            <AppFooter />
-          </section>
-        </div>
+          <AppFooter />
+        </section>
       </SettingsProvider>
     </>
   );
