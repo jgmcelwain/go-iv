@@ -20,7 +20,7 @@ export const OUTPUT_DATA: OutputDataPoint[] = [
     key: 'statProduct',
     name: 'Stat Product',
     description:
-      'The metric used to rank spreads - calculated by multiplying the generated Attack, Defense and Stamina values together.',
+      'Standard metric used to rank spreads - calculated by multiplying the generated Attack, Defense and Stamina values together.',
   },
   {
     key: 'stats',
