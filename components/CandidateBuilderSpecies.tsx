@@ -1,6 +1,4 @@
-import React, { FC, useState, useEffect, useRef } from 'react';
-
-import { PokemonName } from '../data/pokedex';
+import React, { FC, useEffect, useRef } from 'react';
 
 import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';
@@ -8,22 +6,13 @@ import { usePokedex } from '../hooks/usePokedex';
 const CandidateBuilderSpecies: FC = () => {
   const pokedex = usePokedex();
   const { candidate, dispatch } = useCandidate();
-  const [speciesInputValue, setSpeciesInputValue] = useState<PokemonName>(
-    candidate.species.name,
-  );
 
   useEffect(() => {
-    if (candidate.species.name !== speciesInputValue) {
-      const match = pokedex.byName(speciesInputValue);
-
-      if (match) {
-        dispatch({ type: CandidateActionTypes.Species, payload: match });
-      }
-    }
-  }, [speciesInputValue]);
-  useEffect(() => {
-    if (candidate.species.name !== speciesInputValue) {
-      setSpeciesInputValue(candidate.species.name);
+    if (
+      candidate.species.name !== input.current.value &&
+      document.activeElement !== input.current
+    ) {
+      input.current.value = candidate.species.name;
     }
   }, [candidate.species.name]);
 
@@ -36,16 +25,26 @@ const CandidateBuilderSpecies: FC = () => {
       </span>
 
       <input
+        onChange={(evt) => {
+          if (candidate.species.name !== evt.target.value) {
+            const match = pokedex.list.find((mon) =>
+              mon.name.toLowerCase().startsWith(evt.target.value.toLowerCase()),
+            );
+
+            if (match) {
+              dispatch({ type: CandidateActionTypes.Species, payload: match });
+            }
+          }
+        }}
         onFocus={() => {
           input.current.value = '';
         }}
         onBlur={() => {
           input.current.value = candidate.species.name;
         }}
-        onChange={(evt) => setSpeciesInputValue(evt.target.value)}
         type='text'
         list='pokemon-list'
-        value={speciesInputValue}
+        defaultValue={candidate.species.name}
         className='block w-full mt-1 rounded form-input focus-visible-ring ring-offset-gray-900'
         placeholder='Pokémon Name'
         ref={input}
