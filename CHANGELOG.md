@@ -1,4 +1,11 @@
 
+## [2.13.0](https://github.com/jgmcelwain/pvpiv/compare/v2.12.0...v2.13.0) (2022-06-13)
+
+
+### Features
+
+* "autocomplete" when typing a mon name ([697bdf9](https://github.com/jgmcelwain/pvpiv/commit/697bdf94df9137607ade977ce8daa6bca81b813e))
+
 ## [2.12.0](https://github.com/jgmcelwain/pvpiv/compare/v2.11.1...v2.12.0) (2022-05-25)
 
 
