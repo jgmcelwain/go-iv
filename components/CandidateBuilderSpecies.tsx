@@ -19,7 +19,7 @@ const CandidateBuilderSpecies: FC = () => {
   const input = useRef<HTMLInputElement>();
 
   return (
-    <label className='order-1 block w-full mb-2 md:mr-6 md:w-auto'>
+    <label className='block w-full mb-2 md:mr-6 md:w-auto'>
       <span className='text-xs text-gray-400 sr-only md:not-sr-only'>
         Pokémon
       </span>

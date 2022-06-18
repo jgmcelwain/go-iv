@@ -11,13 +11,13 @@ const CandidateBuilder: FC = () => {
     <section className='flex flex-wrap items-start justify-start w-full px-4 mb-4 sm:px-0'>
       <CandidateBuilderSpecies />
 
-      <CandidateBuilderFamilySwap />
-
       <CandidateBuilderIVs />
 
       <CandidateBuilderIVFloor />
 
       <CandidateBuilderRankingMetric />
+
+      <CandidateBuilderFamilySwap />
     </section>
   );
 };

@@ -23,7 +23,7 @@ const CandidatePage: FC<{ cachedCandidate: Candidate }> = ({
     <CandidateContextProvider cachedCandidate={cachedCandidate}>
       <CandidateBuilder />
 
-      <section className='grid items-start w-full grid-cols-1 gap-4 mb-4 sm:mb-8 sm:gap-8 xl:grid-cols-2'>
+      <section className='grid items-start w-full grid-cols-1 gap-4 mb-4 sm:mb-8 sm:gap-8 lg:grid-cols-2'>
         {LEAGUES.filter((league) => settings.leagues[league.key] === true).map(
           (league) => (
             <CandidateLeague key={league.key} league={league} />

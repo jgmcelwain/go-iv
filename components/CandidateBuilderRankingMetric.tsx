@@ -19,7 +19,7 @@ const CandidateBuilderRankingMetric: FC = () => {
   }, [settings.showRankingMetric]);
 
   return settings.showRankingMetric ? (
-    <label className='order-5 block mb-2 mr-6'>
+    <label className='block mb-2 mr-6'>
       <span className='text-xs text-gray-400'>Rank By</span>
 
       <select

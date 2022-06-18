@@ -27,7 +27,7 @@ const CandidateBuilderFamilySwap: FC = () => {
         dispatch({ type: CandidateActionTypes.Species, payload: val })
       }
       as='div'
-      className='flex flex-wrap items-center justify-start order-2 w-full my-1 xl:order-last'
+      className='flex flex-wrap items-center justify-start w-full mt-2 sm:mt-1'
     >
       <RadioGroup.Label className='sr-only'>
         Other family members
@@ -54,7 +54,7 @@ const CandidateBuilderFamilySwap: FC = () => {
                 {familyMember.name}
               </RadioGroup.Label>
 
-              <SwitchVerticalIcon className='w-4 h-4' />
+              <SwitchVerticalIcon className='w-4 h-4' aria-hidden />
             </div>
           )}
         </RadioGroup.Option>
