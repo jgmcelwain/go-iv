@@ -1,4 +1,12 @@
 
+## [2.14.0](https://github.com/jgmcelwain/pvpiv/compare/v2.13.0...v2.14.0) (2022-06-19)
+
+
+### Features
+
+* pokedex searchByName method ([69b5567](https://github.com/jgmcelwain/pvpiv/commit/69b5567336a6073176a8ffe7f63fcea50eeb9186))
+* small UI tweaks ([089cd2f](https://github.com/jgmcelwain/pvpiv/commit/089cd2f30fa0aa6dc0a6ed5c09b1905c68a28f38))
+
 ## [2.13.0](https://github.com/jgmcelwain/pvpiv/compare/v2.12.0...v2.13.0) (2022-06-13)
 
 
