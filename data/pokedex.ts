@@ -14905,6 +14905,14 @@ export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
   return list.find((pokemon) => pokemon.name === name) ?? null;
 }
 
+export function searchPokmeonByName(query: string, list: Pokemon[] = POKEDEX) {
+  return (
+    list.find((pokemon) =>
+      pokemon.name.toLowerCase().startsWith(query.toLowerCase()),
+    ) ?? null
+  );
+}
+
 export function getPokemonByID(id: PokemonID, list: Pokemon[] = POKEDEX) {
   if (!id) return null;
 

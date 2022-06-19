@@ -8,6 +8,7 @@ import {
   getPokemonFamilyMembers,
   PokemonName,
   PokemonID,
+  searchPokmeonByName,
 } from '../data/pokedex';
 
 export function usePokedex() {
@@ -34,11 +35,16 @@ export function usePokedex() {
     (familyId: PokemonID) => getPokemonFamilyMembers(familyId, list),
     [list],
   );
+  const searchByName = useCallback(
+    (query: string) => searchPokmeonByName(query, list),
+    [list],
+  );
 
   return {
     list,
     byName,
     byId,
     familyMembers,
+    searchByName,
   };
 }

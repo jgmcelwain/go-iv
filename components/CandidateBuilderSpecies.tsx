@@ -8,6 +8,8 @@ const CandidateBuilderSpecies: FC = () => {
   const { candidate, dispatch } = useCandidate();
 
   useEffect(() => {
+    // sync candidate with input value if the candidate has been edited by
+    // something else
     if (
       candidate.species.name !== input.current.value &&
       document.activeElement !== input.current
@@ -27,9 +29,7 @@ const CandidateBuilderSpecies: FC = () => {
       <input
         onChange={(evt) => {
           if (candidate.species.name !== evt.target.value) {
-            const match = pokedex.list.find((mon) =>
-              mon.name.toLowerCase().startsWith(evt.target.value.toLowerCase()),
-            );
+            const match = pokedex.searchByName(evt.target.value);
 
             if (match) {
               dispatch({ type: CandidateActionTypes.Species, payload: match });
