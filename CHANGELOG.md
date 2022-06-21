@@ -1,4 +1,11 @@
 
+### [2.15.1](https://github.com/jgmcelwain/pvpiv/compare/v2.15.0...v2.15.1) (2022-06-21)
+
+
+### Bug Fixes
+
+* remove plausible ([a90db4a](https://github.com/jgmcelwain/pvpiv/commit/a90db4a2df940024f4fdca5ba4fa10b14cc675e0))
+
 ## [2.15.0](https://github.com/jgmcelwain/pvpiv/compare/v2.14.0...v2.15.0) (2022-06-21)
 
 
