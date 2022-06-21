@@ -33,12 +33,6 @@ export default class MyDocument extends Document {
           {process.env.NODE_ENV === 'production' && (
             <>
               <script
-                defer
-                data-domain='pvpiv.app'
-                src='https://plausible.io/js/plausible.js'
-              ></script>
-
-              <script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${
                   process.env.NEXT_PUBLIC_GA_KEY ?? ''
