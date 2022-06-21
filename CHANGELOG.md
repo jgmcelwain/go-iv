@@ -1,4 +1,11 @@
 
+## [2.15.0](https://github.com/jgmcelwain/pvpiv/compare/v2.14.0...v2.15.0) (2022-06-21)
+
+
+### Features
+
+* add plausible.io tracking ([6147e4b](https://github.com/jgmcelwain/pvpiv/commit/6147e4b7a2e36b8f97b81fb70a21ae8abdd6033a))
+
 ## [2.14.0](https://github.com/jgmcelwain/pvpiv/compare/v2.13.0...v2.14.0) (2022-06-19)
 
 
