@@ -33,8 +33,16 @@ export default class MyDocument extends Document {
           {process.env.NODE_ENV === 'production' && (
             <>
               <script
+                defer
+                data-domain='pvpiv.app'
+                src='https://plausible.io/js/plausible.js'
+              ></script>
+
+              <script
                 async
-                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_KEY}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=${
+                  process.env.NEXT_PUBLIC_GA_KEY ?? ''
+                }`}
               />
               <script
                 dangerouslySetInnerHTML={{
@@ -42,7 +50,7 @@ export default class MyDocument extends Document {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_KEY}', {
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_KEY ?? ''}', {
                 page_path: window.location.pathname,
               });
           `,
