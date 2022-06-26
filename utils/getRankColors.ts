@@ -7,7 +7,7 @@ export type SpreadColors = {
 };
 
 export function getRankedSpreadColors(
-  rankedSpread: RankedSpread,
+  rankedSpread: RankedSpread | undefined,
   rankingMetric: RankableMetric,
 ): SpreadColors {
   const rankingMetricPercent =
@@ -15,7 +15,7 @@ export function getRankedSpreadColors(
       ? rankedSpread?.product.percentOfMax
       : rankedSpread?.stats[rankingMetric].percentOfMax;
 
-  if (rankingMetricPercent === undefined) {
+  if (rankingMetricPercent === undefined || rankedSpread === null) {
     return { background: 'transparent', text: 'transparent' };
   }
 

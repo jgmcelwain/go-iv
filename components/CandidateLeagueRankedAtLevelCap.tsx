@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
@@ -18,37 +18,36 @@ import { ViewListIcon } from '@heroicons/react/solid';
 const CandidateLeagueRankedAtLevelCap: FC<{
   levelCap: LevelCap;
 }> = ({ levelCap }) => {
-  const { league, setDisplayMode } = useLeague();
+  const { league, setInspectedLevelCap } = useLeague();
   const { candidate } = useCandidate();
   const { settings } = useSettings();
   const rankedSpreads = useRankedSpreads();
 
-  const candidateAtLevel = useMemo(
-    () =>
-      rankedSpreads[levelCap.level].find(
-        (spread) =>
-          spread.ivs.atk === candidate.ivs.atk &&
-          spread.ivs.def === candidate.ivs.def &&
-          spread.ivs.sta === candidate.ivs.sta,
-      ) ?? null,
-    [rankedSpreads[levelCap.level], candidate.ivs],
+  const candidateAtLevel = rankedSpreads[levelCap.level].find(
+    (spread) =>
+      spread.ivs.atk === candidate.ivs.atk &&
+      spread.ivs.def === candidate.ivs.def &&
+      spread.ivs.sta === candidate.ivs.sta,
   );
+  if (candidateAtLevel === undefined) {
+    throw new Error(
+      'No matching spread found for the candidate at this level cap.',
+    );
+  }
 
-  const floor = useMemo(
-    () => IV_FLOORS.find((ivFloor) => ivFloor.value === candidate.floor),
-    [candidate.floor],
+  const floor = IV_FLOORS.find((ivFloor) => ivFloor.value === candidate.floor);
+  if (floor === undefined) {
+    throw new Error('No matching IV floor could be found.');
+  }
+
+  const colors = getRankedSpreadColors(
+    candidateAtLevel,
+    candidate.rankingMetric,
   );
-
-  const colors = useMemo(
-    () => getRankedSpreadColors(candidateAtLevel, candidate.rankingMetric),
-    [candidateAtLevel],
-  );
-
-  if (candidateAtLevel === null) return null;
 
   return (
     <tr
-      onClick={() => setDisplayMode('top', levelCap)}
+      onClick={() => setInspectedLevelCap(levelCap)}
       className={`${colors.background} ${colors.text} cursor-pointer`}
     >
       {settings.outputData.rank && (
@@ -126,7 +125,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
 
       <CandidateLeagueTableCells.Body right>
         <button
-          onClick={() => setDisplayMode('top', levelCap)}
+          onClick={() => setInspectedLevelCap(levelCap)}
           className='focus-visible-ring p-0.5 rounded mr-2'
           title={`View top ${league.name} IV spreads for ${candidate.species.name}, Level ${levelCap.level}, ${floor.name}`}
         >

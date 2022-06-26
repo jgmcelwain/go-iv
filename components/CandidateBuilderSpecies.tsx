@@ -1,24 +1,38 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, MutableRefObject, useEffect, useRef } from 'react';
 
-import { useCandidate, CandidateActionTypes } from '../hooks/useCandidate';
+import {
+  useCandidate,
+  CandidateActionTypes,
+  Candidate,
+} from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';
 
-const CandidateBuilderSpecies: FC = () => {
-  const pokedex = usePokedex();
-  const { candidate, dispatch } = useCandidate();
+function useInputRef() {
+  return useRef<HTMLInputElement | null>(null);
+}
 
+function useSyncInputToCandidate(
+  input: MutableRefObject<HTMLInputElement | null>,
+  candidate: Candidate,
+) {
   useEffect(() => {
     // sync candidate with input value if the candidate has been edited by
     // something else
     if (
+      input.current !== null &&
       candidate.species.name !== input.current.value &&
       document.activeElement !== input.current
     ) {
       input.current.value = candidate.species.name;
     }
-  }, [candidate.species.name]);
+  }, [candidate.species.name, input]);
+}
 
-  const input = useRef<HTMLInputElement>();
+const CandidateBuilderSpecies: FC = () => {
+  const pokedex = usePokedex();
+  const { candidate, dispatch } = useCandidate();
+  const input = useInputRef();
+  useSyncInputToCandidate(input, candidate);
 
   return (
     <label className='block w-full mb-2 md:mr-6 md:w-auto'>
@@ -37,10 +51,14 @@ const CandidateBuilderSpecies: FC = () => {
           }
         }}
         onFocus={() => {
-          input.current.value = '';
+          if (input.current !== null) {
+            input.current.value = '';
+          }
         }}
         onBlur={() => {
-          input.current.value = candidate.species.name;
+          if (input.current !== null) {
+            input.current.value = candidate.species.name;
+          }
         }}
         type='text'
         list='pokemon-list'

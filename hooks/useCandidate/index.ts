@@ -21,8 +21,16 @@ export const Context =
   createContext<{
     candidate: Candidate;
     dispatch: Dispatch;
-  }>(null);
+  } | null>(null);
 
 export function useCandidate() {
-  return useContext(Context);
+  const value = useContext(Context);
+
+  if (value === null) {
+    throw new Error(
+      'useCandidate must be called within the context of a CandidateProvider',
+    );
+  }
+
+  return value;
 }

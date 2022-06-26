@@ -14,7 +14,7 @@ import { useSettings } from '../hooks/useSettings';
 import CandidateLeague from '../components/CandidateLeague';
 import CandidateBuilder from '../components/CandidateBuilder';
 
-const CandidatePage: FC<{ cachedCandidate: Candidate }> = ({
+const CandidatePage: FC<{ cachedCandidate: Candidate | null }> = ({
   cachedCandidate,
 }) => {
   const { settings } = useSettings();
@@ -38,10 +38,11 @@ export default CandidatePage;
 
 export const getServerSideProps = async (
   ctx: NextPageContext,
-): Promise<{ props: { cachedCandidate: Candidate } }> => {
+  // eslint-disable-next-line @typescript-eslint/require-await
+): Promise<{ props: { cachedCandidate: Candidate | null } }> => {
   try {
     const cookies = parseCookies(ctx);
-    const cachedCandidate = JSON.parse(cookies.candidate);
+    const cachedCandidate = JSON.parse(cookies.candidate) as Candidate;
 
     return { props: { cachedCandidate } };
   } catch (err) {

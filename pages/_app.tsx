@@ -56,6 +56,7 @@ const App: FC<AppProps & InitialProps> & {
 
 export default App;
 
+// eslint-disable-next-line @typescript-eslint/require-await
 App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
   const settings = getInitialSettings(appContext?.ctx);
 

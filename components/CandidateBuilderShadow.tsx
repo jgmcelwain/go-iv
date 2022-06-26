@@ -6,15 +6,22 @@ import { useSettings } from '../hooks/useSettings';
 import { Switch } from '@headlessui/react';
 import { FireIcon } from '@heroicons/react/solid';
 
-const CandidateBuilderShadow: FunctionComponent = () => {
+function useSyncCandidateShadowWithDefault() {
   const { settings } = useSettings();
-  const { candidate, dispatch } = useCandidate();
+  const { dispatch } = useCandidate();
 
   useEffect(() => {
     if (settings.showShadowToggle === false) {
       dispatch({ type: CandidateActionTypes.Shadow, payload: false });
     }
-  }, [settings.showShadowToggle]);
+  }, [dispatch, settings.showShadowToggle]);
+}
+
+const CandidateBuilderShadow: FunctionComponent = () => {
+  const { settings } = useSettings();
+  const { candidate, dispatch } = useCandidate();
+
+  useSyncCandidateShadowWithDefault();
 
   return settings.showShadowToggle ? (
     <Switch

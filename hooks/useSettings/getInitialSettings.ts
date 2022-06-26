@@ -29,7 +29,7 @@ export function getInitialSettings(ctx: NextPageContext) {
       throw new Error('No settings cookie');
     }
 
-    const parsed = JSON.parse(cookies.settings);
+    const parsed = JSON.parse(cookies.settings) as Settings;
 
     return parsed;
   } catch (err) {
