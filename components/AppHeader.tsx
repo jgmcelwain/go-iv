@@ -16,11 +16,10 @@ const AppNavigation: FC = () => {
         <div className='flex justify-start items-center space-x-2'>
           <Image
             src='/logo.png'
-            className='w-8 h-8'
             alt='PVPIV.app Logo'
             title='PVPIV.app'
-            width={48}
-            height={48}
+            width={36}
+            height={36}
           />
 
           <a
