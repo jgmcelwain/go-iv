@@ -1,4 +1,12 @@
 
+### [2.16.1](https://github.com/jgmcelwain/pvpiv/compare/v2.16.0...v2.16.1) (2022-06-26)
+
+
+### Bug Fixes
+
+* remove unused import ([3f72212](https://github.com/jgmcelwain/pvpiv/commit/3f722123b65fb69121c72eae670793186cbd4aff))
+* update logo size ([15c3542](https://github.com/jgmcelwain/pvpiv/commit/15c3542a06382c989485d76bc5b9bed508aaee2a))
+
 ## [2.16.0](https://github.com/jgmcelwain/pvpiv/compare/v2.15.1...v2.16.0) (2022-06-26)
 
 
