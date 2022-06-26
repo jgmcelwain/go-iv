@@ -7,11 +7,11 @@ import CandidateLeagueTopSpreadsAtLevelCap from './CandidateLeagueTopSpreadsAtLe
 import CandidateLeagueRanked from './CandidateLeagueRanked';
 
 const CandidateLeagueContent: FC = () => {
-  const { displayMode } = useLeague();
+  const { inspectedLevelCap } = useLeague();
 
   return (
     <LeagueCandidateRankedSpreadsProvider>
-      {displayMode === 'top' ? (
+      {inspectedLevelCap !== null ? (
         <CandidateLeagueTopSpreadsAtLevelCap />
       ) : (
         <CandidateLeagueRanked />

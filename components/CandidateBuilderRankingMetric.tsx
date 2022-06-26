@@ -5,9 +5,9 @@ import { useSettings } from '../hooks/useSettings';
 
 import { RankableMetric, RANKABLE_METRICS } from '../data/stat';
 
-const CandidateBuilderRankingMetric: FC = () => {
-  const { candidate, dispatch } = useCandidate();
+function useSyncCandidateRankingMetricWithDefault() {
   const { settings } = useSettings();
+  const { dispatch } = useCandidate();
 
   useEffect(() => {
     if (settings.showRankingMetric === false) {
@@ -16,7 +16,14 @@ const CandidateBuilderRankingMetric: FC = () => {
         payload: 'product',
       });
     }
-  }, [settings.showRankingMetric]);
+  }, [dispatch, settings.showRankingMetric]);
+}
+
+const CandidateBuilderRankingMetric: FC = () => {
+  const { candidate, dispatch } = useCandidate();
+  const { settings } = useSettings();
+
+  useSyncCandidateRankingMetricWithDefault();
 
   return settings.showRankingMetric ? (
     <label className='block mb-2 mr-6'>

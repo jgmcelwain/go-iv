@@ -31,7 +31,7 @@ const CANDIDATE_DEFAULTS = {
 };
 
 function sanitizeCandidate(
-  id: PokemonID = null,
+  id: PokemonID | null = null,
   atk?: DirtyIV,
   def?: DirtyIV,
   sta?: DirtyIV,
@@ -39,7 +39,16 @@ function sanitizeCandidate(
   rankingMetric?: DirtyRankableMetric,
   shadow?: boolean,
 ) {
-  const species = getPokemonByID(id) ?? getPokemonByID(CANDIDATE_DEFAULTS.id);
+  let species = id !== null ? getPokemonByID(id) : null;
+  if (species === null) {
+    const defaultSpecies = getPokemonByID(CANDIDATE_DEFAULTS.id);
+
+    if (defaultSpecies === null) {
+      throw new Error('No default species set.');
+    } else {
+      species = defaultSpecies;
+    }
+  }
 
   const outputFloor = tidyNumericInput<IVFloor>(
     floor ?? CANDIDATE_DEFAULTS.floor,
@@ -79,7 +88,7 @@ function sanitizeCandidate(
 
 export function getInitialCandidate(
   query: NextRouter['query'],
-  cachedCandidate: Candidate,
+  cachedCandidate: Candidate | null,
 ): Candidate {
   if (query?.candidate) {
     const [

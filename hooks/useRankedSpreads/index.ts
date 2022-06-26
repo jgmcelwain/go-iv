@@ -7,11 +7,20 @@ export { Provider } from './Provider';
 
 export const Context =
   createContext<
-    {
-      [K in LevelCapNumber]: RankedSpread[];
-    }
+    | {
+        [K in LevelCapNumber]: RankedSpread[];
+      }
+    | null
   >(null);
 
 export function useRankedSpreads() {
-  return useContext(Context);
+  const value = useContext(Context);
+
+  if (value === null) {
+    throw new Error(
+      'useRankedSpreads must be called within the context of a RankedSpreadsProvider',
+    );
+  }
+
+  return value;
 }

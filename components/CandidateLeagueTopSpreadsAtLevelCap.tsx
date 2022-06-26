@@ -1,4 +1,5 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
+import { RankedSpread } from '../lib/generateRankedSpreads';
 
 import { useLeague } from '../hooks/useLeague';
 import { useCandidate } from '../hooks/useCandidate';
@@ -10,32 +11,38 @@ import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTableCellShadowStat from './CandidateLeagueTableCellShadowStat';
 import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpreadsAtLevelCapDownload';
 
-const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
+function useDisplayedSpreads() {
   const { inspectedLevelCap } = useLeague();
   const { candidate } = useCandidate();
   const rankedSpreads = useRankedSpreads();
 
-  const displayedSpreads = useMemo(() => {
-    const spreadsForLevel = rankedSpreads[inspectedLevelCap.level];
+  if (inspectedLevelCap === null) {
+    return [];
+  }
 
-    const candidateSpread = spreadsForLevel.find(
-      (rankedSpread) =>
-        rankedSpread.ivs.atk === candidate.ivs.atk &&
-        rankedSpread.ivs.def === candidate.ivs.def &&
-        rankedSpread.ivs.sta === candidate.ivs.sta,
-    );
+  const spreadsForLevel = rankedSpreads[inspectedLevelCap.level];
 
-    return [candidateSpread, ...spreadsForLevel.slice(0, 10)].map(
-      (rankedSpread) => {
-        const colors = getRankedSpreadColors(
-          rankedSpread,
-          candidate.rankingMetric,
-        );
+  const candidateSpread = spreadsForLevel.find(
+    (rankedSpread) =>
+      rankedSpread.ivs.atk === candidate.ivs.atk &&
+      rankedSpread.ivs.def === candidate.ivs.def &&
+      rankedSpread.ivs.sta === candidate.ivs.sta,
+  );
 
-        return { ...rankedSpread, colors };
-      },
-    );
-  }, [rankedSpreads[inspectedLevelCap.level], candidate.ivs]);
+  const spreads = [candidateSpread, ...spreadsForLevel.slice(0, 10)].filter(
+    (spread) => spread !== undefined,
+  ) as RankedSpread[];
+
+  return spreads.map((rankedSpread) => {
+    const colors = getRankedSpreadColors(rankedSpread, candidate.rankingMetric);
+
+    return { ...rankedSpread, colors };
+  });
+}
+
+const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
+  const displayedSpreads = useDisplayedSpreads();
+  const { candidate } = useCandidate();
 
   return (
     <>
@@ -118,7 +125,7 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
-                  <span title={`${spread.product}`}>
+                  <span title={`${spread.product.percentOfMax}`}>
                     {(spread.product.value / 1000).toFixed(2)}
                   </span>
                 </CandidateLeagueTableCells.Body>

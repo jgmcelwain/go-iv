@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 
 import { Pokemon } from '../data/pokedex';
 
@@ -12,11 +12,9 @@ const CandidateBuilderFamilySwap: FC = () => {
   const { candidate, dispatch } = useCandidate();
   const pokedex = usePokedex();
 
-  const iterableFamily = useMemo(() => {
-    const familyMembers = pokedex.familyMembers(candidate.species.family?.id);
-
-    return familyMembers.sort((a, b) => a.family.stage - b.family.stage);
-  }, [candidate.species.id, pokedex.list.length]);
+  const iterableFamily = pokedex
+    .familyMembers(candidate.species.family?.id)
+    .sort((a, b) => a.family.stage - b.family.stage);
 
   if (iterableFamily.length === 0) return null;
 

@@ -12,7 +12,15 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
   const { league, inspectedLevelCap } = useLeague();
   const rankedSpreads = useRankedSpreads();
 
+  if (inspectedLevelCap === null) {
+    throw new Error('A level cap must be inspected to export');
+  }
+
   function exportToCSV() {
+    if (inspectedLevelCap === null) {
+      throw new Error('A level cap must be inspected to export');
+    }
+
     const fileName = `${candidate.species.id}-${league.cp}-${inspectedLevelCap.level}-${candidate.floor}-${candidate.rankingMetric}.csv`;
 
     const csvContent = rankedSpreads[inspectedLevelCap.level].reduce(

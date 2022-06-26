@@ -1,3 +1,9 @@
+declare global {
+  interface Navigator {
+    msSaveOrOpenBlob: (blob: Blob, fileName: string) => void;
+  }
+}
+
 /**
  * Downloads a file
  *

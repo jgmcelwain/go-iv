@@ -44,9 +44,7 @@ export function generateRankedSpreads(
   rankingMetric: RankableMetric,
 ) {
   const getRankingMetricValue = (spread: SpreadWithMaximizedStats) => {
-    if (spread === undefined) {
-      return null;
-    } else if (rankingMetric === 'product') {
+    if (rankingMetric === 'product') {
       return spread.product;
     } else {
       return spread.stats[rankingMetric];
@@ -77,16 +75,21 @@ export function generateRankedSpreads(
 
   const output: RankedSpread[] = [];
   for (let i = 0; i < spreadsWithStats.length; i++) {
+    let rank = i + 1;
+
     const currentSpread = spreadsWithStats[i];
     const previousSpread = spreadsWithStats[i - 1];
+    if (previousSpread !== undefined) {
+      // if the currentSpread has the same ranking metric value as the
+      // previousSpread then their rank number should be the same
 
-    // if the currentSpread has the same ranking metric value as the
-    // previousSpread then their rank number should be the same
-    const rank =
-      getRankingMetricValue(currentSpread) ===
-      getRankingMetricValue(previousSpread)
-        ? output[i - 1].rank
-        : i + 1;
+      if (
+        getRankingMetricValue(currentSpread) ===
+        getRankingMetricValue(previousSpread)
+      ) {
+        rank = output[i - 1].rank;
+      }
+    }
 
     output.push({
       rank,

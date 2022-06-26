@@ -70,6 +70,7 @@ const AppSidebarNavigation: FC = () => {
           key={page.pathname}
           href={page.enabled ? { pathname: page.pathname } : '/'}
           replace
+          passHref
         >
           <a
             className={`mb-2 last:mb-0 p-2 flex-wrap cursor-pointer rounded group flex justify-start items-center focus-visible-ring ring-offset-gray-800 transition-colors ${
@@ -79,6 +80,7 @@ const AppSidebarNavigation: FC = () => {
                 ? 'text-gray-400 pointer-events-none'
                 : 'text-gray-300 hover:text-blue-100'
             }`}
+            href='passHref_replaces_this'
             tabIndex={page.enabled ? 0 : -1}
           >
             <span className='flex items-center justify-center w-4 h-4'>

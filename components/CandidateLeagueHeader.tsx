@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 
 import { IV_FLOORS } from '../data/ivFloor';
 
@@ -35,18 +35,19 @@ const LEAGUE_COLORS = {
 const CandidateLeagueHeader: FC = () => {
   const { candidate } = useCandidate();
   const { settings } = useSettings();
-  const { league, displayMode, inspectedLevelCap, setDisplayMode } =
-    useLeague();
+  const { league, inspectedLevelCap, setInspectedLevelCap } = useLeague();
 
-  const rankingMetric = useMemo(
-    () =>
-      RANKABLE_METRICS.find((metric) => metric.key === candidate.rankingMetric),
-    [candidate.rankingMetric],
+  const rankingMetric = RANKABLE_METRICS.find(
+    (metric) => metric.key === candidate.rankingMetric,
   );
-  const floor = useMemo(
-    () => IV_FLOORS.find((floor) => floor.value === candidate.floor),
-    [candidate.floor],
-  );
+  if (rankingMetric === undefined) {
+    throw new Error('No matching ranking metric could be found.');
+  }
+
+  const floor = IV_FLOORS.find((floor) => floor.value === candidate.floor);
+  if (floor === undefined) {
+    throw new Error('No matching IV floor could be found.');
+  }
 
   return (
     <header
@@ -62,9 +63,9 @@ const CandidateLeagueHeader: FC = () => {
         }`}
       />
 
-      {displayMode === 'top' && (
+      {inspectedLevelCap !== null && (
         <button
-          onClick={() => setDisplayMode('candidate')}
+          onClick={() => setInspectedLevelCap(null)}
           title={`Back`}
           className='p-1 mr-3 rounded focus-visible:ring-2 ring-white'
         >
@@ -73,7 +74,7 @@ const CandidateLeagueHeader: FC = () => {
       )}
 
       <div className='z-10 flex-grow'>
-        {displayMode === 'top' ? (
+        {inspectedLevelCap !== null ? (
           <>
             <h2 className='flex-grow font-semibold leading-snug'>
               Top {league.name} IV Spreads for{' '}
@@ -96,7 +97,7 @@ const CandidateLeagueHeader: FC = () => {
         ) : (
           <>
             <h2 className='flex-grow font-semibold leading-none'>
-              {league.name}
+              {league.name}{' '}
             </h2>
 
             <p className='mt-1 text-xs font-semibold'>

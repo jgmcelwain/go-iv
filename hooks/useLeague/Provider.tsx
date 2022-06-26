@@ -1,29 +1,29 @@
-import React, { FC, ReactNode, useState, useMemo } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 
 import { League } from '../../data/league';
 import { LevelCap } from '../../data/levelCap';
 
 import { Context } from '.';
 
+function useInspectedLevelCapState() {
+  const [inspectedLevelCap, setInspectedLevelCap] =
+    useState<LevelCap | null>(null);
+
+  return [inspectedLevelCap, setInspectedLevelCap] as const;
+}
+
 export const Provider: FC<{
   league: League;
   children: ReactNode;
 }> = ({ league, children }) => {
-  const [inspectedLevelCap, setInspectedLevelCap] = useState<LevelCap>(null);
-  const displayMode = useMemo(
-    () => (inspectedLevelCap !== null ? 'top' : 'candidate'),
-    [inspectedLevelCap],
-  );
+  const [inspectedLevelCap, setInspectedLevelCap] = useInspectedLevelCapState();
 
   return (
     <Context.Provider
       value={{
         league,
-        displayMode,
         inspectedLevelCap,
-        setDisplayMode: (mode, levelCap) => {
-          setInspectedLevelCap(mode === 'candidate' ? null : levelCap);
-        },
+        setInspectedLevelCap,
       }}
     >
       {children}

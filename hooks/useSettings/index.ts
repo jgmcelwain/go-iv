@@ -13,7 +13,7 @@ export const Context =
   createContext<{
     settings: Settings;
     dispatch: Dispatch;
-  }>(null);
+  } | null>(null);
 
 export type Settings = {
   leagues: { [key in LeagueKey]: boolean };
@@ -26,5 +26,13 @@ export type Settings = {
 };
 
 export function useSettings() {
-  return useContext(Context);
+  const value = useContext(Context);
+
+  if (value === null) {
+    throw new Error(
+      'useSettings must be called within the context of a SettingsProvider',
+    );
+  }
+
+  return value;
 }

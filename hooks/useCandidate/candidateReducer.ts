@@ -31,7 +31,10 @@ export function candidateReducer(state: Candidate, action: Action): Candidate {
   switch (action.type) {
     case CandidateActionTypes.Species: {
       // state floor cannot be lower than the floor of the new species
-      if (action.payload.floor > state.floor) {
+      if (
+        action.payload.floor !== undefined &&
+        action.payload.floor > state.floor
+      ) {
         return {
           ...state,
           species: action.payload,
