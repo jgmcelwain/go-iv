@@ -1,4 +1,11 @@
 
+## [2.16.0](https://github.com/jgmcelwain/pvpiv/compare/v2.15.1...v2.16.0) (2022-06-26)
+
+
+### Features
+
+* **dev:** enable strict mode and eslint recommended-requiring-type-checking ([2f37c73](https://github.com/jgmcelwain/pvpiv/commit/2f37c73e0c53bf09dc8dcdaf2d3a65745da58dbd))
+
 ### [2.15.1](https://github.com/jgmcelwain/pvpiv/compare/v2.15.0...v2.15.1) (2022-06-21)
 
 
