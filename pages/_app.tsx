@@ -22,7 +22,7 @@ const App: FC<AppProps & InitialProps> & {
   getInitialProps: (arg0: AppContext) => Promise<InitialProps>;
 } = ({ Component, pageProps, settings }) => {
   return (
-    <>
+    <React.StrictMode>
       <Head>
         <title>PVPIV.app - Pokémon GO PVP IV Checker</title>
         <meta
@@ -50,7 +50,7 @@ const App: FC<AppProps & InitialProps> & {
           <AppFooter />
         </section>
       </SettingsProvider>
-    </>
+    </React.StrictMode>
   );
 };
 
