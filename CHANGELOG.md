@@ -1,4 +1,12 @@
 
+## [2.17.0](https://github.com/jgmcelwain/pvpiv/compare/v2.16.1...v2.17.0) (2022-07-02)
+
+
+### Features
+
+* reorder Leagues in settings ([7441ca1](https://github.com/jgmcelwain/pvpiv/commit/7441ca1290c832409588e182bb4e48718200db03))
+* use react strictmode ([361ac03](https://github.com/jgmcelwain/pvpiv/commit/361ac03fcd93fe61ec8f089f30593059536126f1))
+
 ### [2.16.1](https://github.com/jgmcelwain/pvpiv/compare/v2.16.0...v2.16.1) (2022-06-26)
 
 
