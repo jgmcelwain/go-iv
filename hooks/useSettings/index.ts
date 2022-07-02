@@ -17,6 +17,7 @@ export const Context =
 
 export type Settings = {
   leagues: { [key in LeagueKey]: boolean };
+  leagueOrder: LeagueKey[];
   levelCaps: { [key in LevelCapNumber]: boolean };
   outputData: { [key in OutputDataKey]: boolean };
   showSpeculative: boolean;

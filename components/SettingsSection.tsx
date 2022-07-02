@@ -3,9 +3,8 @@ import React, { FC, ReactNode } from 'react';
 const SettingsSection: FC<{
   id: string;
   title: string;
-  description?: string;
   children: ReactNode;
-}> = ({ id, description = null, title, children }) => {
+}> = ({ id, title, children }) => {
   return (
     <section
       id={id}
@@ -15,13 +14,9 @@ const SettingsSection: FC<{
         <h3 className='text-2xl leading-none text-left text-white font-title'>
           {title}
         </h3>
-
-        {description && (
-          <p className='mt-2 text-sm text-gray-300'>{description}</p>
-        )}
       </div>
 
-      <div>{children}</div>
+      <div className='divide-y divide-gray-700'>{children}</div>
     </section>
   );
 };

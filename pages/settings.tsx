@@ -8,7 +8,9 @@ import { useSettings, SettingsActionTypes } from '../hooks/useSettings';
 
 import Head from 'next/head';
 import SettingsSection from '../components/SettingsSection';
-import SettingsInput from '../components/SettingsInput';
+import SettingsSectionItem from '../components/SettingsSectionItem';
+import SettingsSectionItemToggle from '../components/SettingsSectionItemToggle';
+import SettingsSectionItemLeaguePosition from '../components/SettingsSectionItemLeaguePosition';
 
 const SettingsPage: FC = () => {
   const { settings, dispatch } = useSettings();
@@ -20,92 +22,109 @@ const SettingsPage: FC = () => {
       </Head>
 
       <SettingsSection id='leagues' title='Leagues'>
-        {LEAGUES.map((league) => (
-          <SettingsInput
-            key={league.key}
-            onInput={(value) =>
-              dispatch({
-                type: SettingsActionTypes.League,
-                payload: { key: league.key, value },
-              })
-            }
-            value={settings.leagues[league.key]}
-            label={league.name}
-            description={`Max CP: ${league.cp}`}
-          />
+        {LEAGUES.sort(
+          (a, b) =>
+            settings.leagueOrder.indexOf(a.key) -
+            settings.leagueOrder.indexOf(b.key),
+        ).map((league) => (
+          <SettingsSectionItem key={league.key}>
+            <SettingsSectionItemLeaguePosition league={league} />
+
+            <SettingsSectionItemToggle
+              key={league.key}
+              onInput={(value) =>
+                dispatch({
+                  type: SettingsActionTypes.League,
+                  payload: { key: league.key, value },
+                })
+              }
+              value={settings.leagues[league.key]}
+              label={league.name}
+              description={`Max CP: ${league.cp}`}
+            />
+          </SettingsSectionItem>
         ))}
       </SettingsSection>
 
       <SettingsSection id='level-caps' title='Level Caps'>
         {LEVEL_CAPS.map((levelCap) => (
-          <SettingsInput
-            key={levelCap.level}
-            onInput={(value) =>
-              dispatch({
-                type: SettingsActionTypes.LevelCap,
-                payload: { key: levelCap.level, value },
-              })
-            }
-            value={settings.levelCaps[levelCap.level]}
-            label={levelCap.name}
-            description={levelCap.description}
-          />
+          <SettingsSectionItem key={levelCap.name}>
+            <SettingsSectionItemToggle
+              onInput={(value) =>
+                dispatch({
+                  type: SettingsActionTypes.LevelCap,
+                  payload: { key: levelCap.level, value },
+                })
+              }
+              value={settings.levelCaps[levelCap.level]}
+              label={levelCap.name}
+              description={levelCap.description}
+            />
+          </SettingsSectionItem>
         ))}
       </SettingsSection>
 
       <SettingsSection id='displayed-fields' title='Output Fields'>
-        {OUTPUT_DATA.map((dataPoint) => (
-          <SettingsInput
-            key={dataPoint.key}
-            onInput={(value) =>
-              dispatch({
-                type: SettingsActionTypes.OutputData,
-                payload: { key: dataPoint.key, value },
-              })
-            }
-            value={settings.outputData[dataPoint.key]}
-            label={dataPoint.name}
-            description={dataPoint.description}
-          />
+        {OUTPUT_DATA.map((outputField) => (
+          <SettingsSectionItem key={outputField.key}>
+            <SettingsSectionItemToggle
+              onInput={(value) =>
+                dispatch({
+                  type: SettingsActionTypes.OutputData,
+                  payload: { key: outputField.key, value },
+                })
+              }
+              value={settings.outputData[outputField.key]}
+              label={outputField.name}
+              description={outputField.description}
+            />
+          </SettingsSectionItem>
         ))}
       </SettingsSection>
 
       <SettingsSection id='data-sources' title='Candidate Creation'>
-        <SettingsInput
-          onInput={(value) =>
-            dispatch({
-              type: SettingsActionTypes.Speculative,
-              payload: value,
-            })
-          }
-          value={settings.showSpeculative}
-          label='Show Speculative Pokemon'
-          description='Unreleased Generations, Forms and Mega Evolutions.'
-        />
+        <SettingsSectionItem>
+          <SettingsSectionItemToggle
+            onInput={(value) =>
+              dispatch({
+                type: SettingsActionTypes.Speculative,
+                payload: value,
+              })
+            }
+            value={settings.showSpeculative}
+            label='Show Speculative Pokemon'
+            description='Unreleased Generations, Forms and Mega Evolutions.'
+          />
+        </SettingsSectionItem>
 
-        <SettingsInput
-          onInput={(value) =>
-            dispatch({
-              type: SettingsActionTypes.RankingMetric,
-              payload: value,
-            })
-          }
-          value={settings.showRankingMetric}
-          label='Alternate Ranking Metrics'
-          description='Options to sort by Attack, Defense and Stamina as well as the default Stat Product.'
-        />
+        <SettingsSectionItem>
+          <SettingsSectionItemToggle
+            onInput={(value) =>
+              dispatch({
+                type: SettingsActionTypes.RankingMetric,
+                payload: value,
+              })
+            }
+            value={settings.showRankingMetric}
+            label='Alternate Ranking Metrics'
+            description='Options to sort by Attack, Defense and Stamina as well as the default Stat Product.'
+          />
+        </SettingsSectionItem>
 
-        <SettingsInput
-          onInput={(value) =>
-            dispatch({
-              type: SettingsActionTypes.ImpossibleFloors,
-              payload: value,
-            })
-          }
-          value={settings.allowImpossibleFloors}
-          label='Allow Impossible IV Floors'
-          description='Allow any IV floor to be picked when creating a Candidate, regardless of acquisition method limitations.'
-        />
+        <SettingsSectionItem>
+          {' '}
+          <SettingsSectionItemToggle
+            onInput={(value) =>
+              dispatch({
+                type: SettingsActionTypes.ImpossibleFloors,
+                payload: value,
+              })
+            }
+            value={settings.allowImpossibleFloors}
+            label='Allow Impossible IV Floors'
+            description='Allow any IV floor to be picked when creating a Candidate, regardless of acquisition method limitations.'
+          />
+        </SettingsSectionItem>
       </SettingsSection>
     </div>
   );

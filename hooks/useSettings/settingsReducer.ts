@@ -1,14 +1,14 @@
 import { Dispatch as ReactDispatch } from 'react';
+import { Settings } from '.';
 
 import { LeagueKey } from '../../data/league';
 import { LevelCapNumber } from '../../data/levelCap';
 import { OutputDataKey } from '../../data/outputData';
 import { ActionMap } from '../../utils/actionMap';
 
-import { Settings } from '.';
-
 export enum SettingsActionTypes {
   League,
+  LeagueOrder,
   LevelCap,
   OutputData,
   Speculative,
@@ -18,6 +18,7 @@ export enum SettingsActionTypes {
 }
 type PayloadTypes = {
   [SettingsActionTypes.League]: { key: LeagueKey; value: boolean };
+  [SettingsActionTypes.LeagueOrder]: LeagueKey[];
   [SettingsActionTypes.LevelCap]: {
     key: LevelCapNumber;
     value: boolean;
@@ -43,6 +44,12 @@ export function settingsReducer(state: Settings, action: Action): Settings {
           ...state.leagues,
           [action.payload.key]: action.payload.value,
         },
+      };
+    }
+    case SettingsActionTypes.LeagueOrder: {
+      return {
+        ...state,
+        leagueOrder: action.payload,
       };
     }
     case SettingsActionTypes.LevelCap: {

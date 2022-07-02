@@ -24,11 +24,15 @@ const CandidatePage: FC<{ cachedCandidate: Candidate | null }> = ({
       <CandidateBuilder />
 
       <section className='grid items-start w-full grid-cols-1 gap-4 mb-4 sm:mb-8 sm:gap-8 lg:grid-cols-2'>
-        {LEAGUES.filter((league) => settings.leagues[league.key] === true).map(
-          (league) => (
+        {LEAGUES.filter((league) => settings.leagues[league.key] === true)
+          .sort(
+            (a, b) =>
+              settings.leagueOrder.indexOf(a.key) -
+              settings.leagueOrder.indexOf(b.key),
+          )
+          .map((league) => (
             <CandidateLeague key={league.key} league={league} />
-          ),
-        )}
+          ))}
       </section>
     </CandidateContextProvider>
   );

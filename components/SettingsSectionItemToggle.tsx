@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { Switch } from '@headlessui/react';
 
-const SettingsContentTabSectionInput: FC<{
+const SettingsSectionItemToggle: FC<{
   label: string;
   description?: string;
   value: boolean;
@@ -10,7 +10,7 @@ const SettingsContentTabSectionInput: FC<{
 }> = ({ label, description, value, onInput }) => {
   return (
     <Switch.Group>
-      <div className='flex items-center justify-between pb-5 mb-5 border-b border-gray-700 last:border-none last:pb-0 last:mb-0'>
+      <div className='flex-grow flex items-center justify-between'>
         <Switch.Label className='flex-grow pr-4 cursor-pointer select-none'>
           <p className='font-semibold leading-normal text-white'>{label}</p>
 
@@ -36,4 +36,4 @@ const SettingsContentTabSectionInput: FC<{
   );
 };
 
-export default SettingsContentTabSectionInput;
+export default SettingsSectionItemToggle;

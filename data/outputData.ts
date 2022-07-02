@@ -6,13 +6,13 @@ export type OutputDataKey =
   | 'statProduct'
   | 'percent';
 
-export type OutputDataPoint = {
+export type OutputField = {
   key: OutputDataKey;
   name: string;
   description?: string;
 };
 
-export const OUTPUT_DATA: OutputDataPoint[] = [
+export const OUTPUT_DATA: OutputField[] = [
   { key: 'rank', name: 'Rank' },
   { key: 'level', name: 'Level' },
   { key: 'cp', name: 'CP' },
