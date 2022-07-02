@@ -1,4 +1,11 @@
 
+### [2.17.1](https://github.com/jgmcelwain/pvpiv/compare/v2.17.0...v2.17.1) (2022-07-02)
+
+
+### Bug Fixes
+
+* remove temp file ([f23e057](https://github.com/jgmcelwain/pvpiv/commit/f23e057d1ca78e620f73428cced26d6ef9dba465))
+
 ## [2.17.0](https://github.com/jgmcelwain/pvpiv/compare/v2.16.1...v2.17.0) (2022-07-02)
 
 
