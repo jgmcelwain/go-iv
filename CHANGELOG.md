@@ -1,4 +1,11 @@
 
+## [2.18.0](https://github.com/jgmcelwain/pvpiv/compare/v2.17.1...v2.18.0) (2022-07-21)
+
+
+### Features
+
+* add speculative versions of h-growlithe, h-sneasel and h-qwilfish (and their evolutions) ([02af205](https://github.com/jgmcelwain/pvpiv/commit/02af2059aa37e93d9414dd98341b3537192756e8))
+
 ### [2.17.1](https://github.com/jgmcelwain/pvpiv/compare/v2.17.0...v2.17.1) (2022-07-02)
 
 
