@@ -1197,6 +1197,22 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'growlithe_hisuian',
+    dexNumber: 58,
+    name: 'Growlithe (Hisuian)',
+    stats: {
+      atk: 142,
+      def: 92,
+      sta: 163,
+    },
+    types: ['fire', 'rock'],
+    family: {
+      id: 'growlithe_hisuian',
+      stage: 1,
+    },
+    speculative: true,
+  },
+  {
     id: 'arcanine',
     dexNumber: 59,
     name: 'Arcanine',
@@ -1210,6 +1226,22 @@ export const POKEDEX: Pokemon[] = [
       id: 'growlithe',
       stage: 2,
     },
+  },
+  {
+    id: 'arcanine_hisuian',
+    dexNumber: 59,
+    name: 'Arcanine (Hisuian)',
+    stats: {
+      atk: 232,
+      def: 165,
+      sta: 216,
+    },
+    types: ['fire', 'rock'],
+    family: {
+      id: 'growlithe_hisuian',
+      stage: 2,
+    },
+    speculative: true,
   },
   {
     id: 'poliwag',
@@ -3924,6 +3956,22 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'qwilfish_hisuian',
+    dexNumber: 211,
+    name: 'Qwilfish (Hisuian)',
+    stats: {
+      atk: 184,
+      def: 151,
+      sta: 163,
+    },
+    types: ['dark', 'poison'],
+    family: {
+      id: 'qwilfish_hisuian',
+      stage: 1,
+    },
+    speculative: true,
+  },
+  {
     id: 'scizor',
     dexNumber: 212,
     name: 'Scizor',
@@ -4014,6 +4062,22 @@ export const POKEDEX: Pokemon[] = [
       id: 'sneasel',
       stage: 1,
     },
+  },
+  {
+    id: 'sneasel_hisuian',
+    dexNumber: 215,
+    name: 'Sneasel (Hisuian)',
+    stats: {
+      atk: 189,
+      def: 146,
+      sta: 146,
+    },
+    types: ['fighting', 'poison'],
+    family: {
+      id: 'sneasel_hisuian',
+      stage: 1,
+    },
+    speculative: true,
   },
   {
     id: 'teddiursa',
@@ -14896,6 +14960,38 @@ export const POKEDEX: Pokemon[] = [
       id: 'calyrex',
       stage: 2,
     },
+  },
+  {
+    id: 'sneasler',
+    dexNumber: 903,
+    name: 'Sneasler',
+    stats: {
+      atk: 259,
+      def: 158,
+      sta: 190,
+    },
+    types: ['fighting', 'poison'],
+    family: {
+      id: 'sneasel_hisuian',
+      stage: 2,
+    },
+    speculative: true,
+  },
+  {
+    id: 'overqwil',
+    dexNumber: 904,
+    name: 'Overqwil',
+    stats: {
+      atk: 222,
+      def: 171,
+      sta: 198,
+    },
+    types: ['dark', 'poison'],
+    family: {
+      id: 'qwilfish_hisuian',
+      stage: 2,
+    },
+    speculative: true,
   },
 ];
 
