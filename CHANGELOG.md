@@ -1,4 +1,11 @@
 
+## [2.19.0](https://github.com/jgmcelwain/pvpiv/compare/v2.18.0...v2.19.0) (2022-07-25)
+
+
+### Features
+
+* add galarian legendary birds ([5ded862](https://github.com/jgmcelwain/pvpiv/commit/5ded862710a9a95037e246b6067fabeb01d0f9b4))
+
 ## [2.18.0](https://github.com/jgmcelwain/pvpiv/compare/v2.17.1...v2.18.0) (2022-07-21)
 
 
