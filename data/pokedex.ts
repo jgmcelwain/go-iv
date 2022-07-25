@@ -2867,6 +2867,22 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'articuno_galarian',
+    dexNumber: 144,
+    name: 'Articuno (Galarian)',
+    stats: {
+      atk: 250,
+      def: 197,
+      sta: 207,
+    },
+    types: ['psychic', 'flying'],
+    floor: 1,
+    family: {
+      id: 'articuno_galarian',
+      stage: 1,
+    },
+  },
+  {
     id: 'zapdos',
     dexNumber: 145,
     name: 'Zapdos',
@@ -2883,6 +2899,22 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'zapdos_galarian',
+    dexNumber: 145,
+    name: 'Zapdos (Galarian)',
+    stats: {
+      atk: 252,
+      def: 189,
+      sta: 207,
+    },
+    types: ['fighting', 'flying'],
+    floor: 1,
+    family: {
+      id: 'zapdos_galarian',
+      stage: 1,
+    },
+  },
+  {
     id: 'moltres',
     dexNumber: 146,
     name: 'Moltres',
@@ -2895,6 +2927,22 @@ export const POKEDEX: Pokemon[] = [
     floor: 1,
     family: {
       id: 'moltres',
+      stage: 1,
+    },
+  },
+  {
+    id: 'moltres_galarian',
+    dexNumber: 146,
+    name: 'Moltres (Galarian)',
+    stats: {
+      atk: 202,
+      def: 231,
+      sta: 207,
+    },
+    types: ['dark', 'flying'],
+    floor: 1,
+    family: {
+      id: 'moltres_galarian',
       stage: 1,
     },
   },
