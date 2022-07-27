@@ -1,4 +1,11 @@
 
+## [2.20.0](https://github.com/jgmcelwain/pvpiv/compare/v2.19.2...v2.20.0) (2022-07-27)
+
+
+### Features
+
+* remove speculative tag from new hisui mons ([101423f](https://github.com/jgmcelwain/pvpiv/commit/101423f6b421843d264249dbcaca36f658b59bb6))
+
 ### [2.19.2](https://github.com/jgmcelwain/pvpiv/compare/v2.19.0...v2.19.2) (2022-07-25)
 
 
