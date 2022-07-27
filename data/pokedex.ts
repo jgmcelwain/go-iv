@@ -1210,7 +1210,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'growlithe_hisuian',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'arcanine',
@@ -1241,7 +1240,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'growlithe_hisuian',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'poliwag',
@@ -4014,7 +4012,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'qwilfish_hisuian',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'scizor',
@@ -4122,7 +4119,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'sneasel_hisuian',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'teddiursa',
@@ -15020,7 +15016,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'sneasel_hisuian',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'overqwil',
@@ -15036,7 +15031,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'qwilfish_hisuian',
       stage: 2,
     },
-    speculative: true,
   },
 ];
 
