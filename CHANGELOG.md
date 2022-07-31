@@ -1,4 +1,11 @@
 
+## [2.21.0](https://github.com/jgmcelwain/pvpiv/compare/v2.20.0...v2.21.0) (2022-07-31)
+
+
+### Features
+
+* add hisuian braviary ([7b4a457](https://github.com/jgmcelwain/pvpiv/commit/7b4a45734581a83c4854a7137f50c2b071fd8459))
+
 ## [2.20.0](https://github.com/jgmcelwain/pvpiv/compare/v2.19.2...v2.20.0) (2022-07-27)
 
 
