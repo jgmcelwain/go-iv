@@ -11127,6 +11127,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'braviary_hisuian',
+    dexNumber: 628,
+    name: 'Braviary (Hisuian)',
+    stats: {
+      atk: 213,
+      def: 137,
+      sta: 242,
+    },
+    types: ['psychic', 'flying'],
+    family: {
+      id: 'rufflet',
+      stage: 2,
+    },
+  },
+  {
     id: 'vullaby',
     dexNumber: 629,
     name: 'Vullaby',
