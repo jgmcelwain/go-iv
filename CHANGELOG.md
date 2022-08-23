@@ -1,4 +1,11 @@
 
+## [2.23.0](https://github.com/jgmcelwain/pvpiv/compare/v2.22.0...v2.23.0) (2022-08-23)
+
+
+### Features
+
+* always set IV floor if species changes ([7bccc29](https://github.com/jgmcelwain/pvpiv/commit/7bccc29c5b436f40a4a79351c59da2c6180fd29d))
+
 ## [2.22.0](https://github.com/jgmcelwain/pvpiv/compare/v2.21.0...v2.22.0) (2022-08-23)
 
 
