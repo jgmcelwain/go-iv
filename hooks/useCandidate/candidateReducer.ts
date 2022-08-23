@@ -30,11 +30,19 @@ export type Dispatch = ReactDispatch<Action>;
 export function candidateReducer(state: Candidate, action: Action): Candidate {
   switch (action.type) {
     case CandidateActionTypes.Species: {
-      // state floor cannot be lower than the floor of the new species
-      if (
-        action.payload.floor !== undefined &&
-        action.payload.floor > state.floor
-      ) {
+      // if the new species has no absolute IV floor then we should reset the
+      // floor to the default
+      if (action.payload.floor === undefined) {
+        return {
+          ...state,
+          floor: 0,
+          species: action.payload,
+        };
+      }
+
+      // otherwise, we want to set the floor and ensure the candidate's IVs
+      // are not below it
+      else {
         return {
           ...state,
           species: action.payload,
@@ -46,11 +54,6 @@ export function candidateReducer(state: Candidate, action: Action): Candidate {
           },
         };
       }
-
-      return {
-        ...state,
-        species: action.payload,
-      };
     }
     case CandidateActionTypes.IV: {
       const ivKey = action.payload.stat;
