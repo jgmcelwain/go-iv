@@ -1,4 +1,16 @@
 
+## [2.22.0](https://github.com/jgmcelwain/pvpiv/compare/v2.21.0...v2.22.0) (2022-08-23)
+
+
+### Features
+
+* enable impossible IV floors by default ([c603ae4](https://github.com/jgmcelwain/pvpiv/commit/c603ae4e5ef1c74d1bfd4880b35562a372c9cf25))
+
+
+### Bug Fixes
+
+* set IV floors for gen 6/7/8 legendaries ([96ae2b7](https://github.com/jgmcelwain/pvpiv/commit/96ae2b754ca453d0aaed70f09b6665855c63108c))
+
 ## [2.21.0](https://github.com/jgmcelwain/pvpiv/compare/v2.20.0...v2.21.0) (2022-07-31)
 
 
