@@ -19,7 +19,7 @@ const defaultSettings: Settings = {
   showSpeculative: false,
   showShadowToggle: false,
   showRankingMetric: false,
-  allowImpossibleFloors: false,
+  allowImpossibleFloors: true,
 };
 
 export function getInitialSettings(ctx: NextPageContext) {
