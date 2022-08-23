@@ -13345,6 +13345,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Tapu Koko',
     stats: { atk: 250, def: 181, sta: 172 },
     types: ['electric', 'fairy'],
+    floor: 1,
     family: { id: 'tapu_koko', stage: 1 },
   },
   {
@@ -13353,6 +13354,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Tapu Lele',
     stats: { atk: 259, def: 208, sta: 172 },
     types: ['psychic', 'fairy'],
+    floor: 1,
     family: { id: 'tapu_lele', stage: 1 },
   },
   {
@@ -13361,6 +13363,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Tapu Bulu',
     stats: { atk: 249, def: 215, sta: 172 },
     types: ['grass', 'fairy'],
+    floor: 1,
     family: { id: 'tapu_bulu', stage: 1 },
   },
   {
@@ -13369,6 +13372,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Tapu Fini',
     stats: { atk: 189, def: 254, sta: 172 },
     types: ['water', 'fairy'],
+    floor: 1,
     family: { id: 'tapu_fini', stage: 1 },
   },
   {
@@ -13377,6 +13381,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Cosmog',
     stats: { atk: 54, def: 57, sta: 125 },
     types: ['psychic'],
+    floor: 1,
     family: { id: 'cosmog', stage: 1 },
   },
   {
@@ -13385,6 +13390,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Cosmoem',
     stats: { atk: 54, def: 242, sta: 125 },
     types: ['psychic'],
+    floor: 1,
     family: { id: 'cosmog', stage: 2 },
   },
   {
@@ -13393,6 +13399,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Solgaleo',
     stats: { atk: 255, def: 191, sta: 264 },
     types: ['psychic', 'steel'],
+    floor: 1,
     family: { id: 'cosmog', stage: 3 },
   },
   {
@@ -13401,6 +13408,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Lunala',
     stats: { atk: 255, def: 191, sta: 264 },
     types: ['psychic', 'ghost'],
+    floor: 1,
     family: { id: 'cosmog', stage: 3 },
   },
   {
@@ -13409,6 +13417,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Nihilego',
     stats: { atk: 249, def: 210, sta: 240 },
     types: ['rock', 'poison'],
+    floor: 1,
     family: { id: 'nihilego', stage: 1 },
   },
   {
@@ -13417,6 +13426,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Buzzwole',
     stats: { atk: 236, def: 196, sta: 216 },
     types: ['bug', 'fighting'],
+    floor: 1,
     family: { id: 'buzzwole', stage: 1 },
   },
   {
@@ -13425,6 +13435,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Pheromosa',
     stats: { atk: 316, def: 85, sta: 174 },
     types: ['bug', 'fighting'],
+    floor: 1,
     family: { id: 'pheromosa', stage: 1 },
   },
   {
@@ -13433,6 +13444,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Xurkitree',
     stats: { atk: 330, def: 144, sta: 195 },
     types: ['electric'],
+    floor: 1,
     family: { id: 'xurkitree', stage: 1 },
   },
   {
@@ -13441,6 +13453,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Celesteela',
     stats: { atk: 207, def: 199, sta: 219 },
     types: ['steel', 'flying'],
+    floor: 1,
     family: { id: 'celesteela', stage: 1 },
   },
   {
@@ -13449,6 +13462,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Kartana',
     stats: { atk: 323, def: 182, sta: 139 },
     types: ['grass', 'steel'],
+    floor: 1,
     family: { id: 'kartana', stage: 1 },
   },
   {
@@ -13457,6 +13471,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Guzzlord',
     stats: { atk: 188, def: 99, sta: 440 },
     types: ['dark', 'dragon'],
+    floor: 1,
     family: { id: 'guzzlord', stage: 1 },
   },
   {
@@ -13465,6 +13480,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Necrozma',
     stats: { atk: 251, def: 195, sta: 219 },
     types: ['psychic'],
+    floor: 1,
     family: { id: 'necrozma', stage: 1 },
   },
   {
@@ -13473,6 +13489,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Necrozma (Dawn Wings)',
     stats: { atk: 277, def: 220, sta: 200 },
     types: ['psychic', 'ghost'],
+    floor: 1,
     family: { id: 'necrozma', stage: 2 },
   },
   {
@@ -13481,6 +13498,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Necrozma (Dusk Mane)',
     stats: { atk: 277, def: 220, sta: 200 },
     types: ['psychic', 'steel'],
+    floor: 1,
     family: { id: 'necrozma', stage: 2 },
   },
   {
@@ -13489,6 +13507,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Necrozma (Ultra)',
     stats: { atk: 337, def: 196, sta: 200 },
     types: ['psychic', 'dragon'],
+    floor: 1,
     family: { id: 'necrozma', stage: 3 },
   },
   {
@@ -13497,6 +13516,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Magearna',
     stats: { atk: 246, def: 225, sta: 190 },
     types: ['steel', 'fairy'],
+    floor: 10,
     family: { id: 'magearna', stage: 1 },
   },
   {
@@ -13505,6 +13525,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Marshadow',
     stats: { atk: 265, def: 190, sta: 207 },
     types: ['fighting', 'ghost'],
+    floor: 10,
     family: { id: 'marshadow', stage: 1 },
   },
   {
@@ -13513,6 +13534,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Poipole',
     stats: { atk: 145, def: 133, sta: 167 },
     types: ['poison'],
+    floor: 1,
     family: { id: 'poipole', stage: 1 },
   },
   {
@@ -13521,6 +13543,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Naganadel',
     stats: { atk: 263, def: 159, sta: 177 },
     types: ['poison', 'dragon'],
+    floor: 1,
     family: { id: 'poipole', stage: 2 },
   },
   {
@@ -13529,6 +13552,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Stakataka',
     stats: { atk: 213, def: 298, sta: 156 },
     types: ['rock', 'steel'],
+    floor: 1,
     family: { id: 'stakataka', stage: 1 },
   },
   {
@@ -13537,6 +13561,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Blacephalon',
     stats: { atk: 315, def: 148, sta: 142 },
     types: ['fire', 'ghost'],
+    floor: 1,
     family: { id: 'blacephalon', stage: 1 },
   },
   {
@@ -13545,6 +13570,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Zeraora',
     stats: { atk: 252, def: 177, sta: 204 },
     types: ['electric'],
+    floor: 1,
     family: { id: 'zeraora', stage: 1 },
   },
   {
@@ -14787,6 +14813,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 192,
     },
     types: ['fairy'],
+    floor: 1,
     family: {
       id: 'zacian',
       stage: 1,
@@ -14802,6 +14829,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 192,
     },
     types: ['fairy', 'steel'],
+    floor: 1,
     family: {
       id: 'zacian',
       stage: 2,
@@ -14817,6 +14845,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 192,
     },
     types: ['fighting'],
+    floor: 1,
     family: {
       id: 'zamazenta',
       stage: 1,
@@ -14832,6 +14861,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 192,
     },
     types: ['fighting', 'steel'],
+    floor: 1,
     family: {
       id: 'zamazenta',
       stage: 2,
@@ -14847,6 +14877,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 268,
     },
     types: ['poison', 'dragon'],
+    floor: 1,
     family: {
       id: 'eternatus',
       stage: 1,
@@ -14862,6 +14893,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 452,
     },
     types: ['poison', 'dragon'],
+    floor: 1,
     family: {
       id: 'eternatus',
       stage: 2,
@@ -14877,6 +14909,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 155,
     },
     types: ['fighting'],
+    floor: 1,
     family: {
       id: 'kubfu',
       stage: 1,
@@ -14892,6 +14925,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 225,
     },
     types: ['fighting'],
+    floor: 1,
     family: {
       id: 'kubfu',
       stage: 2,
@@ -14907,6 +14941,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 233,
     },
     types: ['dark', 'grass'],
+    floor: 10,
     family: {
       id: 'zarude',
       stage: 1,
@@ -14922,6 +14957,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 190,
     },
     types: ['electric'],
+    floor: 1,
     family: {
       id: 'regieleki',
       stage: 1,
@@ -14937,6 +14973,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 400,
     },
     types: ['dragon'],
+    floor: 1,
     family: {
       id: 'regidrago',
       stage: 1,
@@ -14952,6 +14989,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 225,
     },
     types: ['ice'],
+    floor: 1,
     family: {
       id: 'glastrier',
       stage: 1,
@@ -14967,6 +15005,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 205,
     },
     types: ['ghost'],
+    floor: 1,
     family: {
       id: 'spectrier',
       stage: 1,
@@ -14982,6 +15021,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 225,
     },
     types: ['psychic', 'grass'],
+    floor: 1,
     family: {
       id: 'calyrex',
       stage: 1,
@@ -14997,6 +15037,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 205,
     },
     types: ['psychic', 'ice'],
+    floor: 1,
     family: {
       id: 'calyrex',
       stage: 2,
@@ -15012,6 +15053,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 205,
     },
     types: ['psychic', 'ghost'],
+    floor: 1,
     family: {
       id: 'calyrex',
       stage: 2,
