@@ -1,4 +1,11 @@
 
+### [2.23.1](https://github.com/jgmcelwain/pvpiv/compare/v2.23.0...v2.23.1) (2022-09-04)
+
+
+### Bug Fixes
+
+* enable searching for a pokemon whose name is a subset of another ([7cbc6d1](https://github.com/jgmcelwain/pvpiv/commit/7cbc6d1311627a52c9bee32af13e43a7a6b0f69c))
+
 ## [2.23.0](https://github.com/jgmcelwain/pvpiv/compare/v2.22.0...v2.23.0) (2022-08-23)
 
 
