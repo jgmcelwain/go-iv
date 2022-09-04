@@ -15098,11 +15098,27 @@ export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
 }
 
 export function searchPokmeonByName(query: string, list: Pokemon[] = POKEDEX) {
-  return (
-    list.find((pokemon) =>
-      pokemon.name.toLowerCase().startsWith(query.toLowerCase()),
-    ) ?? null
+  const lowerCaseQuery = query.toLowerCase();
+
+  const matches = list.filter((pokemon) =>
+    pokemon.name.toLowerCase().startsWith(lowerCaseQuery),
   );
+
+  if (matches.length === 0) {
+    return null;
+  } else if (matches.length === 1) {
+    return matches[0];
+  } else {
+    const exactMatch = matches.find(
+      (match) => match.name.toLowerCase() === lowerCaseQuery,
+    );
+
+    if (exactMatch !== undefined) {
+      return exactMatch;
+    } else {
+      return matches[0];
+    }
+  }
 }
 
 export function getPokemonByID(id: PokemonID, list: Pokemon[] = POKEDEX) {
