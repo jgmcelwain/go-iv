@@ -1,4 +1,11 @@
 
+## [2.25.0](https://github.com/jgmcelwain/pvpiv/compare/v2.24.1...v2.25.0) (2022-09-16)
+
+
+### Features
+
+* add bulk product to csv export ([f6f6825](https://github.com/jgmcelwain/pvpiv/commit/f6f6825086c28097a8ed885855fe010445fe0cfa))
+
 ### [2.24.1](https://github.com/jgmcelwain/pvpiv/compare/v2.24.0...v2.24.1) (2022-09-16)
 
 
