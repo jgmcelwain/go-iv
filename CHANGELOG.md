@@ -1,4 +1,11 @@
 
+### [2.24.1](https://github.com/jgmcelwain/pvpiv/compare/v2.24.0...v2.24.1) (2022-09-16)
+
+
+### Bug Fixes
+
+* display bulk product by default ([9449018](https://github.com/jgmcelwain/pvpiv/commit/9449018d45ec0249436fc1acf28fffd9ea02195d))
+
 ## [2.24.0](https://github.com/jgmcelwain/pvpiv/compare/v2.23.1...v2.24.0) (2022-09-16)
 
 
