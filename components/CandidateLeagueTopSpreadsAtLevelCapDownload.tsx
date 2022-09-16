@@ -26,9 +26,9 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
     const csvContent = rankedSpreads[inspectedLevelCap.level].reduce(
       (output, spread) =>
         output.concat(
-          `\n${spread.rank},${spread.ivs.atk},${spread.ivs.def},${spread.ivs.sta},${spread.level},${spread.cp},${spread.stats.atk.value},${spread.stats.def.value},${spread.stats.sta.value},${spread.product.value}`,
+          `\n${spread.rank},${spread.ivs.atk},${spread.ivs.def},${spread.ivs.sta},${spread.level},${spread.cp},${spread.stats.atk.value},${spread.stats.def.value},${spread.stats.sta.value},${spread.product.value},${spread.bulkProduct.value}`,
         ),
-      'Rank,Atk IV,Def IV,Sta IV,Level,CP,Attack,Defense,Stamina,Product',
+      'Rank,Atk IV,Def IV,Sta IV,Level,CP,Attack,Defense,Stamina,Stat Product,Bulk Product',
     );
 
     downloadFile(fileName, 'text/csv', csvContent);
