@@ -1,4 +1,11 @@
 
+## [2.24.0](https://github.com/jgmcelwain/pvpiv/compare/v2.23.1...v2.24.0) (2022-09-16)
+
+
+### Features
+
+* rank by bulk product ([6e0774e](https://github.com/jgmcelwain/pvpiv/commit/6e0774ed425d5b331f2d0976ff321ac79144ff76))
+
 ### [2.23.1](https://github.com/jgmcelwain/pvpiv/compare/v2.23.0...v2.23.1) (2022-09-04)
 
 
