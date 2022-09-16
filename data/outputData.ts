@@ -4,6 +4,7 @@ export type OutputDataKey =
   | 'cp'
   | 'stats'
   | 'statProduct'
+  | 'bulkProduct'
   | 'percent';
 
 export type OutputField = {
@@ -21,6 +22,12 @@ export const OUTPUT_DATA: OutputField[] = [
     name: 'Stat Product',
     description:
       'Standard metric used to rank spreads - calculated by multiplying the generated Attack, Defense and Stamina values together.',
+  },
+  {
+    key: 'bulkProduct',
+    name: 'Bulk Product',
+    description:
+      'Alternative metric to rank spreads - calculated by multiplying the generated Defense and Stamina values together.',
   },
   {
     key: 'stats',

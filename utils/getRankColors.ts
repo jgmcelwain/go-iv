@@ -13,6 +13,8 @@ export function getRankedSpreadColors(
   const rankingMetricPercent =
     rankingMetric === 'product'
       ? rankedSpread?.product.percentOfMax
+      : rankingMetric === 'bulkProduct'
+      ? rankedSpread?.bulkProduct.percentOfMax
       : rankedSpread?.stats[rankingMetric].percentOfMax;
 
   if (rankingMetricPercent === undefined || rankedSpread === null) {

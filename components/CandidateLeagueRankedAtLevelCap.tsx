@@ -12,7 +12,6 @@ import { LevelCap } from '../data/levelCap';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTableCellsPercentOfMax from './CandidateLeagueTableCellsPercentOfMax';
-import CandidateLeagueTableCellShadowStat from './CandidateLeagueTableCellShadowStat';
 import { ViewListIcon } from '@heroicons/react/solid';
 
 const CandidateLeagueRankedAtLevelCap: FC<{
@@ -74,7 +73,11 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       {settings.outputData.statProduct && (
         <CandidateLeagueTableCells.Body>
           <>
-            <span>{(candidateAtLevel.product.value / 1000).toFixed(2)}</span>
+            <span title={candidateAtLevel.product.value.toString()}>
+              {new Intl.NumberFormat().format(
+                Number(candidateAtLevel.product.value.toFixed(2)),
+              )}
+            </span>
 
             <CandidateLeagueTableCellsPercentOfMax
               value={candidateAtLevel.product.percentOfMax}
@@ -86,41 +89,47 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       {settings.outputData.stats && (
         <>
           <CandidateLeagueTableCells.Body>
-            <>
-              <CandidateLeagueTableCellShadowStat
-                value={candidateAtLevel.stats.atk.value}
-                stat='atk'
-                shadow={candidate.shadow}
-              />
+            <span title={candidateAtLevel.stats.atk.value.toString()}>
+              {candidateAtLevel.stats.atk.value.toFixed(2)}
+            </span>
 
-              <CandidateLeagueTableCellsPercentOfMax
-                value={candidateAtLevel.stats.atk.percentOfMax}
-              />
-            </>
+            <CandidateLeagueTableCellsPercentOfMax
+              value={candidateAtLevel.stats.atk.percentOfMax}
+            />
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
-            <>
-              <CandidateLeagueTableCellShadowStat
-                value={candidateAtLevel.stats.def.value}
-                stat='def'
-                shadow={candidate.shadow}
-              />
+            <span title={candidateAtLevel.stats.def.value.toString()}>
+              {candidateAtLevel.stats.def.value.toFixed(2)}
+            </span>
 
-              <CandidateLeagueTableCellsPercentOfMax
-                value={candidateAtLevel.stats.def.percentOfMax}
-              />
-            </>
+            <CandidateLeagueTableCellsPercentOfMax
+              value={candidateAtLevel.stats.def.percentOfMax}
+            />
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
-            <>
-              <span className='block'>{candidateAtLevel.stats.sta.value}</span>
+            <span>{candidateAtLevel.stats.sta.value}</span>
 
-              <CandidateLeagueTableCellsPercentOfMax
-                value={candidateAtLevel.stats.sta.percentOfMax}
-              />
-            </>
+            <CandidateLeagueTableCellsPercentOfMax
+              value={candidateAtLevel.stats.sta.percentOfMax}
+            />
           </CandidateLeagueTableCells.Body>
         </>
+      )}
+
+      {settings.outputData.bulkProduct && (
+        <CandidateLeagueTableCells.Body>
+          <>
+            <span title={candidateAtLevel.bulkProduct.value.toString()}>
+              {new Intl.NumberFormat().format(
+                Number(candidateAtLevel.bulkProduct.value.toFixed(2)),
+              )}
+            </span>
+
+            <CandidateLeagueTableCellsPercentOfMax
+              value={candidateAtLevel.bulkProduct.percentOfMax}
+            />
+          </>
+        </CandidateLeagueTableCells.Body>
       )}
 
       <CandidateLeagueTableCells.Body right>

@@ -8,7 +8,6 @@ import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
-import CandidateLeagueTableCellShadowStat from './CandidateLeagueTableCellShadowStat';
 import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpreadsAtLevelCapDownload';
 
 function useDisplayedSpreads() {
@@ -55,6 +54,10 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
               </CandidateLeagueTableCells.Header>
 
               <CandidateLeagueTableCells.Header>
+                %
+              </CandidateLeagueTableCells.Header>
+
+              <CandidateLeagueTableCells.Header>
                 IVs
               </CandidateLeagueTableCells.Header>
 
@@ -66,12 +69,8 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
                 CP
               </CandidateLeagueTableCells.Header>
 
-              <CandidateLeagueTableCells.Header>
+              <CandidateLeagueTableCells.Header widthClass='w-28'>
                 Prod
-              </CandidateLeagueTableCells.Header>
-
-              <CandidateLeagueTableCells.Header>
-                %
               </CandidateLeagueTableCells.Header>
 
               <CandidateLeagueTableCells.Header>
@@ -84,6 +83,10 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
 
               <CandidateLeagueTableCells.Header>
                 Sta
+              </CandidateLeagueTableCells.Header>
+
+              <CandidateLeagueTableCells.Header widthClass='w-28'>
+                Bulk
               </CandidateLeagueTableCells.Header>
             </tr>
           </thead>
@@ -100,6 +103,17 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
               >
                 <CandidateLeagueTableCells.Body>
                   <>{spread.rank}</>
+                </CandidateLeagueTableCells.Body>
+
+                <CandidateLeagueTableCells.Body>
+                  {(
+                    (candidate.rankingMetric === 'product'
+                      ? spread.product.percentOfMax
+                      : candidate.rankingMetric === 'bulkProduct'
+                      ? spread.bulkProduct.percentOfMax
+                      : spread.stats[candidate.rankingMetric].percentOfMax) *
+                    100
+                  ).toFixed(2)}
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
@@ -125,33 +139,35 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
-                  <span title={`${spread.product.percentOfMax}`}>
-                    {(spread.product.value / 1000).toFixed(2)}
+                  <span title={spread.product.value.toString()}>
+                    {new Intl.NumberFormat().format(
+                      Number(spread.product.value.toFixed(2)),
+                    )}
                   </span>
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
-                  {(spread.product.percentOfMax * 100).toFixed(2)}%
+                  <span title={spread.stats.atk.value.toString()}>
+                    {spread.stats.atk.value.toFixed(2)}
+                  </span>
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
-                  <CandidateLeagueTableCellShadowStat
-                    value={spread.stats.atk.value}
-                    stat='atk'
-                    shadow={candidate.shadow}
-                  />
-                </CandidateLeagueTableCells.Body>
-
-                <CandidateLeagueTableCells.Body>
-                  <CandidateLeagueTableCellShadowStat
-                    value={spread.stats.def.value}
-                    stat='def'
-                    shadow={candidate.shadow}
-                  />
+                  <span title={spread.stats.def.value.toString()}>
+                    {spread.stats.def.value.toFixed(2)}
+                  </span>
                 </CandidateLeagueTableCells.Body>
 
                 <CandidateLeagueTableCells.Body>
                   {spread.stats.sta.value}
+                </CandidateLeagueTableCells.Body>
+
+                <CandidateLeagueTableCells.Body>
+                  <span title={spread.bulkProduct.value.toString()}>
+                    {new Intl.NumberFormat().format(
+                      Number(spread.bulkProduct.value.toFixed(2)),
+                    )}
+                  </span>
                 </CandidateLeagueTableCells.Body>
               </tr>
             ))}

@@ -23,6 +23,7 @@ export function getMaximizedStats(
   const stats = getStats(atk, def, sta, level);
 
   const product = stats.atk * stats.def * stats.sta;
+  const bulkProduct = stats.def * stats.sta;
 
   return {
     level,
@@ -30,5 +31,6 @@ export function getMaximizedStats(
     stats,
     cp,
     product,
+    bulkProduct,
   };
 }

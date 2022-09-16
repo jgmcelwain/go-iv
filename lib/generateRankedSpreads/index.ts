@@ -16,6 +16,7 @@ export type SpreadWithMaximizedStats = {
   cp: number;
   level: number;
   product: number;
+  bulkProduct: number;
   stats: PokemonStats;
 };
 export type RankedSpread = {
@@ -24,6 +25,7 @@ export type RankedSpread = {
   level: number;
   rank: number;
   product: ComparableToMax;
+  bulkProduct: ComparableToMax;
   stats: {
     atk: ComparableToMax;
     def: ComparableToMax;
@@ -46,6 +48,9 @@ export function generateRankedSpreads(
   const getRankingMetricValue = (spread: SpreadWithMaximizedStats) => {
     if (rankingMetric === 'product') {
       return spread.product;
+    }
+    if (rankingMetric === 'bulkProduct') {
+      return spread.bulkProduct;
     } else {
       return spread.stats[rankingMetric];
     }
@@ -102,6 +107,10 @@ export function generateRankedSpreads(
         sta: compareToMax(currentSpread.stats.sta, rankOneSpread.stats.sta),
       },
       product: compareToMax(currentSpread.product, rankOneSpread.product),
+      bulkProduct: compareToMax(
+        currentSpread.bulkProduct,
+        rankOneSpread.bulkProduct,
+      ),
     });
   }
 

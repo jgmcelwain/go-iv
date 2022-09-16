@@ -14,6 +14,7 @@ const defaultSettings: Settings = {
     cp: true,
     stats: true,
     statProduct: true,
+    bulkProduct: false,
     percent: true,
   },
   showSpeculative: false,

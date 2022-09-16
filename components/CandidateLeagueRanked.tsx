@@ -34,7 +34,7 @@ const CandidateLeagueRanked: FC = () => {
             )}
 
             {settings.outputData.statProduct && (
-              <CandidateLeagueTableCells.Header>
+              <CandidateLeagueTableCells.Header widthClass='w-28'>
                 Prod
               </CandidateLeagueTableCells.Header>
             )}
@@ -51,6 +51,12 @@ const CandidateLeagueRanked: FC = () => {
                   Sta
                 </CandidateLeagueTableCells.Header>
               </>
+            )}
+
+            {settings.outputData.bulkProduct && (
+              <CandidateLeagueTableCells.Header widthClass='w-28'>
+                Bulk
+              </CandidateLeagueTableCells.Header>
             )}
 
             <CandidateLeagueTableCells.Header />
