@@ -1,4 +1,11 @@
 
+## [2.26.0](https://github.com/jgmcelwain/pvpiv/compare/v2.25.0...v2.26.0) (2022-09-20)
+
+
+### Features
+
+* dictate column order by ranking metric when listing top spreads ([bf22528](https://github.com/jgmcelwain/pvpiv/commit/bf22528531cae1333a77be3ca817233d02da77f8))
+
 ## [2.25.0](https://github.com/jgmcelwain/pvpiv/compare/v2.24.1...v2.25.0) (2022-09-16)
 
 
