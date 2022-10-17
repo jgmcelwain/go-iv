@@ -1,4 +1,11 @@
 
+## [2.28.0](https://github.com/jgmcelwain/pvpiv/compare/v2.27.0...v2.28.0) (2022-10-17)
+
+
+### Features
+
+* add the rest of the missing dex entries ([8a50998](https://github.com/jgmcelwain/pvpiv/commit/8a5099821b050c4b6d308298b432380646e163c8))
+
 ## [2.27.0](https://github.com/jgmcelwain/pvpiv/compare/v2.26.0...v2.27.0) (2022-10-17)
 
 
