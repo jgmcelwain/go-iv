@@ -1,4 +1,11 @@
 
+## [2.29.0](https://github.com/jgmcelwain/pvpiv/compare/v2.28.0...v2.29.0) (2022-10-17)
+
+
+### Features
+
+* add the remaining hisuian forms ([20b0e94](https://github.com/jgmcelwain/pvpiv/commit/20b0e942c108e4ec956c7adb8d00448f143ac36e))
+
 ## [2.28.0](https://github.com/jgmcelwain/pvpiv/compare/v2.27.0...v2.28.0) (2022-10-17)
 
 
