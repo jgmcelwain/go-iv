@@ -1859,7 +1859,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'shellos',
-    dexNumber: 90,
+    dexNumber: 422,
     name: 'Shellos',
     stats: {
       atk: 103,
@@ -1904,7 +1904,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'gastrodon',
-    dexNumber: 92,
+    dexNumber: 423,
     name: 'Gastrodon',
     stats: {
       atk: 169,
@@ -12494,7 +12494,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'pumpkaboo_small',
-    dexNumber: 708,
+    dexNumber: 710,
     name: 'Pumpkaboo (Small)',
     stats: {
       atk: 122,
@@ -12509,7 +12509,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'pumpkaboo_average',
-    dexNumber: 708,
+    dexNumber: 710,
     name: 'Pumpkaboo (Average)',
     stats: {
       atk: 121,
@@ -12524,7 +12524,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'pumpkaboo_large',
-    dexNumber: 708,
+    dexNumber: 710,
     name: 'Pumpkaboo (Large)',
     stats: {
       atk: 120,
@@ -12539,7 +12539,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'pumpkaboo_super',
-    dexNumber: 708,
+    dexNumber: 710,
     name: 'Pumpkaboo (Super)',
     stats: {
       atk: 118,
@@ -12554,7 +12554,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'gourgeist_small',
-    dexNumber: 708,
+    dexNumber: 711,
     name: 'Gourgeist (Small)',
     stats: {
       atk: 171,
@@ -12569,7 +12569,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'gourgeist_average',
-    dexNumber: 708,
+    dexNumber: 711,
     name: 'Gourgeist (Average)',
     stats: {
       atk: 175,
@@ -12584,7 +12584,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'gourgeist_large',
-    dexNumber: 708,
+    dexNumber: 711,
     name: 'Gourgeist (Large)',
     stats: {
       atk: 179,
@@ -12599,7 +12599,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'gourgeist_super',
-    dexNumber: 708,
+    dexNumber: 711,
     name: 'Gourgeist (Super)',
     stats: {
       atk: 182,
@@ -15060,6 +15060,36 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'wyrdeer',
+    dexNumber: 899,
+    name: 'Wyrdeer',
+    stats: {
+      atk: 206,
+      def: 145,
+      sta: 230,
+    },
+    types: ['normal', 'psychic'],
+    family: {
+      id: 'stantler',
+      stage: 2,
+    },
+  },
+  {
+    id: 'kleavor',
+    dexNumber: 900,
+    name: 'Kleavor',
+    stats: {
+      atk: 253,
+      def: 174,
+      sta: 172,
+    },
+    types: ['bug', 'rock'],
+    family: {
+      id: 'scyther',
+      stage: 2,
+    },
+  },
+  {
     id: 'ursaluna',
     dexNumber: 901,
     name: 'Ursaluna',
@@ -15072,6 +15102,36 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'teddiursa',
       stage: 3,
+    },
+  },
+  {
+    id: 'basculegion_male',
+    dexNumber: 902,
+    name: 'Basculegion (Male)',
+    stats: {
+      atk: 217,
+      def: 144,
+      sta: 260,
+    },
+    types: ['water', 'ghost'],
+    family: {
+      id: 'basculin',
+      stage: 2,
+    },
+  },
+  {
+    id: 'basculegion_female',
+    dexNumber: 902,
+    name: 'Basculegion (Female)',
+    stats: {
+      atk: 199,
+      def: 144,
+      sta: 260,
+    },
+    types: ['water', 'ghost'],
+    family: {
+      id: 'basculin',
+      stage: 2,
     },
   },
   {
@@ -15102,6 +15162,38 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'qwilfish_hisuian',
       stage: 2,
+    },
+  },
+  {
+    id: 'enamorus_incarnate',
+    dexNumber: 905,
+    name: 'Enamorus (Incarnate)',
+    stats: {
+      atk: 281,
+      def: 162,
+      sta: 179,
+    },
+    types: ['fairy', 'flying'],
+    floor: 1,
+    family: {
+      id: 'enamorus_incarnate',
+      stage: 1,
+    },
+  },
+  {
+    id: 'enamorus_therian',
+    dexNumber: 905,
+    name: 'Enamorus (Therian)',
+    stats: {
+      atk: 250,
+      def: 201,
+      sta: 179,
+    },
+    types: ['fairy', 'flying'],
+    floor: 1,
+    family: {
+      id: 'enamorus_therian',
+      stage: 1,
     },
   },
 ];
