@@ -3159,6 +3159,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'typhlosion_hisuian',
+    dexNumber: 157,
+    name: 'Typhlosion (Hisuian)',
+    stats: {
+      atk: 238,
+      def: 172,
+      sta: 177,
+    },
+    types: ['fire', 'ghost'],
+    family: {
+      id: 'cyndaquil',
+      stage: 3,
+    },
+  },
+  {
     id: 'totodile',
     dexNumber: 158,
     name: 'Totodile',
@@ -8803,12 +8818,44 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'dialga_origin',
+    dexNumber: 483,
+    name: 'Dialga (Origin)',
+    stats: {
+      atk: 270,
+      def: 225,
+      sta: 205,
+    },
+    types: ['steel', 'dragon'],
+    floor: 1,
+    family: {
+      id: 'dialga',
+      stage: 2,
+    },
+  },
+  {
     id: 'palkia',
     dexNumber: 484,
     name: 'Palkia',
     stats: {
       atk: 280,
       def: 215,
+      sta: 189,
+    },
+    types: ['water', 'dragon'],
+    floor: 1,
+    family: {
+      id: 'palkia',
+      stage: 1,
+    },
+  },
+  {
+    id: 'palkia_origin',
+    dexNumber: 484,
+    name: 'Palkia (Origin)',
+    stats: {
+      atk: 286,
+      def: 223,
       sta: 189,
     },
     types: ['water', 'dragon'],
@@ -9140,6 +9187,21 @@ export const POKEDEX: Pokemon[] = [
       sta: 216,
     },
     types: ['water'],
+    family: {
+      id: 'oshawott',
+      stage: 3,
+    },
+  },
+  {
+    id: 'samurott_hisuian',
+    dexNumber: 503,
+    name: 'Samurott (Hisuian)',
+    stats: {
+      atk: 220,
+      def: 152,
+      sta: 207,
+    },
+    types: ['water', 'dark'],
     family: {
       id: 'oshawott',
       stage: 3,
@@ -9852,6 +9914,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'lilligant_hisuian',
+    dexNumber: 549,
+    name: 'Lilligant (Hisuian)',
+    stats: {
+      atk: 208,
+      def: 159,
+      sta: 172,
+    },
+    types: ['grass', 'fighting'],
+    family: {
+      id: 'petilil',
+      stage: 2,
+    },
+  },
+  {
     id: 'basculin',
     dexNumber: 550,
     name: 'Basculin',
@@ -9863,6 +9940,21 @@ export const POKEDEX: Pokemon[] = [
     types: ['water'],
     family: {
       id: 'basculin',
+      stage: 1,
+    },
+  },
+  {
+    id: 'basculin_hisuian',
+    dexNumber: 550,
+    name: 'Basculin (Hisuian)',
+    stats: {
+      atk: 189,
+      def: 129,
+      sta: 172,
+    },
+    types: ['water'],
+    family: {
+      id: 'basculin_hisuian',
       stage: 1,
     },
   },
@@ -10242,6 +10334,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'zorua_hisuian',
+    dexNumber: 570,
+    name: 'Zorua (Hisuian)',
+    stats: {
+      atk: 162,
+      def: 79,
+      sta: 111,
+    },
+    types: ['ghost', 'normal'],
+    family: {
+      id: 'zorua_hisuian',
+      stage: 1,
+    },
+  },
+  {
     id: 'zoroark',
     dexNumber: 571,
     name: 'Zoroark',
@@ -10253,6 +10360,21 @@ export const POKEDEX: Pokemon[] = [
     types: ['dark'],
     family: {
       id: 'zorua',
+      stage: 2,
+    },
+  },
+  {
+    id: 'zoroark_hisuian',
+    dexNumber: 571,
+    name: 'Zoroark (Hisuian)',
+    stats: {
+      atk: 261,
+      def: 128,
+      sta: 146,
+    },
+    types: ['ghost', 'normal'],
+    family: {
+      id: 'zorua_hisuian',
       stage: 2,
     },
   },
@@ -12433,6 +12555,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'sliggoo_hisuian',
+    dexNumber: 705,
+    name: 'Sliggoo (Hisuian)',
+    stats: {
+      atk: 153,
+      def: 190,
+      sta: 151,
+    },
+    types: ['steel', 'dragon'],
+    family: {
+      id: 'goomy',
+      stage: 2,
+    },
+  },
+  {
     id: 'goodra',
     dexNumber: 706,
     name: 'Goodra',
@@ -12442,6 +12579,21 @@ export const POKEDEX: Pokemon[] = [
       sta: 207,
     },
     types: ['dragon'],
+    family: {
+      id: 'goomy',
+      stage: 3,
+    },
+  },
+  {
+    id: 'goodra_hisuian',
+    dexNumber: 760,
+    name: 'Goodra (Hisuian)',
+    stats: {
+      atk: 211,
+      def: 255,
+      sta: 190,
+    },
+    types: ['steel', 'dragon'],
     family: {
       id: 'goomy',
       stage: 3,
@@ -12643,6 +12795,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'avalugg_hisuian',
+    dexNumber: 713,
+    name: 'Avalugg (Hisuian)',
+    stats: {
+      atk: 214,
+      def: 238,
+      sta: 216,
+    },
+    types: ['ice', 'rock'],
+    family: {
+      id: 'bergmite',
+      stage: 2,
+    },
+  },
+  {
     id: 'noibat',
     dexNumber: 714,
     name: 'Noibat',
@@ -12801,6 +12968,14 @@ export const POKEDEX: Pokemon[] = [
     name: 'Decidueye',
     stats: { atk: 210, def: 179, sta: 186 },
     types: ['grass', 'ghost'],
+    family: { id: 'rowlet', stage: 3 },
+  },
+  {
+    id: 'decidueye_hisuian',
+    dexNumber: 724,
+    name: 'Decidueye (Hisuian)',
+    stats: { atk: 213, def: 174, sta: 204 },
+    types: ['grass', 'fighting'],
     family: { id: 'rowlet', stage: 3 },
   },
   {
@@ -15115,7 +15290,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['water', 'ghost'],
     family: {
-      id: 'basculin',
+      id: 'basculin_hisuian',
       stage: 2,
     },
   },
@@ -15130,7 +15305,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['water', 'ghost'],
     family: {
-      id: 'basculin',
+      id: 'basculin_hisuian',
       stage: 2,
     },
   },
