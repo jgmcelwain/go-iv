@@ -1,4 +1,11 @@
 
+## [2.27.0](https://github.com/jgmcelwain/pvpiv/compare/v2.26.0...v2.27.0) (2022-10-17)
+
+
+### Features
+
+* add ursaluna ([68ad3d4](https://github.com/jgmcelwain/pvpiv/commit/68ad3d4a410f1276131ab5ef3eff676e6b639f4e))
+
 ## [2.26.0](https://github.com/jgmcelwain/pvpiv/compare/v2.25.0...v2.26.0) (2022-09-20)
 
 
