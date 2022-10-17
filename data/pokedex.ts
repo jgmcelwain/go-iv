@@ -15060,6 +15060,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'ursaluna',
+    dexNumber: 901,
+    name: 'Ursaluna',
+    stats: {
+      atk: 243,
+      def: 181,
+      sta: 277,
+    },
+    types: ['normal', 'ground'],
+    family: {
+      id: 'teddiursa',
+      stage: 3,
+    },
+  },
+  {
     id: 'sneasler',
     dexNumber: 903,
     name: 'Sneasler',
