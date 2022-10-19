@@ -1,4 +1,18 @@
 
+## [2.30.0](https://github.com/jgmcelwain/pvpiv/compare/v2.29.0...v2.30.0) (2022-10-19)
+
+
+### Features
+
+* add speculative tag to mons that aren't in the gm ([629af71](https://github.com/jgmcelwain/pvpiv/commit/629af7138e1c21236708d154b02f354a7d2457ac))
+* new "release banner" to alert users to new features ([6a573a5](https://github.com/jgmcelwain/pvpiv/commit/6a573a50d42c234694c7b6d4f52774bb2bf742c0))
+
+
+### Bug Fixes
+
+* add accent ([6c0a8c4](https://github.com/jgmcelwain/pvpiv/commit/6c0a8c43f0de64b934029ecf9ef439d5d738c9a1))
+* remove IV floors from articuno/zapdos/moltres ([48483b2](https://github.com/jgmcelwain/pvpiv/commit/48483b2590ad598cd8e7aacbd09c09bea8acde2f))
+
 ## [2.29.0](https://github.com/jgmcelwain/pvpiv/compare/v2.28.0...v2.29.0) (2022-10-17)
 
 
