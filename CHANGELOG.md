@@ -1,4 +1,11 @@
 
+### [2.30.1](https://github.com/jgmcelwain/pvpiv/compare/v2.30.0...v2.30.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* hide release banner on link click ([56286fd](https://github.com/jgmcelwain/pvpiv/commit/56286fdbb71a5dd5ab783411427d02ae9a4af1cf))
+
 ## [2.30.0](https://github.com/jgmcelwain/pvpiv/compare/v2.29.0...v2.30.0) (2022-10-19)
 
 
