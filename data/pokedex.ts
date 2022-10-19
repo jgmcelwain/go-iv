@@ -2858,7 +2858,6 @@ export const POKEDEX: Pokemon[] = [
       sta: 207,
     },
     types: ['ice', 'flying'],
-    floor: 1,
     family: {
       id: 'articuno',
       stage: 1,
@@ -2889,7 +2888,6 @@ export const POKEDEX: Pokemon[] = [
       sta: 207,
     },
     types: ['electric', 'flying'],
-    floor: 1,
     family: {
       id: 'zapdos',
       stage: 1,
@@ -2920,7 +2918,6 @@ export const POKEDEX: Pokemon[] = [
       sta: 207,
     },
     types: ['fire', 'flying'],
-    floor: 1,
     family: {
       id: 'moltres',
       stage: 1,
