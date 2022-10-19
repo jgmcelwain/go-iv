@@ -6,13 +6,16 @@ import pkg from '../package.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowSmLeftIcon, CogIcon } from '@heroicons/react/solid';
+import AppHeaderReleaseBanner from './AppHeaderReleaseBanner';
 
-const AppNavigation: FC = () => {
+const AppHeader: FC = () => {
   const router = useRouter();
 
   return (
-    <header className='fixed top-0 inset-x-0 z-20 w-full h-16 overflow-hidden flex items-center justify-center bg-gray-800 border-gray-700 shadow-xl'>
-      <section className='w-full max-w-8xl flex items-center justify-between px-4 md:px-8 py-4'>
+    <header className='sticky top-0 w-full z-20 overflow-hidden shadow-xl border-b border-gray-700 bg-gray-800'>
+      <AppHeaderReleaseBanner />
+
+      <div className='w-full max-w-8xl flex items-center justify-between px-4 md:px-8 py-4 mx-auto'>
         <div className='flex justify-start items-center space-x-2'>
           <Image
             src='/logo.png'
@@ -53,6 +56,7 @@ const AppNavigation: FC = () => {
             href={{
               pathname: '/settings',
             }}
+            passHref
           >
             <a
               href='passHref_replaces_this'
@@ -64,9 +68,9 @@ const AppNavigation: FC = () => {
             </a>
           </Link>
         )}
-      </section>
+      </div>
     </header>
   );
 };
 
-export default AppNavigation;
+export default AppHeader;

@@ -9,6 +9,10 @@ import {
   Settings as SettingsType,
   getInitialSettings,
 } from '../hooks/useSettings';
+import {
+  Provider as ReleaseBannerDisplayedProvider,
+  getReleaseBannerVersionHiddenCookie,
+} from '../hooks/useReleaseBannerDisplayed';
 
 import Head from 'next/head';
 import AppHeader from '../components/AppHeader';
@@ -16,11 +20,14 @@ import AppFooter from '../components/AppFooter';
 
 import '../styles/index.css';
 
-type InitialProps = { settings: SettingsType };
+type InitialProps = {
+  settings: SettingsType;
+  releaseBannerVersionHidden: number | null;
+};
 
 const App: FC<AppProps & InitialProps> & {
   getInitialProps: (arg0: AppContext) => Promise<InitialProps>;
-} = ({ Component, pageProps, settings }) => {
+} = ({ Component, pageProps, settings, releaseBannerVersionHidden }) => {
   return (
     <React.StrictMode>
       <Head>
@@ -39,10 +46,14 @@ const App: FC<AppProps & InitialProps> & {
         <meta property='og:image' content='https://pvpiv.app/og.png' />
       </Head>
 
-      <AppHeader />
+      <ReleaseBannerDisplayedProvider
+        releaseBannerVersionHidden={releaseBannerVersionHidden}
+      >
+        <AppHeader />
+      </ReleaseBannerDisplayedProvider>
 
       <SettingsProvider initialValue={settings}>
-        <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 pt-20 mx-auto max-w-8xl sm:px-4 md:px-8'>
+        <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 mt-2 mx-auto max-w-8xl sm:px-4 md:px-8'>
           <main className='flex-grow w-full'>
             <Component {...pageProps} />
           </main>
@@ -59,6 +70,9 @@ export default App;
 // eslint-disable-next-line @typescript-eslint/require-await
 App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
   const settings = getInitialSettings(appContext?.ctx);
+  const releaseBannerVersionHidden = getReleaseBannerVersionHiddenCookie(
+    appContext?.ctx,
+  );
 
-  return { settings };
+  return { settings, releaseBannerVersionHidden };
 };
