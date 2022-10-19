@@ -25,6 +25,9 @@ const AppHeaderReleaseBanner: FC = () => {
               >
                 <a
                   href='passHref_replaces_this'
+                  onClick={() => {
+                    setTimeout(dismiss, 0);
+                  }}
                   className='font-bold text-white underline'
                 >
                   Go to Settings
