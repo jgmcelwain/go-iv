@@ -14,6 +14,7 @@ import {
   getReleaseBannerVersionHiddenCookie,
 } from '../hooks/useReleaseBannerDisplayed';
 
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
@@ -61,6 +62,8 @@ const App: FC<AppProps & InitialProps> & {
           <AppFooter />
         </section>
       </SettingsProvider>
+
+      <Analytics />
     </React.StrictMode>
   );
 };
