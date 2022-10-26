@@ -1,4 +1,11 @@
 
+## [2.31.0](https://github.com/jgmcelwain/pvpiv/compare/v2.30.1...v2.31.0) (2022-10-26)
+
+
+### Features
+
+* add @vercel/analytics ([1e9e4cf](https://github.com/jgmcelwain/pvpiv/commit/1e9e4cf219c013438576ed4e5c5a80538a84e631))
+
 ### [2.30.1](https://github.com/jgmcelwain/pvpiv/compare/v2.30.0...v2.30.1) (2022-10-19)
 
 
