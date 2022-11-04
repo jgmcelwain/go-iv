@@ -1,4 +1,20 @@
 
+## [2.32.0](https://github.com/jgmcelwain/pvpiv/compare/v2.31.0...v2.32.0) (2022-11-04)
+
+
+### Features
+
+* add "minimum level" setting ([66a19d8](https://github.com/jgmcelwain/pvpiv/commit/66a19d86d26d03b11264978fa75aa9d41e0e5f93))
+* display minimum level in league header ([56dae42](https://github.com/jgmcelwain/pvpiv/commit/56dae4263c134cb9e1572ba340f11951e5e44c13))
+* graceful error if candidate doesn't exist at level cap ([09dd65e](https://github.com/jgmcelwain/pvpiv/commit/09dd65ee4ca1cf7e0ed26641d11aec2c5f07138e))
+* minimum level picker in candidate builder ([df313e6](https://github.com/jgmcelwain/pvpiv/commit/df313e65b4eb092b3346db4533351639dba384fd))
+* use minimum level when generating ranked spreads ([e3a1b04](https://github.com/jgmcelwain/pvpiv/commit/e3a1b0439471f1c6abc73e0b9845a406d05cae67))
+
+
+### Bug Fixes
+
+* don't highlight the first row if it's not the candidate ([4142763](https://github.com/jgmcelwain/pvpiv/commit/41427633d52ea6db446a11ca088fac5cd56ba4c7))
+
 ## [2.31.0](https://github.com/jgmcelwain/pvpiv/compare/v2.30.1...v2.31.0) (2022-10-26)
 
 
