@@ -17,8 +17,8 @@ export function getRankedSpreadColors(
       ? rankedSpread?.bulkProduct.percentOfMax
       : rankedSpread?.stats[rankingMetric].percentOfMax;
 
-  if (rankingMetricPercent === undefined || rankedSpread === null) {
-    return { background: 'transparent', text: 'transparent' };
+  if (rankingMetricPercent === undefined || rankedSpread === undefined) {
+    return { background: 'transparent', text: 'text-gray-700' };
   }
 
   if (rankingMetricPercent === 1) {

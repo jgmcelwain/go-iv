@@ -39,16 +39,24 @@ const CandidateLeagueRankedAtLevelCap: FC<{
     candidate.rankingMetric,
   );
 
+  const viewAllSpreadButton = (
+    <button
+      onClick={() => setInspectedLevelCap(levelCap)}
+      className='focus-visible-ring p-0.5 rounded mr-2'
+      title={`View top ${league.name} IV spreads for ${candidate.species.name}, Level ${candidate.minimumLevel}-${levelCap.level}, ${floor.name}`}
+    >
+      <ViewListIcon className='w-4 h-4' />
+    </button>
+  );
+
   if (candidateAtLevel === undefined) {
     const columnCount = [
-      settings.outputData.level,
       settings.outputData.cp,
       settings.outputData.statProduct,
       settings.outputData.stats,
       settings.outputData.stats,
       settings.outputData.stats,
       settings.outputData.bulkProduct,
-      true,
     ].filter(Boolean).length;
 
     return (
@@ -56,12 +64,26 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         onClick={() => setInspectedLevelCap(levelCap)}
         className={`${colors.background} ${colors.text} cursor-pointer`}
       >
-        <CandidateLeagueTableCells.Body>?</CandidateLeagueTableCells.Body>
+        {settings.outputData.rank && (
+          <CandidateLeagueTableCells.Body>?</CandidateLeagueTableCells.Body>
+        )}
+
+        {settings.outputData.level && (
+          <CandidateLeagueTableCells.Body>
+            <>
+              ?<span className='text-xs'> /{levelCap.level}</span>
+            </>
+          </CandidateLeagueTableCells.Body>
+        )}
 
         <CandidateLeagueTableCells.Body colSpan={columnCount}>
           <p className='text-sm'>
-            No matching spread found for the current candidate.
+            Could not find a ranked spread matching the candidate's IVs
           </p>
+        </CandidateLeagueTableCells.Body>
+
+        <CandidateLeagueTableCells.Body right>
+          {viewAllSpreadButton}
         </CandidateLeagueTableCells.Body>
       </tr>
     );
@@ -156,13 +178,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       )}
 
       <CandidateLeagueTableCells.Body right>
-        <button
-          onClick={() => setInspectedLevelCap(levelCap)}
-          className='focus-visible-ring p-0.5 rounded mr-2'
-          title={`View top ${league.name} IV spreads for ${candidate.species.name}, Level ${levelCap.level}, ${floor.name}`}
-        >
-          <ViewListIcon className='w-4 h-4' />
-        </button>
+        {viewAllSpreadButton}
       </CandidateLeagueTableCells.Body>
     </tr>
   );
