@@ -11,6 +11,7 @@ import { RankableMetric, RANKABLE_METRICS } from '../../data/stat';
 type DirtyIV = IV | number;
 type DirtyIVFloor = IVFloor | number;
 type DirtyRankableMetric = RankableMetric | string;
+type DirtyMinimumLevel = number | string;
 type Query = [
   PokemonID,
   DirtyIV,
@@ -18,6 +19,7 @@ type Query = [
   DirtyIV,
   DirtyIVFloor,
   DirtyRankableMetric,
+  DirtyMinimumLevel,
 ];
 
 const CANDIDATE_DEFAULTS = {
@@ -26,6 +28,7 @@ const CANDIDATE_DEFAULTS = {
   def: parseInt(process.env.NEXT_PUBLIC_DEFAULT_DEF ?? '15'),
   sta: parseInt(process.env.NEXT_PUBLIC_DEFAULT_STA ?? '15'),
   floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
+  minimumLevel: parseInt(process.env.NEXT_PUBLIC_DEFAULT_MINIMUM_LEVEL ?? '1'),
   rankingMetric: process.env.NEXT_PUBLIC_DEFAULT_RANKING_METRIC ?? 'product',
   shadow: false,
 };
@@ -36,6 +39,7 @@ function sanitizeCandidate(
   def?: DirtyIV,
   sta?: DirtyIV,
   floor?: DirtyIVFloor,
+  minimumLevel?: DirtyMinimumLevel,
   rankingMetric?: DirtyRankableMetric,
   shadow?: boolean,
 ) {
@@ -74,13 +78,19 @@ function sanitizeCandidate(
     ),
   };
 
+  const outputMinimumLevel = isNaN(Number(minimumLevel))
+    ? CANDIDATE_DEFAULTS.minimumLevel
+    : Number(minimumLevel);
+
   const outputRankingMetric: RankableMetric =
-    RANKABLE_METRICS.find(({ key }) => key === rankingMetric)?.key ?? 'product';
+    RANKABLE_METRICS.find(({ key }) => key === rankingMetric)?.key ??
+    (CANDIDATE_DEFAULTS.rankingMetric as RankableMetric);
 
   return {
     species,
     ivs,
     floor: outputFloor,
+    minimumLevel: outputMinimumLevel,
     rankingMetric: outputRankingMetric,
     shadow: shadow ?? false,
   };
@@ -108,6 +118,7 @@ export function getInitialCandidate(
       cachedCandidate.ivs.def,
       cachedCandidate.ivs.sta,
       cachedCandidate.floor,
+      cachedCandidate.minimumLevel,
       cachedCandidate.rankingMetric,
       cachedCandidate.shadow,
     );

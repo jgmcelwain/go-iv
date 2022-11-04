@@ -4,6 +4,7 @@ import CandidateBuilderSpecies from './CandidateBuilderSpecies';
 import CandidateBuilderFamilySwap from './CandidateBuilderFamilySwap';
 import CandidateBuilderIVs from './CandidateBuilderIVs';
 import CandidateBuilderIVFloor from './CandidateBuilderIVFloor';
+import CandidateBuilderMinimumLevel from './CandidateBuilderMinimumLevel';
 import CandidateBuilderRankingMetric from './CandidateBuilderRankingMetric';
 
 const CandidateBuilder: FC = () => {
@@ -16,6 +17,8 @@ const CandidateBuilder: FC = () => {
       <CandidateBuilderIVFloor />
 
       <CandidateBuilderRankingMetric />
+
+      <CandidateBuilderMinimumLevel />
 
       <CandidateBuilderFamilySwap />
     </section>

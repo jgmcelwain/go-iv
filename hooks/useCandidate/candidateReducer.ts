@@ -13,6 +13,7 @@ export enum CandidateActionTypes {
   IV,
   Floor,
   RankingMetric,
+  MinimumLevel,
   Shadow,
 }
 
@@ -21,6 +22,7 @@ type PayloadTypes = {
   [CandidateActionTypes.IV]: { stat: StatKey; value: IV };
   [CandidateActionTypes.Floor]: IVFloor;
   [CandidateActionTypes.RankingMetric]: RankableMetric;
+  [CandidateActionTypes.MinimumLevel]: number;
   [CandidateActionTypes.Shadow]: boolean;
 };
 
@@ -82,6 +84,12 @@ export function candidateReducer(state: Candidate, action: Action): Candidate {
       return {
         ...state,
         rankingMetric: action.payload,
+      };
+    }
+    case CandidateActionTypes.MinimumLevel: {
+      return {
+        ...state,
+        minimumLevel: action.payload,
       };
     }
     case CandidateActionTypes.Shadow: {

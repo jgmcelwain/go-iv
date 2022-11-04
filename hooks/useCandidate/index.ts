@@ -14,6 +14,7 @@ export type Candidate = {
   ivs: { atk: IV; def: IV; sta: IV };
   floor: IVFloor;
   rankingMetric: RankableMetric;
+  minimumLevel: number;
   shadow: boolean;
 };
 
