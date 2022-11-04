@@ -28,11 +28,6 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       spread.ivs.def === candidate.ivs.def &&
       spread.ivs.sta === candidate.ivs.sta,
   );
-  if (candidateAtLevel === undefined) {
-    throw new Error(
-      'No matching spread found for the candidate at this level cap.',
-    );
-  }
 
   const floor = IV_FLOORS.find((ivFloor) => ivFloor.value === candidate.floor);
   if (floor === undefined) {
@@ -43,6 +38,34 @@ const CandidateLeagueRankedAtLevelCap: FC<{
     candidateAtLevel,
     candidate.rankingMetric,
   );
+
+  if (candidateAtLevel === undefined) {
+    const columnCount = [
+      settings.outputData.level,
+      settings.outputData.cp,
+      settings.outputData.statProduct,
+      settings.outputData.stats,
+      settings.outputData.stats,
+      settings.outputData.stats,
+      settings.outputData.bulkProduct,
+      true,
+    ].filter(Boolean).length;
+
+    return (
+      <tr
+        onClick={() => setInspectedLevelCap(levelCap)}
+        className={`${colors.background} ${colors.text} cursor-pointer`}
+      >
+        <CandidateLeagueTableCells.Body>?</CandidateLeagueTableCells.Body>
+
+        <CandidateLeagueTableCells.Body colSpan={columnCount}>
+          <p className='text-sm'>
+            No matching spread found for the current candidate.
+          </p>
+        </CandidateLeagueTableCells.Body>
+      </tr>
+    );
+  }
 
   return (
     <tr

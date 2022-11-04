@@ -20,11 +20,13 @@ export const Header: FC<{
 export const Body: FC<{
   right?: boolean;
   children?: ReactNode;
-}> = ({ right, children }) => (
+  colSpan?: number;
+}> = ({ right, children, colSpan }) => (
   <td
     className={`border-t border-gray-200 px-3 py-4 text-sm whitespace-nowrap first:pl-4${
       right ? ' text-right' : ''
     }`}
+    colSpan={colSpan}
   >
     {children}
   </td>
