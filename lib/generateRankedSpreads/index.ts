@@ -43,6 +43,7 @@ export function generateRankedSpreads(
   floor: IVFloor,
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
+  minLevel: number,
   rankingMetric: RankableMetric,
 ) {
   const getRankingMetricValue = (spread: SpreadWithMaximizedStats) => {
@@ -59,6 +60,7 @@ export function generateRankedSpreads(
   const ivSpreads = getIVSpreads(floor);
   const spreadsWithStats = ivSpreads
     .map((ivs) => getMaximizedStats(pokemon, ivs, maxCP, maxLevel))
+    .filter((spreadWithStats) => spreadWithStats.level >= minLevel)
     .sort((a, b) => {
       // in instances where two spreads have the same rankable metric value we
       // require a tiebreaker to determine order. this is "CP" if the ranking
