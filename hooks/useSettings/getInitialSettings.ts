@@ -19,6 +19,7 @@ const defaultSettings: Settings = {
   },
   showSpeculative: false,
   showShadowToggle: false,
+  showMinimumLevel: false,
   showRankingMetric: false,
   allowImpossibleFloors: true,
 };

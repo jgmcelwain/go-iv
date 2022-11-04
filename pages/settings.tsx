@@ -112,7 +112,6 @@ const SettingsPage: FC = () => {
         </SettingsSectionItem>
 
         <SettingsSectionItem>
-          {' '}
           <SettingsSectionItemToggle
             onInput={(value) =>
               dispatch({
@@ -123,6 +122,20 @@ const SettingsPage: FC = () => {
             value={settings.allowImpossibleFloors}
             label='Allow Impossible IV Floors'
             description='Allow any IV floor to be picked when creating a Candidate, regardless of acquisition method limitations.'
+          />
+        </SettingsSectionItem>
+
+        <SettingsSectionItem>
+          <SettingsSectionItemToggle
+            onInput={(value) =>
+              dispatch({
+                type: SettingsActionTypes.MinimumLevel,
+                payload: value,
+              })
+            }
+            value={settings.showMinimumLevel}
+            label='Minimum Level'
+            description='Choose the minimum level to use when creating a Candidate. Useful for checking ranks when species are not available at certain lower levels.'
           />
         </SettingsSectionItem>
       </SettingsSection>

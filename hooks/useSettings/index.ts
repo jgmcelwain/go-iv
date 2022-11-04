@@ -23,6 +23,7 @@ export type Settings = {
   showSpeculative: boolean;
   showShadowToggle: boolean;
   showRankingMetric: boolean;
+  showMinimumLevel: boolean;
   allowImpossibleFloors: boolean;
 };
 
