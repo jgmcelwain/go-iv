@@ -28,8 +28,8 @@ function useDisplayedSpreads() {
   );
 
   const spreads = [candidateSpread, ...spreadsForLevel.slice(0, 10)].filter(
-    (spread) => spread !== undefined,
-  ) as RankedSpread[];
+    (spread): spread is RankedSpread => spread !== undefined,
+  );
 
   return spreads.map((rankedSpread) => {
     const colors = getRankedSpreadColors(rankedSpread, candidate.rankingMetric);
@@ -168,7 +168,10 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
               <tr
                 key={i}
                 className={
-                  i === 0
+                  i === 0 &&
+                  spread.ivs.atk === candidate.ivs.atk &&
+                  spread.ivs.def === candidate.ivs.def &&
+                  spread.ivs.sta === candidate.ivs.sta
                     ? 'bg-gray-50 text-gray-700 border-b-4'
                     : `${spread.colors.background} ${spread.colors.text}`
                 }
