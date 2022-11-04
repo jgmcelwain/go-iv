@@ -85,7 +85,8 @@ const CandidateLeagueHeader: FC = () => {
             </h2>
 
             <p className='mt-1 text-xs font-semibold'>
-              Level: {inspectedLevelCap.level} ({inspectedLevelCap.description})
+              Level: {candidate.minimumLevel} - {inspectedLevelCap.level} (
+              {inspectedLevelCap.description})
             </p>
             <p className='mt-1 text-xs font-semibold'>
               IV Floor: {floor.value} ({floor.name})
@@ -107,6 +108,8 @@ const CandidateLeagueHeader: FC = () => {
               </span>
               , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
               {floor.name}
+              {settings.showMinimumLevel &&
+                `, Min. Level ${candidate.minimumLevel}`}
               {settings.showRankingMetric && `, by ${rankingMetric.name}`}
             </p>
           </>
