@@ -14,8 +14,9 @@ const AppHeaderReleaseBanner: FC = () => {
       <div className='mx-auto max-w-8xl py-3 px-4 md:px-8'>
         <div className='pr-16 sm:px-16 sm:text-center'>
           <p className='font-medium text-white text-xs'>
-            <span className='font-bold'>New!</span> Ursaluna, Wyrdeer and other
-            Hisui Pokémon now available via "Show Speculative Pokémon" setting.
+            <span className='font-bold'>New!</span> Set a mininum level with the
+            new "Minimum Level" setting - just in time for those Guzzlord
+            trades!
             <span className='block mt-2 sm:mt-0 sm:ml-2 sm:inline-block'>
               <Link
                 href={{

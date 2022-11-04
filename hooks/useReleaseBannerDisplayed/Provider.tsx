@@ -2,7 +2,7 @@ import React, { FC, useCallback, useState } from 'react';
 
 import { Context, setReleaseBannerVersionHiddenCookie } from '.';
 
-const CURRENT_RELEASE_BANNER_VERSION = 1;
+const CURRENT_RELEASE_BANNER_VERSION = 2;
 
 function useReleaseBannerState(releaseBannerVersionHidden: number | null) {
   const [isDisplayed, setIsDisplayed] = useState(
