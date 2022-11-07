@@ -40,6 +40,7 @@ const CandidateBuilderMinimumLevel: FC = () => {
         <option value={1}>1</option>
         <option value={15}>15 - Research</option>
         <option value={20}>20 - Raid</option>
+        <option value={25}>25 - Purified</option>
 
         <option disabled>---</option>
 
