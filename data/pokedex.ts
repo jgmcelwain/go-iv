@@ -4784,7 +4784,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'treecko',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'torchic',
@@ -4845,7 +4844,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'torchic',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'mudkip',
@@ -4906,7 +4904,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'mudkip',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'poochyena',
