@@ -1,4 +1,12 @@
 
+### [2.33.2](https://github.com/jgmcelwain/pvpiv/compare/v2.33.1...v2.33.2) (2022-12-03)
+
+
+### Bug Fixes
+
+* remove speculative tag from mega glalie ([9f25397](https://github.com/jgmcelwain/pvpiv/commit/9f25397a2e42df967d0d7450a65fbe0ca78f7885))
+* remove speculative tag from mega sceptile, blaziken and swampert ([32f402d](https://github.com/jgmcelwain/pvpiv/commit/32f402dbe8894a342480dbe40331a498bc2b0c9d))
+
 ## [2.33.0](https://github.com/jgmcelwain/pvpiv/compare/v2.32.2...v2.33.0) (2022-11-07)
 
 
