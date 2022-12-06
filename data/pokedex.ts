@@ -15399,9 +15399,9 @@ export const POKEDEX: Pokemon[] = [
     speculative: true,
   },
   {
-    id: 'farigirag',
+    id: 'farigiraf',
     dexNumber: 928,
-    name: 'Farigirag',
+    name: 'Farigiraf',
     stats: {
       atk: 209,
       def: 136,
