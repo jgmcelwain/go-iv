@@ -1,4 +1,11 @@
 
+## [2.34.0](https://github.com/jgmcelwain/pvpiv/compare/v2.33.2...v2.34.0) (2022-12-06)
+
+
+### Features
+
+* add gen 9 evolutions of existing mons ([cd88f45](https://github.com/jgmcelwain/pvpiv/commit/cd88f45e73b07eb24544b67817cd3972a8a4c4c8))
+
 ### [2.33.2](https://github.com/jgmcelwain/pvpiv/compare/v2.33.1...v2.33.2) (2022-12-03)
 
 
