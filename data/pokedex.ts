@@ -15382,6 +15382,70 @@ export const POKEDEX: Pokemon[] = [
     },
     speculative: true,
   },
+  {
+    id: 'dudunsparce',
+    dexNumber: 917,
+    name: 'Dudunsparce',
+    stats: {
+      atk: 188,
+      def: 150,
+      sta: 268,
+    },
+    types: ['normal'],
+    family: {
+      id: 'dunsparce',
+      stage: 2,
+    },
+    speculative: true,
+  },
+  {
+    id: 'farigirag',
+    dexNumber: 928,
+    name: 'Farigirag',
+    stats: {
+      atk: 209,
+      def: 136,
+      sta: 260,
+    },
+    types: ['normal', 'psychic'],
+    family: {
+      id: 'girafarig',
+      stage: 2,
+    },
+    speculative: true,
+  },
+  {
+    id: 'kingambit',
+    dexNumber: 1008,
+    name: 'Kingambit',
+    stats: {
+      atk: 238,
+      def: 203,
+      sta: 225,
+    },
+    types: ['dark', 'steel'],
+    family: {
+      id: 'pawniard',
+      stage: 3,
+    },
+    speculative: true,
+  },
+  {
+    id: 'annihilape',
+    dexNumber: 1010,
+    name: 'Annihilape',
+    stats: {
+      atk: 220,
+      def: 178,
+      sta: 242,
+    },
+    types: ['fighting', 'ghost'],
+    family: {
+      id: 'mankey',
+      stage: 3,
+    },
+    speculative: true,
+  },
 ];
 
 export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
