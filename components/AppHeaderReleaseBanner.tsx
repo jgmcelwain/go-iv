@@ -15,7 +15,7 @@ const AppHeaderReleaseBanner: FC = () => {
         <div className='pr-16 sm:px-16 sm:text-center'>
           <p className='font-medium text-white text-xs'>
             <span className='font-bold'>New!</span> Gen 9 evolutions of existing
-            Pokémon hav been added under the "Speculative Pokémon" flag.
+            Pokémon have been added under the "Speculative Pokémon" flag.
             <span className='block mt-2 sm:mt-0 sm:ml-2 sm:inline-block'>
               <Link
                 href={{
