@@ -1,4 +1,11 @@
 
+### [2.34.3](https://github.com/jgmcelwain/pvpiv/compare/v2.34.2...v2.34.3) (2022-12-14)
+
+
+### Bug Fixes
+
+* typo ([db87c86](https://github.com/jgmcelwain/pvpiv/commit/db87c860c6f3b3b2cb23e7e32255cc2443004009))
+
 ### [2.34.2](https://github.com/jgmcelwain/pvpiv/compare/v2.34.1...v2.34.2) (2022-12-06)
 
 ### [2.34.1](https://github.com/jgmcelwain/pvpiv/compare/v2.34.0...v2.34.1) (2022-12-06)
