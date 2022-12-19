@@ -1,59 +1,5 @@
-import { IV } from './iv';
-import { IVFloor } from './ivFloor';
+import type {Pokemon} from '.';
 
-export type PokemonID = string;
-
-export type PokemonName = string;
-
-export type PokedexNumber = number;
-
-export type PokemonStats = {
-  atk: number;
-  def: number;
-  sta: number;
-};
-
-export type PokemonType =
-  | 'normal'
-  | 'fighting'
-  | 'flying'
-  | 'poison'
-  | 'ground'
-  | 'rock'
-  | 'bug'
-  | 'ghost'
-  | 'steel'
-  | 'fire'
-  | 'water'
-  | 'grass'
-  | 'electric'
-  | 'psychic'
-  | 'ice'
-  | 'dragon'
-  | 'dark'
-  | 'fairy';
-
-export type PokemonIVs = {
-  atk: IV;
-  def: IV;
-  sta: IV;
-};
-
-export type PokemonFamilyStage = 1 | 2 | 3 | 4 | 5;
-
-export type Pokemon = {
-  id: PokemonID;
-  dexNumber: PokedexNumber;
-  name: PokemonName;
-  stats: PokemonStats;
-  types: PokemonType[];
-  floor?: IVFloor;
-  family: {
-    id: PokemonID;
-    stage: PokemonFamilyStage;
-  };
-  speculative?: boolean;
-};
 
 export const POKEDEX: Pokemon[] = [
   {
@@ -160,6 +106,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'charmander',
       stage: 3,
     },
+    aliases: ['zard'],
   },
   {
     id: 'charizard_mega_x',
@@ -565,6 +512,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'pichu',
       stage: 2,
     },
+    aliases: ['kchu'],
   },
   {
     id: 'raichu_alolan',
@@ -580,6 +528,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'pichu',
       stage: 2,
     },
+    aliases: ['achu'],
   },
   {
     id: 'sandshrew',
@@ -640,6 +589,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'sandshrew_alolan',
       stage: 2,
     },
+    aliases: ['aslash'],
   },
   {
     id: 'nidoran_female',
@@ -805,6 +755,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'vulpix',
       stage: 2,
     },
+    aliases: ['k9'],
   },
   {
     id: 'ninetales_alolan',
@@ -820,6 +771,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'vulpix_alolan',
       stage: 2,
     },
+    aliases: ['a9'],
   },
   {
     id: 'jigglypuff',
@@ -1511,6 +1463,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'geodude',
       stage: 2,
     },
+    aliases: ['kgrav'],
   },
   {
     id: 'graveler_alolan',
@@ -1526,6 +1479,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'geodude_alolan',
       stage: 2,
     },
+    aliases: ['agrav'],
   },
   {
     id: 'golem',
@@ -1826,6 +1780,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'grimer',
       stage: 2,
     },
+    aliases: ['kmuk'],
   },
   {
     id: 'muk_alolan',
@@ -1841,6 +1796,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'grimer_alolan',
       stage: 2,
     },
+    aliases: ['amuk'],
   },
   {
     id: 'shellder',
@@ -2171,6 +2127,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'cubone',
       stage: 2,
     },
+    aliases: ['kwak'],
   },
   {
     id: 'marowak_alolan',
@@ -2186,6 +2143,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'cubone',
       stage: 2,
     },
+    aliases: ['awak'],
   },
   {
     id: 'hitmonlee',
@@ -2276,6 +2234,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'koffing',
       stage: 2,
     },
+    aliases: ['gweezing'],
   },
   {
     id: 'rhyhorn',
@@ -2622,6 +2581,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'magikarp',
       stage: 2,
     },
+    aliases: ['gary'],
   },
   {
     id: 'gyarados_mega',
@@ -2847,6 +2807,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'munchlax',
       stage: 2,
     },
+    aliases: ['lax'],
   },
   {
     id: 'articuno',
@@ -2982,6 +2943,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'dratini',
       stage: 3,
     },
+    aliases: ['dnite'],
   },
   {
     id: 'mewtwo',
@@ -2998,6 +2960,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'mewtwo',
       stage: 1,
     },
+    aliases: ['m2'],
   },
   {
     id: 'mewtwo_armored',
@@ -3215,6 +3178,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'totodile',
       stage: 3,
     },
+    aliases: ['zygon'],
   },
   {
     id: 'sentret',
@@ -4025,6 +3989,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'qwilfish_hisuian',
       stage: 1,
     },
+    aliases: ['hqwil'],
   },
   {
     id: 'scizor',
@@ -7214,6 +7179,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'deoxys_defense',
       stage: 1,
     },
+    aliases: ['dd'],
   },
   {
     id: 'deoxys_speed',
@@ -8568,6 +8534,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'togepi',
       stage: 3,
     },
+    aliases: ['kiss'],
   },
   {
     id: 'yanmega',
@@ -8908,6 +8875,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'giratina_altered',
       stage: 1,
     },
+    aliases: ['tinaa'],
   },
   {
     id: 'giratina_origin',
@@ -8924,6 +8892,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'giratina_origin',
       stage: 1,
     },
+    aliases: ['tinao'],
   },
   {
     id: 'cresselia',
@@ -11098,6 +11067,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'stunfisk_galarian',
       stage: 1,
     },
+    aliases: ['gfisk'],
   },
   {
     id: 'mienfoo',
@@ -11558,6 +11528,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'landorus_incarnate',
       stage: 1,
     },
+    aliases: ['landoi'],
   },
   {
     id: 'landorus_therian',
@@ -11574,6 +11545,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'landorus_therian',
       stage: 1,
     },
+    aliases: ['landot'],
   },
   {
     id: 'kyurem',
@@ -13222,6 +13194,7 @@ export const POKEDEX: Pokemon[] = [
     stats: { atk: 114, def: 273, sta: 137 },
     types: ['poison', 'water'],
     family: { id: 'mareanie', stage: 2 },
+    aliases: ['pex'],
   },
   {
     id: 'mudbray',
@@ -13527,6 +13500,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['electric', 'fairy'],
     floor: 1,
     family: { id: 'tapu_koko', stage: 1 },
+    aliases: ['koko'],
   },
   {
     id: 'tapu_lele',
@@ -13536,6 +13510,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['psychic', 'fairy'],
     floor: 1,
     family: { id: 'tapu_lele', stage: 1 },
+    aliases: ['lele'],
   },
   {
     id: 'tapu_bulu',
@@ -13545,6 +13520,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['grass', 'fairy'],
     floor: 1,
     family: { id: 'tapu_bulu', stage: 1 },
+    aliases: ['bulu'],
   },
   {
     id: 'tapu_fini',
@@ -13554,6 +13530,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['water', 'fairy'],
     floor: 1,
     family: { id: 'tapu_fini', stage: 1 },
+    aliases: ['fini'],
   },
   {
     id: 'cosmog',
@@ -14577,6 +14554,7 @@ export const POKEDEX: Pokemon[] = [
       id: 'zigzagoon_galarian',
       stage: 3,
     },
+    aliases: ['goon'],
   },
   {
     id: 'perrserker',
@@ -15447,46 +15425,3 @@ export const POKEDEX: Pokemon[] = [
     speculative: true,
   },
 ];
-
-export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
-  if (!name) return null;
-
-  return list.find((pokemon) => pokemon.name === name) ?? null;
-}
-
-export function searchPokmeonByName(query: string, list: Pokemon[] = POKEDEX) {
-  const lowerCaseQuery = query.toLowerCase();
-
-  const matches = list.filter((pokemon) =>
-    pokemon.name.toLowerCase().startsWith(lowerCaseQuery),
-  );
-
-  if (matches.length === 0) {
-    return null;
-  } else if (matches.length === 1) {
-    return matches[0];
-  } else {
-    const exactMatch = matches.find(
-      (match) => match.name.toLowerCase() === lowerCaseQuery,
-    );
-
-    if (exactMatch !== undefined) {
-      return exactMatch;
-    } else {
-      return matches[0];
-    }
-  }
-}
-
-export function getPokemonByID(id: PokemonID, list: Pokemon[] = POKEDEX) {
-  if (!id) return null;
-
-  return list.find((pokemon) => pokemon.id === id) ?? null;
-}
-
-export function getPokemonFamilyMembers(
-  familyID: PokemonID,
-  list: Pokemon[] = POKEDEX,
-) {
-  return list.filter((pokemon) => pokemon.family.id === familyID);
-}
