@@ -1,4 +1,11 @@
 
+## [2.35.0](https://github.com/jgmcelwain/pvpiv/compare/v2.34.3...v2.35.0) (2022-12-19)
+
+
+### Features
+
+* add "aliases" for certain pokemon ([307b892](https://github.com/jgmcelwain/pvpiv/commit/307b89291c47a9ab0ada067bdd1f92110583bac0))
+
 ### [2.34.3](https://github.com/jgmcelwain/pvpiv/compare/v2.34.2...v2.34.3) (2022-12-14)
 
 
