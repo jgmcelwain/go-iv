@@ -16,7 +16,9 @@ export type IV =
   | 14
   | 15;
 
-export const IV_RANGE: IV[] = Array.from({ length: 16 }).map((_, i) => i as IV);
+export const IV_RANGE: IV[] = Array.from({ length: 16 }).map(
+  (_, i) => (15 - i) as IV,
+);
 
 export const MIN_IV = IV_RANGE[0];
 
