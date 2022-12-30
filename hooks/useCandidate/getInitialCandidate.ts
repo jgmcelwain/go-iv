@@ -30,7 +30,6 @@ const CANDIDATE_DEFAULTS = {
   floor: parseInt(process.env.NEXT_PUBLIC_DEFAULT_FLOOR ?? '0'),
   minimumLevel: parseInt(process.env.NEXT_PUBLIC_DEFAULT_MINIMUM_LEVEL ?? '1'),
   rankingMetric: process.env.NEXT_PUBLIC_DEFAULT_RANKING_METRIC ?? 'product',
-  shadow: false,
 };
 
 function sanitizeCandidate(
@@ -41,7 +40,6 @@ function sanitizeCandidate(
   floor?: DirtyIVFloor,
   minimumLevel?: DirtyMinimumLevel,
   rankingMetric?: DirtyRankableMetric,
-  shadow?: boolean,
 ) {
   let species = id !== null ? getPokemonByID(id) : null;
   if (species === null) {
@@ -92,7 +90,6 @@ function sanitizeCandidate(
     floor: outputFloor,
     minimumLevel: outputMinimumLevel,
     rankingMetric: outputRankingMetric,
-    shadow: shadow ?? false,
   };
 }
 
@@ -120,7 +117,6 @@ export function getInitialCandidate(
       cachedCandidate.floor,
       cachedCandidate.minimumLevel,
       cachedCandidate.rankingMetric,
-      cachedCandidate.shadow,
     );
   } else {
     return sanitizeCandidate(null);

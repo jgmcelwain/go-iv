@@ -14,7 +14,6 @@ export enum CandidateActionTypes {
   Floor,
   RankingMetric,
   MinimumLevel,
-  Shadow,
 }
 
 type PayloadTypes = {
@@ -23,7 +22,6 @@ type PayloadTypes = {
   [CandidateActionTypes.Floor]: IVFloor;
   [CandidateActionTypes.RankingMetric]: RankableMetric;
   [CandidateActionTypes.MinimumLevel]: number;
-  [CandidateActionTypes.Shadow]: boolean;
 };
 
 type Action = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
@@ -90,12 +88,6 @@ export function candidateReducer(state: Candidate, action: Action): Candidate {
       return {
         ...state,
         minimumLevel: action.payload,
-      };
-    }
-    case CandidateActionTypes.Shadow: {
-      return {
-        ...state,
-        shadow: action.payload,
       };
     }
     default: {

@@ -18,7 +18,6 @@ const defaultSettings: Settings = {
     percent: true,
   },
   showSpeculative: false,
-  showShadowToggle: false,
   showMinimumLevel: false,
   showRankingMetric: false,
   allowImpossibleFloors: true,

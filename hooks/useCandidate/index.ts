@@ -15,7 +15,6 @@ export type Candidate = {
   floor: IVFloor;
   rankingMetric: RankableMetric;
   minimumLevel: number;
-  shadow: boolean;
 };
 
 export const Context =

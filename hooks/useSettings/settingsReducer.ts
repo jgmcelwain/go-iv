@@ -12,7 +12,6 @@ export enum SettingsActionTypes {
   LevelCap,
   OutputData,
   Speculative,
-  ShadowToggle,
   RankingMetric,
   MinimumLevel,
   ImpossibleFloors,
@@ -29,7 +28,6 @@ type PayloadTypes = {
     value: boolean;
   };
   [SettingsActionTypes.Speculative]: boolean;
-  [SettingsActionTypes.ShadowToggle]: boolean;
   [SettingsActionTypes.RankingMetric]: boolean;
   [SettingsActionTypes.MinimumLevel]: boolean;
   [SettingsActionTypes.ImpossibleFloors]: boolean;
@@ -76,12 +74,6 @@ export function settingsReducer(state: Settings, action: Action): Settings {
       return {
         ...state,
         showSpeculative: action.payload,
-      };
-    }
-    case SettingsActionTypes.ShadowToggle: {
-      return {
-        ...state,
-        showShadowToggle: action.payload,
       };
     }
     case SettingsActionTypes.RankingMetric: {
