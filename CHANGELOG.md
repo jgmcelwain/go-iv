@@ -1,4 +1,16 @@
 
+## [2.36.0](https://github.com/jgmcelwain/pvpiv/compare/v2.35.0...v2.36.0) (2022-12-30)
+
+
+### Features
+
+* invert IV dropdown ([98d5d17](https://github.com/jgmcelwain/pvpiv/commit/98d5d17929bfa8478857c68adc7df49d5c773909))
+
+
+### Bug Fixes
+
+* include candidate in key ([9db3b22](https://github.com/jgmcelwain/pvpiv/commit/9db3b2242b1d5e02114676b9647a7e388de36037))
+
 ## [2.35.0](https://github.com/jgmcelwain/pvpiv/compare/v2.34.3...v2.35.0) (2022-12-19)
 
 
