@@ -3,11 +3,13 @@ import React, { FC } from 'react';
 import { LEVEL_CAPS } from '../data/levelCap';
 
 import { useSettings } from '../hooks/useSettings';
+import { useCandidate } from '../hooks/useCandidate';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueRankedAtLevelCap from './CandidateLeagueRankedAtLevelCap';
 
 const CandidateLeagueRanked: FC = () => {
+  const { candidate } = useCandidate();
   const { settings } = useSettings();
 
   return (
@@ -68,7 +70,7 @@ const CandidateLeagueRanked: FC = () => {
             (levelCap) => settings.levelCaps[levelCap.level] === true,
           ).map((levelCap) => (
             <CandidateLeagueRankedAtLevelCap
-              key={levelCap.level}
+              key={`${candidate.species.id}_${levelCap.level}`}
               levelCap={levelCap}
             />
           ))}
