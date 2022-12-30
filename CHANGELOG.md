@@ -1,4 +1,11 @@
 
+### [2.36.1](https://github.com/jgmcelwain/pvpiv/compare/v2.36.0...v2.36.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* remove league background color ([4b549b5](https://github.com/jgmcelwain/pvpiv/commit/4b549b5cd6ceafba44830e1ebf1d122cc4bc34ef))
+
 ## [2.36.0](https://github.com/jgmcelwain/pvpiv/compare/v2.35.0...v2.36.0) (2022-12-30)
 
 
