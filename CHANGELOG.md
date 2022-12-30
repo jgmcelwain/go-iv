@@ -1,4 +1,11 @@
 
+### [2.36.2](https://github.com/jgmcelwain/pvpiv/compare/v2.36.1...v2.36.2) (2022-12-30)
+
+
+### Bug Fixes
+
+* undo invert iv dropdown order ([c532563](https://github.com/jgmcelwain/pvpiv/commit/c532563f690a3169a63d21e9f66135ce70bbb84f))
+
 ### [2.36.1](https://github.com/jgmcelwain/pvpiv/compare/v2.36.0...v2.36.1) (2022-12-30)
 
 
