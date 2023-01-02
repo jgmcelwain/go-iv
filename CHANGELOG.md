@@ -1,4 +1,11 @@
 
+### [2.37.1](https://github.com/jgmcelwain/pvpiv/compare/v2.37.0...v2.37.1) (2023-01-02)
+
+
+### Bug Fixes
+
+* **a11y:** correct button label ([854c056](https://github.com/jgmcelwain/pvpiv/commit/854c0565074573b7a28eab77b1c0ef6be28b3c73))
+
 ## [2.37.0](https://github.com/jgmcelwain/pvpiv/compare/v2.36.2...v2.37.0) (2023-01-02)
 
 
