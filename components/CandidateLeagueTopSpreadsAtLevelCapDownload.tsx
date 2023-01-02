@@ -38,7 +38,7 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
     <footer className='flex items-center justify-center w-full py-2 bg-white border-t border-gray-200'>
       <button
         onClick={exportToCSV}
-        className='z-10 flex items-center justify-start p-1 text-gray-700 rounded-full hover:text-black focus-visible-ring sm:rounded'
+        className='flex items-center justify-start p-1 text-gray-700 rounded-full hover:text-black focus-visible-ring sm:rounded'
       >
         <span className='mr-2 text-xs font-semibold'>
           Export All {rankedSpreads[inspectedLevelCap.level].length} to CSV

@@ -55,15 +55,7 @@ function useColumns(candidate: Candidate) {
       label: 'IVs',
       value: (row) => (
         <>
-          {row.ivs.atk}
-          <span className='inline-block mx-0.5 font-semibold transform scale-75'>
-            /
-          </span>
-          {row.ivs.def}
-          <span className='inline-block mx-0.5 font-semibold transform scale-75'>
-            /
-          </span>
-          {row.ivs.sta}
+          {row.ivs.atk}-{row.ivs.def}-{row.ivs.sta}
         </>
       ),
       priority: 0,

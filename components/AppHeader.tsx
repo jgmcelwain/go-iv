@@ -12,10 +12,10 @@ const AppHeader: FC = () => {
   const router = useRouter();
 
   return (
-    <header className='sticky top-0 w-full z-20 overflow-hidden shadow-xl border-b border-gray-700 bg-gray-800'>
+    <header className='relative w-full z-20 overflow-hidden bg-gray-800'>
       <AppHeaderReleaseBanner />
 
-      <div className='w-full max-w-8xl flex items-center justify-between px-4 md:px-8 py-4 mx-auto'>
+      <div className='w-full max-w-8xl flex items-center justify-between px-4 md:px-8 py-3 mx-auto'>
         <div className='flex justify-start items-center space-x-2'>
           <Image
             src='/logo.png'

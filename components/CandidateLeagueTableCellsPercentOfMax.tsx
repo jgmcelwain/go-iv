@@ -11,9 +11,7 @@ const CandidateLeagueTableCellsPercentOfMax: FC<{
   if (settings.outputData.percent === false) {
     return null;
   } else {
-    return (
-      <span className='block text-xs opacity-90'>{formatPercent(value)}</span>
-    );
+    return <span className='block text-xs'>{formatPercent(value)}</span>;
   }
 };
 
