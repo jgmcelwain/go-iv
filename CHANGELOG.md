@@ -1,4 +1,18 @@
 
+## [2.37.0](https://github.com/jgmcelwain/pvpiv/compare/v2.36.2...v2.37.0) (2023-01-02)
+
+
+### Features
+
+* add a sticky header that shows current candidate info ([a0dc13e](https://github.com/jgmcelwain/pvpiv/commit/a0dc13e1e175a300384c2c2ad44a6d37cc030d9e))
+* make league headers sticky ([70c1c31](https://github.com/jgmcelwain/pvpiv/commit/70c1c316d242067cb7f1060e24f844e64b0a1138))
+* re-invert IV dropdowns ([21b453b](https://github.com/jgmcelwain/pvpiv/commit/21b453bc30f57a63affc6048528d65aa02e39384))
+
+
+### Bug Fixes
+
+* prevent visual issues with sticky headers ([bba94b2](https://github.com/jgmcelwain/pvpiv/commit/bba94b20e62b7ba1f8367cf924efe84b166d3e99))
+
 ### [2.36.2](https://github.com/jgmcelwain/pvpiv/compare/v2.36.1...v2.36.2) (2022-12-30)
 
 
