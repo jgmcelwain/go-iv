@@ -27,11 +27,13 @@ const CandidateBuilderIVs: FC = () => {
             value={candidate.ivs[stat.key]}
             className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-900'
           >
-            {IV_RANGE.filter((iv) => iv >= candidate.floor).map((iv) => (
-              <option key={iv} value={iv}>
-                {iv}
-              </option>
-            ))}
+            {IV_RANGE.filter((iv) => iv >= candidate.floor)
+              .reverse()
+              .map((iv) => (
+                <option key={iv} value={iv}>
+                  {iv}
+                </option>
+              ))}
           </select>
         </label>
       ))}
