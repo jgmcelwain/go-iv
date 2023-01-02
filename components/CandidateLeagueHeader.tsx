@@ -4,7 +4,6 @@ import { IV_FLOORS } from '../data/ivFloor';
 
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
-import { useSettings } from '../hooks/useSettings';
 
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 import { RANKABLE_METRICS } from '../data/stat';
@@ -34,7 +33,6 @@ const LEAGUE_COLORS = {
 
 const CandidateLeagueHeader: FC = () => {
   const { candidate } = useCandidate();
-  const { settings } = useSettings();
   const { league, inspectedLevelCap, setInspectedLevelCap } = useLeague();
 
   const rankingMetric = RANKABLE_METRICS.find(
@@ -53,9 +51,9 @@ const CandidateLeagueHeader: FC = () => {
     <header
       className={`w-full p-4 bg-gradient-to-br ${
         LEAGUE_COLORS[league.key].background
-      } sticky top-0 left-0 flex justify-between items-center overflow-hidden font-title ${
+      } sticky top-14 sm:relative sm:top-0 left-0 flex justify-between items-center overflow-hidden font-title ${
         LEAGUE_COLORS[league.key].text
-      } border-b border-gray-200`}
+      }`}
     >
       <div
         className={`absolute z-0 right-0 top-0 transform rotate-45 w-5 h-72 opacity-90 -translate-x-20 -translate-y-10 bg-gradient-to-b ${
@@ -95,17 +93,8 @@ const CandidateLeagueHeader: FC = () => {
         ) : (
           <>
             <h2 className='flex-grow font-semibold leading-none'>
-              {league.name}{' '}
+              {league.name}
             </h2>
-
-            <p className='mt-1 text-xs font-semibold'>
-              <span key={candidate.species.name}>{candidate.species.name}</span>
-              , {candidate.ivs.atk}/{candidate.ivs.def}/{candidate.ivs.sta},{' '}
-              {floor.name}
-              {settings.showMinimumLevel &&
-                `, Min. Level ${candidate.minimumLevel}`}
-              {settings.showRankingMetric && `, by ${rankingMetric.name}`}
-            </p>
           </>
         )}
       </div>
