@@ -42,7 +42,7 @@ export default function CandidateBuilderStickyHeader() {
       >
         <PencilIcon className='w-5 h-5 text-gray-300' aria-hidden />
 
-        <span className='sr-only'>Settings</span>
+        <span className='sr-only'>Edit Candidate</span>
       </button>
     </div>
   );
