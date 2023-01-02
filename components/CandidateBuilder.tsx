@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import CandidateBuilderStickyHeader from './CandidateBuilderStickyHeader';
 import CandidateBuilderSpecies from './CandidateBuilderSpecies';
 import CandidateBuilderFamilySwap from './CandidateBuilderFamilySwap';
 import CandidateBuilderIVs from './CandidateBuilderIVs';
@@ -9,19 +10,23 @@ import CandidateBuilderRankingMetric from './CandidateBuilderRankingMetric';
 
 const CandidateBuilder: FC = () => {
   return (
-    <section className='flex flex-wrap items-start justify-start w-full px-4 mb-4 sm:px-0'>
-      <CandidateBuilderSpecies />
+    <>
+      <CandidateBuilderStickyHeader />
 
-      <CandidateBuilderIVs />
+      <section className='flex flex-wrap items-start justify-start w-full px-4 mb-4 sm:px-0'>
+        <CandidateBuilderSpecies />
 
-      <CandidateBuilderIVFloor />
+        <CandidateBuilderIVs />
 
-      <CandidateBuilderRankingMetric />
+        <CandidateBuilderIVFloor />
 
-      <CandidateBuilderMinimumLevel />
+        <CandidateBuilderRankingMetric />
 
-      <CandidateBuilderFamilySwap />
-    </section>
+        <CandidateBuilderMinimumLevel />
+
+        <CandidateBuilderFamilySwap />
+      </section>
+    </>
   );
 };
 
