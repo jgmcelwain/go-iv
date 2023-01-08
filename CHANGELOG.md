@@ -1,4 +1,11 @@
 
+### [2.37.2](https://github.com/jgmcelwain/pvpiv/compare/v2.37.1...v2.37.2) (2023-01-08)
+
+
+### Bug Fixes
+
+* add background to league content ([f671131](https://github.com/jgmcelwain/pvpiv/commit/f6711314beeec1e51ef18aa0055025af9df171cb))
+
 ### [2.37.1](https://github.com/jgmcelwain/pvpiv/compare/v2.37.0...v2.37.1) (2023-01-02)
 
 
