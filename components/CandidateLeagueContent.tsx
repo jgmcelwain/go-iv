@@ -11,11 +11,13 @@ const CandidateLeagueContent: FC = () => {
 
   return (
     <LeagueCandidateRankedSpreadsProvider>
-      {inspectedLevelCap !== null ? (
-        <CandidateLeagueTopSpreadsAtLevelCap />
-      ) : (
-        <CandidateLeagueRanked />
-      )}
+      <div className='w-full bg-gray-100'>
+        {inspectedLevelCap !== null ? (
+          <CandidateLeagueTopSpreadsAtLevelCap />
+        ) : (
+          <CandidateLeagueRanked />
+        )}
+      </div>
     </LeagueCandidateRankedSpreadsProvider>
   );
 };
