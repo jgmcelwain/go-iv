@@ -1,4 +1,11 @@
 
+## [2.38.0](https://github.com/jgmcelwain/pvpiv/compare/v2.37.2...v2.38.0) (2023-01-09)
+
+
+### Features
+
+* migrate release banner version tracking to vercel edge config ([0105fa8](https://github.com/jgmcelwain/pvpiv/commit/0105fa8e4e113522a7a0b31e27c34b1ddc06e2c8))
+
 ### [2.37.2](https://github.com/jgmcelwain/pvpiv/compare/v2.37.1...v2.37.2) (2023-01-08)
 
 
