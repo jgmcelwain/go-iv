@@ -1,34 +1,34 @@
 import 'focus-visible';
 
-import React, { FC } from 'react';
+import type { AppContext, AppProps } from 'next/app';
 
-import { AppContext, AppProps } from 'next/app';
+import React, { FC } from 'react';
+import { get } from '@vercel/edge-config';
+import { parseCookies } from 'nookies';
+import { RELEASE_BANNER_VERSION_HIDDEN_COOKIE } from '../data/constants';
 
 import {
   Provider as SettingsProvider,
   Settings as SettingsType,
   getInitialSettings,
 } from '../hooks/useSettings';
-import {
-  Provider as ReleaseBannerDisplayedProvider,
-  getReleaseBannerVersionHiddenCookie,
-} from '../hooks/useReleaseBannerDisplayed';
 
 import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 import AppHeader from '../components/AppHeader';
+import AppReleaseBanner from '../components/AppReleaseBanner';
 import AppFooter from '../components/AppFooter';
 
 import '../styles/index.css';
 
 type InitialProps = {
   settings: SettingsType;
-  releaseBannerVersionHidden: number | null;
+  releaseBanner: { version: number; shown: boolean; content: string };
 };
 
 const App: FC<AppProps & InitialProps> & {
   getInitialProps: (arg0: AppContext) => Promise<InitialProps>;
-} = ({ Component, pageProps, settings, releaseBannerVersionHidden }) => {
+} = ({ Component, pageProps, settings, releaseBanner }) => {
   return (
     <React.StrictMode>
       <Head>
@@ -47,11 +47,9 @@ const App: FC<AppProps & InitialProps> & {
         <meta property='og:image' content='https://pvpiv.app/og.png' />
       </Head>
 
-      <ReleaseBannerDisplayedProvider
-        releaseBannerVersionHidden={releaseBannerVersionHidden}
-      >
-        <AppHeader />
-      </ReleaseBannerDisplayedProvider>
+      <AppReleaseBanner {...releaseBanner} />
+
+      <AppHeader />
 
       <SettingsProvider initialValue={settings}>
         <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 mt-2 mx-auto max-w-8xl sm:px-4 md:px-8'>
@@ -70,12 +68,46 @@ const App: FC<AppProps & InitialProps> & {
 
 export default App;
 
-// eslint-disable-next-line @typescript-eslint/require-await
 App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
   const settings = getInitialSettings(appContext?.ctx);
-  const releaseBannerVersionHidden = getReleaseBannerVersionHiddenCookie(
-    appContext?.ctx,
-  );
 
-  return { settings, releaseBannerVersionHidden };
+  try {
+    const releaseBannerVersion = Number(
+      await get<string>('release_banner_version'),
+    );
+    if (Number.isNaN(releaseBannerVersion)) {
+      throw new Error('No release banner version');
+    }
+
+    const releaseBannerContent = await get<string>('release_banner_content');
+    if (releaseBannerContent === undefined) {
+      throw new Error('No release banner content');
+    }
+
+    const cookies = parseCookies(appContext?.ctx);
+    let releaseBannerVersionHidden = Number(
+      cookies[RELEASE_BANNER_VERSION_HIDDEN_COOKIE],
+    );
+    if (Number.isNaN(releaseBannerVersionHidden)) {
+      releaseBannerVersionHidden = -1;
+    }
+
+    return {
+      settings,
+      releaseBanner: {
+        version: releaseBannerVersion,
+        shown: releaseBannerVersionHidden < releaseBannerVersion,
+        content: releaseBannerContent,
+      },
+    };
+  } catch (err) {
+    return {
+      settings,
+      releaseBanner: {
+        version: -1,
+        shown: false,
+        content: '',
+      },
+    };
+  }
 };

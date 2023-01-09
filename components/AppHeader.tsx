@@ -6,15 +6,12 @@ import pkg from '../package.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowSmLeftIcon, CogIcon } from '@heroicons/react/solid';
-import AppHeaderReleaseBanner from './AppHeaderReleaseBanner';
 
 const AppHeader: FC = () => {
   const router = useRouter();
 
   return (
     <header className='relative w-full z-20 overflow-hidden bg-gray-800'>
-      <AppHeaderReleaseBanner />
-
       <div className='w-full max-w-8xl flex items-center justify-between px-4 md:px-8 py-3 mx-auto'>
         <div className='flex justify-start items-center space-x-2'>
           <Image
