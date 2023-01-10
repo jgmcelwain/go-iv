@@ -1,4 +1,6 @@
 
+### [2.38.1](https://github.com/jgmcelwain/pvpiv/compare/v2.38.0...v2.38.1) (2023-01-10)
+
 ## [2.38.0](https://github.com/jgmcelwain/pvpiv/compare/v2.37.2...v2.38.0) (2023-01-09)
 
 
