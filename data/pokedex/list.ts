@@ -1,5 +1,4 @@
-import type {Pokemon} from '.';
-
+import type { Pokemon } from '.';
 
 export const POKEDEX: Pokemon[] = [
   {
