@@ -24,6 +24,7 @@ export type Settings = {
   showRankingMetric: boolean;
   showMinimumLevel: boolean;
   allowImpossibleFloors: boolean;
+  invertIVDropdown: boolean;
 };
 
 export function useSettings() {

@@ -138,6 +138,20 @@ const SettingsPage: FC = () => {
             description='Choose the minimum level to use when creating a Candidate. Useful for checking ranks when species are not available at certain lower levels.'
           />
         </SettingsSectionItem>
+
+        <SettingsSectionItem>
+          <SettingsSectionItemToggle
+            onInput={(value) =>
+              dispatch({
+                type: SettingsActionTypes.InvertIVDropdown,
+                payload: value,
+              })
+            }
+            value={settings.invertIVDropdown}
+            label='Invert IV Dropdown'
+            description='List IV options from 15-0 (descending) instead of 0-15 (ascending).'
+          />
+        </SettingsSectionItem>
       </SettingsSection>
     </div>
   );

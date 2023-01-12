@@ -21,6 +21,7 @@ const defaultSettings: Settings = {
   showMinimumLevel: false,
   showRankingMetric: false,
   allowImpossibleFloors: true,
+  invertIVDropdown: false,
 };
 
 export function getInitialSettings(ctx: NextPageContext) {

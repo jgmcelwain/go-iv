@@ -15,6 +15,7 @@ export enum SettingsActionTypes {
   RankingMetric,
   MinimumLevel,
   ImpossibleFloors,
+  InvertIVDropdown,
 }
 type PayloadTypes = {
   [SettingsActionTypes.League]: { key: LeagueKey; value: boolean };
@@ -31,6 +32,7 @@ type PayloadTypes = {
   [SettingsActionTypes.RankingMetric]: boolean;
   [SettingsActionTypes.MinimumLevel]: boolean;
   [SettingsActionTypes.ImpossibleFloors]: boolean;
+  [SettingsActionTypes.InvertIVDropdown]: boolean;
 };
 type Action = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
 export type Dispatch = ReactDispatch<Action>;
@@ -92,6 +94,12 @@ export function settingsReducer(state: Settings, action: Action): Settings {
       return {
         ...state,
         allowImpossibleFloors: action.payload,
+      };
+    }
+    case SettingsActionTypes.InvertIVDropdown: {
+      return {
+        ...state,
+        invertIVDropdown: action.payload,
       };
     }
     default: {
