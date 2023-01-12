@@ -1,4 +1,11 @@
 
+## [2.39.0](https://github.com/jgmcelwain/pvpiv/compare/v2.38.1...v2.39.0) (2023-01-12)
+
+
+### Features
+
+* make iv dropdown order toggleable ([2adbcc4](https://github.com/jgmcelwain/pvpiv/commit/2adbcc4ab5b9c7e03601dd5414195133ed2a0542))
+
 ### [2.38.1](https://github.com/jgmcelwain/pvpiv/compare/v2.38.0...v2.38.1) (2023-01-10)
 
 ## [2.38.0](https://github.com/jgmcelwain/pvpiv/compare/v2.37.2...v2.38.0) (2023-01-09)
