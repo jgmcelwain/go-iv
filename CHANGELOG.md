@@ -1,4 +1,11 @@
 
+### [2.39.1](https://github.com/jgmcelwain/pvpiv/compare/v2.39.0...v2.39.1) (2023-01-18)
+
+
+### Bug Fixes
+
+* correct hp stat for mega rayquaza ([ad79561](https://github.com/jgmcelwain/pvpiv/commit/ad79561e9b8d245cb027087e3344858504c768bc))
+
 ## [2.39.0](https://github.com/jgmcelwain/pvpiv/compare/v2.38.1...v2.39.0) (2023-01-12)
 
 
