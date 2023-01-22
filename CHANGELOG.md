@@ -1,4 +1,11 @@
 
+### [2.39.2](https://github.com/jgmcelwain/pvpiv/compare/v2.39.1...v2.39.2) (2023-01-22)
+
+
+### Bug Fixes
+
+* release banner should always be dispalyed on top ([62b28e4](https://github.com/jgmcelwain/pvpiv/commit/62b28e4b39d277e22d9d31be7604916e1a85c5d8))
+
 ### [2.39.1](https://github.com/jgmcelwain/pvpiv/compare/v2.39.0...v2.39.1) (2023-01-18)
 
 
