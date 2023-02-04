@@ -1,4 +1,12 @@
 
+## [2.40.0](https://github.com/jgmcelwain/pvpiv/compare/v2.39.2...v2.40.0) (2023-02-04)
+
+
+### Features
+
+* improve search by removing requirement for every character to be typed ([fd164af](https://github.com/jgmcelwain/pvpiv/commit/fd164af2f33a95cfe56cc7a259c13e1b4fea1a2d))
+* use edge config for speculative pokemon list ([68941d9](https://github.com/jgmcelwain/pvpiv/commit/68941d90aa4770ff0d69b2c3ae90f2d60670d940))
+
 ### [2.39.2](https://github.com/jgmcelwain/pvpiv/compare/v2.39.1...v2.39.2) (2023-01-22)
 
 
