@@ -1,4 +1,11 @@
 
+### [2.40.1](https://github.com/jgmcelwain/pvpiv/compare/v2.40.0...v2.40.1) (2023-02-04)
+
+
+### Bug Fixes
+
+* give aliases higher priority in search ([b742b10](https://github.com/jgmcelwain/pvpiv/commit/b742b10755f0459b79f9b081edbe80caf1e96679))
+
 ## [2.40.0](https://github.com/jgmcelwain/pvpiv/compare/v2.39.2...v2.40.0) (2023-02-04)
 
 
