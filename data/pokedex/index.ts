@@ -1,5 +1,6 @@
 import { IV } from '../iv';
 import { IVFloor } from '../ivFloor';
+import { isSubsequence } from '../../utils/isSubsequence';
 
 import { POKEDEX } from './list';
 export { POKEDEX };
@@ -67,11 +68,12 @@ export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
 export function searchPokmeonByName(query: string, list: Pokemon[] = POKEDEX) {
   const lowerCaseQuery = query.toLowerCase();
 
-  const matches = list.filter(
-    (pokemon) =>
-      pokemon.name.toLowerCase().startsWith(lowerCaseQuery) ||
-      pokemon.aliases?.includes(lowerCaseQuery),
-  );
+  const matches = list.filter((pokemon) => {
+    return (
+      isSubsequence(lowerCaseQuery, pokemon.name.toLowerCase()) ||
+      pokemon.aliases?.includes(lowerCaseQuery)
+    );
+  });
 
   if (matches.length === 0) {
     return null;
