@@ -55,7 +55,6 @@ export type Pokemon = {
     id: PokemonID;
     stage: PokemonFamilyStage;
   };
-  speculative?: boolean;
   aliases?: string[];
 };
 

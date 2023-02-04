@@ -1296,7 +1296,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'abra',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'machop',
@@ -2534,7 +2533,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'pinsir',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'tauros',
@@ -2992,7 +2990,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'mewtwo',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'mewtwo_mega_y',
@@ -3009,7 +3006,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'mewtwo',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'mew',
@@ -3131,7 +3127,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'cyndaquil',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'totodile',
@@ -4019,7 +4014,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'scyther',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'shuckle',
@@ -4065,7 +4059,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'heracross',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'sneasel',
@@ -4639,7 +4632,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'larvitar',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'lugia',
@@ -5243,7 +5235,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'ralts',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'surskit',
@@ -5559,7 +5550,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'sableye',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'mawile',
@@ -5590,7 +5580,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'mawile',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'aron',
@@ -5651,7 +5640,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'aron',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'meditite',
@@ -5697,7 +5685,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'meditite',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'electrike',
@@ -5893,7 +5880,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'carvanha',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'wailmer',
@@ -5969,7 +5955,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'numel',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'torkoal',
@@ -6510,7 +6495,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'shuppet',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'duskull',
@@ -6901,7 +6885,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'beldum',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'regirock',
@@ -7046,7 +7029,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'kyogre',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'groudon',
@@ -7079,7 +7061,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'groudon',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'rayquaza',
@@ -7112,7 +7093,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'rayquaza',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'jirachi',
@@ -8155,7 +8135,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'gible',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'munchlax',
@@ -8216,7 +8195,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'riolu',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'hippopotas',
@@ -8653,7 +8631,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'ralts',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'probopass',
@@ -8791,7 +8768,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'dialga',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'palkia',
@@ -8824,7 +8800,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'palkia',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'heatran',
@@ -9169,7 +9144,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'oshawott',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'patrat',
@@ -9605,7 +9579,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'audino',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'timburr',
@@ -9891,7 +9864,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'petilil',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'basculin',
@@ -9922,7 +9894,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'basculin_hisuian',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'sandile',
@@ -10313,7 +10284,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'zorua_hisuian',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'zoroark',
@@ -10344,7 +10314,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'zorua_hisuian',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'minccino',
@@ -11818,7 +11787,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'froakie',
       stage: 4,
     },
-    speculative: true,
   },
   {
     id: 'bunnelby',
@@ -12539,7 +12507,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'goomy',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'goodra',
@@ -12570,7 +12537,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'goomy',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'klefki',
@@ -12781,7 +12747,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'bergmite',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'noibat',
@@ -12951,7 +12916,6 @@ export const POKEDEX: Pokemon[] = [
     stats: { atk: 213, def: 174, sta: 204 },
     types: ['grass', 'fighting'],
     family: { id: 'rowlet', stage: 3 },
-    speculative: true,
   },
   {
     id: 'litten',
@@ -15229,7 +15193,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'stantler',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'kleavor',
@@ -15245,7 +15208,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'scyther',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'ursaluna',
@@ -15276,7 +15238,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'basculin_hisuian',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'basculegion_female',
@@ -15292,7 +15253,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'basculin_hisuian',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'sneasler',
@@ -15339,7 +15299,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'enamorus_incarnate',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'enamorus_therian',
@@ -15356,7 +15315,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'enamorus_therian',
       stage: 1,
     },
-    speculative: true,
   },
   {
     id: 'dudunsparce',
@@ -15372,7 +15330,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'dunsparce',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'farigiraf',
@@ -15388,7 +15345,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'girafarig',
       stage: 2,
     },
-    speculative: true,
   },
   {
     id: 'kingambit',
@@ -15404,7 +15360,6 @@ export const POKEDEX: Pokemon[] = [
       id: 'pawniard',
       stage: 3,
     },
-    speculative: true,
   },
   {
     id: 'annihilape',
@@ -15420,6 +15375,5 @@ export const POKEDEX: Pokemon[] = [
       id: 'mankey',
       stage: 3,
     },
-    speculative: true,
   },
 ];

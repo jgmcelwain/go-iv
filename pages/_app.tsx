@@ -5,6 +5,7 @@ import type { AppContext, AppProps } from 'next/app';
 import React, { FC } from 'react';
 import { get } from '@vercel/edge-config';
 import { parseCookies } from 'nookies';
+import { PokemonID } from './../data/pokedex';
 import { RELEASE_BANNER_VERSION_HIDDEN_COOKIE } from '../data/constants';
 
 import {
@@ -12,6 +13,7 @@ import {
   Settings as SettingsType,
   getInitialSettings,
 } from '../hooks/useSettings';
+import { SpeculativePokemonProvider } from '../hooks/useSpeculativePokemon';
 
 import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
@@ -24,11 +26,12 @@ import '../styles/index.css';
 type InitialProps = {
   settings: SettingsType;
   releaseBanner: { version: number; shown: boolean; content: string };
+  speculativePokemon: PokemonID[];
 };
 
 const App: FC<AppProps & InitialProps> & {
   getInitialProps: (arg0: AppContext) => Promise<InitialProps>;
-} = ({ Component, pageProps, settings, releaseBanner }) => {
+} = ({ Component, pageProps, settings, releaseBanner, speculativePokemon }) => {
   return (
     <React.StrictMode>
       <Head>
@@ -51,15 +54,17 @@ const App: FC<AppProps & InitialProps> & {
 
       <AppHeader />
 
-      <SettingsProvider initialValue={settings}>
-        <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 mt-2 mx-auto max-w-8xl sm:px-4 md:px-8'>
-          <main className='flex-grow w-full'>
-            <Component {...pageProps} />
-          </main>
+      <SpeculativePokemonProvider value={speculativePokemon}>
+        <SettingsProvider initialValue={settings}>
+          <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 mt-2 mx-auto max-w-8xl sm:px-4 md:px-8'>
+            <main className='flex-grow w-full'>
+              <Component {...pageProps} />
+            </main>
 
-          <AppFooter />
-        </section>
-      </SettingsProvider>
+            <AppFooter />
+          </section>
+        </SettingsProvider>
+      </SpeculativePokemonProvider>
 
       <Analytics />
     </React.StrictMode>
@@ -72,6 +77,9 @@ App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
   const settings = getInitialSettings(appContext?.ctx);
 
   try {
+    const speculativePokemon =
+      (await get<PokemonID[]>('speculative_ids')) ?? [];
+
     const releaseBannerVersion = Number(
       await get<string>('release_banner_version'),
     );
@@ -99,6 +107,7 @@ App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
         shown: releaseBannerVersionHidden < releaseBannerVersion,
         content: releaseBannerContent,
       },
+      speculativePokemon,
     };
   } catch (err) {
     return {
@@ -108,6 +117,7 @@ App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
         shown: false,
         content: '',
       },
+      speculativePokemon: [],
     };
   }
 };

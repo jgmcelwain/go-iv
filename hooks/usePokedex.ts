@@ -10,9 +10,11 @@ import {
   PokemonID,
   searchPokmeonByName,
 } from '../data/pokedex';
+import { useSpeculativePokemon } from './useSpeculativePokemon';
 
 export function usePokedex() {
   const { settings } = useSettings();
+  const speculativePokemon = useSpeculativePokemon();
 
   const list = useMemo(
     () =>
@@ -20,10 +22,10 @@ export function usePokedex() {
         if (settings.showSpeculative === true) {
           return true;
         } else {
-          return pokemon.speculative !== true;
+          return speculativePokemon.includes(pokemon.id) === false;
         }
       }),
-    [settings.showSpeculative],
+    [settings.showSpeculative, speculativePokemon],
   );
 
   const byName = useCallback(
