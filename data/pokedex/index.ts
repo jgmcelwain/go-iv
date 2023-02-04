@@ -70,8 +70,8 @@ export function searchPokmeonByName(query: string, list: Pokemon[] = POKEDEX) {
 
   const matches = list.filter((pokemon) => {
     return (
-      isSubsequence(lowerCaseQuery, pokemon.name.toLowerCase()) ||
-      pokemon.aliases?.includes(lowerCaseQuery)
+      pokemon.aliases?.includes(lowerCaseQuery) ||
+      isSubsequence(lowerCaseQuery, pokemon.name.toLowerCase())
     );
   });
 
