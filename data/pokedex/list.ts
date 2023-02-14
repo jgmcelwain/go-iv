@@ -1585,6 +1585,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'slowpoke_galarian',
+    dexNumber: 79,
+    name: 'Slowpoke (Galarian)',
+    stats: {
+      atk: 109,
+      def: 98,
+      sta: 207,
+    },
+    types: ['psychic'],
+    family: {
+      id: 'slowpoke_galarian',
+      stage: 1,
+    },
+  },
+  {
     id: 'slowbro',
     dexNumber: 80,
     name: 'Slowbro',
@@ -1596,6 +1611,21 @@ export const POKEDEX: Pokemon[] = [
     types: ['water', 'psychic'],
     family: {
       id: 'slowpoke',
+      stage: 2,
+    },
+  },
+  {
+    id: 'slowbro_galarian',
+    dexNumber: 79,
+    name: 'Slowbro (Galarian)',
+    stats: {
+      atk: 182,
+      def: 156,
+      sta: 216,
+    },
+    types: ['poison', 'psychic'],
+    family: {
+      id: 'slowpoke_galarian',
       stage: 2,
     },
   },
@@ -3771,6 +3801,21 @@ export const POKEDEX: Pokemon[] = [
     types: ['water', 'psychic'],
     family: {
       id: 'slowpoke',
+      stage: 2,
+    },
+  },
+  {
+    id: 'slowking_galarian',
+    dexNumber: 79,
+    name: 'Slowking (Galarian)',
+    stats: {
+      atk: 190,
+      def: 180,
+      sta: 216,
+    },
+    types: ['poison', 'psychic'],
+    family: {
+      id: 'slowpoke_galarian',
       stage: 2,
     },
   },
