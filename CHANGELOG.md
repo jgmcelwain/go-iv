@@ -1,4 +1,11 @@
 
+## [2.41.0](https://github.com/jgmcelwain/pvpiv/compare/v2.40.1...v2.41.0) (2023-02-14)
+
+
+### Features
+
+* add galarian slowpoke family ([0c79809](https://github.com/jgmcelwain/pvpiv/commit/0c79809b35aab0d262dbca0d67d4686bd46106e1))
+
 ### [2.40.1](https://github.com/jgmcelwain/pvpiv/compare/v2.40.0...v2.40.1) (2023-02-04)
 
 
