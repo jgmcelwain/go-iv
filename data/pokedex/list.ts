@@ -7064,9 +7064,9 @@ export const POKEDEX: Pokemon[] = [
     dexNumber: 382,
     name: 'Kyogre (Primal)',
     stats: {
-      atk: 331,
-      def: 251,
-      sta: 205,
+      atk: 353,
+      def: 268,
+      sta: 218,
     },
     types: ['water'],
     floor: 1,
@@ -7096,11 +7096,11 @@ export const POKEDEX: Pokemon[] = [
     dexNumber: 383,
     name: 'Groudon (Primal)',
     stats: {
-      atk: 331,
-      def: 251,
-      sta: 205,
+      atk: 353,
+      def: 268,
+      sta: 218,
     },
-    types: ['ground'],
+    types: ['ground', 'fire'],
     floor: 1,
     family: {
       id: 'groudon',
