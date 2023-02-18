@@ -1,4 +1,11 @@
 
+### [2.41.1](https://github.com/jgmcelwain/pvpiv/compare/v2.41.0...v2.41.1) (2023-02-18)
+
+
+### Bug Fixes
+
+* correct stats for primal kyogre/groudon ([62d65f9](https://github.com/jgmcelwain/pvpiv/commit/62d65f9f954c5aa14c7902094a71eafaa434801d))
+
 ## [2.41.0](https://github.com/jgmcelwain/pvpiv/compare/v2.40.1...v2.41.0) (2023-02-14)
 
 
