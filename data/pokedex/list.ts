@@ -3038,6 +3038,38 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'mewtwo_mega_x_3',
+    dexNumber: 150,
+    name: 'Mewtwo (Mega X, 3% nerf)',
+    stats: {
+      atk: 399,
+      def: 215,
+      sta: 228,
+    },
+    types: ['psychic'],
+    floor: 1,
+    family: {
+      id: 'mewtwo',
+      stage: 3,
+    },
+  },
+  {
+    id: 'mewtwo_mega_y_3',
+    dexNumber: 150,
+    name: 'Mewtwo (Mega Y, 3% nerf)',
+    stats: {
+      atk: 413,
+      def: 223,
+      sta: 228,
+    },
+    types: ['psychic'],
+    floor: 1,
+    family: {
+      id: 'mewtwo',
+      stage: 3,
+    },
+  },
+  {
     id: 'mew',
     dexNumber: 151,
     name: 'Mew',
@@ -7137,6 +7169,22 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'rayquaza',
       stage: 2,
+    },
+  },
+  {
+    id: 'rayquaza_mega_3',
+    dexNumber: 384,
+    name: 'Rayquaza (Mega, 3% nerf)',
+    stats: {
+      atk: 377,
+      def: 210,
+      sta: 227,
+    },
+    types: ['dragon', 'flying'],
+    floor: 1,
+    family: {
+      id: 'rayquaza',
+      stage: 3,
     },
   },
   {
