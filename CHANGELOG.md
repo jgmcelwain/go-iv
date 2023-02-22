@@ -1,4 +1,11 @@
 
+## [2.42.0](https://github.com/jgmcelwain/pvpiv/compare/v2.41.1...v2.42.0) (2023-02-22)
+
+
+### Features
+
+* add 3% nerfed rayquaza, mewtwo x/y ([5fce9d0](https://github.com/jgmcelwain/pvpiv/commit/5fce9d067a582128c999dac9bcee62f04e2587b5))
+
 ### [2.41.1](https://github.com/jgmcelwain/pvpiv/compare/v2.41.0...v2.41.1) (2023-02-18)
 
 
