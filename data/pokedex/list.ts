@@ -15440,6 +15440,51 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'gimmighoul_roaming',
+    dexNumber: 928,
+    name: 'Gimmighoul (Roaming)',
+    stats: {
+      atk: 140,
+      def: 76,
+      sta: 128,
+    },
+    types: ['ghost'],
+    family: {
+      id: 'gimmighoul',
+      stage: 1,
+    },
+  },
+  {
+    id: 'gimmighoul_chest',
+    dexNumber: 928,
+    name: 'Gimmighoul (Chest)',
+    stats: {
+      atk: 121,
+      def: 122,
+      sta: 128,
+    },
+    types: ['ghost'],
+    family: {
+      id: 'gimmighoul',
+      stage: 1,
+    },
+  },
+  {
+    id: 'gholdengo',
+    dexNumber: 928,
+    name: 'Gholdengo',
+    stats: {
+      atk: 252,
+      def: 190,
+      sta: 202,
+    },
+    types: ['steel', 'ghost'],
+    family: {
+      id: 'gimmighoul',
+      stage: 2,
+    },
+  },
+  {
     id: 'kingambit',
     dexNumber: 1008,
     name: 'Kingambit',
