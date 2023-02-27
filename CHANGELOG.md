@@ -1,4 +1,11 @@
 
+## [2.43.0](https://github.com/jgmcelwain/pvpiv/compare/v2.42.0...v2.43.0) (2023-02-27)
+
+
+### Features
+
+* add gimmighoul family ([742929f](https://github.com/jgmcelwain/pvpiv/commit/742929f48b22795373025b48658d34d8ddbd6d03))
+
 ## [2.42.0](https://github.com/jgmcelwain/pvpiv/compare/v2.41.1...v2.42.0) (2023-02-22)
 
 
