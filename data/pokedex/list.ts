@@ -9036,7 +9036,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['grass'],
     floor: 10,
     family: {
-      id: 'shaymin_land',
+      id: 'shaymin',
       stage: 1,
     },
   },
@@ -9052,8 +9052,8 @@ export const POKEDEX: Pokemon[] = [
     types: ['grass', 'flying'],
     floor: 10,
     family: {
-      id: 'shaymin_sky',
-      stage: 1,
+      id: 'shaymin',
+      stage: 2,
     },
   },
   {
