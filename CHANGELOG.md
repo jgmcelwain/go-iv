@@ -1,4 +1,11 @@
 
+## [2.44.0](https://github.com/jgmcelwain/pvpiv/compare/v2.43.0...v2.44.0) (2023-04-20)
+
+
+### Features
+
+* allow swapping between shaymin formes ([e6bb480](https://github.com/jgmcelwain/pvpiv/commit/e6bb48072b027d06e24a79e5497b5f0b47664d30))
+
 ## [2.43.0](https://github.com/jgmcelwain/pvpiv/compare/v2.42.0...v2.43.0) (2023-02-27)
 
 
