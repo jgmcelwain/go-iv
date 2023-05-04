@@ -9,7 +9,7 @@ import CandidateLeagueContent from './CandidateLeagueContent';
 const CandidateLeague: FC<{ league: League }> = ({ league }) => {
   return (
     <LeagueContextProvider league={league}>
-      <div className='w-full sm:overflow-hidden shadow-xl sm:rounded-lg'>
+      <div className='w-full sm:overflow-hidden sm:shadow-md sm:shadow-gray-100 sm:dark:shadow-xl sm:dark:shadow-gray-900 sm:rounded-lg border-y border-gray-200 dark:border-transparent sm:border'>
         <CandidateLeagueHeader />
 
         <CandidateLeagueContent />

@@ -14,7 +14,9 @@ const CandidateBuilderIVs: FC = () => {
     <div className='grid grid-cols-3 gap-2 mr-6'>
       {STATS.map((stat) => (
         <label key={stat.key} className='block mb-2'>
-          <span className='text-xs text-gray-400'>{stat.name} IV</span>
+          <span className='text-xs text-gray-500 dark:text-gray-400'>
+            {stat.name} IV
+          </span>
 
           <select
             onChange={(evt) =>
@@ -27,7 +29,7 @@ const CandidateBuilderIVs: FC = () => {
               })
             }
             value={candidate.ivs[stat.key]}
-            className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-900'
+            className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-50 dark:ring-offset-gray-900'
           >
             {IV_RANGE.filter((iv) => iv >= candidate.floor)
               [settings.invertIVDropdown ? 'reverse' : 'concat']()

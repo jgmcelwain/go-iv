@@ -38,7 +38,7 @@ export default function CandidateBuilderStickyHeader() {
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className='rounded-full focus-visible-ring ring-offset-gray-800 p-1'
+        className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
       >
         <PencilIcon className='w-5 h-5 text-gray-300' aria-hidden />
 

@@ -11,7 +11,7 @@ const CandidateBuilderIVFloor: FC = () => {
 
   return (
     <label className='block mb-2 mr-6'>
-      <span className='text-xs text-gray-400'>IV Floor</span>
+      <span className='text-xs text-gray-500 dark:text-gray-400'>IV Floor</span>
 
       <select
         onChange={(evt) =>
@@ -21,7 +21,7 @@ const CandidateBuilderIVFloor: FC = () => {
           })
         }
         value={candidate.floor}
-        className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-900'
+        className='block w-full mt-1 rounded form-select focus-ring ring-offset-gray-50 dark:ring-offset-gray-900'
       >
         {IV_FLOORS.filter((floor) => {
           if (settings.allowImpossibleFloors) {

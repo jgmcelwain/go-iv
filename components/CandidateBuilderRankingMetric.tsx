@@ -27,7 +27,7 @@ const CandidateBuilderRankingMetric: FC = () => {
 
   return settings.showRankingMetric ? (
     <label className='block mb-2 mr-6'>
-      <span className='text-xs text-gray-400'>Rank By</span>
+      <span className='text-xs text-gray-500 dark:text-gray-400'>Rank By</span>
 
       <select
         onChange={(evt) =>
@@ -37,7 +37,7 @@ const CandidateBuilderRankingMetric: FC = () => {
           })
         }
         value={candidate.rankingMetric}
-        className='block w-full mt-1 mr-6 rounded form-select focus-ring ring-offset-gray-900'
+        className='block w-full mt-1 mr-6 rounded form-select focus-ring ring-offset-gray-50 dark:ring-offset-gray-900'
       >
         {RANKABLE_METRICS.map((rankableMetric) => (
           <option key={rankableMetric.key} value={rankableMetric.key}>

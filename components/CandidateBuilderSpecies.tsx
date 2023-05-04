@@ -63,7 +63,7 @@ const CandidateBuilderSpecies: FC = () => {
         type='text'
         list='pokemon-list'
         defaultValue={candidate.species.name}
-        className='block w-full mt-1 rounded form-input focus-visible-ring ring-offset-gray-900'
+        className='block w-full mt-1 rounded form-input focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900'
         placeholder='Pokémon Name'
         ref={input}
       />

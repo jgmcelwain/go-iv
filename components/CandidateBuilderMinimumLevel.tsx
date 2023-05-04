@@ -25,7 +25,9 @@ const CandidateBuilderMinimumLevel: FC = () => {
 
   return settings.showMinimumLevel ? (
     <label className='block mb-2 mr-6'>
-      <span className='text-xs text-gray-400'>Minimum Level</span>
+      <span className='text-xs text-gray-500 dark:text-gray-400'>
+        Minimum Level
+      </span>
 
       <select
         onChange={(evt) =>
@@ -35,7 +37,7 @@ const CandidateBuilderMinimumLevel: FC = () => {
           })
         }
         value={candidate.minimumLevel}
-        className='block w-full mt-1 mr-6 rounded form-select focus-ring ring-offset-gray-900'
+        className='block w-full mt-1 mr-6 rounded form-select focus-ring ring-offset-gray-50 dark:ring-offset-gray-900'
       >
         <option value={1}>1</option>
         <option value={15}>15 - Research</option>

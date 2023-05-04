@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply bg-gray-900;
+  @apply bg-gray-50 dark:bg-gray-900;
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
@@ -12,9 +12,14 @@ body {
 }
 
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 ring-offset-2 ring-blue-600;
+  @apply focus:outline-none focus:border-inherit focus:ring-2 ring-offset-2 ring-blue-600;
 }
 
 .focus-visible-ring {
-  @apply focus:outline-none focus-visible:ring-2 ring-offset-2 ring-blue-600;
+  @apply focus:outline-none focus:border-inherit focus-visible:ring-2 ring-offset-2 ring-blue-600;
+}
+
+.form-select,
+.form-input {
+  @apply bg-white border border-gray-200 dark:border-gray-700 dark:bg-gray-800;
 }

@@ -31,7 +31,7 @@ const SettingsSectionItemLeaguePosition: FC<{ league: League }> = ({
         }}
         disabled={settings.leagueOrder.indexOf(league.key) === 0}
         aria-label={`Move ${league.name} up`}
-        className='text-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed p-0.5 rounded-full focus-visible-ring ring-offset-gray-800'
+        className='text-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed p-0.5 rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800'
       >
         <ChevronDoubleUpIcon className='w-4 h-4' aria-hidden />
       </button>
@@ -57,7 +57,7 @@ const SettingsSectionItemLeaguePosition: FC<{ league: League }> = ({
           settings.leagueOrder.length - 1
         }
         aria-label={`Move ${league.name} down`}
-        className='text-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed p-1 rounded-full focus-visible-ring ring-offset-gray-800'
+        className='text-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed p-1 rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800'
       >
         <ChevronDoubleDownIcon className='w-4 h-4' aria-hidden />
       </button>
