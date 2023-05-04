@@ -1,4 +1,11 @@
 
+## [2.45.0](https://github.com/jgmcelwain/pvpiv/compare/v2.44.0...v2.45.0) (2023-05-04)
+
+
+### Features
+
+* light mode support ([5e904ab](https://github.com/jgmcelwain/pvpiv/commit/5e904ab537a19b45edfe96a15e9a97cb4dec842b))
+
 ## [2.44.0](https://github.com/jgmcelwain/pvpiv/compare/v2.43.0...v2.44.0) (2023-04-20)
 
 
