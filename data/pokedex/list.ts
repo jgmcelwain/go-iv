@@ -12904,9 +12904,24 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'zygarde',
+    id: 'zygarde_10',
     dexNumber: 718,
-    name: 'Zygarde',
+    name: 'Zygarde (10%)',
+    stats: {
+      atk: 205,
+      def: 173,
+      sta: 144,
+    },
+    types: ['dragon', 'ground'],
+    family: {
+      id: 'zygarde',
+      stage: 1,
+    },
+  },
+  {
+    id: 'zygarde_50',
+    dexNumber: 718,
+    name: 'Zygarde (50%)',
     stats: {
       atk: 203,
       def: 232,
@@ -12915,7 +12930,22 @@ export const POKEDEX: Pokemon[] = [
     types: ['dragon', 'ground'],
     family: {
       id: 'zygarde',
-      stage: 1,
+      stage: 2,
+    },
+  },
+  {
+    id: 'zygarde_complete',
+    dexNumber: 718,
+    name: 'Zygarde (Complete)',
+    stats: {
+      atk: 184,
+      def: 207,
+      sta: 389,
+    },
+    types: ['dragon', 'ground'],
+    family: {
+      id: 'zygarde',
+      stage: 3,
     },
   },
   {
