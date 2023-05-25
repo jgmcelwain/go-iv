@@ -1,4 +1,11 @@
 
+## [2.46.0](https://github.com/jgmcelwain/pvpiv/compare/v2.45.0...v2.46.0) (2023-05-25)
+
+
+### Features
+
+* add 10% and comlpete Zygarde forms ([b521455](https://github.com/jgmcelwain/pvpiv/commit/b521455afc92e875cc14d3afbc0568b0e4fefb9b))
+
 ## [2.45.0](https://github.com/jgmcelwain/pvpiv/compare/v2.44.0...v2.45.0) (2023-05-04)
 
 
