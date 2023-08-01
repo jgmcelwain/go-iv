@@ -12958,6 +12958,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 137,
     },
     types: ['rock', 'fairy'],
+    floor: 10,
     family: {
       id: 'diancie',
       stage: 1,
@@ -12973,9 +12974,10 @@ export const POKEDEX: Pokemon[] = [
       sta: 137,
     },
     types: ['rock', 'fairy'],
+    floor: 10,
     family: {
       id: 'diancie',
-      stage: 1,
+      stage: 2,
     },
   },
   {
