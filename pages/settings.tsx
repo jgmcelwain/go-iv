@@ -93,7 +93,7 @@ const SettingsPage: FC = () => {
             }
             value={settings.showSpeculative}
             label='Show Speculative Pokémon'
-            description='Unreleased Generations, Forms and Mega Evolutions.'
+            description='Unreleased Generations, Forms and Mega Evolutions. For some speculative Pokémon this will include multiple variations with different stat nerfs based on similar cases in the past.'
           />
         </SettingsSectionItem>
 
