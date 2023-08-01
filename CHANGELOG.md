@@ -1,4 +1,11 @@
 
+### [2.47.1](https://github.com/jgmcelwain/pvpiv/compare/v2.47.0...v2.47.1) (2023-08-01)
+
+
+### Bug Fixes
+
+* correct iv floor for diancie ([fa42a60](https://github.com/jgmcelwain/pvpiv/commit/fa42a60133d748db52a36a4e67dd68a7f91f9c95))
+
 ## [2.47.0](https://github.com/jgmcelwain/pvpiv/compare/v2.46.0...v2.47.0) (2023-08-01)
 
 
