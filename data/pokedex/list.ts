@@ -12964,6 +12964,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'diancie_mega',
+    dexNumber: 719,
+    name: 'Diancie (Mega)',
+    stats: {
+      atk: 342,
+      def: 235,
+      sta: 137,
+    },
+    types: ['rock', 'fairy'],
+    family: {
+      id: 'diancie',
+      stage: 1,
+    },
+  },
+  {
     id: 'hoopa_confined',
     dexNumber: 720,
     name: 'Hoopa (Confined)',
