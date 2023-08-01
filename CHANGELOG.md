@@ -1,4 +1,12 @@
 
+## [2.47.0](https://github.com/jgmcelwain/pvpiv/compare/v2.46.0...v2.47.0) (2023-08-01)
+
+
+### Features
+
+* add mega diancie ([0c99fb9](https://github.com/jgmcelwain/pvpiv/commit/0c99fb988d68c6d2decaf8e7f408729ab28c7367))
+* improve description of Speculative Pokemon setting ([050294a](https://github.com/jgmcelwain/pvpiv/commit/050294aed0bc0aa43def2694906e2460f7180256))
+
 ## [2.46.0](https://github.com/jgmcelwain/pvpiv/compare/v2.45.0...v2.46.0) (2023-05-25)
 
 
