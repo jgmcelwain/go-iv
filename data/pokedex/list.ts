@@ -7158,7 +7158,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'rayquaza_mega',
     dexNumber: 384,
-    name: 'Rayquaza (Mega, 3% nerf)',
+    name: 'Rayquaza (Mega)',
     stats: {
       atk: 377,
       def: 210,
@@ -7169,22 +7169,6 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'rayquaza',
       stage: 2,
-    },
-  },
-  {
-    id: 'rayquaza_mega_9',
-    dexNumber: 384,
-    name: 'Rayquaza (Mega, 9% nerf)',
-    stats: {
-      atk: 354,
-      def: 197,
-      sta: 213,
-    },
-    types: ['dragon', 'flying'],
-    floor: 1,
-    family: {
-      id: 'rayquaza',
-      stage: 3,
     },
   },
   {
