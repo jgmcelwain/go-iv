@@ -8770,6 +8770,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'rotom_appliance',
+    dexNumber: 479,
+    name: 'Rotom (Appliance)',
+    stats: {
+      atk: 204,
+      def: 219,
+      sta: 137,
+    },
+    types: ['electric'],
+    family: {
+      id: 'rotom',
+      stage: 2,
+    },
+  },
+  {
     id: 'uxie',
     dexNumber: 480,
     name: 'Uxie',
