@@ -1,4 +1,16 @@
 
+## [2.48.0](https://github.com/jgmcelwain/pvpiv/compare/v2.47.1...v2.48.0) (2023-08-07)
+
+
+### Features
+
+* appliance rotom ([fda2a31](https://github.com/jgmcelwain/pvpiv/commit/fda2a31fcff76f35f70187360641bd6ef6eb9468))
+
+
+### Bug Fixes
+
+* remove 9% nerf mega ray ([a7099b7](https://github.com/jgmcelwain/pvpiv/commit/a7099b7c5491f46f640790eacc101c6b81b9bc72))
+
 ### [2.47.1](https://github.com/jgmcelwain/pvpiv/compare/v2.47.0...v2.47.1) (2023-08-01)
 
 
