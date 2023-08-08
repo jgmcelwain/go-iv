@@ -22,7 +22,10 @@ export function usePokedex() {
         if (settings.showSpeculative === true) {
           return true;
         } else {
-          return speculativePokemon.includes(pokemon.id) === false;
+          return (
+            speculativePokemon.includes(pokemon.id) === false &&
+            pokemon.dexNumber < 906
+          );
         }
       }),
     [settings.showSpeculative, speculativePokemon],

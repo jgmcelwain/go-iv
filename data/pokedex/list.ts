@@ -2580,6 +2580,51 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'tauros_paldean',
+    dexNumber: 128,
+    name: 'Tauros (Paldean)',
+    stats: {
+      atk: 210,
+      def: 193,
+      sta: 181,
+    },
+    types: ['fighting'],
+    family: {
+      id: 'tauros_paldean',
+      stage: 1,
+    },
+  },
+  {
+    id: 'tauros_paldean_fire',
+    dexNumber: 128,
+    name: 'Tauros (Paldean, Fire)',
+    stats: {
+      atk: 210,
+      def: 193,
+      sta: 181,
+    },
+    types: ['fighting', 'fire'],
+    family: {
+      id: 'tauros_paldean',
+      stage: 2,
+    },
+  },
+  {
+    id: 'tauros_paldean_water',
+    dexNumber: 128,
+    name: 'Tauros (Paldean, Water)',
+    stats: {
+      atk: 210,
+      def: 193,
+      sta: 181,
+    },
+    types: ['fighting', 'water'],
+    family: {
+      id: 'tauros_paldean',
+      stage: 2,
+    },
+  },
+  {
     id: 'magikarp',
     dexNumber: 129,
     name: 'Magikarp',
@@ -3758,6 +3803,21 @@ export const POKEDEX: Pokemon[] = [
     types: ['water', 'ground'],
     family: {
       id: 'wooper',
+      stage: 1,
+    },
+  },
+  {
+    id: 'wooper_paldean',
+    dexNumber: 194,
+    name: 'Wooper (Paldean)',
+    stats: {
+      atk: 75,
+      def: 66,
+      sta: 146,
+    },
+    types: ['poison', 'ground'],
+    family: {
+      id: 'wooper_paldean',
       stage: 1,
     },
   },
@@ -16135,7 +16195,7 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'spirgatito',
+    id: 'sprigatito',
     dexNumber: 906,
     name: 'Sprigatito',
     stats: {
@@ -16145,7 +16205,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['grass'],
     family: {
-      id: 'spirgatito',
+      id: 'sprigatito',
       stage: 1,
     },
   },
@@ -16160,7 +16220,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['grass'],
     family: {
-      id: 'spirgatito',
+      id: 'sprigatito',
       stage: 2,
     },
   },
@@ -16175,7 +16235,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['grass', 'dark'],
     family: {
-      id: 'spirgatito',
+      id: 'sprigatito',
       stage: 3,
     },
   },
@@ -16226,7 +16286,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'quaxly',
-    dexNumber: 909,
+    dexNumber: 912,
     name: 'Quaxly',
     stats: {
       atk: 120,
@@ -16241,7 +16301,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'quaxwell',
-    dexNumber: 910,
+    dexNumber: 913,
     name: 'Quaxwell',
     stats: {
       atk: 162,
@@ -16256,7 +16316,7 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'quaquaval',
-    dexNumber: 911,
+    dexNumber: 914,
     name: 'Quaquaval',
     stats: {
       atk: 236,
@@ -16270,23 +16330,1028 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'dudunsparce',
-    dexNumber: 917,
-    name: 'Dudunsparce',
+    id: 'lechonk',
+    dexNumber: 915,
+    name: 'Lechonk',
     stats: {
-      atk: 188,
-      def: 150,
-      sta: 268,
+      atk: 81,
+      def: 79,
+      sta: 144,
     },
     types: ['normal'],
     family: {
-      id: 'dunsparce',
+      id: 'lechonk',
+      stage: 1,
+    },
+  },
+  {
+    id: 'oinkologne_male',
+    dexNumber: 916,
+    name: 'Oinkologne (Male)',
+    stats: {
+      atk: 186,
+      def: 153,
+      sta: 242,
+    },
+    types: ['normal'],
+    family: {
+      id: 'lechonk',
+      stage: 2,
+    },
+  },
+  {
+    id: 'oinkologne_female',
+    dexNumber: 916.1,
+    name: 'Oinkologne (Female)',
+    stats: {
+      atk: 169,
+      def: 162,
+      sta: 251,
+    },
+    types: ['normal'],
+    family: {
+      id: 'lechonk',
+      stage: 2,
+    },
+  },
+  {
+    id: 'tarountula',
+    dexNumber: 917,
+    name: 'Tarountula',
+    stats: {
+      atk: 70,
+      def: 77,
+      sta: 111,
+    },
+    types: ['bug'],
+    family: {
+      id: 'tarountula',
+      stage: 1,
+    },
+  },
+  {
+    id: 'spidops',
+    dexNumber: 918,
+    name: 'Spidops',
+    stats: {
+      atk: 139,
+      def: 166,
+      sta: 155,
+    },
+    types: ['bug'],
+    family: {
+      id: 'tarountula',
+      stage: 2,
+    },
+  },
+  {
+    id: 'nymble',
+    dexNumber: 919,
+    name: 'Nymble',
+    stats: {
+      atk: 81,
+      def: 65,
+      sta: 107,
+    },
+    types: ['bug'],
+    family: {
+      id: 'nymble',
+      stage: 1,
+    },
+  },
+  {
+    id: 'lokix',
+    dexNumber: 920,
+    name: 'Lokix',
+    stats: {
+      atk: 199,
+      def: 144,
+      sta: 174,
+    },
+    types: ['bug', 'dark'],
+    family: {
+      id: 'nymble',
+      stage: 2,
+    },
+  },
+  {
+    id: 'pawmi',
+    dexNumber: 921,
+    name: 'Pawmi',
+    stats: {
+      atk: 95,
+      def: 45,
+      sta: 128,
+    },
+    types: ['electric'],
+    family: {
+      id: 'pawmi',
+      stage: 1,
+    },
+  },
+  {
+    id: 'pawmo',
+    dexNumber: 922,
+    name: 'Pawmo',
+    stats: {
+      atk: 147,
+      def: 82,
+      sta: 155,
+    },
+    types: ['electric', 'fighting'],
+    family: {
+      id: 'pawmi',
+      stage: 2,
+    },
+  },
+  {
+    id: 'pawmot',
+    dexNumber: 923,
+    name: 'Pawmot',
+    stats: {
+      atk: 232,
+      def: 141,
+      sta: 172,
+    },
+    types: ['electric', 'fighting'],
+    family: {
+      id: 'pawmi',
+      stage: 3,
+    },
+  },
+  {
+    id: 'tandemaus',
+    dexNumber: 924,
+    name: 'Tandemaus',
+    stats: {
+      atk: 98,
+      def: 90,
+      sta: 137,
+    },
+    types: ['normal'],
+    family: {
+      id: 'tandemaus',
+      stage: 1,
+    },
+  },
+  {
+    id: 'maushold',
+    dexNumber: 925,
+    name: 'Maushold',
+    stats: {
+      atk: 159,
+      def: 157,
+      sta: 179,
+    },
+    types: ['normal'],
+    family: {
+      id: 'tandemaus',
+      stage: 2,
+    },
+  },
+  {
+    id: 'fidough',
+    dexNumber: 926,
+    name: 'Fidough',
+    stats: {
+      atk: 102,
+      def: 126,
+      sta: 114,
+    },
+    types: ['fairy'],
+    family: {
+      id: 'fidough',
+      stage: 1,
+    },
+  },
+  {
+    id: 'dachsbun',
+    dexNumber: 927,
+    name: 'Dachsbun',
+    stats: {
+      atk: 159,
+      def: 212,
+      sta: 149,
+    },
+    types: ['fairy'],
+    family: {
+      id: 'fidough',
+      stage: 2,
+    },
+  },
+  {
+    id: 'smoliv',
+    dexNumber: 928,
+    name: 'Smoliv',
+    stats: {
+      atk: 100,
+      def: 89,
+      sta: 121,
+    },
+    types: ['grass', 'normal'],
+    family: {
+      id: 'smoliv',
+      stage: 1,
+    },
+  },
+  {
+    id: 'dolliv',
+    dexNumber: 929,
+    name: 'Dolliv',
+    stats: {
+      atk: 137,
+      def: 131,
+      sta: 141,
+    },
+    types: ['grass', 'normal'],
+    family: {
+      id: 'smoliv',
+      stage: 2,
+    },
+  },
+  {
+    id: 'arboliva',
+    dexNumber: 930,
+    name: 'Arboliva',
+    stats: {
+      atk: 219,
+      def: 189,
+      sta: 186,
+    },
+    types: ['grass', 'normal'],
+    family: {
+      id: 'smoliv',
+      stage: 3,
+    },
+  },
+  {
+    id: 'squawkabilly',
+    dexNumber: 931,
+    name: 'Squawkabilly',
+    stats: {
+      atk: 185,
+      def: 105,
+      sta: 193,
+    },
+    types: ['normal', 'flying'],
+    family: {
+      id: 'squawkabilly',
+      stage: 1,
+    },
+  },
+  {
+    id: 'nacli',
+    dexNumber: 932,
+    name: 'Nacli',
+    stats: {
+      atk: 95,
+      def: 108,
+      sta: 146,
+    },
+    types: ['rock'],
+    family: {
+      id: 'nacli',
+      stage: 1,
+    },
+  },
+  {
+    id: 'naclstack',
+    dexNumber: 933,
+    name: 'Naclstack',
+    stats: {
+      atk: 105,
+      def: 160,
+      sta: 155,
+    },
+    types: ['rock'],
+    family: {
+      id: 'nacli',
+      stage: 2,
+    },
+  },
+  {
+    id: 'garganacl',
+    dexNumber: 934,
+    name: 'Garganacl',
+    stats: {
+      atk: 171,
+      def: 212,
+      sta: 225,
+    },
+    types: ['rock'],
+    family: {
+      id: 'nacli',
+      stage: 3,
+    },
+  },
+  {
+    id: 'charcadet',
+    dexNumber: 935,
+    name: 'Charcadet',
+    stats: {
+      atk: 92,
+      def: 74,
+      sta: 120,
+    },
+    types: ['fire'],
+    family: {
+      id: 'charcadet',
+      stage: 1,
+    },
+  },
+  {
+    id: 'armarouge',
+    dexNumber: 936,
+    name: 'Armarouge',
+    stats: {
+      atk: 234,
+      def: 185,
+      sta: 198,
+    },
+    types: ['fire', 'psychic'],
+    family: {
+      id: 'charcadet',
+      stage: 2,
+    },
+  },
+  {
+    id: 'ceruledge',
+    dexNumber: 937,
+    name: 'Ceruledge',
+    stats: {
+      atk: 239,
+      def: 189,
+      sta: 181,
+    },
+    types: ['fire', 'ghost'],
+    family: {
+      id: 'charcadet',
+      stage: 2,
+    },
+  },
+  {
+    id: 'tadbulb',
+    dexNumber: 938,
+    name: 'Tadbulb',
+    stats: {
+      atk: 104,
+      def: 73,
+      sta: 156,
+    },
+    types: ['electric'],
+    family: {
+      id: 'tadbulb',
+      stage: 1,
+    },
+  },
+  {
+    id: 'bellibolt',
+    dexNumber: 939,
+    name: 'Bellibolt',
+    stats: {
+      atk: 184,
+      def: 165,
+      sta: 240,
+    },
+    types: ['electric'],
+    family: {
+      id: 'tadbulb',
+      stage: 2,
+    },
+  },
+  {
+    id: 'wattrel',
+    dexNumber: 940,
+    name: 'Wattrel',
+    stats: {
+      atk: 105,
+      def: 75,
+      sta: 120,
+    },
+    types: ['electric', 'flying'],
+    family: {
+      id: 'wattrel',
+      stage: 1,
+    },
+  },
+  {
+    id: 'kilowattrel',
+    dexNumber: 941,
+    name: 'Kilowattrel',
+    stats: {
+      atk: 221,
+      def: 132,
+      sta: 172,
+    },
+    types: ['electric', 'flying'],
+    family: {
+      id: 'wattrel',
+      stage: 2,
+    },
+  },
+  {
+    id: 'maschiff',
+    dexNumber: 942,
+    name: 'Maschiff',
+    stats: {
+      atk: 140,
+      def: 108,
+      sta: 155,
+    },
+    types: ['dark'],
+    family: {
+      id: 'maschiff',
+      stage: 1,
+    },
+  },
+  {
+    id: 'mabosstiff',
+    dexNumber: 943,
+    name: 'Mabosstiff',
+    stats: {
+      atk: 230,
+      def: 168,
+      sta: 190,
+    },
+    types: ['dark'],
+    family: {
+      id: 'maschiff',
+      stage: 2,
+    },
+  },
+  {
+    id: 'shroodle',
+    dexNumber: 944,
+    name: 'Shroodle',
+    stats: {
+      atk: 124,
+      def: 70,
+      sta: 120,
+    },
+    types: ['poison', 'normal'],
+    family: {
+      id: 'shroodle',
+      stage: 1,
+    },
+  },
+  {
+    id: 'grafaiai',
+    dexNumber: 945,
+    name: 'Grafaiai',
+    stats: {
+      atk: 199,
+      def: 149,
+      sta: 160,
+    },
+    types: ['poison', 'normal'],
+    family: {
+      id: 'shroodle',
+      stage: 2,
+    },
+  },
+  {
+    id: 'bramblin',
+    dexNumber: 946,
+    name: 'Bramblin',
+    stats: {
+      atk: 121,
+      def: 64,
+      sta: 120,
+    },
+    types: ['grass', 'ghost'],
+    family: {
+      id: 'bramblin',
+      stage: 1,
+    },
+  },
+  {
+    id: 'bramleghast',
+    dexNumber: 947,
+    name: 'Bramleghast',
+    stats: {
+      atk: 228,
+      def: 144,
+      sta: 146,
+    },
+    types: ['grass', 'ghost'],
+    family: {
+      id: 'bramblin',
+      stage: 2,
+    },
+  },
+  {
+    id: 'toedscool',
+    dexNumber: 948,
+    name: 'Toedscool',
+    stats: {
+      atk: 97,
+      def: 149,
+      sta: 120,
+    },
+    types: ['ground', 'grass'],
+    family: {
+      id: 'toedscool',
+      stage: 1,
+    },
+  },
+  {
+    id: 'toedscruel',
+    dexNumber: 949,
+    name: 'Toedscruel',
+    stats: {
+      atk: 166,
+      def: 209,
+      sta: 190,
+    },
+    types: ['ground', 'grass'],
+    family: {
+      id: 'toedscool',
+      stage: 2,
+    },
+  },
+  {
+    id: 'klawf',
+    dexNumber: 950,
+    name: 'Klawf',
+    stats: {
+      atk: 184,
+      def: 185,
+      sta: 172,
+    },
+    types: ['rock'],
+    family: {
+      id: 'klawf',
+      stage: 1,
+    },
+  },
+  {
+    id: 'capsakid',
+    dexNumber: 951,
+    name: 'Capsakid',
+    stats: {
+      atk: 118,
+      def: 76,
+      sta: 137,
+    },
+    types: ['grass'],
+    family: {
+      id: 'capsakid',
+      stage: 1,
+    },
+  },
+  {
+    id: 'scovillain',
+    dexNumber: 952,
+    name: 'Scovillain',
+    stats: {
+      atk: 216,
+      def: 130,
+      sta: 163,
+    },
+    types: ['grass', 'fire'],
+    family: {
+      id: 'capsakid',
+      stage: 2,
+    },
+  },
+  {
+    id: 'rellor',
+    dexNumber: 953,
+    name: 'Rellor',
+    stats: {
+      atk: 86,
+      def: 108,
+      sta: 121,
+    },
+    types: ['bug'],
+    family: {
+      id: 'rellor',
+      stage: 1,
+    },
+  },
+  {
+    id: 'rabsca',
+    dexNumber: 954,
+    name: 'Rabsca',
+    stats: {
+      atk: 201,
+      def: 178,
+      sta: 181,
+    },
+    types: ['bug', 'psychic'],
+    family: {
+      id: 'rellor',
+      stage: 2,
+    },
+  },
+  {
+    id: 'flittle',
+    dexNumber: 955,
+    name: 'Flittle',
+    stats: {
+      atk: 105,
+      def: 60,
+      sta: 102,
+    },
+    types: ['psychic'],
+    family: {
+      id: 'flittle',
+      stage: 1,
+    },
+  },
+  {
+    id: 'espathra',
+    dexNumber: 956,
+    name: 'Espathra',
+    stats: {
+      atk: 204,
+      def: 127,
+      sta: 216,
+    },
+    types: ['psychic'],
+    family: {
+      id: 'flittle',
+      stage: 2,
+    },
+  },
+  {
+    id: 'tinkatink',
+    dexNumber: 957,
+    name: 'Tinkatink',
+    stats: {
+      atk: 85,
+      def: 110,
+      sta: 137,
+    },
+    types: ['fairy', 'steel'],
+    family: {
+      id: 'tinkatink',
+      stage: 1,
+    },
+  },
+  {
+    id: 'tinkatuff',
+    dexNumber: 958,
+    name: 'Tinkatuff',
+    stats: {
+      atk: 109,
+      def: 145,
+      sta: 163,
+    },
+    types: ['fairy', 'steel'],
+    family: {
+      id: 'tinkatink',
+      stage: 2,
+    },
+  },
+  {
+    id: 'tinkaton',
+    dexNumber: 959,
+    name: 'Tinkaton',
+    stats: {
+      atk: 155,
+      def: 196,
+      sta: 198,
+    },
+    types: ['fairy', 'steel'],
+    family: {
+      id: 'tinkatink',
+      stage: 3,
+    },
+  },
+  {
+    id: 'wiglet',
+    dexNumber: 960,
+    name: 'Wiglet',
+    stats: {
+      atk: 109,
+      def: 52,
+      sta: 67,
+    },
+    types: ['water'],
+    family: {
+      id: 'wiglet',
+      stage: 1,
+    },
+  },
+  {
+    id: 'wugtrio',
+    dexNumber: 961,
+    name: 'Wugtrio',
+    stats: {
+      atk: 205,
+      def: 136,
+      sta: 111,
+    },
+    types: ['water'],
+    family: {
+      id: 'wiglet',
+      stage: 2,
+    },
+  },
+  {
+    id: 'bombirdier',
+    dexNumber: 962,
+    name: 'Bombirdier',
+    stats: {
+      atk: 198,
+      def: 172,
+      sta: 172,
+    },
+    types: ['flying', 'dark'],
+    family: {
+      id: 'bombirdier',
+      stage: 1,
+    },
+  },
+  {
+    id: 'finizen',
+    dexNumber: 963,
+    name: 'Finizen',
+    stats: {
+      atk: 90,
+      def: 80,
+      sta: 172,
+    },
+    types: ['water'],
+    family: {
+      id: 'finizen',
+      stage: 1,
+    },
+  },
+  {
+    id: 'palafin_zero',
+    dexNumber: 964,
+    name: 'Palafin (Zero)',
+    stats: {
+      atk: 143,
+      def: 144,
+      sta: 225,
+    },
+    types: ['water'],
+    family: {
+      id: 'finizen',
+      stage: 2,
+    },
+  },
+  {
+    id: 'palafin_hero',
+    dexNumber: 964,
+    name: 'Palafin (Hero)',
+    stats: {
+      atk: 293,
+      def: 179,
+      sta: 205,
+    },
+    types: ['water'],
+    family: {
+      id: 'finizen',
+      stage: 3,
+    },
+  },
+  {
+    id: 'varoom',
+    dexNumber: 965,
+    name: 'Varoom',
+    stats: {
+      atk: 123,
+      def: 107,
+      sta: 128,
+    },
+    types: ['steel', 'poison'],
+    family: {
+      id: 'varoom',
+      stage: 1,
+    },
+  },
+  {
+    id: 'revavroom',
+    dexNumber: 966,
+    name: 'Revavroom',
+    stats: {
+      atk: 229,
+      def: 168,
+      sta: 190,
+    },
+    types: ['steel', 'poison'],
+    family: {
+      id: 'varoom',
+      stage: 2,
+    },
+  },
+  {
+    id: 'cyclizar',
+    dexNumber: 967,
+    name: 'Cyclizar',
+    stats: {
+      atk: 205,
+      def: 142,
+      sta: 172,
+    },
+    types: ['dragon', 'normal'],
+    family: {
+      id: 'cyclizar',
+      stage: 1,
+    },
+  },
+  {
+    id: 'orthworm',
+    dexNumber: 968,
+    name: 'Orthworm',
+    stats: {
+      atk: 161,
+      def: 219,
+      sta: 172,
+    },
+    types: ['steel'],
+    family: {
+      id: 'orthworm',
+      stage: 1,
+    },
+  },
+  {
+    id: 'glimmet',
+    dexNumber: 969,
+    name: 'Glimmet',
+    stats: {
+      atk: 187,
+      def: 104,
+      sta: 134,
+    },
+    types: ['rock', 'poison'],
+    family: {
+      id: 'glimmet',
+      stage: 1,
+    },
+  },
+  {
+    id: 'glimmora',
+    dexNumber: 970,
+    name: 'Glimmora',
+    stats: {
+      atk: 246,
+      def: 177,
+      sta: 195,
+    },
+    types: ['rock', 'poison'],
+    family: {
+      id: 'glimmet',
+      stage: 2,
+    },
+  },
+  {
+    id: 'greavard',
+    dexNumber: 971,
+    name: 'Greavard',
+    stats: {
+      atk: 105,
+      def: 106,
+      sta: 137,
+    },
+    types: ['ghost'],
+    family: {
+      id: 'greavard',
+      stage: 1,
+    },
+  },
+  {
+    id: 'houndstone',
+    dexNumber: 972,
+    name: 'Houndstone',
+    stats: {
+      atk: 186,
+      def: 195,
+      sta: 176,
+    },
+    types: ['ghost'],
+    family: {
+      id: 'greavard',
+      stage: 2,
+    },
+  },
+  {
+    id: 'flamigo',
+    dexNumber: 973,
+    name: 'Flamigo',
+    stats: {
+      atk: 227,
+      def: 145,
+      sta: 193,
+    },
+    types: ['flying', 'fighting'],
+    family: {
+      id: 'flamigo',
+      stage: 1,
+    },
+  },
+  {
+    id: 'cetoddle',
+    dexNumber: 974,
+    name: 'Cetoddle',
+    stats: {
+      atk: 119,
+      def: 80,
+      sta: 239,
+    },
+    types: ['ice'],
+    family: {
+      id: 'cetoddle',
+      stage: 1,
+    },
+  },
+  {
+    id: 'cetitan',
+    dexNumber: 975,
+    name: 'Cetitan',
+    stats: {
+      atk: 208,
+      def: 123,
+      sta: 347,
+    },
+    types: ['ice'],
+    family: {
+      id: 'cetoddle',
+      stage: 2,
+    },
+  },
+  {
+    id: 'veluza',
+    dexNumber: 976,
+    name: 'Veluza',
+    stats: {
+      atk: 196,
+      def: 139,
+      sta: 207,
+    },
+    types: ['water', 'psychic'],
+    family: {
+      id: 'veluza',
+      stage: 1,
+    },
+  },
+  {
+    id: 'dondozo',
+    dexNumber: 977,
+    name: 'Dondozo',
+    stats: {
+      atk: 176,
+      def: 178,
+      sta: 312,
+    },
+    types: ['water'],
+    family: {
+      id: 'dondozo',
+      stage: 1,
+    },
+  },
+  {
+    id: 'tatsugiri',
+    dexNumber: 978,
+    name: 'Tatsugiri',
+    stats: {
+      atk: 226,
+      def: 166,
+      sta: 169,
+    },
+    types: ['dragon', 'water'],
+    family: {
+      id: 'tatsugiri',
+      stage: 1,
+    },
+  },
+  {
+    id: 'annihilape',
+    dexNumber: 979,
+    name: 'Annihilape',
+    stats: {
+      atk: 220,
+      def: 178,
+      sta: 242,
+    },
+    types: ['fighting', 'ghost'],
+    family: {
+      id: 'mankey',
+      stage: 3,
+    },
+  },
+  {
+    id: 'clodsire',
+    dexNumber: 980,
+    name: 'Clodsire',
+    stats: {
+      atk: 127,
+      def: 151,
+      sta: 277,
+    },
+    types: ['poison', 'ground'],
+    family: {
+      id: 'wooper_paldean',
       stage: 2,
     },
   },
   {
     id: 'farigiraf',
-    dexNumber: 928,
+    dexNumber: 981,
     name: 'Farigiraf',
     stats: {
       atk: 209,
@@ -16300,53 +17365,23 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'gimmighoul_roaming',
-    dexNumber: 928,
-    name: 'Gimmighoul (Roaming)',
+    id: 'dudunsparce',
+    dexNumber: 982,
+    name: 'Dudunsparce',
     stats: {
-      atk: 140,
-      def: 76,
-      sta: 128,
+      atk: 188,
+      def: 150,
+      sta: 268,
     },
-    types: ['ghost'],
+    types: ['normal'],
     family: {
-      id: 'gimmighoul',
-      stage: 1,
-    },
-  },
-  {
-    id: 'gimmighoul_chest',
-    dexNumber: 928,
-    name: 'Gimmighoul (Chest)',
-    stats: {
-      atk: 121,
-      def: 122,
-      sta: 128,
-    },
-    types: ['ghost'],
-    family: {
-      id: 'gimmighoul',
-      stage: 1,
-    },
-  },
-  {
-    id: 'gholdengo',
-    dexNumber: 928,
-    name: 'Gholdengo',
-    stats: {
-      atk: 252,
-      def: 190,
-      sta: 202,
-    },
-    types: ['steel', 'ghost'],
-    family: {
-      id: 'gimmighoul',
+      id: 'dunsparce',
       stage: 2,
     },
   },
   {
     id: 'kingambit',
-    dexNumber: 1008,
+    dexNumber: 983,
     name: 'Kingambit',
     stats: {
       atk: 238,
@@ -16360,18 +17395,423 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'annihilape',
-    dexNumber: 1010,
-    name: 'Annihilape',
+    id: 'great_tusk',
+    dexNumber: 984,
+    name: 'Great Tusk',
     stats: {
-      atk: 220,
-      def: 178,
-      sta: 242,
+      atk: 226,
+      def: 190,
+      sta: 229,
     },
-    types: ['fighting', 'ghost'],
+    types: ['ground', 'fighting'],
     family: {
-      id: 'mankey',
+      id: 'great_tusk',
+      stage: 1,
+    },
+  },
+  {
+    id: 'scream_tail',
+    dexNumber: 985,
+    name: 'Scream Tail',
+    stats: {
+      atk: 139,
+      def: 234,
+      sta: 251,
+    },
+    types: ['fairy', 'psychic'],
+    family: {
+      id: 'scream_tail',
+      stage: 1,
+    },
+  },
+  {
+    id: 'brute_bonnet',
+    dexNumber: 986,
+    name: 'Brute Bonnet',
+    stats: {
+      atk: 232,
+      def: 190,
+      sta: 244,
+    },
+    types: ['grass', 'dark'],
+    family: {
+      id: 'brute_bonnet',
+      stage: 1,
+    },
+  },
+  {
+    id: 'flutter_mane',
+    dexNumber: 987,
+    name: 'Flutter Mane',
+    stats: {
+      atk: 280,
+      def: 235,
+      sta: 146,
+    },
+    types: ['ghost', 'fairy'],
+    family: {
+      id: 'flutter_mane',
+      stage: 1,
+    },
+  },
+  {
+    id: 'slither_wing',
+    dexNumber: 988,
+    name: 'Slither Wing',
+    stats: {
+      atk: 261,
+      def: 193,
+      sta: 198,
+    },
+    types: ['bug', 'fighting'],
+    family: {
+      id: 'slither_wing',
+      stage: 1,
+    },
+  },
+  {
+    id: 'sandy_shocks',
+    dexNumber: 989,
+    name: 'Sandy Shocks',
+    stats: {
+      atk: 244,
+      def: 195,
+      sta: 198,
+    },
+    types: ['electric', 'ground'],
+    family: {
+      id: 'sandy_shocks',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_treads',
+    dexNumber: 990,
+    name: 'Iron Treads',
+    stats: {
+      atk: 227,
+      def: 216,
+      sta: 207,
+    },
+    types: ['ground', 'steel'],
+    family: {
+      id: 'iron_treads',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_bundle',
+    dexNumber: 991,
+    name: 'Iron Bundle',
+    stats: {
+      atk: 266,
+      def: 211,
+      sta: 148,
+    },
+    types: ['ice', 'water'],
+    family: {
+      id: 'iron_bundle',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_hands',
+    dexNumber: 992,
+    name: 'Iron Hands',
+    stats: {
+      atk: 223,
+      def: 161,
+      sta: 291,
+    },
+    types: ['fighting', 'electric'],
+    family: {
+      id: 'iron_hands',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_jugulis',
+    dexNumber: 993,
+    name: 'Iron Jugulis',
+    stats: {
+      atk: 249,
+      def: 179,
+      sta: 214,
+    },
+    types: ['dark', 'flying'],
+    family: {
+      id: 'iron_jugulis',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_moth',
+    dexNumber: 994,
+    name: 'Iron Moth',
+    stats: {
+      atk: 281,
+      def: 196,
+      sta: 190,
+    },
+    types: ['fire', 'poison'],
+    family: {
+      id: 'iron_moth',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_thorns',
+    dexNumber: 995,
+    name: 'Iron Thorns',
+    stats: {
+      atk: 250,
+      def: 200,
+      sta: 225,
+    },
+    types: ['rock', 'electric'],
+    family: {
+      id: 'iron_thorns',
+      stage: 1,
+    },
+  },
+  {
+    id: 'frigibax',
+    dexNumber: 996,
+    name: 'Frigibax',
+    stats: {
+      atk: 134,
+      def: 86,
+      sta: 163,
+    },
+    types: ['dragon', 'ice'],
+    family: {
+      id: 'frigibax',
+      stage: 1,
+    },
+  },
+  {
+    id: 'arctibax',
+    dexNumber: 997,
+    name: 'Arctibax',
+    stats: {
+      atk: 173,
+      def: 128,
+      sta: 207,
+    },
+    types: ['dragon', 'ice'],
+    family: {
+      id: 'frigibax',
+      stage: 2,
+    },
+  },
+  {
+    id: 'baxcalibur',
+    dexNumber: 998,
+    name: 'Baxcalibur',
+    stats: {
+      atk: 254,
+      def: 168,
+      sta: 229,
+    },
+    types: ['dragon', 'ice'],
+    family: {
+      id: 'frigibax',
       stage: 3,
+    },
+  },
+  {
+    id: 'gimmighoul_chest',
+    dexNumber: 999,
+    name: 'Gimmighoul (Chest)',
+    stats: {
+      atk: 121,
+      def: 122,
+      sta: 128,
+    },
+    types: ['ghost'],
+    family: {
+      id: 'gimmighoul',
+      stage: 1,
+    },
+  },
+  {
+    id: 'gimmighoul_roaming',
+    dexNumber: 999,
+    name: 'Gimmighoul (Roaming)',
+    stats: {
+      atk: 140,
+      def: 76,
+      sta: 128,
+    },
+    types: ['ghost'],
+    family: {
+      id: 'gimmighoul',
+      stage: 1,
+    },
+  },
+  {
+    id: 'gholdengo',
+    dexNumber: 1000,
+    name: 'Gholdengo',
+    stats: {
+      atk: 252,
+      def: 190,
+      sta: 202,
+    },
+    types: ['steel', 'ghost'],
+    family: {
+      id: 'gimmighoul',
+      stage: 2,
+    },
+  },
+  {
+    id: 'wo-chien',
+    dexNumber: 1001,
+    name: 'Wo-Chien',
+    stats: {
+      atk: 186,
+      def: 242,
+      sta: 198,
+    },
+    types: ['dark', 'grass'],
+    family: {
+      id: 'wo_chien',
+      stage: 1,
+    },
+  },
+  {
+    id: 'chien_pao',
+    dexNumber: 1002,
+    name: 'Chien-Pao',
+    stats: {
+      atk: 261,
+      def: 167,
+      sta: 190,
+    },
+    types: ['dark', 'ice'],
+    family: {
+      id: 'chien_pao',
+      stage: 1,
+    },
+  },
+  {
+    id: 'ting_lu',
+    dexNumber: 1003,
+    name: 'Ting-Lu',
+    stats: {
+      atk: 193,
+      def: 210,
+      sta: 321,
+    },
+    types: ['dark', 'ground'],
+    family: {
+      id: 'ting_lu',
+      stage: 1,
+    },
+  },
+  {
+    id: 'chi_yu',
+    dexNumber: 1004,
+    name: 'Chi-Yu',
+    stats: {
+      atk: 269,
+      def: 221,
+      sta: 146,
+    },
+    types: ['dark', 'fire'],
+    family: {
+      id: 'chi_yu',
+      stage: 1,
+    },
+  },
+  {
+    id: 'roaring_moon',
+    dexNumber: 1005,
+    name: 'Roaring Moon',
+    stats: {
+      atk: 254,
+      def: 178,
+      sta: 213,
+    },
+    types: ['dragon', 'dark'],
+    family: {
+      id: 'roaring_moon',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_valiant',
+    dexNumber: 1006,
+    name: 'Iron Valiant',
+    stats: {
+      atk: 279,
+      def: 171,
+      sta: 179,
+    },
+    types: ['fairy', 'fighting'],
+    family: {
+      id: 'iron_valiant',
+      stage: 1,
+    },
+  },
+  {
+    id: 'koraidon',
+    dexNumber: 1007,
+    name: 'Koraidon',
+    stats: {
+      atk: 263,
+      def: 223,
+      sta: 205,
+    },
+    types: ['fighting', 'dragon'],
+    family: {
+      id: 'koraidon',
+      stage: 1,
+    },
+  },
+  {
+    id: 'miraidon',
+    dexNumber: 1008,
+    name: 'Miraidon',
+    stats: {
+      atk: 263,
+      def: 223,
+      sta: 205,
+    },
+    types: ['electric', 'dragon'],
+    family: {
+      id: 'miraidon',
+      stage: 1,
+    },
+  },
+  {
+    id: 'walking_wake',
+    dexNumber: 1009,
+    name: 'Walking Wake',
+    stats: {
+      atk: 256,
+      def: 188,
+      sta: 223,
+    },
+    types: ['water', 'dragon'],
+    family: {
+      id: 'walking_wake',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_leaves',
+    dexNumber: 1010,
+    name: 'Iron Leaves',
+    stats: {
+      atk: 259,
+      def: 213,
+      sta: 207,
+    },
+    types: ['grass', 'psychic'],
+    family: {
+      id: 'iron_leaves',
+      stage: 1,
     },
   },
 ];
