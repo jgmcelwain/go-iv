@@ -15456,6 +15456,141 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'spirgatito',
+    dexNumber: 906,
+    name: 'Sprigatito',
+    stats: {
+      atk: 116,
+      def: 99,
+      sta: 120,
+    },
+    types: ['grass'],
+    family: {
+      id: 'spirgatito',
+      stage: 1,
+    },
+  },
+  {
+    id: 'floragato',
+    dexNumber: 907,
+    name: 'Floragato',
+    stats: {
+      atk: 157,
+      def: 128,
+      sta: 156,
+    },
+    types: ['grass'],
+    family: {
+      id: 'spirgatito',
+      stage: 2,
+    },
+  },
+  {
+    id: 'meowscarada',
+    dexNumber: 908,
+    name: 'Meowscarada',
+    stats: {
+      atk: 233,
+      def: 153,
+      sta: 183,
+    },
+    types: ['grass', 'dark'],
+    family: {
+      id: 'spirgatito',
+      stage: 3,
+    },
+  },
+  {
+    id: 'fuecoco',
+    dexNumber: 909,
+    name: 'Fuecoco',
+    stats: {
+      atk: 112,
+      def: 96,
+      sta: 167,
+    },
+    types: ['fire'],
+    family: {
+      id: 'fuecoco',
+      stage: 1,
+    },
+  },
+  {
+    id: 'crocalor',
+    dexNumber: 910,
+    name: 'Crocalor',
+    stats: {
+      atk: 162,
+      def: 134,
+      sta: 191,
+    },
+    types: ['fire'],
+    family: {
+      id: 'fuecoco',
+      stage: 2,
+    },
+  },
+  {
+    id: 'skeledirge',
+    dexNumber: 911,
+    name: 'Skeledirge',
+    stats: {
+      atk: 207,
+      def: 178,
+      sta: 232,
+    },
+    types: ['fire', 'ghost'],
+    family: {
+      id: 'fuecoco',
+      stage: 3,
+    },
+  },
+  {
+    id: 'quaxly',
+    dexNumber: 909,
+    name: 'Quaxly',
+    stats: {
+      atk: 120,
+      def: 86,
+      sta: 146,
+    },
+    types: ['water'],
+    family: {
+      id: 'quaxly',
+      stage: 1,
+    },
+  },
+  {
+    id: 'quaxwell',
+    dexNumber: 910,
+    name: 'Quaxwell',
+    stats: {
+      atk: 162,
+      def: 123,
+      sta: 172,
+    },
+    types: ['water'],
+    family: {
+      id: 'quaxly',
+      stage: 2,
+    },
+  },
+  {
+    id: 'quaquaval',
+    dexNumber: 911,
+    name: 'Quaquaval',
+    stats: {
+      atk: 236,
+      def: 159,
+      sta: 198,
+    },
+    types: ['water', 'fighting'],
+    family: {
+      id: 'quaxly',
+      stage: 3,
+    },
+  },
+  {
     id: 'dudunsparce',
     dexNumber: 917,
     name: 'Dudunsparce',
