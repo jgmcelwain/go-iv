@@ -1,4 +1,17 @@
 
+## [2.50.0](https://github.com/jgmcelwain/pvpiv/compare/v2.49.0...v2.50.0) (2023-08-08)
+
+
+### Features
+
+* add all paldean mons, hide behind speculative setting for now ([32692a1](https://github.com/jgmcelwain/pvpiv/commit/32692a1d5cd01f1c25463c48cccda68328e1b97c))
+
+
+### Bug Fixes
+
+* gen 7 formatting ([8e74f79](https://github.com/jgmcelwain/pvpiv/commit/8e74f795d443f5898be1905ebe00652a7ccde9d2))
+* typo in method name ([e39c062](https://github.com/jgmcelwain/pvpiv/commit/e39c062291eda2c8f1ebbb66012d36f7d71e692d))
+
 ## [2.49.0](https://github.com/jgmcelwain/pvpiv/compare/v2.48.0...v2.49.0) (2023-08-08)
 
 
