@@ -1,4 +1,11 @@
 
+## [2.49.0](https://github.com/jgmcelwain/pvpiv/compare/v2.48.0...v2.49.0) (2023-08-08)
+
+
+### Features
+
+* add gen 9 starters ([e965b2b](https://github.com/jgmcelwain/pvpiv/commit/e965b2b61ce346a7b6694471eb60f76b23c25e03))
+
 ## [2.48.0](https://github.com/jgmcelwain/pvpiv/compare/v2.47.1...v2.48.0) (2023-08-07)
 
 
