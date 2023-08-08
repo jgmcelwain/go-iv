@@ -65,7 +65,7 @@ export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
   return list.find((pokemon) => pokemon.name === name) ?? null;
 }
 
-export function searchPokmeonByName(query: string, list: Pokemon[] = POKEDEX) {
+export function searchPokemonByName(query: string, list: Pokemon[] = POKEDEX) {
   const lowerCaseQuery = query.toLowerCase();
 
   const matches = list.filter((pokemon) => {

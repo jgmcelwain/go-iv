@@ -8,7 +8,7 @@ import {
   getPokemonFamilyMembers,
   PokemonName,
   PokemonID,
-  searchPokmeonByName,
+  searchPokemonByName,
 } from '../data/pokedex';
 import { useSpeculativePokemon } from './useSpeculativePokemon';
 
@@ -38,7 +38,7 @@ export function usePokedex() {
     [list],
   );
   const searchByName = useCallback(
-    (query: string) => searchPokmeonByName(query, list),
+    (query: string) => searchPokemonByName(query, list),
     [list],
   );
 
