@@ -12,6 +12,7 @@ const defaultSettings: Settings = {
     level: true,
     rank: true,
     cp: true,
+    xlCandy: true,
     stats: true,
     statProduct: true,
     bulkProduct: true,
@@ -32,9 +33,21 @@ export function getInitialSettings(ctx: NextPageContext) {
       throw new Error('No settings cookie');
     }
 
-    const parsed = JSON.parse(cookies.settings) as Settings;
+    let parsed: Settings | undefined;
+    try {
+      parsed = JSON.parse(cookies.settings) as Settings;
+    } catch (err) {
+      parsed = undefined;
+    }
 
-    return { ...defaultSettings, ...parsed };
+    return {
+      ...defaultSettings,
+      ...parsed,
+      outputData: {
+        ...defaultSettings.outputData,
+        ...(parsed ?? {}).outputData,
+      },
+    };
   } catch (err) {
     return defaultSettings;
   }

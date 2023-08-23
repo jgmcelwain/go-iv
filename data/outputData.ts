@@ -2,6 +2,7 @@ export type OutputDataKey =
   | 'level'
   | 'rank'
   | 'cp'
+  | 'xlCandy'
   | 'stats'
   | 'statProduct'
   | 'bulkProduct'
@@ -17,6 +18,7 @@ export const OUTPUT_DATA: OutputField[] = [
   { key: 'rank', name: 'Rank' },
   { key: 'level', name: 'Level' },
   { key: 'cp', name: 'CP' },
+  { key: 'xlCandy', name: 'XL Candy' },
   {
     key: 'statProduct',
     name: 'Stat Product',

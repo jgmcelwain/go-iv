@@ -8,6 +8,7 @@ import { getRankedSpreadColors } from '../utils/getRankColors';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpreadsAtLevelCapDownload';
+import { xlCount } from '../lib/xlCount';
 
 function useDisplayedSpreads() {
   const { inspectedLevelCap } = useLeague();
@@ -80,6 +81,11 @@ function useColumns(candidate: Candidate) {
     {
       label: 'CP',
       value: (row) => row.cp,
+      priority: 2,
+    },
+    {
+      label: 'XL',
+      value: (row) => xlCount(row.level),
       priority: 2,
     },
     {

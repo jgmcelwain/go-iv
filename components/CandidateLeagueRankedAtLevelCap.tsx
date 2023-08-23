@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
 
+import { xlCount } from '../lib/xlCount';
 import { useSettings } from '../hooks/useSettings';
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
@@ -100,6 +101,12 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         </CandidateLeagueTableCells.Body>
       )}
 
+      {settings.outputData.cp && (
+        <CandidateLeagueTableCells.Body>
+          {candidateAtLevel.cp}
+        </CandidateLeagueTableCells.Body>
+      )}
+
       {settings.outputData.level && (
         <CandidateLeagueTableCells.Body>
           <>
@@ -109,9 +116,9 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         </CandidateLeagueTableCells.Body>
       )}
 
-      {settings.outputData.cp && (
+      {settings.outputData.xlCandy && (
         <CandidateLeagueTableCells.Body>
-          {candidateAtLevel.cp}
+          {xlCount(candidateAtLevel.level)}
         </CandidateLeagueTableCells.Body>
       )}
 

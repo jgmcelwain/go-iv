@@ -23,21 +23,27 @@ const CandidateLeagueRanked: FC = () => {
               </CandidateLeagueTableCells.Header>
             )}
 
-            {settings.outputData.level && (
-              <CandidateLeagueTableCells.Header>
-                Level
-              </CandidateLeagueTableCells.Header>
-            )}
-
             {settings.outputData.cp && (
               <CandidateLeagueTableCells.Header>
                 CP
               </CandidateLeagueTableCells.Header>
             )}
 
+            {settings.outputData.level && (
+              <CandidateLeagueTableCells.Header>
+                Level
+              </CandidateLeagueTableCells.Header>
+            )}
+
+            {settings.outputData.xlCandy && (
+              <CandidateLeagueTableCells.Header>
+                XL
+              </CandidateLeagueTableCells.Header>
+            )}
+
             {settings.outputData.statProduct && (
               <CandidateLeagueTableCells.Header widthClass='w-28'>
-                Prod
+                Stat Prod
               </CandidateLeagueTableCells.Header>
             )}
 
@@ -57,7 +63,7 @@ const CandidateLeagueRanked: FC = () => {
 
             {settings.outputData.bulkProduct && (
               <CandidateLeagueTableCells.Header widthClass='w-28'>
-                Bulk
+                Bulk Prod
               </CandidateLeagueTableCells.Header>
             )}
 
