@@ -1,4 +1,12 @@
 
+## [2.51.0](https://github.com/jgmcelwain/pvpiv/compare/v2.50.0...v2.51.0) (2023-08-23)
+
+
+### Features
+
+* util for generating XL count ([8b3ef36](https://github.com/jgmcelwain/pvpiv/commit/8b3ef36c088f74795452f2ff2cddc6d67cff3502))
+* xlCandy display ([1b105b6](https://github.com/jgmcelwain/pvpiv/commit/1b105b666251591039372723a8ff140346acea5f))
+
 ## [2.50.0](https://github.com/jgmcelwain/pvpiv/compare/v2.49.0...v2.50.0) (2023-08-08)
 
 
