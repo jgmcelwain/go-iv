@@ -45,13 +45,13 @@ export default function CandidateBuilderStickyHeader() {
   }
 
   return (
-    <div className='sm:hidden fixed top-0 h-14 flex justify-start items-center inset-x-0 z-10 bg-gray-800 px-4 space-y-0.5 border-b border-gray-700'>
-      <div className='grow text-gray-100'>
-        <p className='text-xs text-gray-100 font-title'>
+    <div className='sm:hidden fixed top-0 h-14 flex justify-start items-center inset-x-0 z-10 bg-white dark:bg-gray-800 px-4 space-y-0.5 border-b border-gray-100 dark:border-gray-700'>
+      <div className='grow text-gray-700 dark:text-gray-100'>
+        <p className='text-xs text-gray-700 dark:text-gray-100 font-title'>
           {candidate.species.name}, {candidate.ivs.atk}-{candidate.ivs.def}-
           {candidate.ivs.sta}
         </p>
-        <p className='text-[10px] text-gray-300'>
+        <p className='text-[10px] text-gray-600 dark:text-gray-300'>
           Ranked by {rankingMetric.name}, Min. IV {floor.value} ({floor.name})
           {settings.showMinimumLevel &&
             `, Min. Level ${candidate.minimumLevel}`}
@@ -62,7 +62,10 @@ export default function CandidateBuilderStickyHeader() {
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
       >
-        <PencilIcon className='w-5 h-5 text-gray-300' aria-hidden />
+        <PencilIcon
+          className='w-5 h-5 text-gray-600 dark:text-gray-300'
+          aria-hidden
+        />
 
         <span className='sr-only'>Edit Candidate</span>
       </button>
