@@ -1,4 +1,18 @@
 
+## [2.52.0](https://github.com/jgmcelwain/pvpiv/compare/v2.51.0...v2.52.0) (2023-08-29)
+
+
+### Features
+
+* remove StickyHeader element from page when not scrolled ([b7bdbfa](https://github.com/jgmcelwain/pvpiv/commit/b7bdbfaee6085d822a523c958cd73715fa66413e))
+
+
+### Bug Fixes
+
+* adjust column widths to better fix expected data length ([0e747c7](https://github.com/jgmcelwain/pvpiv/commit/0e747c7e5a16769ef155774e9f0b10271e3ccb67))
+* display values with correct locale formatting ([899f2e1](https://github.com/jgmcelwain/pvpiv/commit/899f2e1efa88ccd9726239686425bb4c48c92982))
+* don't use window outside effect ([7a2837b](https://github.com/jgmcelwain/pvpiv/commit/7a2837bf9f6c5277593430f54514643843701043))
+
 ## [2.51.0](https://github.com/jgmcelwain/pvpiv/compare/v2.50.0...v2.51.0) (2023-08-23)
 
 
