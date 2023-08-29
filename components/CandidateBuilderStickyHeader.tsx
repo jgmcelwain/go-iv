@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { IV_FLOORS } from '../data/ivFloor';
 import { RANKABLE_METRICS } from '../data/stat';
 
@@ -6,9 +7,30 @@ import { useSettings } from '../hooks/useSettings';
 
 import { PencilIcon } from '@heroicons/react/solid';
 
+function useIsScrolled() {
+  const [isScrolled, setIsScrolled] = useState(window.scrollY > 0);
+
+  useEffect(() => {
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 0);
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return isScrolled;
+}
+
 export default function CandidateBuilderStickyHeader() {
   const { candidate } = useCandidate();
   const { settings } = useSettings();
+
+  const isScrolled = useIsScrolled();
+  if (!isScrolled) return null;
 
   const rankingMetric = RANKABLE_METRICS.find(
     (metric) => metric.key === candidate.rankingMetric,
