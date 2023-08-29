@@ -8,12 +8,14 @@ import { useSettings } from '../hooks/useSettings';
 import { PencilIcon } from '@heroicons/react/solid';
 
 function useIsScrolled() {
-  const [isScrolled, setIsScrolled] = useState(window.scrollY > 0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
       setIsScrolled(window.scrollY > 0);
     }
+
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
