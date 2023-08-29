@@ -7,6 +7,7 @@ import { useSettings } from '../hooks/useSettings';
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
 import { useRankedSpreads } from '../hooks/useRankedSpreads';
+import { formatValue } from '../utils/formatValue';
 
 import { IV_FLOORS } from '../data/ivFloor';
 import { LevelCap } from '../data/levelCap';
@@ -110,7 +111,12 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       {settings.outputData.level && (
         <CandidateLeagueTableCells.Body>
           <>
-            {candidateAtLevel.level}
+            {formatValue(
+              candidateAtLevel.level,
+              Math.floor(candidateAtLevel.level) === candidateAtLevel.level
+                ? undefined
+                : 1,
+            )}
             <span className='text-xs'> /{levelCap.level}</span>
           </>
         </CandidateLeagueTableCells.Body>
@@ -126,9 +132,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         <CandidateLeagueTableCells.Body>
           <>
             <span title={candidateAtLevel.product.value.toString()}>
-              {new Intl.NumberFormat().format(
-                Number(candidateAtLevel.product.value.toFixed(2)),
-              )}
+              {formatValue(candidateAtLevel.product.value, 2)}
             </span>
 
             <CandidateLeagueTableCellsPercentOfMax
@@ -142,7 +146,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         <>
           <CandidateLeagueTableCells.Body>
             <span title={candidateAtLevel.stats.atk.value.toString()}>
-              {candidateAtLevel.stats.atk.value.toFixed(2)}
+              {formatValue(candidateAtLevel.stats.atk.value, 2)}
             </span>
 
             <CandidateLeagueTableCellsPercentOfMax
@@ -151,7 +155,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
             <span title={candidateAtLevel.stats.def.value.toString()}>
-              {candidateAtLevel.stats.def.value.toFixed(2)}
+              {formatValue(candidateAtLevel.stats.def.value, 2)}
             </span>
 
             <CandidateLeagueTableCellsPercentOfMax
@@ -159,7 +163,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
             />
           </CandidateLeagueTableCells.Body>
           <CandidateLeagueTableCells.Body>
-            <span>{candidateAtLevel.stats.sta.value}</span>
+            <span>{formatValue(candidateAtLevel.stats.sta.value)}</span>
 
             <CandidateLeagueTableCellsPercentOfMax
               value={candidateAtLevel.stats.sta.percentOfMax}
@@ -172,9 +176,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         <CandidateLeagueTableCells.Body>
           <>
             <span title={candidateAtLevel.bulkProduct.value.toString()}>
-              {new Intl.NumberFormat().format(
-                Number(candidateAtLevel.bulkProduct.value.toFixed(2)),
-              )}
+              {formatValue(candidateAtLevel.bulkProduct.value, 2)}
             </span>
 
             <CandidateLeagueTableCellsPercentOfMax

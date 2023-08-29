@@ -9,6 +9,7 @@ import { getRankedSpreadColors } from '../utils/getRankColors';
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpreadsAtLevelCapDownload';
 import { xlCount } from '../lib/xlCount';
+import { formatValue } from '../utils/formatValue';
 
 function useDisplayedSpreads() {
   const { inspectedLevelCap } = useLeague();
@@ -64,13 +65,15 @@ function useColumns(candidate: Candidate) {
     {
       label: '%',
       value: (row: Row) =>
-        (
-          (rankingMetric === 'product'
+        formatValue(
+          rankingMetric === 'product'
             ? row.product.percentOfMax
             : rankingMetric === 'bulkProduct'
             ? row.bulkProduct.percentOfMax
-            : row.stats[rankingMetric].percentOfMax) * 100
-        ).toFixed(2),
+            : row.stats[rankingMetric].percentOfMax,
+          2,
+          { style: 'percent' },
+        ),
       priority: 2,
     },
     {
@@ -93,7 +96,7 @@ function useColumns(candidate: Candidate) {
       label: 'Product',
       value: (row) => (
         <span title={row.product.value.toString()}>
-          {new Intl.NumberFormat().format(Number(row.product.value.toFixed(2)))}
+          {formatValue(row.product.value, 2)}
         </span>
       ),
       priority: rankingMetric === 'product' ? 1 : 3,
@@ -102,7 +105,7 @@ function useColumns(candidate: Candidate) {
       label: 'Atk',
       value: (row) => (
         <span title={row.stats.atk.value.toString()}>
-          {row.stats.atk.value.toFixed(2)}
+          {formatValue(row.stats.atk.value, 2)}
         </span>
       ),
       priority: rankingMetric === 'atk' ? 1 : 3,
@@ -111,7 +114,7 @@ function useColumns(candidate: Candidate) {
       label: 'Def',
       value: (row) => (
         <span title={row.stats.def.value.toString()}>
-          {row.stats.def.value.toFixed(2)}
+          {formatValue(row.stats.def.value, 2)}
         </span>
       ),
       priority: rankingMetric === 'def' ? 1 : 3,
@@ -126,9 +129,7 @@ function useColumns(candidate: Candidate) {
       label: 'Bulk',
       value: (row) => (
         <span title={row.bulkProduct.value.toString()}>
-          {new Intl.NumberFormat().format(
-            Number(row.bulkProduct.value.toFixed(2)),
-          )}
+          {formatValue(row.bulkProduct.value, 2)}
         </span>
       ),
       priority: rankingMetric === 'bulkProduct' ? 1 : 3,
@@ -147,14 +148,11 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
   return (
     <>
       <section className='w-full overflow-x-scroll'>
-        <table className='w-full border-collapse table-fixed'>
+        <table className='w-full border-collapse'>
           <thead>
             <tr>
               {columns.map((column) => (
-                <CandidateLeagueTableCells.Header
-                  key={column.label}
-                  widthClass={column.widthClass}
-                >
+                <CandidateLeagueTableCells.Header key={column.label}>
                   {column.label}
                 </CandidateLeagueTableCells.Header>
               ))}
