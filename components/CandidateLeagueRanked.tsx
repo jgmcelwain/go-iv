@@ -18,13 +18,13 @@ const CandidateLeagueRanked: FC = () => {
         <thead>
           <tr>
             {settings.outputData.rank && (
-              <CandidateLeagueTableCells.Header>
+              <CandidateLeagueTableCells.Header widthClass='w-16'>
                 Rank
               </CandidateLeagueTableCells.Header>
             )}
 
             {settings.outputData.cp && (
-              <CandidateLeagueTableCells.Header>
+              <CandidateLeagueTableCells.Header widthClass='w-16'>
                 CP
               </CandidateLeagueTableCells.Header>
             )}
@@ -36,7 +36,7 @@ const CandidateLeagueRanked: FC = () => {
             )}
 
             {settings.outputData.xlCandy && (
-              <CandidateLeagueTableCells.Header>
+              <CandidateLeagueTableCells.Header widthClass='w-16'>
                 XL
               </CandidateLeagueTableCells.Header>
             )}
