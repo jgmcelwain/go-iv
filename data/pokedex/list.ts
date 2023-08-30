@@ -16825,9 +16825,9 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'bramleghast',
+    id: 'brambleghast',
     dexNumber: 947,
-    name: 'Bramleghast',
+    name: 'Brambleghast',
     stats: {
       atk: 228,
       def: 144,
@@ -17020,9 +17020,9 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'wiglet',
+    id: 'wiglett',
     dexNumber: 960,
-    name: 'Wiglet',
+    name: 'Wiglett',
     stats: {
       atk: 109,
       def: 52,
@@ -17030,7 +17030,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['water'],
     family: {
-      id: 'wiglet',
+      id: 'wiglett',
       stage: 1,
     },
   },
@@ -17045,7 +17045,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['water'],
     family: {
-      id: 'wiglet',
+      id: 'wiglett',
       stage: 2,
     },
   },
