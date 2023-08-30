@@ -1,4 +1,11 @@
 
+### [2.52.1](https://github.com/jgmcelwain/pvpiv/compare/v2.52.0...v2.52.1) (2023-08-30)
+
+
+### Bug Fixes
+
+* correct hp for hisui growlithe ([956aea7](https://github.com/jgmcelwain/pvpiv/commit/956aea7e3a39fe302900b0973d325274eb01d216))
+
 ## [2.52.0](https://github.com/jgmcelwain/pvpiv/compare/v2.51.0...v2.52.0) (2023-08-29)
 
 
