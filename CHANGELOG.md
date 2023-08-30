@@ -1,4 +1,11 @@
 
+### [2.52.2](https://github.com/jgmcelwain/pvpiv/compare/v2.52.1...v2.52.2) (2023-08-30)
+
+
+### Bug Fixes
+
+* minor text fixes ([d2bf693](https://github.com/jgmcelwain/pvpiv/commit/d2bf69391a5114fe27a63bfa416e6766f06fd9ec))
+
 ### [2.52.1](https://github.com/jgmcelwain/pvpiv/compare/v2.52.0...v2.52.1) (2023-08-30)
 
 
