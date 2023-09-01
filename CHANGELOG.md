@@ -1,4 +1,11 @@
 
+### [2.52.3](https://github.com/jgmcelwain/pvpiv/compare/v2.52.2...v2.52.3) (2023-09-01)
+
+
+### Bug Fixes
+
+* gen 9 is no longer speculative ([efc64fe](https://github.com/jgmcelwain/pvpiv/commit/efc64fe6dc4b6eb979def1b11cd13d728a609106))
+
 ### [2.52.2](https://github.com/jgmcelwain/pvpiv/compare/v2.52.1...v2.52.2) (2023-08-30)
 
 
