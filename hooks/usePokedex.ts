@@ -21,12 +21,9 @@ export function usePokedex() {
       POKEDEX.filter((pokemon) => {
         if (settings.showSpeculative === true) {
           return true;
-        } else {
-          return (
-            speculativePokemon.includes(pokemon.id) === false &&
-            pokemon.dexNumber < 906
-          );
         }
+
+        return speculativePokemon.includes(pokemon.id) === false;
       }),
     [settings.showSpeculative, speculativePokemon],
   );
