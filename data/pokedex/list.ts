@@ -17814,4 +17814,109 @@ export const POKEDEX: Pokemon[] = [
       stage: 1,
     },
   },
+  {
+    id: 'dipplin',
+    dexNumber: 1011,
+    name: 'Dipplin',
+    stats: {
+      atk: 173,
+      def: 184,
+      sta: 190,
+    },
+    types: ['grass', 'dragon'],
+    family: {
+      id: 'applin',
+      stage: 2,
+    },
+  },
+  {
+    id: 'poltchageist',
+    dexNumber: 1012,
+    name: 'Poltchageist',
+    stats: {
+      atk: 134,
+      def: 96,
+      sta: 120,
+    },
+    types: ['grass', 'ghost'],
+    family: {
+      id: 'poltchageist',
+      stage: 1,
+    },
+  },
+  {
+    id: 'sinistcha',
+    dexNumber: 1013,
+    name: 'Sinistcha',
+    stats: {
+      atk: 225,
+      def: 191,
+      sta: 174,
+    },
+    types: ['grass', 'ghost'],
+    family: {
+      id: 'poltchageist',
+      stage: 2,
+    },
+  },
+  {
+    id: 'okidogi',
+    dexNumber: 1014,
+    name: 'Okidogi',
+    stats: {
+      atk: 241,
+      def: 210,
+      sta: 204,
+    },
+    types: ['poison', 'fighting'],
+    family: {
+      id: 'okidogi',
+      stage: 1,
+    },
+  },
+  {
+    id: 'monkidori',
+    dexNumber: 1015,
+    name: 'Monkidori',
+    stats: {
+      atk: 261,
+      def: 172,
+      sta: 204,
+    },
+    types: ['poison', 'psychic'],
+    family: {
+      id: 'monkidori',
+      stage: 1,
+    },
+  },
+  {
+    id: 'fezandipiti',
+    dexNumber: 1016,
+    name: 'Fezandipiti',
+    stats: {
+      atk: 185,
+      def: 228,
+      sta: 204,
+    },
+    types: ['poison', 'fairy'],
+    family: {
+      id: 'fezandipiti',
+      stage: 1,
+    },
+  },
+  {
+    id: 'ogerpon',
+    dexNumber: 1017,
+    name: 'Ogerpon',
+    stats: {
+      atk: 241,
+      def: 196,
+      sta: 190,
+    },
+    types: ['grass'],
+    family: {
+      id: 'ogerpon',
+      stage: 1,
+    },
+  },
 ];
