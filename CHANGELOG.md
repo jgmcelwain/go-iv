@@ -1,4 +1,11 @@
 
+## [2.54.0](https://github.com/jgmcelwain/pvpiv/compare/v2.53.0...v2.54.0) (2023-09-13)
+
+
+### Features
+
+* add Ursaluna (Blood Moon) ([5dbf57c](https://github.com/jgmcelwain/pvpiv/commit/5dbf57c97bbd17cfd8607775123fc36ef77422ec))
+
 ## [2.53.0](https://github.com/jgmcelwain/pvpiv/compare/v2.52.3...v2.53.0) (2023-09-13)
 
 
