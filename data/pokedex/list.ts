@@ -16103,6 +16103,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'ursaluna_blood_moon',
+    dexNumber: 901,
+    name: 'Ursaluna (Blood Moon)',
+    stats: {
+      atk: 242,
+      def: 190,
+      sta: 247,
+    },
+    types: ['normal', 'ground'],
+    family: {
+      id: 'teddiursa',
+      stage: 4,
+    },
+  },
+  {
     id: 'basculegion_male',
     dexNumber: 902,
     name: 'Basculegion (Male)',
