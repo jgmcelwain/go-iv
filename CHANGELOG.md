@@ -1,4 +1,11 @@
 
+## [2.53.0](https://github.com/jgmcelwain/pvpiv/compare/v2.52.3...v2.53.0) (2023-09-13)
+
+
+### Features
+
+* add gen 9 dlc mons ([3fbff37](https://github.com/jgmcelwain/pvpiv/commit/3fbff375bd8aa5463f47d4bbaa82834f12c15272))
+
 ### [2.52.3](https://github.com/jgmcelwain/pvpiv/compare/v2.52.2...v2.52.3) (2023-09-01)
 
 
