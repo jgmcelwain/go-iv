@@ -5,10 +5,10 @@ export const IV_FLOORS: { value: IVFloor; name: string }[] = [
   { value: 1, name: 'Good Friend Trade' },
   { value: 2, name: 'Great Friend Trade' },
   { value: 3, name: 'Ultra Friend Trade' },
-  { value: 4, name: 'Weather Boosted Catch' },
+  { value: 4, name: 'Weather Boost' },
   { value: 5, name: 'Best Friend Trade' },
-  { value: 6, name: 'Shadow Legendary' },
-  { value: 10, name: 'Raid/Egg/Research' },
+  { value: 6, name: 'Shadow Raid, Giovanni' },
+  { value: 10, name: 'Raid, Egg, Research' },
   { value: 12, name: 'Lucky Trade' },
 ];
 
