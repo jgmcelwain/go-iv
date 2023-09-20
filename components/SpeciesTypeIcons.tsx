@@ -8,6 +8,7 @@ const SpeciesTypeIcons: FC<{ types: Pokemon['types'] }> = ({ types }) => {
       {types.map((type, typeIndex) => (
         <div
           key={type}
+          title={type.charAt(0).toUpperCase() + type.slice(1)}
             typeIndex === 0 ? 'z-10' : 'z-0'
           } ${(() => {
             switch (type) {
