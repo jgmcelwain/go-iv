@@ -7,7 +7,7 @@ const SpeciesTypeIcons: FC<{ types: Pokemon['types'] }> = ({ types }) => {
     <div className='flex -space-x-1' aria-hidden>
       {types.map((type, typeIndex) => (
         <div
-          className={`h-5 w-5 rounded-full overflow-hidden flex justify-center items-center border-[1.5px] border-gray-800 ${
+          key={type}
             typeIndex === 0 ? 'z-10' : 'z-0'
           } ${(() => {
             switch (type) {
