@@ -6,7 +6,6 @@ import { CandidateActionTypes, useCandidate } from '../hooks/useCandidate';
 import { usePokedex } from '../hooks/usePokedex';
 
 import { RadioGroup } from '@headlessui/react';
-import { SwitchVerticalIcon } from '@heroicons/react/solid';
 import SpeciesTypeIcons from './SpeciesTypeIcons';
 
 const CandidateBuilderFamilySwap: FC = () => {
@@ -49,13 +48,11 @@ const CandidateBuilderFamilySwap: FC = () => {
               <SpeciesTypeIcons types={familyMember.types} />
 
               <RadioGroup.Label
-                className='mx-2 text-sm font-semibold'
+                className='ml-1.5 text-sm font-semibold'
                 as='span'
               >
                 {familyMember.name}
               </RadioGroup.Label>
-
-              <SwitchVerticalIcon className='w-4 h-4' aria-hidden />
             </div>
           )}
         </RadioGroup.Option>
