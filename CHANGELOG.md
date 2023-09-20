@@ -1,4 +1,11 @@
 
+### [2.55.1](https://github.com/jgmcelwain/pvpiv/compare/v2.55.0...v2.55.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* better contrast for type icon colors ([f4ba0d9](https://github.com/jgmcelwain/pvpiv/commit/f4ba0d9f3b8301d427acd22fb6b136cf4a00cbba))
+
 ## [2.55.0](https://github.com/jgmcelwain/pvpiv/compare/v2.54.1...v2.55.0) (2023-09-20)
 
 
