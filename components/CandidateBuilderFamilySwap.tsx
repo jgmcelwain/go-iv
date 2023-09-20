@@ -7,6 +7,7 @@ import { usePokedex } from '../hooks/usePokedex';
 
 import { RadioGroup } from '@headlessui/react';
 import { SwitchVerticalIcon } from '@heroicons/react/solid';
+import SpeciesTypeIcons from './SpeciesTypeIcons';
 
 const CandidateBuilderFamilySwap: FC = () => {
   const { candidate, dispatch } = useCandidate();
@@ -45,8 +46,10 @@ const CandidateBuilderFamilySwap: FC = () => {
                   : 'text-gray-500 dark:text-gray-400 border-gray-100 dark:border-transparent'
               }`}
             >
+              <SpeciesTypeIcons types={familyMember.types} />
+
               <RadioGroup.Label
-                className='mr-2 text-sm font-semibold'
+                className='mx-2 text-sm font-semibold'
                 as='span'
               >
                 {familyMember.name}

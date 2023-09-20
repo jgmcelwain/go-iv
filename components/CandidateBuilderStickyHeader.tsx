@@ -6,6 +6,7 @@ import { useCandidate } from '../hooks/useCandidate';
 import { useSettings } from '../hooks/useSettings';
 
 import { PencilIcon } from '@heroicons/react/solid';
+import SpeciesTypeIcons from './SpeciesTypeIcons';
 
 function useIsScrolled() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,8 +51,11 @@ export default function CandidateBuilderStickyHeader() {
     <div className='sm:hidden fixed top-0 h-14 flex justify-start items-center inset-x-0 z-10 bg-white dark:bg-gray-800 px-4 space-y-0.5 border-b border-gray-100 dark:border-gray-700'>
       <div className='grow text-gray-700 dark:text-gray-100'>
         <p className='text-xs text-gray-700 dark:text-gray-100 font-title'>
+          <div className='inline-flex mr-2'>
+            <SpeciesTypeIcons types={candidate.species.types} />
+          </div>
           {candidate.species.name}, {candidate.ivs.atk}-{candidate.ivs.def}-
-          {candidate.ivs.sta}
+          {candidate.ivs.sta}{' '}
         </p>
         <p className='text-[10px] text-gray-600 dark:text-gray-300'>
           Ranked by {rankingMetric.name}, Min. IV {floor.value} ({floor.name})
