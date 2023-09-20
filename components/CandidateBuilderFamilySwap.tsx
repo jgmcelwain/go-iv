@@ -40,7 +40,7 @@ const CandidateBuilderFamilySwap: FC = () => {
         >
           {({ checked }) => (
             <div
-              className={`flex justify-start items-center transition-colors border py-1 px-2 hover:text-blue-500 dark:hover:text-blue-300 rounded bg-white dark:bg-gray-800 ${
+              className={`flex justify-start items-center transition-colors border py-1 pr-2 pl-[5px] hover:text-blue-500 dark:hover:text-blue-300 rounded bg-white dark:bg-gray-800 ${
                 checked
                   ? 'text-blue-500 dark:text-blue-300 border-gray-200 dark:border-gray-700'
                   : 'text-gray-500 dark:text-gray-400 border-gray-100 dark:border-transparent'
