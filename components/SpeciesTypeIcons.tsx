@@ -9,6 +9,7 @@ const SpeciesTypeIcons: FC<{ types: Pokemon['types'] }> = ({ types }) => {
         <div
           key={type}
           title={type.charAt(0).toUpperCase() + type.slice(1)}
+          className={`h-5 w-5 rounded-full overflow-hidden flex justify-center items-center border-[1.5px] border-white dark:border-gray-800 ${
             typeIndex === 0 ? 'z-10' : 'z-0'
           } ${(() => {
             switch (type) {
