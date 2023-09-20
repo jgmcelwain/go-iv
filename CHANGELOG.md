@@ -1,4 +1,16 @@
 
+## [2.55.0](https://github.com/jgmcelwain/pvpiv/compare/v2.54.1...v2.55.0) (2023-09-20)
+
+
+### Features
+
+* display type icons next to species in FamilySwap and StickyHeader ([3fcd79b](https://github.com/jgmcelwain/pvpiv/commit/3fcd79b53bf2cf393723118d67b7243d2e8ac7fd))
+
+
+### Bug Fixes
+
+* galarian farfetchd type ([12773f2](https://github.com/jgmcelwain/pvpiv/commit/12773f21036b42b54793d4f267d1188d3df15be5))
+
 ### [2.54.1](https://github.com/jgmcelwain/pvpiv/compare/v2.54.0...v2.54.1) (2023-09-17)
 
 ## [2.54.0](https://github.com/jgmcelwain/pvpiv/compare/v2.53.0...v2.54.0) (2023-09-13)
