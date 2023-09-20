@@ -43,3 +43,5 @@ PVPIV.app is made possible by the data and inspiration of other community tools:
 - [GO Stadium IV Checker](https://stadiumgaming.gg/rank-checker)
 - [POGOStat.com](https://pogostat.com)
 - [PVPoke](https://github.com/pvpoke/pvpoke)
+
+Type icons used in this application are from [duiker101/pokemon-type-svg-icons](https://github.com/duiker101/pokemon-type-svg-icons)
