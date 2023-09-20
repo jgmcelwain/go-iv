@@ -1,4 +1,11 @@
 
+### [2.55.4](https://github.com/jgmcelwain/pvpiv/compare/v2.55.3...v2.55.4) (2023-09-20)
+
+
+### Bug Fixes
+
+* z-index for type icons ([1e15b62](https://github.com/jgmcelwain/pvpiv/commit/1e15b621574d3db3f88e583b5347e3c1616393e3))
+
 ### [2.55.3](https://github.com/jgmcelwain/pvpiv/compare/v2.55.2...v2.55.3) (2023-09-20)
 
 ### [2.55.2](https://github.com/jgmcelwain/pvpiv/compare/v2.55.1...v2.55.2) (2023-09-20)
