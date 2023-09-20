@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const SpeciesTypeIcons: FC<{ types: Pokemon['types'] }> = ({ types }) => {
   return (
-    <div className='flex -space-x-1' aria-hidden>
+    <div className='flex -space-x-1 relative z-0' aria-hidden>
       {types.map((type, typeIndex) => (
         <div
           key={type}
