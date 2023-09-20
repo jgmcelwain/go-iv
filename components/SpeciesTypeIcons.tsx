@@ -7,7 +7,7 @@ const SpeciesTypeIcons: FC<{ types: Pokemon['types'] }> = ({ types }) => {
     <div className='flex -space-x-1' aria-hidden>
       {types.map((type, typeIndex) => (
         <div
-          className={`h-[18px] w-[18px] rounded-full overflow-hidden flex justify-center items-center border-[1.5px] border-gray-800 ${
+          className={`h-5 w-5 rounded-full overflow-hidden flex justify-center items-center border-[1.5px] border-gray-800 ${
             typeIndex === 0 ? 'z-10' : 'z-0'
           } ${(() => {
             switch (type) {
@@ -21,7 +21,7 @@ const SpeciesTypeIcons: FC<{ types: Pokemon['types'] }> = ({ types }) => {
                 return 'bg-sky-600';
               }
               case 'electric': {
-                return 'bg-yellow-300';
+                return 'bg-yellow-400';
               }
               case 'fire': {
                 return 'bg-orange-400';
@@ -33,19 +33,19 @@ const SpeciesTypeIcons: FC<{ types: Pokemon['types'] }> = ({ types }) => {
                 return 'bg-rose-500';
               }
               case 'flying': {
-                return 'bg-indigo-300';
+                return 'bg-indigo-400';
               }
               case 'ghost': {
                 return 'bg-indigo-500';
               }
               case 'grass': {
-                return 'bg-green-400';
+                return 'bg-green-500';
               }
               case 'ground': {
                 return 'bg-orange-400';
               }
               case 'ice': {
-                return 'bg-emerald-300';
+                return 'bg-emerald-400';
               }
               case 'normal': {
                 return 'bg-neutral-400';
