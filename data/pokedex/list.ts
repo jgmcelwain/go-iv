@@ -1698,7 +1698,7 @@ export const POKEDEX: Pokemon[] = [
       def: 114,
       sta: 141,
     },
-    types: ['normal', 'flying'],
+    types: ['fighting'],
     family: {
       id: 'farfetchd_galarian',
       stage: 1,
