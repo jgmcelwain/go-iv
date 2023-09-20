@@ -1,4 +1,12 @@
 
+### [2.55.2](https://github.com/jgmcelwain/pvpiv/compare/v2.55.1...v2.55.2) (2023-09-20)
+
+
+### Bug Fixes
+
+* each type should have a key ([5d10151](https://github.com/jgmcelwain/pvpiv/commit/5d10151a9a939e0293307fca08f31090bbeb086d))
+* light mode border color ([cc36c2f](https://github.com/jgmcelwain/pvpiv/commit/cc36c2fb58ec2386339cefcc6069df34b2678fe7))
+
 ### [2.55.1](https://github.com/jgmcelwain/pvpiv/compare/v2.55.0...v2.55.1) (2023-09-20)
 
 
