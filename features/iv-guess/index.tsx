@@ -19,6 +19,7 @@ import {
   generateRankedSpreads,
 } from '../../lib/generateRankedSpreads';
 import { SpeciesDropdown } from './species-dropdown';
+import { CheckIcon } from '@heroicons/react/solid';
 
 const defaultPokemon = {
   name: 'Medicham',
@@ -188,7 +189,8 @@ export function IVGuess() {
         <table className='w-full table-fixed text-left tabular-nums text-sm'>
           <thead>
             <tr>
-              <th>Rank</th>
+              <th className='w-16'>Rank</th>
+              <th className='w-10'>BB?</th>
               <th>IVs</th>
               <th>Atk</th>
               <th>Def</th>
@@ -199,6 +201,11 @@ export function IVGuess() {
             {matchingSpreads.map((spread) => (
               <tr key={`${spread.ivs.atk}-${spread.ivs.def}-${spread.ivs.sta}`}>
                 <td>{spread.rank}</td>
+                <td>
+                  {spread.level >= 50.5 && (
+                    <CheckIcon aria-label='Yes' className='h-4 w-4' />
+                  )}
+                </td>
                 <td>
                   {spread.ivs.atk}-{spread.ivs.def}-{spread.ivs.sta}
                 </td>
@@ -325,6 +332,9 @@ export function IVGuess() {
                           (Rank {spread.rank})
                         </p>
 
+                        <p>
+                          {spread.cp} CP, Level {spread.level}
+                        </p>
                         <p>Attack: {spread.stats.atk.value.toFixed(2)}</p>
                         <p>Defense: {spread.stats.def.value.toFixed(2)}</p>
                         <p>HP: {spread.stats.sta.value}</p>
