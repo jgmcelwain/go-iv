@@ -125,8 +125,9 @@ export function IVGuess() {
               }
             }}
             defaultValue={hp}
-            className='block w-full mt-1 rounded form-input focus-ring ring-offset-gray-50 dark:ring-offset-gray-900'
+            className='block w-full mt-1 rounded form-input focus-ring ring-offset-gray-50 dark:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed'
             type='number'
+            disabled={anyHp}
           />
         </label>
         <label className='flex justify-start items-center gap-x-2'>
