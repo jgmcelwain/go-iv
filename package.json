@@ -40,7 +40,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-tsdoc": "^0.2.11",
     "eslint-plugin-use-encapsulation": "^1.0.0",
-    "postcss": "^8.2.8",
+    "postcss": "^8.4.31",
     "postcss-focus-visible": "^5.0.0",
     "prettier": "^2.3.0",
     "standard-version": "^9.3.0",
