@@ -1,4 +1,14 @@
 
+## [2.56.0](https://github.com/jgmcelwain/pvpiv/compare/v2.55.4...v2.56.0) (2023-10-03)
+
+
+### Features
+
+* add atk-guess demo ([7636fe6](https://github.com/jgmcelwain/pvpiv/commit/7636fe646a261c68869dc5c12bf267d74b13f577))
+* add def output, rename to iv guess ([1eb937c](https://github.com/jgmcelwain/pvpiv/commit/1eb937ce2e6726bf74a21745ad478fe3882d12ca))
+* swap to pnpm, add recharts dep ([921564c](https://github.com/jgmcelwain/pvpiv/commit/921564c6143d7147223ce6ccdecc91bfafeb0cfd))
+* update style and data output ([63bc6b0](https://github.com/jgmcelwain/pvpiv/commit/63bc6b0986f3a861c2c60182a6bd94b6b0da7ba7))
+
 ### [2.55.4](https://github.com/jgmcelwain/pvpiv/compare/v2.55.3...v2.55.4) (2023-09-20)
 
 
