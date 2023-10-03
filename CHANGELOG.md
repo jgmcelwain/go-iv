@@ -1,4 +1,11 @@
 
+### [2.56.1](https://github.com/jgmcelwain/pvpiv/compare/v2.56.0...v2.56.1) (2023-10-03)
+
+
+### Bug Fixes
+
+* disable hp input when anyHp is checked ([a7f1238](https://github.com/jgmcelwain/pvpiv/commit/a7f1238de9ef2138f369f573d6e6fd7039660e55))
+
 ## [2.56.0](https://github.com/jgmcelwain/pvpiv/compare/v2.55.4...v2.56.0) (2023-10-03)
 
 
