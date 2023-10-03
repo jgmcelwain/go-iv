@@ -6,7 +6,7 @@ import { LEAGUES, LeagueCPCap } from '../../data/league';
 import { LEVEL_CAPS, LevelCapNumber } from '../../data/levelCap';
 import { generateRankedSpreads } from '../../lib/generateRankedSpreads';
 
-export function AtkGuess() {
+export function IVGuess() {
   const { list, byName } = usePokedex();
   const [pokemon, setPokemon] = useState<Pokemon>(byName('Medicham')!);
   const [league, setLeague] = useState<LeagueCPCap>(1500);
@@ -27,6 +27,22 @@ export function AtkGuess() {
       ).filter((spread) => spread.cp === cp && spread.stats.sta.value === hp),
     [cp, hp, league, levelCap, pokemon],
   );
+
+  const extremeStats = useMemo(() => {
+    const atk = matchingSpreads.map((spread) => spread.stats.atk.value);
+    const def = matchingSpreads.map((spread) => spread.stats.def.value);
+
+    return {
+      atk: {
+        max: Math.max(...atk),
+        min: Math.min(...atk),
+      },
+      def: {
+        max: Math.max(...def),
+        min: Math.min(...def),
+      },
+    };
+  }, [matchingSpreads]);
 
   return (
     <div className='w-full grid grid-cols-3 gap-6'>
@@ -119,23 +135,18 @@ export function AtkGuess() {
       </div>
 
       {matchingSpreads.length > 0 && (
-        <div>
-          <p>
-            Max Atk -{' '}
-            {Math.max(
-              ...matchingSpreads.map((spread) => spread.stats.atk.value),
-            ).toFixed(2)}
-          </p>
-          <p>
-            Min Atk -{' '}
-            {Math.min(
-              ...matchingSpreads.map((spread) => spread.stats.atk.value),
-            ).toFixed(2)}
-          </p>
-          <p>
-            Highest SP Atk - {matchingSpreads[0].stats.atk.value.toFixed(2)}
-          </p>
-        </div>
+        <>
+          <div>
+            <p>Max Atk - {extremeStats.atk.max.toFixed(2)}</p>
+
+            <p>Min Atk - {extremeStats.atk.min.toFixed(2)}</p>
+          </div>
+          <div>
+            <p>Max Def - {extremeStats.def.max.toFixed(2)}</p>
+
+            <p>Min Def - {extremeStats.def.min.toFixed(2)}</p>
+          </div>
+        </>
       )}
     </div>
   );
