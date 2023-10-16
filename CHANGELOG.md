@@ -1,4 +1,11 @@
 
+## [2.57.0](https://github.com/jgmcelwain/pvpiv/compare/v2.56.1...v2.57.0) (2023-10-16)
+
+
+### Features
+
+* grid/column layout toggle ([e3884da](https://github.com/jgmcelwain/pvpiv/commit/e3884daedccdca9643b7f4108d42d63e261f5da9))
+
 ### [2.56.1](https://github.com/jgmcelwain/pvpiv/compare/v2.56.0...v2.56.1) (2023-10-03)
 
 
