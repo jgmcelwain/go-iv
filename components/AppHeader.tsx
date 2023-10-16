@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import pkg from '../package.json';
@@ -10,12 +10,28 @@ import {
   CogIcon,
   MoonIcon,
   SunIcon,
+  ViewGridIcon,
+  ViewListIcon,
 } from '@heroicons/react/solid';
 import { useTheme } from 'next-themes';
+import { SettingsActionTypes, useSettings } from '../hooks/useSettings';
+
+function useIsMounted() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return mounted;
+}
 
 const AppHeader: FC = () => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
+  const { settings, dispatch } = useSettings();
+
+  const mounted = useIsMounted();
 
   return (
     <header className='relative w-full z-20 overflow-hidden dark:bg-gray-800 bg-white border-b border-gray-100 dark:border-gray-700'>
@@ -40,23 +56,51 @@ const AppHeader: FC = () => {
         </div>
 
         <button
-          onClick={() => {
-            setTheme(theme === 'dark' ? 'light' : 'dark');
-          }}
-          className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+          onClick={() =>
+            dispatch({
+              type: SettingsActionTypes.Layout,
+              payload: settings.layout === 'grid' ? 'list' : 'grid',
+            })
+          }
+          className='hidden lg:block rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
         >
-          {theme === 'dark' ? (
-            <SunIcon
-              className='w-5 h-5 text-gray-500 dark:text-gray-300'
-              aria-hidden
-            />
+          {settings.layout === 'grid' ? (
+            <>
+              <ViewGridIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+              <span className='sr-only'>Switch to Single-Column Display</span>
+            </>
           ) : (
-            <MoonIcon
-              className='w-5 h-5 text-gray-500 dark:text-gray-300'
-              aria-hidden
-            />
+            <>
+              <ViewListIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+              <span className='sr-only'>Switch to Grid Display</span>
+            </>
           )}
         </button>
+
+        {mounted ? (
+          <button
+            onClick={() => {
+              setTheme(theme === 'dark' ? 'light' : 'dark');
+            }}
+            className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+          >
+            {theme === 'dark' ? (
+              <>
+                <MoonIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+                <span className='sr-only'>Switch to Light Mode</span>
+              </>
+            ) : (
+              <>
+                <SunIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+                <span className='sr-only'>Switch to Dark Mode</span>
+              </>
+            )}
+          </button>
+        ) : (
+          <div aria-hidden className='p-1'>
+            <MoonIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+          </div>
+        )}
 
         {router.pathname === '/settings' ? (
           <Link

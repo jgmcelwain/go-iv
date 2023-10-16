@@ -23,6 +23,7 @@ const defaultSettings: Settings = {
   showRankingMetric: false,
   allowImpossibleFloors: true,
   invertIVDropdown: false,
+  layout: 'grid',
 };
 
 export function getInitialSettings(ctx: NextPageContext) {

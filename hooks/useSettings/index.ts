@@ -25,6 +25,7 @@ export type Settings = {
   showMinimumLevel: boolean;
   allowImpossibleFloors: boolean;
   invertIVDropdown: boolean;
+  layout: 'grid' | 'list';
 };
 
 export function useSettings() {
