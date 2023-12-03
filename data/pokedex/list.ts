@@ -9287,7 +9287,7 @@ export const POKEDEX: Pokemon[] = [
     dexNumber: 503,
     name: 'Samurott (Hisuian)',
     stats: {
-      atk: 220,
+      atk: 218,
       def: 152,
       sta: 207,
     },
