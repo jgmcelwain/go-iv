@@ -1,4 +1,11 @@
 
+### [2.57.1](https://github.com/jgmcelwain/pvpiv/compare/v2.57.0...v2.57.1) (2023-12-03)
+
+
+### Bug Fixes
+
+* correct h-samurott stats ([40f98ba](https://github.com/jgmcelwain/pvpiv/commit/40f98ba294686ca940df75d61d7367b0fe1afe7d))
+
 ## [2.57.0](https://github.com/jgmcelwain/pvpiv/compare/v2.56.1...v2.57.0) (2023-10-16)
 
 
