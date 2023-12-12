@@ -61,6 +61,9 @@ const App: FC<AppProps & InitialProps> & {
               <meta property='og:type' content='website' />
               <meta property='og:url' content='https://pvpiv.app' />
               <meta property='og:image' content='https://pvpiv.app/og.png' />
+
+              <meta name='mobile-web-app-capable' content='yes' />
+              <meta name='apple-mobile-web-app-capable' content='yes' />
             </Head>
 
             <AppReleaseBanner {...releaseBanner} />
