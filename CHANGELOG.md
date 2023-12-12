@@ -1,4 +1,11 @@
 
+## [2.58.0](https://github.com/jgmcelwain/pvpiv/compare/v2.57.1...v2.58.0) (2023-12-12)
+
+
+### Features
+
+* add support for home screen adding with icons/manifest ([eab55d6](https://github.com/jgmcelwain/pvpiv/commit/eab55d6fff10a9bec7263ad939b57521de5c9dd3))
+
 ### [2.57.1](https://github.com/jgmcelwain/pvpiv/compare/v2.57.0...v2.57.1) (2023-12-03)
 
 
