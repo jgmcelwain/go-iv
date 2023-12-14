@@ -17934,4 +17934,154 @@ export const POKEDEX: Pokemon[] = [
       stage: 1,
     },
   },
+  {
+    id: 'archaludon',
+    dexNumber: 1018,
+    name: 'Archaludon',
+    stats: {
+      atk: 250,
+      def: 215,
+      sta: 207,
+    },
+    types: ['steel', 'dragon'],
+    family: {
+      id: 'duraludon',
+      stage: 2,
+    },
+  },
+  {
+    id: 'hydrapple',
+    dexNumber: 1019,
+    name: 'Hydrapple',
+    stats: {
+      atk: 216,
+      def: 186,
+      sta: 235,
+    },
+    types: ['grass', 'dragon'],
+    family: {
+      id: 'applin',
+      stage: 3,
+    },
+  },
+  {
+    id: 'gouging_fire',
+    dexNumber: 1020,
+    name: 'Gouging Fire',
+    stats: {
+      atk: 225,
+      def: 228,
+      sta: 233,
+    },
+    types: ['fire', 'dragon'],
+    family: {
+      id: 'gouging_fire',
+      stage: 1,
+    },
+  },
+  {
+    id: 'raging_bolt',
+    dexNumber: 1021,
+    name: 'Raging Bolt',
+    stats: {
+      atk: 235,
+      def: 165,
+      sta: 245,
+    },
+    types: ['electric', 'dragon'],
+    family: {
+      id: 'raging_bolt',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_boulder',
+    dexNumber: 1022,
+    name: 'Iron Boulder',
+    stats: {
+      atk: 249,
+      def: 214,
+      sta: 207,
+    },
+    types: ['rock', 'psychic'],
+    family: {
+      id: 'iron_boulder',
+      stage: 1,
+    },
+  },
+  {
+    id: 'iron_crown',
+    dexNumber: 1023,
+    name: 'Iron Crown',
+    stats: {
+      atk: 243,
+      def: 220,
+      sta: 207,
+    },
+    types: ['steel', 'psychic'],
+    family: {
+      id: 'iron_crown',
+      stage: 1,
+    },
+  },
+  {
+    id: 'terapagos',
+    dexNumber: 1024,
+    name: 'Terapagos',
+    stats: {
+      atk: 126,
+      def: 165,
+      sta: 207,
+    },
+    types: ['normal'],
+    family: {
+      id: 'terapagos',
+      stage: 1,
+    },
+  },
+  {
+    id: 'terapagos_terastal',
+    dexNumber: 1024,
+    name: 'Terapagos (Terastal)',
+    stats: {
+      atk: 212,
+      def: 224,
+      sta: 216,
+    },
+    types: ['normal'],
+    family: {
+      id: 'terapagos',
+      stage: 2,
+    },
+  },
+  {
+    id: 'terapagos_stellar',
+    dexNumber: 1024,
+    name: 'Terapagos (Stellar)',
+    stats: {
+      atk: 236,
+      def: 204,
+      sta: 300,
+    },
+    types: ['normal'],
+    family: {
+      id: 'terapagos',
+      stage: 3,
+    },
+  },
+  {
+    id: 'pecharunt',
+    dexNumber: 1025,
+    name: 'Pecharunt',
+    stats: {
+      atk: 181,
+      def: 273,
+      sta: 204,
+    },
+    types: ['poison', 'ghost'],
+    family: {
+      id: 'pecharunt',
+      stage: 1,
+    },
+  },
 ];
