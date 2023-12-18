@@ -11694,8 +11694,8 @@ export const POKEDEX: Pokemon[] = [
     types: ['dragon', 'ice'],
     floor: 1,
     family: {
-      id: 'kyurem_black',
-      stage: 1,
+      id: 'kyurem',
+      stage: 2,
     },
   },
   {
@@ -11710,8 +11710,8 @@ export const POKEDEX: Pokemon[] = [
     types: ['dragon', 'ice'],
     floor: 1,
     family: {
-      id: 'kyurem_white',
-      stage: 1,
+      id: 'kyurem',
+      stage: 2,
     },
   },
   {
