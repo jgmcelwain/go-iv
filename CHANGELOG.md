@@ -1,4 +1,11 @@
 
+### [2.59.1](https://github.com/jgmcelwain/pvpiv/compare/v2.59.0...v2.59.1) (2023-12-18)
+
+
+### Bug Fixes
+
+* add kyurem black and kyurem white to kyurem family ([8a18007](https://github.com/jgmcelwain/pvpiv/commit/8a18007a2dcd5f7076a83c18dd95e1bc327bfd60))
+
 ## [2.59.0](https://github.com/jgmcelwain/pvpiv/compare/v2.58.0...v2.59.0) (2023-12-14)
 
 
