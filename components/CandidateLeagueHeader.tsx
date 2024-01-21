@@ -50,9 +50,9 @@ const CandidateLeagueHeader: FC = () => {
 
   return (
     <header
-      className={`z-10 w-full p-4 bg-gradient-to-br ${
+      className={`z-[5] w-full p-4 bg-gradient-to-br ${
         LEAGUE_COLORS[league.key].background
-      } sticky top-14 sm:relative sm:top-0 left-0 flex justify-between items-center overflow-hidden font-title ${
+      } sticky top-0 sm:relative left-0 flex justify-between items-center overflow-hidden font-title ${
         LEAGUE_COLORS[league.key].text
       }`}
     >
