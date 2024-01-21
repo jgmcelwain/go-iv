@@ -5,7 +5,7 @@ import { IV_FLOORS } from '../data/ivFloor';
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
 
-import { ArrowLeftIcon } from '@heroicons/react/solid';
+import { ArrowLeftIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import { RANKABLE_METRICS } from '../data/stat';
 
 const LEAGUE_COLORS = {
@@ -33,7 +33,8 @@ const LEAGUE_COLORS = {
 
 const CandidateLeagueHeader: FC = () => {
   const { candidate } = useCandidate();
-  const { league, inspectedLevelCap, setInspectedLevelCap } = useLeague();
+  const { league, inspectedLevelCap, setInspectedLevelCap, collapsed } =
+    useLeague();
 
   const rankingMetric = RANKABLE_METRICS.find(
     (metric) => metric.key === candidate.rankingMetric,
@@ -49,7 +50,7 @@ const CandidateLeagueHeader: FC = () => {
 
   return (
     <header
-      className={`w-full p-4 bg-gradient-to-br ${
+      className={`z-10 w-full p-4 bg-gradient-to-br ${
         LEAGUE_COLORS[league.key].background
       } sticky top-14 sm:relative sm:top-0 left-0 flex justify-between items-center overflow-hidden font-title ${
         LEAGUE_COLORS[league.key].text
@@ -98,6 +99,16 @@ const CandidateLeagueHeader: FC = () => {
           </>
         )}
       </div>
+
+      {inspectedLevelCap === null && (
+        <button onClick={() => collapsed.toggle()} className='z-10'>
+          <ChevronUpIcon
+            className={`w-5 h-5 text-white transition-transform ${
+              collapsed.value ? 'rotate-180' : 'rotate-0'
+            }`}
+          />
+        </button>
+      )}
     </header>
   );
 };

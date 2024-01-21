@@ -5,19 +5,29 @@ import { Provider as LeagueCandidateRankedSpreadsProvider } from '../hooks/useRa
 
 import CandidateLeagueTopSpreadsAtLevelCap from './CandidateLeagueTopSpreadsAtLevelCap';
 import CandidateLeagueRanked from './CandidateLeagueRanked';
+import { Transition } from '@headlessui/react';
 
 const CandidateLeagueContent: FC = () => {
-  const { inspectedLevelCap } = useLeague();
+  const { inspectedLevelCap, collapsed } = useLeague();
 
   return (
     <LeagueCandidateRankedSpreadsProvider>
-      <div className='w-full bg-gray-100'>
+      <Transition
+        show={collapsed.value === false}
+        enter='transition-transform duration-75'
+        enterFrom='-translate-y-full'
+        enterTo='translate-y-0'
+        leave='transition-transform duration-150'
+        leaveFrom='translate-y-0'
+        leaveTo='-translate-y-full'
+        className='bg-gray-100 w-full'
+      >
         {inspectedLevelCap !== null ? (
           <CandidateLeagueTopSpreadsAtLevelCap />
         ) : (
           <CandidateLeagueRanked />
         )}
-      </div>
+      </Transition>
     </LeagueCandidateRankedSpreadsProvider>
   );
 };
