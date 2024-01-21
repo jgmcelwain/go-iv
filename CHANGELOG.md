@@ -1,4 +1,11 @@
 
+## [2.60.0](https://github.com/jgmcelwain/pvpiv/compare/v2.59.1...v2.60.0) (2024-01-21)
+
+
+### Features
+
+* add toggleable league content ([8aac49a](https://github.com/jgmcelwain/pvpiv/commit/8aac49ac5a5a6893b9e0d5c96900a7b6569140bb))
+
 ### [2.59.1](https://github.com/jgmcelwain/pvpiv/compare/v2.59.0...v2.59.1) (2023-12-18)
 
 
