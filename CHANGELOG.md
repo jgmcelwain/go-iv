@@ -1,4 +1,11 @@
 
+### [2.60.1](https://github.com/jgmcelwain/pvpiv/compare/v2.60.0...v2.60.1) (2024-01-21)
+
+
+### Bug Fixes
+
+* z-index/overflow handling for smaller devices ([49cd1d5](https://github.com/jgmcelwain/pvpiv/commit/49cd1d5a208b0444646cf90e95062285fcd41fcc))
+
 ## [2.60.0](https://github.com/jgmcelwain/pvpiv/compare/v2.59.1...v2.60.0) (2024-01-21)
 
 
