@@ -1842,21 +1842,6 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'shellos',
-    dexNumber: 422,
-    name: 'Shellos',
-    stats: {
-      atk: 103,
-      def: 105,
-      sta: 183,
-    },
-    types: ['water'],
-    family: {
-      id: 'shellos',
-      stage: 1,
-    },
-  },
-  {
     id: 'cloyster',
     dexNumber: 91,
     name: 'Cloyster',
@@ -1884,21 +1869,6 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'gastly',
       stage: 1,
-    },
-  },
-  {
-    id: 'gastrodon',
-    dexNumber: 423,
-    name: 'Gastrodon',
-    stats: {
-      atk: 169,
-      def: 143,
-      sta: 244,
-    },
-    types: ['ghost', 'poison'],
-    family: {
-      id: 'shellos',
-      stage: 2,
     },
   },
   {
@@ -7909,6 +7879,36 @@ export const POKEDEX: Pokemon[] = [
     types: ['grass'],
     family: {
       id: 'cherubi',
+      stage: 2,
+    },
+  },
+  {
+    id: 'shellos',
+    dexNumber: 422,
+    name: 'Shellos',
+    stats: {
+      atk: 103,
+      def: 105,
+      sta: 183,
+    },
+    types: ['water'],
+    family: {
+      id: 'shellos',
+      stage: 1,
+    },
+  },
+  {
+    id: 'gastrodon',
+    dexNumber: 423,
+    name: 'Gastrodon',
+    stats: {
+      atk: 169,
+      def: 143,
+      sta: 244,
+    },
+    types: ['water', 'ground'],
+    family: {
+      id: 'shellos',
       stage: 2,
     },
   },
