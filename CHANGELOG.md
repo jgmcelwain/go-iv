@@ -1,4 +1,11 @@
 
+### [2.60.2](https://github.com/jgmcelwain/pvpiv/compare/v2.60.1...v2.60.2) (2024-02-25)
+
+
+### Bug Fixes
+
+* moved shellos/gastrodon in list, fixed gastrodon typing ([a725271](https://github.com/jgmcelwain/pvpiv/commit/a725271c48bd8f2f241c2aa3ddd14b65773bfee6))
+
 ### [2.60.1](https://github.com/jgmcelwain/pvpiv/compare/v2.60.0...v2.60.1) (2024-01-21)
 
 
