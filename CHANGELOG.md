@@ -1,4 +1,11 @@
 
+### [3.0.1](https://github.com/jgmcelwain/go-iv/compare/v3.0.0...v3.0.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* correct github url ([f8396bd](https://github.com/jgmcelwain/go-iv/commit/f8396bd5acc2e7061893c65e7cb77cde1e3b6afd))
+
 ## [3.0.0](https://github.com/jgmcelwain/go-iv/compare/v2.60.2...v3.0.0) (2024-02-27)
 
 ### [2.60.2](https://github.com/jgmcelwain/pvpiv/compare/v2.60.1...v2.60.2) (2024-02-25)
