@@ -10,12 +10,12 @@ const AppFooter: FC = () => (
     <p>
       GOIV.app is open source on GitHub -{' '}
       <a
-        href='https://github.com/jgmcelwain/goiv'
+        href='https://github.com/jgmcelwain/go-iv'
         rel='noreferrer'
         target='_blank'
         className='text-blue-500 dark:text-blue-400 rounded-sm hover:underline focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900'
       >
-        jgmcelwain/goiv
+        jgmcelwain/go-iv
       </a>
     </p>
   </footer>
