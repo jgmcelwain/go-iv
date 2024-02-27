@@ -1,4 +1,6 @@
 
+## [3.0.0](https://github.com/jgmcelwain/go-iv/compare/v2.60.2...v3.0.0) (2024-02-27)
+
 ### [2.60.2](https://github.com/jgmcelwain/pvpiv/compare/v2.60.1...v2.60.2) (2024-02-25)
 
 
