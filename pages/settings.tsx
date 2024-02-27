@@ -18,7 +18,7 @@ const SettingsPage: FC = () => {
   return (
     <div className='grid items-start w-full grid-cols-1 gap-12 -mt-2 md:gap-8 lg:grid-cols-2 md:mt-4'>
       <Head>
-        <title>Settings • PVPIV.app</title>
+        <title>Settings • GOIV.app</title>
       </Head>
 
       <SettingsSection id='leagues' title='Leagues'>

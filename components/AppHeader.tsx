@@ -39,14 +39,14 @@ const AppHeader: FC = () => {
         <div className='grow flex justify-start items-center space-x-2'>
           <Image
             src='/logo.png'
-            alt='PVPIV.app Logo'
-            title='PVPIV.app'
+            alt='GOIV Logo'
+            title='GOIV.app'
             width={36}
             height={36}
           />
 
           <a
-            href='https://github.com/jgmcelwain/pvpiv/blob/main/CHANGELOG.md'
+            href='https://github.com/jgmcelwain/go-iv/blob/main/CHANGELOG.md'
             target='_blank'
             rel='noreferrer'
             className='text-gray-500 dark:text-gray-400 text-xs focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 rounded'

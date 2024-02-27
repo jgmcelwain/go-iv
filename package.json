@@ -1,5 +1,5 @@
 {
-  "name": "pvpiv.app",
+  "name": "goiv.app",
   "version": "2.60.2",
   "scripts": {
     "dev": "next",

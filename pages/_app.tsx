@@ -45,7 +45,7 @@ const App: FC<AppProps & InitialProps> & {
         <SpeculativePokemonProvider value={speculativePokemon}>
           <SettingsProvider initialValue={settings}>
             <Head>
-              <title>PVPIV.app - Pokémon GO PVP IV Checker</title>
+              <title>GOIV.app - Pokémon GO PVP IV Checker</title>
               <meta
                 name='description'
                 content='Check PVP IV ranks for Great League, Ultra League and Master League simultaneously. Includes support for Best Buddy and Candy XL level caps.'
@@ -53,14 +53,14 @@ const App: FC<AppProps & InitialProps> & {
 
               <meta name='theme-color' content='#1F2937' />
 
-              <meta property='og:title' content='PVPIV.app' />
+              <meta property='og:title' content='GOIV.app' />
               <meta
                 property='og:description'
                 content='Pokémon GO PVP IV Checker'
               />
               <meta property='og:type' content='website' />
-              <meta property='og:url' content='https://pvpiv.app' />
-              <meta property='og:image' content='https://pvpiv.app/og.png' />
+              <meta property='og:url' content='https://goiv.app' />
+              <meta property='og:image' content='https://goiv.app/og.png' />
 
               <meta name='mobile-web-app-capable' content='yes' />
               <meta name='apple-mobile-web-app-capable' content='yes' />

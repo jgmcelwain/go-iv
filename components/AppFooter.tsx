@@ -8,14 +8,14 @@ const AppFooter: FC = () => (
     </p>
 
     <p>
-      PVPIV.app is open source on GitHub -{' '}
+      GOIV.app is open source on GitHub -{' '}
       <a
-        href='https://github.com/jgmcelwain/pvpiv'
+        href='https://github.com/jgmcelwain/goiv'
         rel='noreferrer'
         target='_blank'
         className='text-blue-500 dark:text-blue-400 rounded-sm hover:underline focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900'
       >
-        jgmcelwain/pvpiv
+        jgmcelwain/goiv
       </a>
     </p>
   </footer>
