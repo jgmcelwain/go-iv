@@ -8997,7 +8997,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['ghost', 'dragon'],
     floor: 1,
     family: {
-      id: 'giratina_altered',
+      id: 'giratina',
       stage: 1,
     },
     aliases: ['tinaa'],
@@ -9014,7 +9014,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['ghost', 'dragon'],
     floor: 1,
     family: {
-      id: 'giratina_origin',
+      id: 'giratina',
       stage: 1,
     },
     aliases: ['tinao'],
@@ -11548,7 +11548,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['flying'],
     floor: 1,
     family: {
-      id: 'tornadus_incarnate',
+      id: 'tornadus',
       stage: 1,
     },
   },
@@ -11564,7 +11564,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['flying'],
     floor: 1,
     family: {
-      id: 'tornadus_therian',
+      id: 'tornadus',
       stage: 1,
     },
   },
@@ -11580,7 +11580,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['electric', 'flying'],
     floor: 1,
     family: {
-      id: 'thundurus_incarnate',
+      id: 'thundurus',
       stage: 1,
     },
   },
@@ -11596,7 +11596,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['electric', 'flying'],
     floor: 1,
     family: {
-      id: 'thundurus_therian',
+      id: 'thundurus',
       stage: 1,
     },
   },
@@ -11644,7 +11644,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['ground', 'flying'],
     floor: 1,
     family: {
-      id: 'landorus_incarnate',
+      id: 'landorus',
       stage: 1,
     },
     aliases: ['landoi'],
@@ -11661,7 +11661,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['ground', 'flying'],
     floor: 1,
     family: {
-      id: 'landorus_therian',
+      id: 'landorus',
       stage: 1,
     },
     aliases: ['landot'],
@@ -16189,7 +16189,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['fairy', 'flying'],
     floor: 1,
     family: {
-      id: 'enamorus_incarnate',
+      id: 'enamorus',
       stage: 1,
     },
   },
@@ -16205,7 +16205,7 @@ export const POKEDEX: Pokemon[] = [
     types: ['fairy', 'flying'],
     floor: 1,
     family: {
-      id: 'enamorus_therian',
+      id: 'enamorus',
       stage: 1,
     },
   },
