@@ -1,4 +1,6 @@
 
+### [3.1.1](https://github.com/jgmcelwain/go-iv/compare/v3.1.0...v3.1.1) (2025-01-28)
+
 ### [3.0.1](https://github.com/jgmcelwain/go-iv/compare/v3.0.0...v3.0.1) (2024-02-27)
 
 
