@@ -85,7 +85,8 @@ const CandidateLeagueHeader: FC = () => {
               {inspectedLevelCap.description})
             </p>
             <p className='mt-1 text-xs font-semibold'>
-              IV Floor: {floor.value} ({floor.name})
+              IV Floor: {floor.value}{' '}
+              {floor.name !== null ? `(${floor.name})` : ''}
             </p>
             <p className='mt-1 text-xs font-semibold'>
               Ranked By: {rankingMetric.name}

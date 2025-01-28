@@ -45,7 +45,11 @@ const CandidateLeagueRankedAtLevelCap: FC<{
     <button
       onClick={() => setInspectedLevelCap(levelCap)}
       className='focus-visible-ring p-0.5 rounded mr-2'
-      title={`View top ${league.name} IV spreads for ${candidate.species.name}, Level ${candidate.minimumLevel}-${levelCap.level}, ${floor.name}`}
+      title={`View top ${league.name} IV spreads for ${
+        candidate.species.name
+      }, Level ${candidate.minimumLevel}-${levelCap.level}, ${
+        floor.name !== null ? `${floor.name} - ${floor.value}` : floor.value
+      }`}
     >
       <ViewListIcon className='w-4 h-4' />
     </button>

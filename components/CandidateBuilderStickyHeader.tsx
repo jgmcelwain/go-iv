@@ -58,7 +58,8 @@ export default function CandidateBuilderStickyHeader() {
           {candidate.ivs.sta}{' '}
         </p>
         <p className='text-[10px] text-gray-600 dark:text-gray-300'>
-          Ranked by {rankingMetric.name}, Min. IV {floor.value} ({floor.name})
+          Ranked by {rankingMetric.name}, Min. IV {floor.value}{' '}
+          {floor.name !== null ? `(${floor.name})` : ''}
           {settings.showMinimumLevel &&
             `, Min. Level ${candidate.minimumLevel}`}
         </p>

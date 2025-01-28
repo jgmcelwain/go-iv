@@ -31,7 +31,9 @@ const CandidateBuilderIVFloor: FC = () => {
           }
         }).map((floor) => (
           <option key={floor.value} value={floor.value}>
-            {floor.value} - {floor.name}
+            {floor.name !== null
+              ? `${floor.value} - ${floor.name}`
+              : floor.value}
           </option>
         ))}
       </select>
