@@ -1,4 +1,11 @@
 
+### [3.1.2](https://github.com/jgmcelwain/go-iv/compare/v3.1.1...v3.1.2) (2025-02-16)
+
+
+### Bug Fixes
+
+* correct hp stat for hoopa unbound ([742efea](https://github.com/jgmcelwain/go-iv/commit/742efeae837d6fb58716cb5cb90b28754eb64307))
+
 ### [3.1.1](https://github.com/jgmcelwain/go-iv/compare/v3.1.0...v3.1.1) (2025-01-28)
 
 ### [3.0.1](https://github.com/jgmcelwain/go-iv/compare/v3.0.0...v3.0.1) (2024-02-27)
