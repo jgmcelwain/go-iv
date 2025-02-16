@@ -13061,7 +13061,7 @@ export const POKEDEX: Pokemon[] = [
     stats: {
       atk: 311,
       def: 191,
-      sta: 239,
+      sta: 173,
     },
     types: ['psychic', 'dark'],
     family: {
