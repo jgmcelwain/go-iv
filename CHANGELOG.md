@@ -1,4 +1,11 @@
 
+### [3.1.3](https://github.com/jgmcelwain/go-iv/compare/v3.1.2...v3.1.3) (2025-03-14)
+
+
+### Bug Fixes
+
+* update zacian/zamazenta crowned stats ([a439ec4](https://github.com/jgmcelwain/go-iv/commit/a439ec4d53f1a843f5817615bf030e5a5b33cefa))
+
 ### [3.1.2](https://github.com/jgmcelwain/go-iv/compare/v3.1.1...v3.1.2) (2025-02-16)
 
 
