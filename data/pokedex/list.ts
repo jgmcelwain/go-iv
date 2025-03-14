@@ -15822,7 +15822,7 @@ export const POKEDEX: Pokemon[] = [
     dexNumber: 888,
     name: 'Zacian (Crowned Sword)',
     stats: {
-      atk: 332,
+      atk: 295,
       def: 240,
       sta: 192,
     },
@@ -15854,8 +15854,8 @@ export const POKEDEX: Pokemon[] = [
     dexNumber: 889,
     name: 'Zamazenta (Crowned Shield)',
     stats: {
-      atk: 250,
-      def: 292,
+      atk: 231,
+      def: 282,
       sta: 192,
     },
     types: ['fighting', 'steel'],
