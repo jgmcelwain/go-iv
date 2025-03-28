@@ -1,4 +1,11 @@
 
+## [3.2.0](https://github.com/jgmcelwain/go-iv/compare/v3.1.3...v3.2.0) (2025-03-28)
+
+
+### Features
+
+* add Aegislash (Blade) ([f16bf5a](https://github.com/jgmcelwain/go-iv/commit/f16bf5adc49b399b8413e3a940acc25e2e901d94))
+
 ### [3.1.3](https://github.com/jgmcelwain/go-iv/compare/v3.1.2...v3.1.3) (2025-03-14)
 
 
