@@ -12271,12 +12271,27 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'aegislash',
+    id: 'aegislash_shield',
     dexNumber: 681,
-    name: 'Aegislash',
+    name: 'Aegislash (Shield)',
     stats: {
       atk: 97,
       def: 291,
+      sta: 155,
+    },
+    types: ['steel', 'ghost'],
+    family: {
+      id: 'honedge',
+      stage: 3,
+    },
+  },
+  {
+    id: 'aegislash_blade',
+    dexNumber: 681,
+    name: 'Aegislash (Blade)',
+    stats: {
+      atk: 291,
+      def: 97,
       sta: 155,
     },
     types: ['steel', 'ghost'],
