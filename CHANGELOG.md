@@ -1,4 +1,11 @@
 
+### [3.2.1](https://github.com/jgmcelwain/go-iv/compare/v3.2.0...v3.2.1) (2025-06-19)
+
+
+### Bug Fixes
+
+* correct stats for zac/zam crowned ([71236eb](https://github.com/jgmcelwain/go-iv/commit/71236ebf4a69a72d93d07ae1ce61e34fb04cb875))
+
 ## [3.2.0](https://github.com/jgmcelwain/go-iv/compare/v3.1.3...v3.2.0) (2025-03-28)
 
 
