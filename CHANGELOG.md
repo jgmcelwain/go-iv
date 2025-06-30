@@ -1,4 +1,11 @@
 
+## [3.3.0](https://github.com/jgmcelwain/go-iv/compare/v3.2.1...v3.3.0) (2025-06-30)
+
+
+### Features
+
+* add SV h-zoroark stats ([c93f545](https://github.com/jgmcelwain/go-iv/commit/c93f5456a12739e01eddf8258b02ec05c35b34af))
+
 ### [3.2.1](https://github.com/jgmcelwain/go-iv/compare/v3.2.0...v3.2.1) (2025-06-19)
 
 
