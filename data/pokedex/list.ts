@@ -10423,7 +10423,7 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'zorua_hisuian',
+    id: 'zorua_hisui',
     dexNumber: 570,
     name: 'Zorua (Hisuian)',
     stats: {
@@ -10433,7 +10433,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['ghost', 'normal'],
     family: {
-      id: 'zorua_hisuian',
+      id: 'zorua_hisui',
       stage: 1,
     },
   },
@@ -10453,9 +10453,24 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'zoroark_hisuian',
+    id: 'zoroark_hisui',
     dexNumber: 571,
-    name: 'Zoroark (Hisuian)',
+    name: 'Zoroark (Hisuian, SV)',
+    stats: {
+      atk: 250,
+      def: 127,
+      sta: 155,
+    },
+    types: ['ghost', 'normal'],
+    family: {
+      id: 'zorua_hisui',
+      stage: 2,
+    },
+  },
+  {
+    id: 'zoroark_hisui_pla',
+    dexNumber: 571,
+    name: 'Zoroark (Hisuian, PLA)',
     stats: {
       atk: 261,
       def: 128,
@@ -10463,7 +10478,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['ghost', 'normal'],
     family: {
-      id: 'zorua_hisuian',
+      id: 'zorua_hisui',
       stage: 2,
     },
   },
