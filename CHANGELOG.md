@@ -1,4 +1,11 @@
 
+### [3.3.1](https://github.com/jgmcelwain/go-iv/compare/v3.3.0...v3.3.1) (2025-07-09)
+
+
+### Bug Fixes
+
+* remove SV zoroark hisui stats ([21a5c48](https://github.com/jgmcelwain/go-iv/commit/21a5c48daa09436edcf13b580547add8642c5bb5))
+
 ## [3.3.0](https://github.com/jgmcelwain/go-iv/compare/v3.2.1...v3.3.0) (2025-06-30)
 
 
