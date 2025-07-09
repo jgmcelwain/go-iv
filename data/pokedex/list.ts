@@ -10455,22 +10455,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'zoroark_hisui',
     dexNumber: 571,
-    name: 'Zoroark (Hisuian, SV)',
-    stats: {
-      atk: 250,
-      def: 127,
-      sta: 155,
-    },
-    types: ['ghost', 'normal'],
-    family: {
-      id: 'zorua_hisui',
-      stage: 2,
-    },
-  },
-  {
-    id: 'zoroark_hisui_pla',
-    dexNumber: 571,
-    name: 'Zoroark (Hisuian, PLA)',
+    name: 'Zoroark (Hisuian)',
     stats: {
       atk: 261,
       def: 128,
