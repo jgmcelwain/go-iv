@@ -12276,7 +12276,7 @@ export const POKEDEX: Pokemon[] = [
     name: 'Aegislash (Shield)',
     stats: {
       atk: 97,
-      def: 291,
+      def: 272,
       sta: 155,
     },
     types: ['steel', 'ghost'],
@@ -12290,7 +12290,7 @@ export const POKEDEX: Pokemon[] = [
     dexNumber: 681,
     name: 'Aegislash (Blade)',
     stats: {
-      atk: 291,
+      atk: 272,
       def: 97,
       sta: 155,
     },
