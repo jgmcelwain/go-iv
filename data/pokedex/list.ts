@@ -49,7 +49,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'venusaur_mega',
     dexNumber: 3,
-    name: 'Venusaur (Mega)',
+    name: 'Mega Venusaur',
     stats: {
       atk: 241,
       def: 246,
@@ -110,7 +110,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'charizard_mega_x',
     dexNumber: 6,
-    name: 'Charizard (Mega X)',
+    name: 'Mega Charizard X',
     stats: {
       atk: 273,
       def: 213,
@@ -125,7 +125,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'charizard_mega_y',
     dexNumber: 6,
-    name: 'Charizard (Mega Y)',
+    name: 'Mega Charizard Y',
     stats: {
       atk: 319,
       def: 212,
@@ -185,7 +185,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'blastoise_mega',
     dexNumber: 9,
-    name: 'Blastoise (Mega)',
+    name: 'Mega Blastoise',
     stats: {
       atk: 264,
       def: 237,
@@ -290,7 +290,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'beedrill_mega',
     dexNumber: 15,
-    name: 'Beedrill (Mega)',
+    name: 'Mega Beedrill',
     stats: {
       atk: 303,
       def: 148,
@@ -350,7 +350,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'pidgeot_mega',
     dexNumber: 18,
-    name: 'Pidgeot (Mega)',
+    name: 'Mega Pidgeot',
     stats: {
       atk: 280,
       def: 175,
@@ -528,6 +528,36 @@ export const POKEDEX: Pokemon[] = [
       stage: 2,
     },
     aliases: ['achu'],
+  },
+  {
+    id: 'raichu_mega_x',
+    dexNumber: 26,
+    name: 'Mega Raichu X',
+    stats: {
+      atk: 277,
+      def: 203,
+      sta: 155,
+    },
+    types: ['electric'],
+    family: {
+      id: 'pichu',
+      stage: 3,
+    },
+  },
+  {
+    id: 'raichu_mega_y',
+    dexNumber: 26,
+    name: 'Mega Raichu Y',
+    stats: {
+      atk: 339,
+      def: 157,
+      sta: 155,
+    },
+    types: ['electric'],
+    family: {
+      id: 'pichu',
+      stage: 3,
+    },
   },
   {
     id: 'sandshrew',
@@ -708,6 +738,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'cleffa',
       stage: 3,
+    },
+  },
+  {
+    id: 'clefable_mega',
+    dexNumber: 36,
+    name: 'Mega Clefable',
+    stats: {
+      atk: 253,
+      def: 205,
+      sta: 216,
+    },
+    types: ['fairy', 'flying'],
+    family: {
+      id: 'cleffa',
+      stage: 4,
     },
   },
   {
@@ -1285,7 +1330,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'alakazam_mega',
     dexNumber: 65,
-    name: 'Alakazam (Mega)',
+    name: 'Mega Alakazam',
     stats: {
       atk: 367,
       def: 193,
@@ -1385,6 +1430,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'bellsprout',
       stage: 3,
+    },
+  },
+  {
+    id: 'victreebel_mega',
+    dexNumber: 71,
+    name: 'Mega Victreebel',
+    stats: {
+      atk: 265,
+      def: 181,
+      sta: 190,
+    },
+    types: ['grass', 'poison'],
+    family: {
+      id: 'bellsprout',
+      stage: 4,
     },
   },
   {
@@ -1632,7 +1692,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'slowbro_mega',
     dexNumber: 80,
-    name: 'Slowbro (Mega)',
+    name: 'Mega Slowbro',
     stats: {
       atk: 224,
       def: 259,
@@ -1904,7 +1964,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'gengar_mega',
     dexNumber: 94,
-    name: 'Gengar (Mega)',
+    name: 'Mega Gengar',
     stats: {
       atk: 349,
       def: 199,
@@ -2312,7 +2372,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'kangaskhan_mega',
     dexNumber: 115,
-    name: 'Kangaskhan (Mega)',
+    name: 'Mega Kangaskhan',
     stats: {
       atk: 246,
       def: 210,
@@ -2412,6 +2472,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'staryu',
       stage: 2,
+    },
+  },
+  {
+    id: 'starmie_mega',
+    dexNumber: 121,
+    name: 'Mega Starmie',
+    stats: {
+      atk: 303,
+      def: 229,
+      sta: 155,
+    },
+    types: ['water', 'psychic'],
+    family: {
+      id: 'staryu',
+      stage: 3,
     },
   },
   {
@@ -2522,7 +2597,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'pinsir_mega',
     dexNumber: 127,
-    name: 'Pinsir (Mega)',
+    name: 'Mega Pinsir',
     stats: {
       atk: 305,
       def: 231,
@@ -2628,7 +2703,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'gyarados_mega',
     dexNumber: 130,
-    name: 'Gyarados (Mega)',
+    name: 'Mega Gyarados',
     stats: {
       atk: 292,
       def: 247,
@@ -2823,7 +2898,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'aerodactyl_mega',
     dexNumber: 142,
-    name: 'Aerodactyl (Mega)',
+    name: 'Mega Aerodactyl',
     stats: {
       atk: 292,
       def: 210,
@@ -2988,6 +3063,21 @@ export const POKEDEX: Pokemon[] = [
     aliases: ['dnite'],
   },
   {
+    id: 'dragonite_mega',
+    dexNumber: 149,
+    name: 'Mega Dragonite',
+    stats: {
+      atk: 299,
+      def: 255,
+      sta: 209,
+    },
+    types: ['dragon', 'flying'],
+    family: {
+      id: 'dratini',
+      stage: 4,
+    },
+  },
+  {
     id: 'mewtwo',
     dexNumber: 150,
     name: 'Mewtwo',
@@ -3023,7 +3113,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'mewtwo_mega_x',
     dexNumber: 150,
-    name: 'Mewtwo (Mega X, 3% nerf)',
+    name: 'Mega Mewtwo X (3% nerf)',
     stats: {
       atk: 399,
       def: 215,
@@ -3039,7 +3129,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'mewtwo_mega_y',
     dexNumber: 150,
-    name: 'Mewtwo (Mega Y, 3% nerf)',
+    name: 'Mega Mewtwo Y (3% nerf)',
     stats: {
       atk: 413,
       def: 223,
@@ -3055,7 +3145,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'mewtwo_mega_x_9',
     dexNumber: 150,
-    name: 'Mewtwo (Mega X, 9% nerf)',
+    name: 'Mega Mewtwo X (9% nerf)',
     stats: {
       atk: 375,
       def: 202,
@@ -3071,7 +3161,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'mewtwo_mega_y_9',
     dexNumber: 150,
-    name: 'Mewtwo (Mega Y, 9% nerf)',
+    name: 'Mega Mewtwo Y (9% nerf)',
     stats: {
       atk: 388,
       def: 208,
@@ -3143,6 +3233,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'chikorita',
       stage: 3,
+    },
+  },
+  {
+    id: 'meganium_mega',
+    dexNumber: 154,
+    name: 'Mega Meganium',
+    stats: {
+      atk: 276,
+      def: 232,
+      sta: 190,
+    },
+    types: ['grass', 'fairy'],
+    family: {
+      id: 'chikorita',
+      stage: 4,
     },
   },
   {
@@ -3250,6 +3355,21 @@ export const POKEDEX: Pokemon[] = [
       stage: 3,
     },
     aliases: ['zygon'],
+  },
+  {
+    id: 'feraligatr_mega',
+    dexNumber: 160,
+    name: 'Mega Feraligatr',
+    stats: {
+      atk: 304,
+      def: 227,
+      sta: 198,
+    },
+    types: ['water', 'dragon'],
+    family: {
+      id: 'totodile',
+      stage: 4,
+    },
   },
   {
     id: 'sentret',
@@ -3569,7 +3689,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'ampharos_mega',
     dexNumber: 181,
-    name: 'Ampharos (Mega)',
+    name: 'Mega Ampharos',
     stats: {
       atk: 294,
       def: 203,
@@ -4019,7 +4139,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'steelix_mega',
     dexNumber: 208,
-    name: 'Steelix (Mega)',
+    name: 'Mega Steelix',
     stats: {
       atk: 212,
       def: 327,
@@ -4110,7 +4230,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'scizor_mega',
     dexNumber: 212,
-    name: 'Scizor (Mega)',
+    name: 'Mega Scizor',
     stats: {
       atk: 279,
       def: 250,
@@ -4155,7 +4275,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'heracross_mega',
     dexNumber: 214,
-    name: 'Heracross (Mega)',
+    name: 'Mega Heracross',
     stats: {
       atk: 334,
       def: 223,
@@ -4393,6 +4513,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'skarmory_mega',
+    dexNumber: 227,
+    name: 'Mega Skarmory',
+    stats: {
+      atk: 273,
+      def: 228,
+      sta: 163,
+    },
+    types: ['steel', 'flying'],
+    family: {
+      id: 'skarmory',
+      stage: 2,
+    },
+  },
+  {
     id: 'houndour',
     dexNumber: 228,
     name: 'Houndour',
@@ -4425,7 +4560,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'houndoom_mega',
     dexNumber: 229,
-    name: 'Houndoom (Mega)',
+    name: 'Mega Houndoom',
     stats: {
       atk: 289,
       def: 194,
@@ -4728,7 +4863,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'tyranitar_mega',
     dexNumber: 248,
-    name: 'Tyranitar (Mega)',
+    name: 'Mega Tyranitar',
     stats: {
       atk: 309,
       def: 276,
@@ -4836,7 +4971,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'sceptile_mega',
     dexNumber: 254,
-    name: 'Sceptile (Mega)',
+    name: 'Mega Sceptile',
     stats: {
       atk: 320,
       def: 186,
@@ -4896,7 +5031,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'blaziken_mega',
     dexNumber: 257,
-    name: 'Blaziken (Mega)',
+    name: 'Mega Blaziken',
     stats: {
       atk: 329,
       def: 168,
@@ -4956,7 +5091,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'swampert_mega',
     dexNumber: 260,
-    name: 'Swampert (Mega)',
+    name: 'Mega Swampert',
     stats: {
       atk: 283,
       def: 218,
@@ -5331,7 +5466,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'gardevoir_mega',
     dexNumber: 282,
-    name: 'Gardevoir (Mega)',
+    name: 'Mega Gardevoir',
     stats: {
       atk: 326,
       def: 229,
@@ -5646,7 +5781,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'sableye_mega',
     dexNumber: 302,
-    name: 'Sableye (Mega)',
+    name: 'Mega Sableye',
     stats: {
       atk: 151,
       def: 216,
@@ -5676,7 +5811,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'mawile_mega',
     dexNumber: 303,
-    name: 'Mawile (Mega)',
+    name: 'Mega Mawile',
     stats: {
       atk: 188,
       def: 217,
@@ -5736,7 +5871,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'aggron_mega',
     dexNumber: 306,
-    name: 'Aggron (Mega)',
+    name: 'Mega Aggron',
     stats: {
       atk: 247,
       def: 331,
@@ -5781,7 +5916,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'medicham_mega',
     dexNumber: 308,
-    name: 'Medicham (Mega)',
+    name: 'Mega Medicham',
     stats: {
       atk: 205,
       def: 179,
@@ -5826,7 +5961,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'manectric_mega',
     dexNumber: 310,
-    name: 'Manectric (Mega)',
+    name: 'Mega Manectric',
     stats: {
       atk: 286,
       def: 179,
@@ -5976,7 +6111,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'sharpedo_mega',
     dexNumber: 319,
-    name: 'Sharpedo (Mega)',
+    name: 'Mega Sharpedo',
     stats: {
       atk: 289,
       def: 144,
@@ -6051,7 +6186,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'camerupt_mega',
     dexNumber: 323,
-    name: 'Camerupt (Mega)',
+    name: 'Mega Camerupt',
     stats: {
       atk: 253,
       def: 183,
@@ -6231,7 +6366,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'altaria_mega',
     dexNumber: 334,
-    name: 'Altaria (Mega)',
+    name: 'Mega Altaria',
     stats: {
       atk: 222,
       def: 218,
@@ -6591,7 +6726,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'banette_mega',
     dexNumber: 354,
-    name: 'Banette (Mega)',
+    name: 'Mega Banette',
     stats: {
       atk: 312,
       def: 160,
@@ -6664,6 +6799,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'chimecho_mega',
+    dexNumber: 358,
+    name: 'Mega Chimecho',
+    stats: {
+      atk: 244,
+      def: 228,
+      sta: 181,
+    },
+    types: ['psychic', 'steel'],
+    family: {
+      id: 'chingling',
+      stage: 3,
+    },
+  },
+  {
     id: 'absol',
     dexNumber: 359,
     name: 'Absol',
@@ -6681,13 +6831,28 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'absol_mega',
     dexNumber: 359,
-    name: 'Absol (Mega)',
+    name: 'Mega Absol',
     stats: {
       atk: 314,
       def: 130,
       sta: 163,
     },
     types: ['dark'],
+    family: {
+      id: 'absol',
+      stage: 2,
+    },
+  },
+  {
+    id: 'absol_mega_z',
+    dexNumber: 359,
+    name: 'Mega Absol Z',
+    stats: {
+      atk: 332,
+      def: 138,
+      sta: 163,
+    },
+    types: ['dark', 'ghost'],
     family: {
       id: 'absol',
       stage: 2,
@@ -6741,7 +6906,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'glalie_mega',
     dexNumber: 362,
-    name: 'Glalie (Mega)',
+    name: 'Mega Glalie',
     stats: {
       atk: 252,
       def: 168,
@@ -6921,7 +7086,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'salamence_mega',
     dexNumber: 373,
-    name: 'Salamence (Mega)',
+    name: 'Mega Salamence',
     stats: {
       atk: 310,
       def: 251,
@@ -6981,7 +7146,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'metagross_mega',
     dexNumber: 376,
-    name: 'Metagross (Mega)',
+    name: 'Mega Metagross',
     stats: {
       atk: 300,
       def: 289,
@@ -7060,7 +7225,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'latias_mega',
     dexNumber: 380,
-    name: 'Latias (Mega)',
+    name: 'Mega Latias',
     stats: {
       atk: 289,
       def: 297,
@@ -7092,7 +7257,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'latios_mega',
     dexNumber: 381,
-    name: 'Latios (Mega)',
+    name: 'Mega Latios',
     stats: {
       atk: 335,
       def: 241,
@@ -7188,7 +7353,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'rayquaza_mega',
     dexNumber: 384,
-    name: 'Rayquaza (Mega)',
+    name: 'Mega Rayquaza',
     stats: {
       atk: 377,
       def: 210,
@@ -7460,6 +7625,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'starly',
       stage: 3,
+    },
+  },
+  {
+    id: 'staraptor_mega',
+    dexNumber: 398,
+    name: 'Mega Staraptor',
+    stats: {
+      atk: 278,
+      def: 207,
+      sta: 198,
+    },
+    types: ['fighting', 'flying'],
+    family: {
+      id: 'starly',
+      stage: 4,
     },
   },
   {
@@ -7990,7 +8170,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'lopunny_mega',
     dexNumber: 428,
-    name: 'Lopunny (Mega)',
+    name: 'Mega Lopunny',
     stats: {
       atk: 282,
       def: 214,
@@ -8261,13 +8441,28 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'garchomp_mega',
     dexNumber: 445,
-    name: 'Garchomp (Mega)',
+    name: 'Mega Garchomp',
     stats: {
       atk: 339,
       def: 222,
       sta: 239,
     },
     types: ['dragon', 'ground'],
+    family: {
+      id: 'gible',
+      stage: 4,
+    },
+  },
+  {
+    id: 'garchomp_mega_z',
+    dexNumber: 445,
+    name: 'Mega Garchomp Z',
+    stats: {
+      atk: 321,
+      def: 196,
+      sta: 239,
+    },
+    types: ['dragon'],
     family: {
       id: 'gible',
       stage: 4,
@@ -8321,10 +8516,25 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'lucario_mega',
     dexNumber: 448,
-    name: 'Lucario (Mega)',
+    name: 'Mega Lucario',
     stats: {
       atk: 310,
       def: 175,
+      sta: 172,
+    },
+    types: ['fighting', 'steel'],
+    family: {
+      id: 'riolu',
+      stage: 3,
+    },
+  },
+  {
+    id: 'lucario_mega_z',
+    dexNumber: 448,
+    name: 'Mega Lucario Z',
+    stats: {
+      atk: 359,
+      def: 161,
       sta: 172,
     },
     types: ['fighting', 'steel'],
@@ -8516,7 +8726,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'abomasnow_mega',
     dexNumber: 460,
-    name: 'Abomasnow (Mega)',
+    name: 'Mega Abomasnow',
     stats: {
       atk: 240,
       def: 191,
@@ -8757,7 +8967,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'gallade_mega',
     dexNumber: 475,
-    name: 'Gallade (Mega)',
+    name: 'Mega Gallade',
     stats: {
       atk: 326,
       def: 230,
@@ -8812,6 +9022,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'snorunt',
       stage: 2,
+    },
+  },
+  {
+    id: 'froslass_mega',
+    dexNumber: 478,
+    name: 'Mega Froslass',
+    stats: {
+      atk: 289,
+      def: 194,
+      sta: 172,
+    },
+    types: ['ice', 'ghost'],
+    family: {
+      id: 'snorunt',
+      stage: 3,
     },
   },
   {
@@ -8970,6 +9195,22 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'heatran_mega',
+    dexNumber: 485,
+    name: 'Mega Heatran',
+    stats: {
+      atk: 331,
+      def: 252,
+      sta: 209,
+    },
+    types: ['fire', 'steel'],
+    floor: 1,
+    family: {
+      id: 'heatran',
+      stage: 2,
+    },
+  },
+  {
     id: 'regigigas',
     dexNumber: 486,
     name: 'Regigigas',
@@ -9081,6 +9322,22 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'darkrai',
       stage: 1,
+    },
+  },
+  {
+    id: 'darkrai_mega',
+    dexNumber: 491,
+    name: 'Mega Darkrai',
+    stats: {
+      atk: 325,
+      def: 265,
+      sta: 172,
+    },
+    types: ['dark'],
+    floor: 10,
+    family: {
+      id: 'darkrai',
+      stage: 2,
     },
   },
   {
@@ -9235,6 +9492,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'tepig',
       stage: 3,
+    },
+  },
+  {
+    id: 'emboar_mega',
+    dexNumber: 500,
+    name: 'Mega Emboar',
+    stats: {
+      atk: 287,
+      def: 194,
+      sta: 242,
+    },
+    types: ['fire', 'fighting'],
+    family: {
+      id: 'tepig',
+      stage: 4,
     },
   },
   {
@@ -9703,6 +9975,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'excadrill_mega',
+    dexNumber: 530,
+    name: 'Mega Excadrill',
+    stats: {
+      atk: 322,
+      def: 184,
+      sta: 242,
+    },
+    types: ['ground', 'steel'],
+    family: {
+      id: 'drilbur',
+      stage: 3,
+    },
+  },
+  {
     id: 'audino',
     dexNumber: 531,
     name: 'Audino',
@@ -9720,7 +10007,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'audino_mega',
     dexNumber: 531,
-    name: 'Audino (Mega)',
+    name: 'Mega Audino',
     stats: {
       atk: 147,
       def: 239,
@@ -9940,6 +10227,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'venipede',
       stage: 3,
+    },
+  },
+  {
+    id: 'scolipede_mega',
+    dexNumber: 545,
+    name: 'Mega Scolipede',
+    stats: {
+      atk: 257,
+      def: 254,
+      sta: 155,
+    },
+    types: ['bug', 'poison'],
+    family: {
+      id: 'venipede',
+      stage: 4,
     },
   },
   {
@@ -10255,6 +10557,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'scraggy',
       stage: 2,
+    },
+  },
+  {
+    id: 'scrafty_mega',
+    dexNumber: 560,
+    name: 'Mega Scrafty',
+    stats: {
+      atk: 238,
+      def: 266,
+      sta: 163,
+    },
+    types: ['dark', 'fighting'],
+    family: {
+      id: 'scraggy',
+      stage: 3,
     },
   },
   {
@@ -10963,6 +11280,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'eelektross_mega',
+    dexNumber: 604,
+    name: 'Mega Eelektross',
+    stats: {
+      atk: 291,
+      def: 175,
+      sta: 198,
+    },
+    types: ['electric'],
+    family: {
+      id: 'tynamo',
+      stage: 4,
+    },
+  },
+  {
     id: 'elgyem',
     dexNumber: 605,
     name: 'Elgyem',
@@ -11035,6 +11367,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'litwick',
       stage: 3,
+    },
+  },
+  {
+    id: 'chandelure_mega',
+    dexNumber: 609,
+    name: 'Mega Chandelure',
+    stats: {
+      atk: 335,
+      def: 227,
+      sta: 155,
+    },
+    types: ['ghost', 'fire'],
+    family: {
+      id: 'litwick',
+      stage: 4,
     },
   },
   {
@@ -11261,6 +11608,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'golett',
       stage: 2,
+    },
+  },
+  {
+    id: 'mega_golurk',
+    dexNumber: 623,
+    name: 'Mega Golurk',
+    stats: {
+      atk: 284,
+      def: 202,
+      sta: 205,
+    },
+    types: ['ground', 'ghost'],
+    family: {
+      id: 'golett',
+      stage: 3,
     },
   },
   {
@@ -11836,6 +12198,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'chesnaught_mega',
+    dexNumber: 652,
+    name: 'Mega Chesnaught',
+    stats: {
+      atk: 242,
+      def: 282,
+      sta: 204,
+    },
+    types: ['grass', 'fighting'],
+    family: {
+      id: 'chespin',
+      stage: 4,
+    },
+  },
+  {
     id: 'fennekin',
     dexNumber: 653,
     name: 'Fennekin',
@@ -11878,6 +12255,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'fennekin',
       stage: 3,
+    },
+  },
+  {
+    id: 'delphox_mega',
+    dexNumber: 655,
+    name: 'Mega Delphox',
+    stats: {
+      atk: 331,
+      def: 235,
+      sta: 181,
+    },
+    types: ['fire', 'psychic'],
+    family: {
+      id: 'fennekin',
+      stage: 4,
     },
   },
   {
@@ -11926,9 +12318,24 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'greninja_mega',
+    dexNumber: 658,
+    name: 'Mega Greninja',
+    stats: {
+      atk: 299,
+      def: 180,
+      sta: 176,
+    },
+    types: ['water', 'dark'],
+    family: {
+      id: 'froakie',
+      stage: 4,
+    },
+  },
+  {
     id: 'greninja_ash',
     dexNumber: 658,
-    name: 'Greninja (Ash)',
+    name: 'Ash Greninja',
     stats: {
       atk: 339,
       def: 155,
@@ -12091,6 +12498,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'pyroar_mega',
+    dexNumber: 668,
+    name: 'Mega Pyroar',
+    stats: {
+      atk: 273,
+      def: 198,
+      sta: 200,
+    },
+    types: ['fire', 'normal'],
+    family: {
+      id: 'litleo',
+      stage: 3,
+    },
+  },
+  {
     id: 'flabebe',
     dexNumber: 669,
     name: 'Flabebe',
@@ -12133,6 +12555,36 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'flabebe',
       stage: 3,
+    },
+  },
+  {
+    id: 'floette_eternal',
+    dexNumber: 670,
+    name: 'Eternal Floette',
+    stats: {
+      atk: 243,
+      def: 217,
+      sta: 179,
+    },
+    types: ['fairy'],
+    family: {
+      id: 'flabebe',
+      stage: 3,
+    },
+  },
+  {
+    id: 'floette_eternal_mega',
+    dexNumber: 670,
+    name: 'Mega Eternal Floette',
+    stats: {
+      atk: 309,
+      def: 264,
+      sta: 179,
+    },
+    types: ['fairy'],
+    family: {
+      id: 'flabebe',
+      stage: 4,
     },
   },
   {
@@ -12234,10 +12686,25 @@ export const POKEDEX: Pokemon[] = [
       def: 167,
       sta: 179,
     },
-    types: ['steel'],
+    types: ['psychic'],
     family: {
       id: 'espurr',
-      stage: 1,
+      stage: 2,
+    },
+  },
+  {
+    id: 'meowstic_mega',
+    dexNumber: 678,
+    name: 'Mega Meowstic',
+    stats: {
+      atk: 288,
+      def: 201,
+      sta: 179,
+    },
+    types: ['psychic'],
+    family: {
+      id: 'espurr',
+      stage: 3,
     },
   },
   {
@@ -12391,6 +12858,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'malamar_mega',
+    dexNumber: 687,
+    name: 'Mega Malamar',
+    stats: {
+      atk: 208,
+      def: 222,
+      sta: 200,
+    },
+    types: ['dark', 'psychic'],
+    family: {
+      id: 'inkay',
+      stage: 3,
+    },
+  },
+  {
     id: 'binacle',
     dexNumber: 688,
     name: 'Binacle',
@@ -12421,6 +12903,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'barbaracle_mega',
+    dexNumber: 689,
+    name: 'Mega Barbaracle',
+    stats: {
+      atk: 268,
+      def: 248,
+      sta: 176,
+    },
+    types: ['rock', 'fighting'],
+    family: {
+      id: 'binacle',
+      stage: 3,
+    },
+  },
+  {
     id: 'skrelp',
     dexNumber: 690,
     name: 'Skrelp',
@@ -12448,6 +12945,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'skrelp',
       stage: 2,
+    },
+  },
+  {
+    id: 'dragalge_mega',
+    dexNumber: 691,
+    name: 'Mega Dragalge',
+    stats: {
+      atk: 236,
+      def: 265,
+      sta: 163,
+    },
+    types: ['poison', 'dragon'],
+    family: {
+      id: 'skrelp',
+      stage: 3,
     },
   },
   {
@@ -12598,6 +13110,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'hawlucha',
       stage: 1,
+    },
+  },
+  {
+    id: 'hawlucha_mega',
+    dexNumber: 701,
+    name: 'Mega Hawlucha',
+    stats: {
+      atk: 280,
+      def: 212,
+      sta: 186,
+    },
+    types: ['fighting', 'flying'],
+    family: {
+      id: 'hawlucha',
+      stage: 2,
     },
   },
   {
@@ -13023,6 +13550,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'zygarde_mega',
+    dexNumber: 718,
+    name: 'Mega Zygarde',
+    stats: {
+      atk: 378,
+      def: 170,
+      sta: 389,
+    },
+    types: ['dragon', 'ground'],
+    family: {
+      id: 'zygarde',
+      stage: 4,
+    },
+  },
+  {
     id: 'diancie',
     dexNumber: 719,
     name: 'Diancie',
@@ -13041,7 +13583,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'diancie_mega',
     dexNumber: 719,
-    name: 'Diancie (Mega)',
+    name: 'Mega Diancie',
     stats: {
       atk: 342,
       def: 235,
@@ -13397,6 +13939,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'crabrawler',
       stage: 2,
+    },
+  },
+  {
+    id: 'crabominable_mega',
+    dexNumber: 740,
+    name: 'Mega Crabominable',
+    stats: {
+      atk: 266,
+      def: 213,
+      sta: 219,
+    },
+    types: ['fighting', 'ice'],
+    family: {
+      id: 'crabrawler',
+      stage: 3,
     },
   },
   {
@@ -13911,6 +14468,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'golisopod_mega',
+    dexNumber: 768,
+    name: 'Mega Golisopod',
+    stats: {
+      atk: 260,
+      def: 287,
+      sta: 181,
+    },
+    types: ['bug', 'steel'],
+    family: {
+      id: 'wimpod',
+      stage: 3,
+    },
+  },
+  {
     id: 'sandygast',
     dexNumber: 769,
     name: 'Sandygast',
@@ -14103,6 +14675,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'drampa',
       stage: 1,
+    },
+  },
+  {
+    id: 'drampa_mega',
+    dexNumber: 780,
+    name: 'Mega Drampa',
+    stats: {
+      atk: 278,
+      def: 210,
+      sta: 186,
+    },
+    types: ['normal', 'dragon'],
+    family: {
+      id: 'drampa',
+      stage: 2,
     },
   },
   {
@@ -14490,6 +15077,22 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'magearna_mega',
+    dexNumber: 801,
+    name: 'Mega Magearna',
+    stats: {
+      atk: 342,
+      def: 239,
+      sta: 190,
+    },
+    types: ['steel', 'fairy'],
+    floor: 10,
+    family: {
+      id: 'magearna',
+      stage: 2,
+    },
+  },
+  {
     id: 'marshadow',
     dexNumber: 802,
     name: 'Marshadow',
@@ -14583,6 +15186,22 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'zeraora',
       stage: 1,
+    },
+  },
+  {
+    id: 'zeraora_mega',
+    dexNumber: 807,
+    name: 'Mega Zeraora',
+    stats: {
+      atk: 361,
+      def: 180,
+      sta: 204,
+    },
+    types: ['electric'],
+    floor: 1,
+    family: {
+      id: 'zeraora',
+      stage: 2,
     },
   },
   {
@@ -15529,6 +16148,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'falinks',
       stage: 1,
+    },
+  },
+  {
+    id: 'falinks_mega',
+    dexNumber: 870,
+    name: 'Mega Falinks',
+    stats: {
+      atk: 267,
+      def: 229,
+      sta: 163,
+    },
+    types: ['fighting'],
+    family: {
+      id: 'falinks',
+      stage: 2,
     },
   },
   {
@@ -16945,6 +17579,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'scovillain_mega',
+    dexNumber: 952,
+    name: 'Mega Scovillain',
+    stats: {
+      atk: 276,
+      def: 170,
+      sta: 163,
+    },
+    types: ['grass', 'fire'],
+    family: {
+      id: 'capsakid',
+      stage: 3,
+    },
+  },
+  {
     id: 'rellor',
     dexNumber: 953,
     name: 'Rellor',
@@ -17230,6 +17879,21 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
+    id: 'glimmora_mega',
+    dexNumber: 970,
+    name: 'Mega Glimmora',
+    stats: {
+      atk: 300,
+      def: 214,
+      sta: 195,
+    },
+    types: ['rock', 'poison'],
+    family: {
+      id: 'glimmet',
+      stage: 3,
+    },
+  },
+  {
     id: 'greavard',
     dexNumber: 971,
     name: 'Greavard',
@@ -17347,6 +18011,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'tatsugiri',
       stage: 1,
+    },
+  },
+  {
+    id: 'tatsugiri_mega',
+    dexNumber: 978,
+    name: 'Mega Tatsugiri',
+    stats: {
+      atk: 262,
+      def: 232,
+      sta: 169,
+    },
+    types: ['dragon', 'water'],
+    family: {
+      id: 'tatsugiri',
+      stage: 2,
     },
   },
   {
@@ -17647,6 +18326,21 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'frigibax',
       stage: 3,
+    },
+  },
+  {
+    id: 'baxcalibur_mega',
+    dexNumber: 998,
+    name: 'Mega Baxcalibur',
+    stats: {
+      atk: 310,
+      def: 207,
+      sta: 229,
+    },
+    types: ['dragon', 'ice'],
+    family: {
+      id: 'frigibax',
+      stage: 4,
     },
   },
   {
