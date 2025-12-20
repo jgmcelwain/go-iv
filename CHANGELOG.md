@@ -1,4 +1,16 @@
 
+## [3.4.0](https://github.com/jgmcelwain/go-iv/compare/v3.3.1...v3.4.0) (2025-12-20)
+
+
+### Features
+
+* add ZA megas ([111338e](https://github.com/jgmcelwain/go-iv/commit/111338e702eefed848eaccdfcf790d329daa7ec2))
+
+
+### Bug Fixes
+
+* update aegislash base stats ([522cfe3](https://github.com/jgmcelwain/go-iv/commit/522cfe337b7c53b8f6df6ab9e35af7bf06118ade))
+
 ### [3.3.1](https://github.com/jgmcelwain/go-iv/compare/v3.3.0...v3.3.1) (2025-07-09)
 
 
