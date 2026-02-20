@@ -1,4 +1,11 @@
 
+## [3.5.0](https://github.com/jgmcelwain/go-iv/compare/v3.4.0...v3.5.0) (2026-02-20)
+
+
+### Features
+
+* add support for level 55 ([d40d825](https://github.com/jgmcelwain/go-iv/commit/d40d825f1a8dcc4933658d538c9220d0b08bf76e))
+
 ## [3.4.0](https://github.com/jgmcelwain/go-iv/compare/v3.3.1...v3.4.0) (2025-12-20)
 
 
