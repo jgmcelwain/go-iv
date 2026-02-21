@@ -1,4 +1,11 @@
 
+### [3.7.2](https://github.com/jgmcelwain/go-iv/compare/v3.7.1...v3.7.2) (2026-02-21)
+
+
+### Bug Fixes
+
+* use type-safe getMegaBaseCap helper for level cap lookups ([a994a33](https://github.com/jgmcelwain/go-iv/commit/a994a33c9d6ff6b3c39546aa362786cdd763b8a0))
+
 ### [3.7.1](https://github.com/jgmcelwain/go-iv/compare/v3.7.0...v3.7.1) (2026-02-21)
 
 
