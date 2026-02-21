@@ -1,4 +1,11 @@
 
+## [3.7.0](https://github.com/jgmcelwain/go-iv/compare/v3.6.0...v3.7.0) (2026-02-21)
+
+
+### Features
+
+* derive mega level caps from base caps with dedicated toggle ([f07ee75](https://github.com/jgmcelwain/go-iv/commit/f07ee753734f9e4703d2eb343da0fa8f240728cd))
+
 ## [3.6.0](https://github.com/jgmcelwain/go-iv/compare/v3.5.0...v3.6.0) (2026-02-21)
 
 
