@@ -18,11 +18,32 @@ function isMegaLevelCap(level: LevelCapNumber): level is MegaLevelCapNumber {
   return level in MEGA_LEVEL_CAP_BASE;
 }
 
-export function getMegaBaseCap(
+function getMegaBaseCap(
   level: LevelCapNumber,
 ): SettableLevelCapNumber | null {
   if (isMegaLevelCap(level)) return MEGA_LEVEL_CAP_BASE[level];
   return null;
+}
+
+export function isLevelCapEnabled(
+  level: LevelCapNumber,
+  levelCaps: { [key in SettableLevelCapNumber]: boolean },
+  megaContext?: {
+    showMegaLevelCaps: boolean;
+    isMasterLeague: boolean;
+    isMegaSpecies: boolean;
+  },
+): boolean {
+  if (isMegaLevelCap(level)) {
+    if (!megaContext) return false;
+    return (
+      megaContext.showMegaLevelCaps &&
+      megaContext.isMasterLeague &&
+      megaContext.isMegaSpecies &&
+      levelCaps[MEGA_LEVEL_CAP_BASE[level]]
+    );
+  }
+  return levelCaps[level];
 }
 
 export const LEVEL_CAPS: LevelCap[] = [

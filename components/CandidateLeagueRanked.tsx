@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
 
-import {
-  LEVEL_CAPS,
-  SettableLevelCapNumber,
-  getMegaBaseCap,
-} from '../data/levelCap';
+import { LEVEL_CAPS, isLevelCapEnabled } from '../data/levelCap';
 
 import { useLeague } from '../hooks/useLeague';
 import { useSettings } from '../hooks/useSettings';
@@ -78,21 +74,13 @@ const CandidateLeagueRanked: FC = () => {
         </thead>
 
         <tbody>
-          {LEVEL_CAPS.filter((levelCap) => {
-            const baseCap = getMegaBaseCap(levelCap.level);
-            if (baseCap !== null) {
-              return (
-                settings.showMegaLevelCaps &&
-                league.cp === 10000 &&
-                candidate.species.name.startsWith('Mega ') &&
-                settings.levelCaps[baseCap] === true
-              );
-            }
-            return (
-              settings.levelCaps[levelCap.level as SettableLevelCapNumber] ===
-              true
-            );
-          }).map((levelCap) => (
+          {LEVEL_CAPS.filter((levelCap) =>
+            isLevelCapEnabled(levelCap.level, settings.levelCaps, {
+              showMegaLevelCaps: settings.showMegaLevelCaps,
+              isMasterLeague: league.cp === 10000,
+              isMegaSpecies: candidate.species.name.startsWith('Mega '),
+            }),
+          ).map((levelCap) => (
             <CandidateLeagueRankedAtLevelCap
               key={`${candidate.species.id}_${levelCap.level}`}
               levelCap={levelCap}
