@@ -1,4 +1,11 @@
 
+### [3.7.3](https://github.com/jgmcelwain/go-iv/compare/v3.7.2...v3.7.3) (2026-02-21)
+
+
+### Bug Fixes
+
+* centralize level cap filtering with isLevelCapEnabled ([5683aed](https://github.com/jgmcelwain/go-iv/commit/5683aedba4592e27b5eb5fb2a3ea320bc7238a49))
+
 ### [3.7.2](https://github.com/jgmcelwain/go-iv/compare/v3.7.1...v3.7.2) (2026-02-21)
 
 
