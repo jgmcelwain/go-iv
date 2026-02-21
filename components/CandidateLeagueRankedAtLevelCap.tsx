@@ -77,7 +77,10 @@ const CandidateLeagueRankedAtLevelCap: FC<{
         {settings.outputData.level && (
           <CandidateLeagueTableCells.Body>
             <>
-              ?<span className='text-xs'> /{levelCap.level}</span>
+              ?
+              {league.cp !== 10000 && (
+                <span className='text-xs'> /{levelCap.level}</span>
+              )}
             </>
           </CandidateLeagueTableCells.Body>
         )}
@@ -121,7 +124,9 @@ const CandidateLeagueRankedAtLevelCap: FC<{
                 ? undefined
                 : 1,
             )}
-            <span className='text-xs'> /{levelCap.level}</span>
+            {league.cp !== 10000 && (
+              <span className='text-xs'> /{levelCap.level}</span>
+            )}
           </>
         </CandidateLeagueTableCells.Body>
       )}

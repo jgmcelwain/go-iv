@@ -7,7 +7,7 @@ import { Settings } from '.';
 const defaultSettings: Settings = {
   leagues: { great: true, ultra: true, master: true, little: false },
   leagueOrder: ['great', 'ultra', 'master', 'little'],
-  levelCaps: { 40: false, 41: false, 50: true, 51: true, 53: false, 54: false },
+  levelCaps: { 40: false, 41: false, 50: true, 51: true },
   outputData: {
     level: true,
     rank: true,
@@ -18,6 +18,7 @@ const defaultSettings: Settings = {
     bulkProduct: true,
     percent: true,
   },
+  showMegaLevelCaps: true,
   showSpeculative: false,
   showMinimumLevel: false,
   showRankingMetric: false,

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { LevelCapNumber } from '../../data/levelCap';
+import { LevelCapNumber, MEGA_LEVEL_CAP_BASE } from '../../data/levelCap';
 
 import { useLeague } from '../useLeague';
 import { useCandidate } from '../useCandidate';
@@ -17,7 +17,20 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
   const { settings } = useSettings();
 
   const value = useMemo<RankedSpread[]>(() => {
-    if (settings.levelCaps[levelCapNumber] === false) return [];
+    const baseCap = MEGA_LEVEL_CAP_BASE[levelCapNumber];
+
+    if (baseCap !== undefined) {
+      if (
+        !settings.showMegaLevelCaps ||
+        league.cp !== 10000 ||
+        !candidate.species.name.startsWith('Mega ') ||
+        settings.levelCaps[baseCap] === false
+      ) {
+        return [];
+      }
+    } else if (settings.levelCaps[levelCapNumber] === false) {
+      return [];
+    }
 
     return generateRankedSpreads(
       candidate.species,
@@ -31,6 +44,7 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
     settings.levelCaps,
     levelCapNumber,
     candidate.species,
+    candidate.species.name,
     candidate.floor,
     candidate.minimumLevel,
     candidate.rankingMetric,
