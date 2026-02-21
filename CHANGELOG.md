@@ -1,4 +1,11 @@
 
+### [3.7.1](https://github.com/jgmcelwain/go-iv/compare/v3.7.0...v3.7.1) (2026-02-21)
+
+
+### Bug Fixes
+
+* use Partial record type for mega level cap base lookup ([7d744f7](https://github.com/jgmcelwain/go-iv/commit/7d744f7040f4ce5cd7a406e0db3dc56de01b752a))
+
 ## [3.7.0](https://github.com/jgmcelwain/go-iv/compare/v3.6.0...v3.7.0) (2026-02-21)
 
 
