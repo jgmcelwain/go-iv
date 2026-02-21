@@ -1,4 +1,11 @@
 
+## [3.6.0](https://github.com/jgmcelwain/go-iv/compare/v3.5.0...v3.6.0) (2026-02-21)
+
+
+### Features
+
+* use level 53/54 for mega 4 boosts ([6d785be](https://github.com/jgmcelwain/go-iv/commit/6d785be07886f243ff4791e8af5dd0df06b8c377))
+
 ## [3.5.0](https://github.com/jgmcelwain/go-iv/compare/v3.4.0...v3.5.0) (2026-02-20)
 
 
