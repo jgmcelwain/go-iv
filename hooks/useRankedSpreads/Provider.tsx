@@ -12,7 +12,8 @@ export const Provider: FC<{
     [41]: useMemoRankedSpreads(41),
     [50]: useMemoRankedSpreads(50),
     [51]: useMemoRankedSpreads(51),
-    [55]: useMemoRankedSpreads(55),
+    [53]: useMemoRankedSpreads(53),
+    [54]: useMemoRankedSpreads(54),
   };
 
   return <Context.Provider value={rankedSpreads}>{children}</Context.Provider>;

@@ -1,4 +1,4 @@
-export type LevelCapNumber = 40 | 41 | 50 | 51 | 55;
+export type LevelCapNumber = 40 | 41 | 50 | 51 | 53 | 54;
 
 export type LevelCap = {
   level: LevelCapNumber;
@@ -16,8 +16,13 @@ export const LEVEL_CAPS: LevelCap[] = [
     description: 'Candy XL + Best Buddy',
   },
   {
-    level: 55,
-    name: 'Level 55',
-    description: 'Speculative Super Max Mega Boost',
+    level: 53,
+    name: 'Level 53',
+    description: 'Candy XL + Mega 4',
+  },
+  {
+    level: 54,
+    name: 'Level 54',
+    description: 'Candy XL + Mega 4 + Best Buddy',
   },
 ];
