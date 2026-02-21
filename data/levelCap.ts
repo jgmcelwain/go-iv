@@ -8,12 +8,22 @@ export type LevelCap = {
   description: string;
 };
 
-export const MEGA_LEVEL_CAP_BASE: Partial<
-  Record<LevelCapNumber, SettableLevelCapNumber>
-> = {
-  53: 50,
-  54: 51,
-};
+const MEGA_LEVEL_CAP_BASE: Record<MegaLevelCapNumber, SettableLevelCapNumber> =
+  {
+    53: 50,
+    54: 51,
+  };
+
+function isMegaLevelCap(level: LevelCapNumber): level is MegaLevelCapNumber {
+  return level in MEGA_LEVEL_CAP_BASE;
+}
+
+export function getMegaBaseCap(
+  level: LevelCapNumber,
+): SettableLevelCapNumber | null {
+  if (isMegaLevelCap(level)) return MEGA_LEVEL_CAP_BASE[level];
+  return null;
+}
 
 export const LEVEL_CAPS: LevelCap[] = [
   { level: 40, name: 'Level 40', description: 'Regular Candy' },
@@ -37,11 +47,6 @@ export const LEVEL_CAPS: LevelCap[] = [
 ];
 
 export const SETTABLE_LEVEL_CAPS = LEVEL_CAPS.filter(
-  (
-    cap,
-  ): cap is {
-    level: SettableLevelCapNumber;
-    name: string;
-    description: string;
-  } => !(cap.level in MEGA_LEVEL_CAP_BASE),
+  (cap): cap is LevelCap & { level: SettableLevelCapNumber } =>
+    getMegaBaseCap(cap.level) === null,
 );

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { LevelCapNumber, MEGA_LEVEL_CAP_BASE } from '../../data/levelCap';
+import { LevelCapNumber, getMegaBaseCap } from '../../data/levelCap';
 
 import { useLeague } from '../useLeague';
 import { useCandidate } from '../useCandidate';
@@ -17,9 +17,9 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
   const { settings } = useSettings();
 
   const value = useMemo<RankedSpread[]>(() => {
-    const baseCap = MEGA_LEVEL_CAP_BASE[levelCapNumber];
+    const baseCap = getMegaBaseCap(levelCapNumber);
 
-    if (baseCap !== undefined) {
+    if (baseCap !== null) {
       if (
         !settings.showMegaLevelCaps ||
         league.cp !== 10000 ||

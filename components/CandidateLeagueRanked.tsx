@@ -2,9 +2,8 @@ import React, { FC } from 'react';
 
 import {
   LEVEL_CAPS,
-  MEGA_LEVEL_CAP_BASE,
-  MegaLevelCapNumber,
   SettableLevelCapNumber,
+  getMegaBaseCap,
 } from '../data/levelCap';
 
 import { useLeague } from '../hooks/useLeague';
@@ -80,9 +79,8 @@ const CandidateLeagueRanked: FC = () => {
 
         <tbody>
           {LEVEL_CAPS.filter((levelCap) => {
-            if (levelCap.level in MEGA_LEVEL_CAP_BASE) {
-              const baseCap =
-                MEGA_LEVEL_CAP_BASE[levelCap.level as MegaLevelCapNumber];
+            const baseCap = getMegaBaseCap(levelCap.level);
+            if (baseCap !== null) {
               return (
                 settings.showMegaLevelCaps &&
                 league.cp === 10000 &&
