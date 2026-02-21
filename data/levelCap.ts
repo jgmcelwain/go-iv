@@ -8,9 +8,8 @@ export type LevelCap = {
   description: string;
 };
 
-export const MEGA_LEVEL_CAP_BASE: Record<
-  MegaLevelCapNumber,
-  SettableLevelCapNumber
+export const MEGA_LEVEL_CAP_BASE: Partial<
+  Record<LevelCapNumber, SettableLevelCapNumber>
 > = {
   53: 50,
   54: 51,
