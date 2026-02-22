@@ -1,4 +1,11 @@
 
+### [3.7.4](https://github.com/jgmcelwain/go-iv/compare/v3.7.3...v3.7.4) (2026-02-22)
+
+
+### Bug Fixes
+
+* temporarily disable mega level caps ([b77e7af](https://github.com/jgmcelwain/go-iv/commit/b77e7af5db13b8edbb324d9368fa159e351b905f))
+
 ### [3.7.3](https://github.com/jgmcelwain/go-iv/compare/v3.7.2...v3.7.3) (2026-02-21)
 
 
