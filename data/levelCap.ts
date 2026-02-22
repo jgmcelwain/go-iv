@@ -18,9 +18,7 @@ function isMegaLevelCap(level: LevelCapNumber): level is MegaLevelCapNumber {
   return level in MEGA_LEVEL_CAP_BASE;
 }
 
-function getMegaBaseCap(
-  level: LevelCapNumber,
-): SettableLevelCapNumber | null {
+function getMegaBaseCap(level: LevelCapNumber): SettableLevelCapNumber | null {
   if (isMegaLevelCap(level)) return MEGA_LEVEL_CAP_BASE[level];
   return null;
 }
@@ -35,14 +33,18 @@ export function isLevelCapEnabled(
   },
 ): boolean {
   if (isMegaLevelCap(level)) {
-    if (!megaContext) return false;
-    return (
-      megaContext.showMegaLevelCaps &&
-      megaContext.isMasterLeague &&
-      megaContext.isMegaSpecies &&
-      levelCaps[MEGA_LEVEL_CAP_BASE[level]]
-    );
+    // if (!megaContext) return false;
+
+    // return (
+    //   megaContext.showMegaLevelCaps &&
+    //   megaContext.isMasterLeague &&
+    //   megaContext.isMegaSpecies &&
+    //   levelCaps[MEGA_LEVEL_CAP_BASE[level]]
+    // );
+
+    return false;
   }
+
   return levelCaps[level];
 }
 
