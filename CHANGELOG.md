@@ -1,4 +1,11 @@
 
+### [3.7.6](https://github.com/jgmcelwain/go-iv/compare/v3.7.5...v3.7.6) (2026-02-24)
+
+
+### Bug Fixes
+
+* level 52/53 mega cap ([1890648](https://github.com/jgmcelwain/go-iv/commit/18906482b7714b9e29833ffebe7477a220abbc35))
+
 ### [3.7.5](https://github.com/jgmcelwain/go-iv/compare/v3.7.4...v3.7.5) (2026-02-24)
 
 
