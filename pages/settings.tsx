@@ -63,7 +63,7 @@ const SettingsPage: FC = () => {
           </SettingsSectionItem>
         ))}
 
-        {/* <SettingsSectionItem>
+        <SettingsSectionItem>
           <SettingsSectionItemToggle
             onInput={(value) =>
               dispatch({
@@ -73,9 +73,9 @@ const SettingsPage: FC = () => {
             }
             value={settings.showMegaLevelCaps}
             label='"Super Max" Mega Level Caps'
-            description='Show Level 53/54 for Mega Pokémon in Master League. Requires the corresponding base cap (50/51) to be enabled.'
+            description='Show Level 52/53 for Mega Pokémon in Master League. Requires the corresponding base cap (50/51) to be enabled.'
           />
-        </SettingsSectionItem> */}
+        </SettingsSectionItem>
       </SettingsSection>
 
       <SettingsSection id='displayed-fields' title='Output Fields'>

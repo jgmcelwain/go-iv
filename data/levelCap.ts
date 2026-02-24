@@ -1,5 +1,5 @@
 export type SettableLevelCapNumber = 40 | 41 | 50 | 51;
-export type MegaLevelCapNumber = 53 | 54;
+export type MegaLevelCapNumber = 52 | 53;
 export type LevelCapNumber = SettableLevelCapNumber | MegaLevelCapNumber;
 
 export type LevelCap = {
@@ -10,8 +10,8 @@ export type LevelCap = {
 
 const MEGA_LEVEL_CAP_BASE: Record<MegaLevelCapNumber, SettableLevelCapNumber> =
   {
-    53: 50,
-    54: 51,
+    52: 50,
+    53: 51,
   };
 
 function isMegaLevelCap(level: LevelCapNumber): level is MegaLevelCapNumber {
@@ -33,16 +33,14 @@ export function isLevelCapEnabled(
   },
 ): boolean {
   if (isMegaLevelCap(level)) {
-    // if (!megaContext) return false;
+    if (!megaContext) return false;
 
-    // return (
-    //   megaContext.showMegaLevelCaps &&
-    //   megaContext.isMasterLeague &&
-    //   megaContext.isMegaSpecies &&
-    //   levelCaps[MEGA_LEVEL_CAP_BASE[level]]
-    // );
-
-    return false;
+    return (
+      megaContext.showMegaLevelCaps &&
+      megaContext.isMasterLeague &&
+      megaContext.isMegaSpecies &&
+      levelCaps[MEGA_LEVEL_CAP_BASE[level]]
+    );
   }
 
   return levelCaps[level];
@@ -58,13 +56,13 @@ export const LEVEL_CAPS: LevelCap[] = [
     description: 'Candy XL + Best Buddy',
   },
   {
-    level: 53,
-    name: 'Level 53',
+    level: 52,
+    name: 'Level 52',
     description: 'Candy XL + Mega 4',
   },
   {
-    level: 54,
-    name: 'Level 54',
+    level: 53,
+    name: 'Level 53',
     description: 'Candy XL + Mega 4 + Best Buddy',
   },
 ];
