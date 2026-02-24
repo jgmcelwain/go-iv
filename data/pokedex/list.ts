@@ -3119,7 +3119,7 @@ export const POKEDEX: Pokemon[] = [
       def: 215,
       sta: 228,
     },
-    types: ['psychic'],
+    types: ['psychic', 'fighting'],
     floor: 1,
     family: {
       id: 'mewtwo',
@@ -3151,7 +3151,7 @@ export const POKEDEX: Pokemon[] = [
       def: 202,
       sta: 214,
     },
-    types: ['psychic'],
+    types: ['psychic', 'fighting'],
     floor: 1,
     family: {
       id: 'mewtwo',
