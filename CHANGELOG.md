@@ -1,4 +1,11 @@
 
+### [3.7.5](https://github.com/jgmcelwain/go-iv/compare/v3.7.4...v3.7.5) (2026-02-24)
+
+
+### Bug Fixes
+
+* correct types for mega mewtwo x ([a3dede1](https://github.com/jgmcelwain/go-iv/commit/a3dede1019edd9b8687c18777a753497a51d548b))
+
 ### [3.7.4](https://github.com/jgmcelwain/go-iv/compare/v3.7.3...v3.7.4) (2026-02-22)
 
 
