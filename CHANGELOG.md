@@ -1,4 +1,11 @@
 
+### [3.7.7](https://github.com/jgmcelwain/go-iv/compare/v3.7.6...v3.7.7) (2026-03-09)
+
+
+### Bug Fixes
+
+* remove legendary IV floor, reclassify Zeraora as mythical ([6c00256](https://github.com/jgmcelwain/go-iv/commit/6c00256a87ef8e9616baa879eee0fb20c9b1ec92))
+
 ### [3.7.6](https://github.com/jgmcelwain/go-iv/compare/v3.7.5...v3.7.6) (2026-02-24)
 
 
