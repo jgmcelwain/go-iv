@@ -1,4 +1,11 @@
 
+## [3.8.0](https://github.com/jgmcelwain/go-iv/compare/v3.7.7...v3.8.0) (2026-03-31)
+
+
+### Features
+
+* add stat product percentage to CSV export ([61c60a6](https://github.com/jgmcelwain/go-iv/commit/61c60a6b3714e6d3a17d7f479a025e46f5aad65a))
+
 ### [3.7.7](https://github.com/jgmcelwain/go-iv/compare/v3.7.6...v3.7.7) (2026-03-09)
 
 
