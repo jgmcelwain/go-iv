@@ -33,9 +33,9 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
             spread.stats.atk.value
           },${spread.stats.def.value},${spread.stats.sta.value},${
             spread.product.value
-          },${spread.bulkProduct.value}`,
+          },${spread.product.percentOfMax},${spread.bulkProduct.value}`,
         ),
-      'Rank,Atk IV,Def IV,Sta IV,Level,CP,XL,Attack,Defense,Stamina,Stat Product,Bulk Product',
+      'Rank,Atk IV,Def IV,Sta IV,Level,CP,XL,Attack,Defense,Stamina,Stat Product,Stat Product %,Bulk Product',
     );
 
     downloadFile(fileName, 'text/csv', csvContent);
