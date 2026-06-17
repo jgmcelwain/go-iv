@@ -1,4 +1,11 @@
 
+### [3.8.1](https://github.com/jgmcelwain/go-iv/compare/v3.8.0...v3.8.1) (2026-06-17)
+
+
+### Bug Fixes
+
+* remove mega mewtwo 9% nerf variants, drop nerf label from names ([6b42258](https://github.com/jgmcelwain/go-iv/commit/6b42258c468dd7084cb31fcb9333b9607ab5aa17))
+
 ## [3.8.0](https://github.com/jgmcelwain/go-iv/compare/v3.7.7...v3.8.0) (2026-03-31)
 
 
