@@ -3111,7 +3111,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'mewtwo_mega_x',
     dexNumber: 150,
-    name: 'Mega Mewtwo X (3% nerf)',
+    name: 'Mega Mewtwo X',
     stats: {
       atk: 399,
       def: 215,
@@ -3126,7 +3126,7 @@ export const POKEDEX: Pokemon[] = [
   {
     id: 'mewtwo_mega_y',
     dexNumber: 150,
-    name: 'Mega Mewtwo Y (3% nerf)',
+    name: 'Mega Mewtwo Y',
     stats: {
       atk: 413,
       def: 223,
@@ -3136,36 +3136,6 @@ export const POKEDEX: Pokemon[] = [
     family: {
       id: 'mewtwo',
       stage: 2,
-    },
-  },
-  {
-    id: 'mewtwo_mega_x_9',
-    dexNumber: 150,
-    name: 'Mega Mewtwo X (9% nerf)',
-    stats: {
-      atk: 375,
-      def: 202,
-      sta: 214,
-    },
-    types: ['psychic', 'fighting'],
-    family: {
-      id: 'mewtwo',
-      stage: 3,
-    },
-  },
-  {
-    id: 'mewtwo_mega_y_9',
-    dexNumber: 150,
-    name: 'Mega Mewtwo Y (9% nerf)',
-    stats: {
-      atk: 388,
-      def: 208,
-      sta: 214,
-    },
-    types: ['psychic'],
-    family: {
-      id: 'mewtwo',
-      stage: 3,
     },
   },
   {
