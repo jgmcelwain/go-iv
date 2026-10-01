@@ -5,7 +5,7 @@ import {
   CandidateActionTypes,
   Candidate,
 } from '../hooks/useCandidate';
-import { usePokedex } from '../hooks/usePokedex';
+import { usePokemonSelections } from '../hooks/usePokedex';
 
 function useInputRef() {
   return useRef<HTMLInputElement | null>(null);
@@ -29,7 +29,7 @@ function useSyncInputToCandidate(
 }
 
 const CandidateBuilderSpecies: FC = () => {
-  const pokedex = usePokedex();
+  const pokedex = usePokemonSelections();
   const { candidate, dispatch } = useCandidate();
   const input = useInputRef();
   useSyncInputToCandidate(input, candidate);

@@ -28,7 +28,7 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
     }
 
     return generateRankedSpreads(
-      candidate.species,
+      candidate.species.defaultForm,
       candidate.floor,
       league.cp,
       levelCapNumber,
@@ -40,7 +40,6 @@ export function useMemoRankedSpreads(levelCapNumber: LevelCapNumber) {
     settings.showMegaLevelCaps,
     levelCapNumber,
     candidate.species,
-    candidate.species.name,
     candidate.floor,
     candidate.minimumLevel,
     candidate.rankingMetric,

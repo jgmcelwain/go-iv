@@ -3,6 +3,8 @@ import { useSettings } from './useSettings';
 
 import {
   POKEDEX,
+  POKEMON_SELECTIONS,
+  getPokemonSelection,
   getPokemonByName,
   getPokemonByID,
   getPokemonFamilyMembers,
@@ -48,5 +50,24 @@ export function usePokedex() {
     byId,
     familyMembers,
     searchByName,
+  };
+}
+
+export function usePokemonSelections() {
+  const pokedex = usePokedex();
+  const { byId } = pokedex;
+  const list = useMemo(
+    () =>
+      POKEMON_SELECTIONS.filter((selection) => byId(selection.defaultForm.id)),
+    [byId],
+  );
+  return {
+    list,
+    searchByName: (query: string) => {
+      const match = pokedex.searchByName(query);
+      return match ? getPokemonSelection(match.id) : null;
+    },
+    familyMembers: (id: PokemonID) =>
+      list.filter((selection) => selection.defaultForm.family.id === id),
   };
 }

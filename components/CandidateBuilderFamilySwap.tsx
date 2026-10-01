@@ -1,27 +1,27 @@
 import React, { FC } from 'react';
 
-import { Pokemon } from '../data/pokedex';
+import { PokemonSelection } from '../data/pokedex';
 
 import { CandidateActionTypes, useCandidate } from '../hooks/useCandidate';
-import { usePokedex } from '../hooks/usePokedex';
+import { usePokemonSelections } from '../hooks/usePokedex';
 
 import { RadioGroup } from '@headlessui/react';
 import SpeciesTypeIcons from './SpeciesTypeIcons';
 
 const CandidateBuilderFamilySwap: FC = () => {
   const { candidate, dispatch } = useCandidate();
-  const pokedex = usePokedex();
+  const pokedex = usePokemonSelections();
 
   const iterableFamily = pokedex
-    .familyMembers(candidate.species.family?.id)
-    .sort((a, b) => a.family.stage - b.family.stage);
+    .familyMembers(candidate.species.defaultForm.family.id)
+    .sort((a, b) => a.defaultForm.family.stage - b.defaultForm.family.stage);
 
   if (iterableFamily.length === 0) return null;
 
   return (
     <RadioGroup
       value={candidate.species}
-      onChange={(val: Pokemon) =>
+      onChange={(val: PokemonSelection) =>
         dispatch({ type: CandidateActionTypes.Species, payload: val })
       }
       as='div'
@@ -45,7 +45,7 @@ const CandidateBuilderFamilySwap: FC = () => {
                   : 'text-gray-500 dark:text-gray-400 border-gray-100 dark:border-transparent'
               }`}
             >
-              <SpeciesTypeIcons types={familyMember.types} />
+              <SpeciesTypeIcons types={familyMember.defaultForm.types} />
 
               <RadioGroup.Label
                 className='ml-1.5 text-sm font-semibold'

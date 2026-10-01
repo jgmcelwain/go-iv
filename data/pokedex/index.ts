@@ -59,6 +59,63 @@ export type Pokemon = {
   aliases?: string[];
 };
 
+export type PokemonSelection = {
+  id: PokemonID;
+  name: PokemonName;
+  defaultForm: Pokemon;
+  forms: readonly Pokemon[];
+};
+
+const FORM_GROUPS = [
+  {
+    id: 'aegislash',
+    name: 'Aegislash',
+    defaultForm: 'aegislash_shield',
+    forms: ['aegislash_shield', 'aegislash_blade'],
+  },
+  {
+    id: 'minior',
+    name: 'Minior',
+    defaultForm: 'minior_meteor',
+    forms: ['minior_meteor', 'minior_core'],
+  },
+];
+const GROUP_BY_FORM = new Map(
+  FORM_GROUPS.flatMap((group) => group.forms.map((id) => [id, group] as const)),
+);
+
+export const POKEMON_SELECTIONS: PokemonSelection[] = POKEDEX.flatMap(
+  (pokemon) => {
+    const group = GROUP_BY_FORM.get(pokemon.id);
+    if (group && group.defaultForm !== pokemon.id) return [];
+    return [
+      {
+        id: group?.id ?? pokemon.id,
+        name: group?.name ?? pokemon.name,
+        defaultForm: pokemon,
+        forms: group
+          ? group.forms.map((id) => {
+              const form = getPokemonByID(id);
+              if (!form) throw new Error(`Missing Pokémon form: ${id}`);
+              return form;
+            })
+          : [pokemon],
+      },
+    ];
+  },
+);
+const SELECTION_BY_ID = new Map(
+  POKEMON_SELECTIONS.flatMap((selection) =>
+    [selection.id, ...selection.forms.map((form) => form.id)].map(
+      (id) => [id, selection] as const,
+    ),
+  ),
+);
+
+export function getPokemonSelection(id: PokemonID) {
+  return SELECTION_BY_ID.get(id) ?? null;
+}
+
 export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
   if (!name) return null;
 

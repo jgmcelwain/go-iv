@@ -27,7 +27,7 @@ const CandidateBuilderIVFloor: FC = () => {
           if (settings.allowImpossibleFloors) {
             return true;
           } else {
-            return floor.value >= (candidate.species.floor ?? 0);
+            return floor.value >= (candidate.species.defaultForm.floor ?? 0);
           }
         }).map((floor) => (
           <option key={floor.value} value={floor.value}>

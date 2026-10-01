@@ -6,7 +6,7 @@ import { NextPageContext } from 'next';
 import { parseCookies } from 'nookies';
 
 import {
-  Candidate,
+  CachedCandidate,
   Provider as CandidateContextProvider,
 } from '../hooks/useCandidate';
 import { useSettings } from '../hooks/useSettings';
@@ -14,7 +14,7 @@ import { useSettings } from '../hooks/useSettings';
 import CandidateLeague from '../components/CandidateLeague';
 import CandidateBuilder from '../components/CandidateBuilder';
 
-const CandidatePage: FC<{ cachedCandidate: Candidate | null }> = ({
+const CandidatePage: FC<{ cachedCandidate: CachedCandidate | null }> = ({
   cachedCandidate,
 }) => {
   const { settings } = useSettings();
@@ -47,10 +47,10 @@ export default CandidatePage;
 export const getServerSideProps = async (
   ctx: NextPageContext,
   // eslint-disable-next-line @typescript-eslint/require-await
-): Promise<{ props: { cachedCandidate: Candidate | null } }> => {
+): Promise<{ props: { cachedCandidate: CachedCandidate | null } }> => {
   try {
     const cookies = parseCookies(ctx);
-    const cachedCandidate = JSON.parse(cookies.candidate) as Candidate;
+    const cachedCandidate = JSON.parse(cookies.candidate) as CachedCandidate;
 
     return { props: { cachedCandidate } };
   } catch (err) {

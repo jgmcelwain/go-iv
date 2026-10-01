@@ -12,8 +12,13 @@ export function cacheCandidate(candidate: Candidate) {
     floor: candidate.floor,
   });
 
-  setCookie({}, 'candidate', JSON.stringify(candidate), {
-    path: '/',
-    maxAge: 30 * 24 * 60 * 60,
-  });
+  setCookie(
+    {},
+    'candidate',
+    JSON.stringify({ ...candidate, species: { id: candidate.species.id } }),
+    {
+      path: '/',
+      maxAge: 30 * 24 * 60 * 60,
+    },
+  );
 }
