@@ -10,7 +10,7 @@ import { xlCount } from '../lib/xlCount';
 
 const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
   const { candidate } = useCandidate();
-  const { league, inspectedLevelCap } = useLeague();
+  const { league, inspectedLevelCap, inspectedSpecies } = useLeague();
   const rankedSpreads = useRankedSpreads();
 
   if (inspectedLevelCap === null) {
@@ -22,7 +22,11 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
       throw new Error('A level cap must be inspected to export');
     }
 
-    const fileName = `${candidate.species.id}-${league.cp}-${inspectedLevelCap.level}-${candidate.floor}-${candidate.rankingMetric}.csv`;
+    const fileName = `${
+      inspectedSpecies?.id ?? candidate.species.defaultForm.id
+    }-${league.cp}-${inspectedLevelCap.level}-${candidate.floor}-${
+      candidate.rankingMetric
+    }.csv`;
 
     const csvContent = rankedSpreads[inspectedLevelCap.level].reduce(
       (output, spread) =>

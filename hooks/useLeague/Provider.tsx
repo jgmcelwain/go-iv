@@ -2,15 +2,37 @@ import React, { FC, ReactNode, useState } from 'react';
 
 import { League } from '../../data/league';
 import { LevelCap } from '../../data/levelCap';
+import { Pokemon } from '../../data/pokedex';
+import { useCandidate } from '../useCandidate';
 
 import { Context } from '.';
 
 function useInspectedLevelCapState() {
-  const [inspectedLevelCap, setInspectedLevelCap] = useState<LevelCap | null>(
-    null,
-  );
+  const { candidate } = useCandidate();
+  const [selection, setSelection] = useState<{
+    candidateId: string;
+    levelCap: LevelCap;
+    species: Pokemon;
+  } | null>(null);
+  const active =
+    selection?.candidateId === candidate.species.id ? selection : null;
 
-  return [inspectedLevelCap, setInspectedLevelCap] as const;
+  function setInspectedLevelCap(
+    levelCap: LevelCap | null,
+    species = candidate.species.defaultForm,
+  ) {
+    setSelection(
+      levelCap
+        ? { candidateId: candidate.species.id, levelCap, species }
+        : null,
+    );
+  }
+
+  return {
+    inspectedLevelCap: active?.levelCap ?? null,
+    inspectedSpecies: active?.species ?? null,
+    setInspectedLevelCap,
+  };
 }
 
 export function useCollapsedState() {
@@ -32,15 +54,14 @@ export const Provider: FC<{
   league: League;
   children: ReactNode;
 }> = ({ league, children }) => {
-  const [inspectedLevelCap, setInspectedLevelCap] = useInspectedLevelCapState();
+  const inspection = useInspectedLevelCapState();
   const collapsedState = useCollapsedState();
 
   return (
     <Context.Provider
       value={{
         league,
-        inspectedLevelCap,
-        setInspectedLevelCap,
+        ...inspection,
         collapsed: collapsedState,
       }}
     >

@@ -3,7 +3,7 @@ import { Dispatch as ReactDispatch } from 'react';
 import { IV } from '../../data/iv';
 import { IVFloor } from '../../data/ivFloor';
 import { StatKey, RankableMetric } from '../../data/stat';
-import { Pokemon } from '../../data/pokedex';
+import { PokemonSelection } from '../../data/pokedex';
 import { ActionMap } from '../../utils/actionMap';
 
 import { Candidate } from '.';
@@ -17,7 +17,7 @@ export enum CandidateActionTypes {
 }
 
 type PayloadTypes = {
-  [CandidateActionTypes.Species]: Pokemon;
+  [CandidateActionTypes.Species]: PokemonSelection;
   [CandidateActionTypes.IV]: { stat: StatKey; value: IV };
   [CandidateActionTypes.Floor]: IVFloor;
   [CandidateActionTypes.RankingMetric]: RankableMetric;
@@ -32,7 +32,7 @@ export function candidateReducer(state: Candidate, action: Action): Candidate {
     case CandidateActionTypes.Species: {
       // if the new species has no absolute IV floor then we should reset the
       // floor to the default
-      if (action.payload.floor === undefined) {
+      if (action.payload.defaultForm.floor === undefined) {
         return {
           ...state,
           floor: 0,
@@ -46,11 +46,20 @@ export function candidateReducer(state: Candidate, action: Action): Candidate {
         return {
           ...state,
           species: action.payload,
-          floor: action.payload.floor,
+          floor: action.payload.defaultForm.floor,
           ivs: {
-            atk: Math.max(state.ivs.atk, action.payload.floor) as IV,
-            def: Math.max(state.ivs.def, action.payload.floor) as IV,
-            sta: Math.max(state.ivs.sta, action.payload.floor) as IV,
+            atk: Math.max(
+              state.ivs.atk,
+              action.payload.defaultForm.floor,
+            ) as IV,
+            def: Math.max(
+              state.ivs.def,
+              action.payload.defaultForm.floor,
+            ) as IV,
+            sta: Math.max(
+              state.ivs.sta,
+              action.payload.defaultForm.floor,
+            ) as IV,
           },
         };
       }

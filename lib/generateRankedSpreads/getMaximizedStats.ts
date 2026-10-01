@@ -12,12 +12,14 @@ export function getMaximizedStats(
   ivs: PokemonIVs,
   maxCP: LeagueCPCap,
   maxLevel: LevelCapNumber,
+  wholeLevelsOnly = false,
 ): SpreadWithMaximizedStats {
   const atk = ivs.atk + species.stats.atk;
   const def = ivs.def + species.stats.def;
   const sta = ivs.sta + species.stats.sta;
 
-  const level = getLevel(atk, def, sta, maxCP, maxLevel);
+  const bestLevel = getLevel(atk, def, sta, maxCP, maxLevel);
+  const level = wholeLevelsOnly ? Math.floor(bestLevel) : bestLevel;
 
   const cp = getCP(atk, def, sta, level);
   const stats = getStats(atk, def, sta, level);
@@ -27,6 +29,7 @@ export function getMaximizedStats(
 
   return {
     level,
+    levelReduced: level < bestLevel,
     ivs,
     stats,
     cp,

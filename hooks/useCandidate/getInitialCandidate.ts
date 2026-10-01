@@ -1,11 +1,11 @@
-import { getPokemonByID, PokemonID } from '../../data/pokedex';
+import { getPokemonSelection, PokemonID } from '../../data/pokedex';
 import { IV, MAX_IV } from '../../data/iv';
 import { IVFloor, MIN_IV_FLOOR, MAX_IV_FLOOR } from '../../data/ivFloor';
 
 import { tidyNumericInput } from '../../utils/tidyNumericInput';
 
 import { NextRouter } from 'next/router';
-import { Candidate } from '.';
+import { Candidate, CachedCandidate } from '.';
 import { RankableMetric, RANKABLE_METRICS } from '../../data/stat';
 
 type DirtyIV = IV | number;
@@ -41,9 +41,9 @@ function sanitizeCandidate(
   minimumLevel?: DirtyMinimumLevel,
   rankingMetric?: DirtyRankableMetric,
 ) {
-  let species = id !== null ? getPokemonByID(id) : null;
+  let species = id !== null ? getPokemonSelection(id) : null;
   if (species === null) {
-    const defaultSpecies = getPokemonByID(CANDIDATE_DEFAULTS.id);
+    const defaultSpecies = getPokemonSelection(CANDIDATE_DEFAULTS.id);
 
     if (defaultSpecies === null) {
       throw new Error('No default species set.');
@@ -54,7 +54,7 @@ function sanitizeCandidate(
 
   const outputFloor = tidyNumericInput<IVFloor>(
     floor ?? CANDIDATE_DEFAULTS.floor,
-    species.floor ?? MIN_IV_FLOOR,
+    species.defaultForm.floor ?? MIN_IV_FLOOR,
     MAX_IV_FLOOR,
   );
 
@@ -95,7 +95,7 @@ function sanitizeCandidate(
 
 export function getInitialCandidate(
   query: NextRouter['query'],
-  cachedCandidate: Candidate | null,
+  cachedCandidate: CachedCandidate | null,
 ): Candidate {
   if (query?.candidate) {
     const [

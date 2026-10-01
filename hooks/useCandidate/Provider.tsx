@@ -1,13 +1,13 @@
 import React, { FC, useReducer, useEffect, ReactNode } from 'react';
 
-import { Candidate, Context } from '.';
+import { CachedCandidate, Candidate, Context } from '.';
 
 import { useRouter } from 'next/router';
 import { candidateReducer } from './candidateReducer';
 import { cacheCandidate } from './cacheCandidate';
 import { getInitialCandidate } from './getInitialCandidate';
 
-function useCandidateReducer(cachedCandidate: Candidate | null) {
+function useCandidateReducer(cachedCandidate: CachedCandidate | null) {
   const router = useRouter();
   const [candidate, dispatch] = useReducer(
     candidateReducer,
@@ -24,7 +24,7 @@ function useSyncCandidateToCache(candidate: Candidate) {
 }
 
 export const Provider: FC<{
-  cachedCandidate: Candidate | null;
+  cachedCandidate: CachedCandidate | null;
   children: ReactNode;
 }> = ({ cachedCandidate, children }) => {
   const [candidate, dispatch] = useCandidateReducer(cachedCandidate);

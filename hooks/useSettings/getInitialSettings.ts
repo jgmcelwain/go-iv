@@ -19,6 +19,7 @@ const defaultSettings: Settings = {
     percent: true,
   },
   showMegaLevelCaps: true,
+  formChangeWholeLevels: true,
   showSpeculative: false,
   showMinimumLevel: false,
   showRankingMetric: false,

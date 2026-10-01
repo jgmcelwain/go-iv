@@ -6,7 +6,7 @@ import { xlCount } from '../lib/xlCount';
 import { useSettings } from '../hooks/useSettings';
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
-import { useRankedSpreads } from '../hooks/useRankedSpreads';
+import { useMemoRankedSpreads } from '../hooks/useRankedSpreads/useMemoRankedSpreads';
 import { formatValue } from '../utils/formatValue';
 
 import { IV_FLOORS } from '../data/ivFloor';
@@ -15,16 +15,25 @@ import { LevelCap } from '../data/levelCap';
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTableCellsPercentOfMax from './CandidateLeagueTableCellsPercentOfMax';
 import { ViewListIcon } from '@heroicons/react/solid';
+import { RankedSpreadLevel } from './RankedSpreadLevel';
+import { Pokemon } from '../data/pokedex';
 
 const CandidateLeagueRankedAtLevelCap: FC<{
   levelCap: LevelCap;
-}> = ({ levelCap }) => {
+  species: Pokemon;
+}> = ({ levelCap, species }) => {
   const { league, setInspectedLevelCap } = useLeague();
   const { candidate } = useCandidate();
   const { settings } = useSettings();
-  const rankedSpreads = useRankedSpreads();
+  const rankedSpreads = useMemoRankedSpreads(levelCap.level, species);
+  const formLabel =
+    candidate.species.forms.length > 1 ? (
+      <CandidateLeagueTableCells.Body>
+        {species.name}
+      </CandidateLeagueTableCells.Body>
+    ) : null;
 
-  const candidateAtLevel = rankedSpreads[levelCap.level].find(
+  const candidateAtLevel = rankedSpreads.find(
     (spread) =>
       spread.ivs.atk === candidate.ivs.atk &&
       spread.ivs.def === candidate.ivs.def &&
@@ -43,11 +52,11 @@ const CandidateLeagueRankedAtLevelCap: FC<{
 
   const viewAllSpreadButton = (
     <button
-      onClick={() => setInspectedLevelCap(levelCap)}
+      onClick={() => setInspectedLevelCap(levelCap, species)}
       className='focus-visible-ring p-0.5 rounded mr-2'
-      title={`View top ${league.name} IV spreads for ${
-        candidate.species.name
-      }, Level ${candidate.minimumLevel}-${levelCap.level}, ${
+      title={`View top ${league.name} IV spreads for ${species.name}, Level ${
+        candidate.minimumLevel
+      }-${levelCap.level}, ${
         floor.name !== null ? `${floor.name} - ${floor.value}` : floor.value
       }`}
     >
@@ -67,9 +76,10 @@ const CandidateLeagueRankedAtLevelCap: FC<{
 
     return (
       <tr
-        onClick={() => setInspectedLevelCap(levelCap)}
+        onClick={() => setInspectedLevelCap(levelCap, species)}
         className={`${colors.background} ${colors.text} cursor-pointer`}
       >
+        {formLabel}
         {settings.outputData.rank && (
           <CandidateLeagueTableCells.Body>?</CandidateLeagueTableCells.Body>
         )}
@@ -100,9 +110,10 @@ const CandidateLeagueRankedAtLevelCap: FC<{
 
   return (
     <tr
-      onClick={() => setInspectedLevelCap(levelCap)}
+      onClick={() => setInspectedLevelCap(levelCap, species)}
       className={`${colors.background} ${colors.text} cursor-pointer`}
     >
+      {formLabel}
       {settings.outputData.rank && (
         <CandidateLeagueTableCells.Body>
           {candidateAtLevel.rank}
@@ -118,12 +129,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       {settings.outputData.level && (
         <CandidateLeagueTableCells.Body>
           <>
-            {formatValue(
-              candidateAtLevel.level,
-              Math.floor(candidateAtLevel.level) === candidateAtLevel.level
-                ? undefined
-                : 1,
-            )}
+            <RankedSpreadLevel {...candidateAtLevel} />
             {league.cp !== 10000 && (
               <span className='text-xs'> /{levelCap.level}</span>
             )}

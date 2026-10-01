@@ -52,7 +52,7 @@ export default function CandidateBuilderStickyHeader() {
       <div className='grow text-gray-700 dark:text-gray-100'>
         <p className='text-xs text-gray-700 dark:text-gray-100 font-title'>
           <div className='inline-flex mr-2'>
-            <SpeciesTypeIcons types={candidate.species.types} />
+            <SpeciesTypeIcons types={candidate.species.defaultForm.types} />
           </div>
           {candidate.species.name}, {candidate.ivs.atk}-{candidate.ivs.def}-
           {candidate.ivs.sta}{' '}
