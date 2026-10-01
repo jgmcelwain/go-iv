@@ -60,6 +60,49 @@ export type Pokemon = {
   wholeLevelsOnly?: boolean;
 };
 
+function createPokedexLookup(list: Pokemon[]) {
+  const byId = new Map(list.map((pokemon) => [pokemon.id, pokemon]));
+  const byName = new Map(list.map((pokemon) => [pokemon.name, pokemon]));
+  const searchable = list.map((pokemon) => ({
+    pokemon,
+    name: pokemon.name.toLowerCase(),
+  }));
+  const byLowerName = new Map(
+    searchable.map(({ pokemon, name }) => [name, pokemon]),
+  );
+  const byFamily = new Map<PokemonID, Pokemon[]>();
+  for (const pokemon of list) {
+    const family = byFamily.get(pokemon.family.id);
+    if (family) family.push(pokemon);
+    else byFamily.set(pokemon.family.id, [pokemon]);
+  }
+
+  return {
+    list,
+    byId: (id: PokemonID) => byId.get(id) ?? null,
+    byName: (name: PokemonName) => byName.get(name) ?? null,
+    familyMembers: (id: PokemonID) => byFamily.get(id)?.slice() ?? [],
+    searchByName: (query: string) => {
+      const lowerQuery = query.toLowerCase();
+      return (
+        byLowerName.get(lowerQuery) ??
+        searchable.find(
+          ({ pokemon, name }) =>
+            pokemon.aliases?.includes(lowerQuery) ||
+            isSubsequence(lowerQuery, name),
+        )?.pokemon ??
+        null
+      );
+    },
+  };
+}
+
+const POKEDEX_LOOKUP = createPokedexLookup(POKEDEX);
+
+export function getPokedexLookup(list: Pokemon[] = POKEDEX) {
+  return list === POKEDEX ? POKEDEX_LOOKUP : createPokedexLookup(list);
+}
+
 export type PokemonSelection = {
   id: PokemonID;
   name: PokemonName;
@@ -96,7 +139,7 @@ export const POKEMON_SELECTIONS: PokemonSelection[] = POKEDEX.flatMap(
         defaultForm: pokemon,
         forms: group
           ? group.forms.map((id) => {
-              const form = getPokemonByID(id);
+              const form = POKEDEX_LOOKUP.byId(id);
               if (!form) throw new Error(`Missing Pokémon form: ${id}`);
               return form;
             })
@@ -113,6 +156,18 @@ const SELECTION_BY_ID = new Map(
   ),
 );
 
+const SELECTIONS_BY_FAMILY = new Map<PokemonID, PokemonSelection[]>();
+for (const selection of POKEMON_SELECTIONS) {
+  const id = selection.defaultForm.family.id;
+  const family = SELECTIONS_BY_FAMILY.get(id);
+  if (family) family.push(selection);
+  else SELECTIONS_BY_FAMILY.set(id, [selection]);
+}
+
+export function getPokemonSelectionFamilyMembers(id: PokemonID) {
+  return SELECTIONS_BY_FAMILY.get(id)?.slice() ?? [];
+}
+
 export function getPokemonSelection(id: PokemonID) {
   return SELECTION_BY_ID.get(id) ?? null;
 }
@@ -120,45 +175,28 @@ export function getPokemonSelection(id: PokemonID) {
 export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
   if (!name) return null;
 
-  return list.find((pokemon) => pokemon.name === name) ?? null;
+  return list === POKEDEX
+    ? POKEDEX_LOOKUP.byName(name) ?? null
+    : list.find((pokemon) => pokemon.name === name) ?? null;
 }
 
 export function searchPokemonByName(query: string, list: Pokemon[] = POKEDEX) {
-  const lowerCaseQuery = query.toLowerCase();
-
-  const matches = list.filter((pokemon) => {
-    return (
-      pokemon.aliases?.includes(lowerCaseQuery) ||
-      isSubsequence(lowerCaseQuery, pokemon.name.toLowerCase())
-    );
-  });
-
-  if (matches.length === 0) {
-    return null;
-  } else if (matches.length === 1) {
-    return matches[0];
-  } else {
-    const exactMatch = matches.find(
-      (match) => match.name.toLowerCase() === lowerCaseQuery,
-    );
-
-    if (exactMatch !== undefined) {
-      return exactMatch;
-    } else {
-      return matches[0];
-    }
-  }
+  return getPokedexLookup(list).searchByName(query);
 }
 
 export function getPokemonByID(id: PokemonID, list: Pokemon[] = POKEDEX) {
   if (!id) return null;
 
-  return list.find((pokemon) => pokemon.id === id) ?? null;
+  return list === POKEDEX
+    ? POKEDEX_LOOKUP.byId(id) ?? null
+    : list.find((pokemon) => pokemon.id === id) ?? null;
 }
 
 export function getPokemonFamilyMembers(
   familyID: PokemonID,
   list: Pokemon[] = POKEDEX,
 ) {
-  return list.filter((pokemon) => pokemon.family.id === familyID);
+  return list === POKEDEX
+    ? POKEDEX_LOOKUP.familyMembers(familyID)
+    : list.filter((pokemon) => pokemon.family.id === familyID);
 }

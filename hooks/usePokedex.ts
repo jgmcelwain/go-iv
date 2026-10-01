@@ -1,66 +1,37 @@
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSettings } from './useSettings';
-
 import {
   POKEDEX,
-  POKEMON_SELECTIONS,
-  getPokemonSelection,
-  getPokemonByName,
-  getPokemonByID,
-  getPokemonFamilyMembers,
-  PokemonName,
   PokemonID,
-  searchPokemonByName,
+  POKEMON_SELECTIONS,
+  getPokedexLookup,
+  getPokemonSelection,
+  getPokemonSelectionFamilyMembers,
 } from '../data/pokedex';
 import { useSpeculativePokemon } from './useSpeculativePokemon';
 
 export function usePokedex() {
   const { settings } = useSettings();
   const speculativePokemon = useSpeculativePokemon();
+  const list = useMemo(() => {
+    if (settings.showSpeculative) return POKEDEX;
+    const hiddenIds = new Set(speculativePokemon);
+    return POKEDEX.filter((pokemon) => !hiddenIds.has(pokemon.id));
+  }, [settings.showSpeculative, speculativePokemon]);
 
-  const list = useMemo(
-    () =>
-      POKEDEX.filter((pokemon) => {
-        if (settings.showSpeculative === true) {
-          return true;
-        }
-
-        return speculativePokemon.includes(pokemon.id) === false;
-      }),
-    [settings.showSpeculative, speculativePokemon],
-  );
-
-  const byName = useCallback(
-    (name: PokemonName) => getPokemonByName(name, list),
-    [list],
-  );
-  const byId = useCallback((id: PokemonID) => getPokemonByID(id, list), [list]);
-  const familyMembers = useCallback(
-    (familyId: PokemonID) => getPokemonFamilyMembers(familyId, list),
-    [list],
-  );
-  const searchByName = useCallback(
-    (query: string) => searchPokemonByName(query, list),
-    [list],
-  );
-
-  return {
-    list,
-    byName,
-    byId,
-    familyMembers,
-    searchByName,
-  };
+  return useMemo(() => getPokedexLookup(list), [list]);
 }
 
 export function usePokemonSelections() {
   const pokedex = usePokedex();
-  const { byId } = pokedex;
   const list = useMemo(
     () =>
-      POKEMON_SELECTIONS.filter((selection) => byId(selection.defaultForm.id)),
-    [byId],
+      POKEMON_SELECTIONS.filter((selection) =>
+        pokedex.byId(selection.defaultForm.id),
+      ),
+    [pokedex],
   );
+
   return {
     list,
     searchByName: (query: string) => {
@@ -68,6 +39,8 @@ export function usePokemonSelections() {
       return match ? getPokemonSelection(match.id) : null;
     },
     familyMembers: (id: PokemonID) =>
-      list.filter((selection) => selection.defaultForm.family.id === id),
+      getPokemonSelectionFamilyMembers(id).filter((selection) =>
+        pokedex.byId(selection.defaultForm.id),
+      ),
   };
 }
