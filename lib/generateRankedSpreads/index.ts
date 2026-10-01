@@ -15,6 +15,7 @@ export type SpreadWithMaximizedStats = {
   ivs: PokemonIVs;
   cp: number;
   level: number;
+  levelReduced: boolean;
   product: number;
   bulkProduct: number;
   stats: PokemonStats;
@@ -23,6 +24,7 @@ export type RankedSpread = {
   ivs: PokemonIVs;
   cp: number;
   level: number;
+  levelReduced: boolean;
   rank: number;
   product: ComparableToMax;
   bulkProduct: ComparableToMax;
@@ -45,7 +47,12 @@ export function generateRankedSpreads(
   maxLevel: LevelCapNumber,
   minLevel: number,
   rankingMetric: RankableMetric,
+  formChangeWholeLevels = true,
 ) {
+  const wholeLevelsOnly =
+    formChangeWholeLevels &&
+    maxCP !== 10000 &&
+    pokemon.wholeLevelsOnly === true;
   const getRankingMetricValue = (spread: SpreadWithMaximizedStats) => {
     if (rankingMetric === 'product') {
       return spread.product;
@@ -59,7 +66,9 @@ export function generateRankedSpreads(
 
   const ivSpreads = getIVSpreads(floor);
   const spreadsWithStats = ivSpreads
-    .map((ivs) => getMaximizedStats(pokemon, ivs, maxCP, maxLevel))
+    .map((ivs) =>
+      getMaximizedStats(pokemon, ivs, maxCP, maxLevel, wholeLevelsOnly),
+    )
     .filter((spreadWithStats) => spreadWithStats.level >= minLevel)
     .sort((a, b) => {
       // in instances where two spreads have the same rankable metric value we
@@ -103,6 +112,7 @@ export function generateRankedSpreads(
       ivs: currentSpread.ivs,
       cp: currentSpread.cp,
       level: currentSpread.level,
+      levelReduced: currentSpread.levelReduced,
       stats: {
         atk: compareToMax(currentSpread.stats.atk, rankOneSpread.stats.atk),
         def: compareToMax(currentSpread.stats.def, rankOneSpread.stats.def),

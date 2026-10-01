@@ -8,27 +8,29 @@ import CandidateLeagueRanked from './CandidateLeagueRanked';
 import { Transition } from '@headlessui/react';
 
 const CandidateLeagueContent: FC = () => {
-  const { inspectedLevelCap, collapsed } = useLeague();
+  const { inspectedLevelCap, inspectedSpecies, collapsed } = useLeague();
 
   return (
-    <LeagueCandidateRankedSpreadsProvider>
-      <Transition
-        show={collapsed.value === false}
-        enter='transition-transform duration-75'
-        enterFrom='-translate-y-full'
-        enterTo='translate-y-0'
-        leave='transition-transform duration-150'
-        leaveFrom='translate-y-0'
-        leaveTo='-translate-y-full'
-        className='bg-gray-100 w-full'
-      >
-        {inspectedLevelCap !== null ? (
+    <Transition
+      show={collapsed.value === false}
+      enter='transition-transform duration-75'
+      enterFrom='-translate-y-full'
+      enterTo='translate-y-0'
+      leave='transition-transform duration-150'
+      leaveFrom='translate-y-0'
+      leaveTo='-translate-y-full'
+      className='bg-gray-100 w-full'
+    >
+      {inspectedLevelCap !== null ? (
+        <LeagueCandidateRankedSpreadsProvider
+          species={inspectedSpecies ?? undefined}
+        >
           <CandidateLeagueTopSpreadsAtLevelCap />
-        ) : (
-          <CandidateLeagueRanked />
-        )}
-      </Transition>
-    </LeagueCandidateRankedSpreadsProvider>
+        </LeagueCandidateRankedSpreadsProvider>
+      ) : (
+        <CandidateLeagueRanked />
+      )}
+    </Transition>
   );
 };
 

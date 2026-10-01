@@ -76,6 +76,20 @@ const SettingsPage: FC = () => {
             description='Show Level 52/53 for Mega Pokémon in Master League. Requires the corresponding base cap (50/51) to be enabled.'
           />
         </SettingsSectionItem>
+
+        <SettingsSectionItem>
+          <SettingsSectionItemToggle
+            onInput={(value) =>
+              dispatch({
+                type: SettingsActionTypes.FormChangeWholeLevels,
+                payload: value,
+              })
+            }
+            value={settings.formChangeWholeLevels}
+            label='Whole Levels for Form Changes'
+            description='Rank Aegislash (Blade) and Minior (Core) at whole levels in Little Cup, Great League and Ultra League. Recalculate half levels at the lower whole level. Master League is unchanged.'
+          />
+        </SettingsSectionItem>
       </SettingsSection>
 
       <SettingsSection id='displayed-fields' title='Output Fields'>

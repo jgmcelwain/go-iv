@@ -57,6 +57,7 @@ export type Pokemon = {
     stage: PokemonFamilyStage;
   };
   aliases?: string[];
+  wholeLevelsOnly?: boolean;
 };
 
 export type PokemonSelection = {

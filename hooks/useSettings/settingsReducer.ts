@@ -18,6 +18,7 @@ export enum SettingsActionTypes {
   ImpossibleFloors,
   InvertIVDropdown,
   Layout,
+  FormChangeWholeLevels,
 }
 type PayloadTypes = {
   [SettingsActionTypes.League]: { key: LeagueKey; value: boolean };
@@ -37,12 +38,16 @@ type PayloadTypes = {
   [SettingsActionTypes.ImpossibleFloors]: boolean;
   [SettingsActionTypes.InvertIVDropdown]: boolean;
   [SettingsActionTypes.Layout]: 'grid' | 'list';
+  [SettingsActionTypes.FormChangeWholeLevels]: boolean;
 };
 type Action = ActionMap<PayloadTypes>[keyof ActionMap<PayloadTypes>];
 export type Dispatch = ReactDispatch<Action>;
 
 export function settingsReducer(state: Settings, action: Action): Settings {
   switch (action.type) {
+    case SettingsActionTypes.FormChangeWholeLevels: {
+      return { ...state, formChangeWholeLevels: action.payload };
+    }
     case SettingsActionTypes.League: {
       return {
         ...state,

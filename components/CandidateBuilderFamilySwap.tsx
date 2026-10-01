@@ -21,6 +21,7 @@ const CandidateBuilderFamilySwap: FC = () => {
   return (
     <RadioGroup
       value={candidate.species}
+      by='id'
       onChange={(val: PokemonSelection) =>
         dispatch({ type: CandidateActionTypes.Species, payload: val })
       }

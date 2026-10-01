@@ -20,6 +20,7 @@ export type Settings = {
   levelCaps: { [key in SettableLevelCapNumber]: boolean };
   outputData: { [key in OutputDataKey]: boolean };
   showMegaLevelCaps: boolean;
+  formChangeWholeLevels: boolean;
   showSpeculative: boolean;
   showRankingMetric: boolean;
   showMinimumLevel: boolean;

@@ -10,6 +10,7 @@ import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpreadsAtLevelCapDownload';
 import { xlCount } from '../lib/xlCount';
 import { formatValue } from '../utils/formatValue';
+import { RankedSpreadLevel } from './RankedSpreadLevel';
 
 function useDisplayedSpreads() {
   const { inspectedLevelCap } = useLeague();
@@ -78,7 +79,7 @@ function useColumns(candidate: Candidate) {
     },
     {
       label: 'Level',
-      value: (row) => row.level,
+      value: (row) => <RankedSpreadLevel {...row} />,
       priority: 2,
     },
     {

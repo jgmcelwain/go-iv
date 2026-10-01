@@ -33,8 +33,13 @@ const LEAGUE_COLORS = {
 
 const CandidateLeagueHeader: FC = () => {
   const { candidate } = useCandidate();
-  const { league, inspectedLevelCap, setInspectedLevelCap, collapsed } =
-    useLeague();
+  const {
+    league,
+    inspectedLevelCap,
+    inspectedSpecies,
+    setInspectedLevelCap,
+    collapsed,
+  } = useLeague();
 
   const rankingMetric = RANKABLE_METRICS.find(
     (metric) => metric.key === candidate.rankingMetric,
@@ -77,7 +82,9 @@ const CandidateLeagueHeader: FC = () => {
           <>
             <h2 className='flex-grow font-semibold leading-snug'>
               Top {league.name} IV Spreads for{' '}
-              <span key={candidate.species.name}>{candidate.species.name}</span>
+              <span key={candidate.species.id}>
+                {inspectedSpecies?.name ?? candidate.species.defaultForm.name}
+              </span>
             </h2>
 
             <p className='mt-1 text-xs font-semibold'>

@@ -8,17 +8,26 @@ import { useCandidate } from '../hooks/useCandidate';
 
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueRankedAtLevelCap from './CandidateLeagueRankedAtLevelCap';
+import { usePokedex } from '../hooks/usePokedex';
 
 const CandidateLeagueRanked: FC = () => {
   const { league } = useLeague();
   const { candidate } = useCandidate();
   const { settings } = useSettings();
+  const pokedex = usePokedex();
+  const forms = candidate.species.forms.filter((form) => pokedex.byId(form.id));
+  const hasForms = candidate.species.forms.length > 1;
 
   return (
     <section className='w-full overflow-x-scroll'>
       <table className='w-full border-collapse table-fixed'>
         <thead>
           <tr>
+            {hasForms && (
+              <CandidateLeagueTableCells.Header widthClass='w-44'>
+                Form
+              </CandidateLeagueTableCells.Header>
+            )}
             {settings.outputData.rank && (
               <CandidateLeagueTableCells.Header widthClass='w-16'>
                 Rank
@@ -73,20 +82,34 @@ const CandidateLeagueRanked: FC = () => {
           </tr>
         </thead>
 
-        <tbody>
-          {LEVEL_CAPS.filter((levelCap) =>
+        {LEVEL_CAPS.map((levelCap) => {
+          const enabledForms = forms.filter((species) =>
             isLevelCapEnabled(levelCap.level, settings.levelCaps, {
               showMegaLevelCaps: settings.showMegaLevelCaps,
               isMasterLeague: league.cp === 10000,
-              isMegaSpecies: candidate.species.name.startsWith('Mega '),
+              isMegaSpecies: species.name.startsWith('Mega '),
             }),
-          ).map((levelCap) => (
-            <CandidateLeagueRankedAtLevelCap
-              key={`${candidate.species.id}_${levelCap.level}`}
-              levelCap={levelCap}
-            />
-          ))}
-        </tbody>
+          );
+          if (enabledForms.length === 0) return null;
+          return (
+            <tbody
+              key={levelCap.level}
+              className={
+                hasForms
+                  ? '[&>tr>td]:py-1.5 [&>tr+tr>td]:border-t-0'
+                  : undefined
+              }
+            >
+              {enabledForms.map((species) => (
+                <CandidateLeagueRankedAtLevelCap
+                  key={species.id}
+                  levelCap={levelCap}
+                  species={species}
+                />
+              ))}
+            </tbody>
+          );
+        })}
       </table>
     </section>
   );

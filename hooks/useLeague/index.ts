@@ -2,14 +2,16 @@ import { createContext, useContext } from 'react';
 
 import { League } from '../../data/league';
 import { LevelCap } from '../../data/levelCap';
+import { Pokemon } from '../../data/pokedex';
 import { useCollapsedState } from './Provider';
 
 export { Provider } from './Provider';
 
 export const Context = createContext<{
   league: League;
-  setInspectedLevelCap: (arg0: LevelCap | null) => void;
+  setInspectedLevelCap: (levelCap: LevelCap | null, species?: Pokemon) => void;
   inspectedLevelCap: LevelCap | null;
+  inspectedSpecies: Pokemon | null;
   collapsed: ReturnType<typeof useCollapsedState>;
 } | null>(null);
 

@@ -14,12 +14,14 @@ import { LEAGUES, LeagueCPCap } from '../../data/league';
 import { LEVEL_CAPS, LevelCapNumber } from '../../data/levelCap';
 import { Pokemon } from '../../data/pokedex';
 import { usePokedex } from '../../hooks/usePokedex';
+import { useSettings } from '../../hooks/useSettings';
 import {
   RankedSpread,
   generateRankedSpreads,
 } from '../../lib/generateRankedSpreads';
 import { SpeciesDropdown } from './species-dropdown';
 import { CheckIcon } from '@heroicons/react/solid';
+import { RankedSpreadLevel } from '../../components/RankedSpreadLevel';
 
 const defaultPokemon = {
   name: 'Medicham',
@@ -30,6 +32,7 @@ const defaultPokemon = {
 } as const;
 
 export function IVGuess() {
+  const { settings } = useSettings();
   const { byName } = usePokedex();
   const [pokemon, setPokemon] = useState<Pokemon>(byName(defaultPokemon.name)!);
   const [league, setLeague] = useState<LeagueCPCap>(defaultPokemon.leagueCp);
@@ -49,6 +52,7 @@ export function IVGuess() {
     levelCap,
     0,
     'product',
+    settings.formChangeWholeLevels,
   ).filter(
     (spread) =>
       (spread.stats.sta.value === hp || anyHp) && (spread.cp === cp || anyCp),
@@ -333,7 +337,8 @@ export function IVGuess() {
                         </p>
 
                         <p>
-                          {spread.cp} CP, Level {spread.level}
+                          {spread.cp} CP, Level{' '}
+                          <RankedSpreadLevel {...spread} />
                         </p>
                         <p>Attack: {spread.stats.atk.value.toFixed(2)}</p>
                         <p>Defense: {spread.stats.def.value.toFixed(2)}</p>
