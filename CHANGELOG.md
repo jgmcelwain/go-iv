@@ -1,4 +1,11 @@
 
+## [3.9.0](https://github.com/jgmcelwain/go-iv/compare/v3.8.1...v3.9.0) (2026-10-01)
+
+
+### Features
+
+* show both form rankings with whole-level support e9fcf04
+
 ### [3.8.1](https://github.com/jgmcelwain/go-iv/compare/v3.8.0...v3.8.1) (2026-06-17)
 
 
