@@ -57,7 +57,6 @@ export type Pokemon = {
     stage: PokemonFamilyStage;
   };
   aliases?: string[];
-  wholeLevelsOnly?: boolean;
 };
 
 function createPokedexLookup(list: Pokemon[]) {

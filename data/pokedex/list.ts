@@ -12675,7 +12675,6 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'aegislash_blade',
-    wholeLevelsOnly: true,
     dexNumber: 681,
     name: 'Aegislash (Blade)',
     stats: {
@@ -14479,7 +14478,6 @@ export const POKEDEX: Pokemon[] = [
   },
   {
     id: 'minior_core',
-    wholeLevelsOnly: true,
     dexNumber: 774,
     name: 'Minior (Core)',
     stats: {

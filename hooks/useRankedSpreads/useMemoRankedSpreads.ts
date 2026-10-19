@@ -39,12 +39,10 @@ export function useMemoRankedSpreads(
       levelCapNumber,
       candidate.minimumLevel,
       candidate.rankingMetric,
-      settings.formChangeWholeLevels,
     );
   }, [
     settings.levelCaps,
     settings.showMegaLevelCaps,
-    settings.formChangeWholeLevels,
     levelCapNumber,
     species,
     candidate.floor,
