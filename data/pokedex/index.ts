@@ -128,8 +128,8 @@ const FORM_GROUPS = [
   {
     id: 'minior',
     name: 'Minior',
-    defaultForm: 'minior_meteor',
-    forms: ['minior_meteor', 'minior_core'],
+    defaultForm: 'minior_core',
+    forms: ['minior_core', 'minior_meteor'],
   },
 ];
 const GROUP_BY_FORM = new Map(
