@@ -1,5 +1,3 @@
-import 'focus-visible';
-
 import type { AppContext, AppProps } from 'next/app';
 
 import React, { FC } from 'react';
