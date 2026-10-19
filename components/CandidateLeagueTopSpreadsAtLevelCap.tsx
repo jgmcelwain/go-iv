@@ -1,7 +1,8 @@
-import React, { FC, ReactChild } from 'react';
+import React, { FC, ReactChild, memo, useMemo, useState } from 'react';
 import { RankedSpread } from '../lib/generateRankedSpreads';
 import { useLeague } from '../hooks/useLeague';
-import { useCandidate, Candidate } from '../hooks/useCandidate';
+import { useCandidate } from '../hooks/useCandidate';
+import { RankableMetric } from '../data/stat';
 import { useRankedSpreads } from '../hooks/useRankedSpreads';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
@@ -12,34 +13,49 @@ import { xlCount } from '../lib/xlCount';
 import { formatValue } from '../utils/formatValue';
 import { RankedSpreadLevel } from './RankedSpreadLevel';
 
-function useDisplayedSpreads() {
+const INITIAL_ROW_COUNT = 10;
+const ROWS_PER_PAGE = 100;
+
+function useShownRowCount() {
+  const [count, setCount] = useState(INITIAL_ROW_COUNT);
+  return [count, () => setCount((value) => value + ROWS_PER_PAGE)] as const;
+}
+
+const ivsKey = (spread: RankedSpread) =>
+  `${spread.ivs.atk}-${spread.ivs.def}-${spread.ivs.sta}`;
+
+function useDisplayedSpreads(shownRowCount: number) {
   const { inspectedLevelCap } = useLeague();
   const { candidate } = useCandidate();
   const rankedSpreads = useRankedSpreads();
 
   if (inspectedLevelCap === null) {
-    return [];
+    return { rows: [], total: 0 };
   }
 
+  const candidateKey = `${candidate.ivs.atk}-${candidate.ivs.def}-${candidate.ivs.sta}`;
   const candidateSpread = rankedSpreads.find(
-    (rankedSpread) =>
-      rankedSpread.ivs.atk === candidate.ivs.atk &&
-      rankedSpread.ivs.def === candidate.ivs.def &&
-      rankedSpread.ivs.sta === candidate.ivs.sta,
+    (spread) => ivsKey(spread) === candidateKey,
   );
 
-  const spreads = [candidateSpread, ...rankedSpreads.slice(0, 10)].filter(
-    (spread): spread is RankedSpread => spread !== undefined,
-  );
-
-  return spreads.map((rankedSpread) => {
-    const colors = getRankedSpreadColors(rankedSpread, candidate.rankingMetric);
-
-    return { ...rankedSpread, colors };
+  const toRow = (spread: RankedSpread, pinned: boolean) => ({
+    spread,
+    key: pinned ? 'pinned' : ivsKey(spread),
+    pinned,
+    isCandidate: ivsKey(spread) === candidateKey,
   });
+
+  const rows = [
+    ...(candidateSpread ? [toRow(candidateSpread, true)] : []),
+    ...rankedSpreads
+      .slice(0, shownRowCount)
+      .map((spread) => toRow(spread, false)),
+  ];
+
+  return { rows, total: rankedSpreads.length };
 }
 
-type Row = ReturnType<typeof useDisplayedSpreads>[0];
+type Row = RankedSpread;
 type Column = {
   label: string;
   value: (row: Row) => ReactChild;
@@ -47,9 +63,7 @@ type Column = {
   widthClass?: string;
 };
 
-function useColumns(candidate: Candidate) {
-  const { rankingMetric } = candidate;
-
+function getColumns(rankingMetric: RankableMetric) {
   const columns: Column[] = [
     { label: 'Rank', value: (row: Row) => row.rank, priority: 0 },
     {
@@ -138,11 +152,52 @@ function useColumns(candidate: Candidate) {
   return columns.sort((a, b) => a.priority - b.priority);
 }
 
-const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
-  const displayedSpreads = useDisplayedSpreads();
-  const { candidate } = useCandidate();
+function useColumns(rankingMetric: RankableMetric) {
+  return useMemo(() => getColumns(rankingMetric), [rankingMetric]);
+}
 
-  const columns = useColumns(candidate);
+// memoised so showing more rows only renders the new ones
+const SpreadRow = memo(function SpreadRow({
+  spread,
+  pinned,
+  isCandidate,
+  columns,
+  rankingMetric,
+}: {
+  spread: RankedSpread;
+  pinned: boolean;
+  isCandidate: boolean;
+  columns: Column[];
+  rankingMetric: RankableMetric;
+}) {
+  const colors = getRankedSpreadColors(spread, rankingMetric);
+
+  return (
+    <tr
+      className={
+        pinned
+          ? 'bg-gray-50 text-gray-700 border-b-4'
+          : `${colors.background} ${colors.text}${
+              isCandidate ? ' font-semibold' : ''
+            }`
+      }
+    >
+      {columns.map((column) => (
+        <CandidateLeagueTableCells.Body key={column.label}>
+          {column.value(spread)}
+        </CandidateLeagueTableCells.Body>
+      ))}
+    </tr>
+  );
+});
+
+const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
+  const [shownRowCount, showMoreRows] = useShownRowCount();
+  const { rows, total } = useDisplayedSpreads(shownRowCount);
+  const { candidate } = useCandidate();
+  const remaining = total - shownRowCount;
+
+  const columns = useColumns(candidate.rankingMetric);
 
   return (
     <>
@@ -159,28 +214,32 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
           </thead>
 
           <tbody>
-            {displayedSpreads.map((spread, i) => (
-              <tr
-                key={i}
-                className={
-                  i === 0 &&
-                  spread.ivs.atk === candidate.ivs.atk &&
-                  spread.ivs.def === candidate.ivs.def &&
-                  spread.ivs.sta === candidate.ivs.sta
-                    ? 'bg-gray-50 text-gray-700 border-b-4'
-                    : `${spread.colors.background} ${spread.colors.text}`
-                }
-              >
-                {columns.map((column) => (
-                  <CandidateLeagueTableCells.Body key={column.label}>
-                    {column.value(spread)}
-                  </CandidateLeagueTableCells.Body>
-                ))}
-              </tr>
+            {rows.map((row) => (
+              <SpreadRow
+                key={row.key}
+                spread={row.spread}
+                pinned={row.pinned}
+                isCandidate={row.isCandidate}
+                columns={columns}
+                rankingMetric={candidate.rankingMetric}
+              />
             ))}
           </tbody>
         </table>
       </section>
+
+      {remaining > 0 && (
+        <button
+          type='button'
+          onClick={showMoreRows}
+          className='w-full py-3 text-sm font-semibold text-blue-600 bg-white border-t border-gray-200 hover:bg-gray-50 focus-visible-ring'
+        >
+          Show {Math.min(ROWS_PER_PAGE, remaining)} more
+          <span className='ml-1.5 font-normal text-gray-500'>
+            · {formatValue(shownRowCount)} of {formatValue(total)} shown
+          </span>
+        </button>
+      )}
 
       <CandidateLeagueTopSpreadsAtLevelCapDownload />
     </>
