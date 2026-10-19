@@ -1,4 +1,11 @@
-import React, { FC, MutableRefObject, useEffect, useRef } from 'react';
+import React, {
+  FC,
+  MutableRefObject,
+  startTransition,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import {
   useCandidate,
@@ -9,6 +16,11 @@ import { usePokemonSelections } from '../hooks/usePokedex';
 
 function useInputRef() {
   return useRef<HTMLInputElement | null>(null);
+}
+
+function useOptionsShownAfterFocus() {
+  const [shown, setShown] = useState(false);
+  return [shown, () => setShown(true)] as const;
 }
 
 function useSyncInputToCandidate(
@@ -32,6 +44,7 @@ const CandidateBuilderSpecies: FC = () => {
   const pokedex = usePokemonSelections();
   const { candidate, dispatch } = useCandidate();
   const input = useInputRef();
+  const [optionsShown, showOptions] = useOptionsShownAfterFocus();
   useSyncInputToCandidate(input, candidate);
 
   return (
@@ -42,15 +55,16 @@ const CandidateBuilderSpecies: FC = () => {
 
       <input
         onChange={(evt) => {
-          if (candidate.species.name !== evt.target.value) {
-            const match = pokedex.searchByName(evt.target.value);
+          const match = pokedex.searchByName(evt.target.value);
 
-            if (match) {
-              dispatch({ type: CandidateActionTypes.Species, payload: match });
-            }
+          if (match && match.id !== candidate.species.id) {
+            startTransition(() =>
+              dispatch({ type: CandidateActionTypes.Species, payload: match }),
+            );
           }
         }}
         onFocus={() => {
+          showOptions();
           if (input.current !== null) {
             input.current.value = '';
           }
@@ -69,9 +83,10 @@ const CandidateBuilderSpecies: FC = () => {
       />
 
       <datalist id='pokemon-list'>
-        {pokedex.list.map((pokemon) => (
-          <option key={pokemon.id} value={pokemon.name} />
-        ))}
+        {optionsShown &&
+          pokedex.list.map((pokemon) => (
+            <option key={pokemon.id} value={pokemon.name} />
+          ))}
       </datalist>
     </label>
   );

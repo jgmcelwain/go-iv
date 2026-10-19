@@ -17,9 +17,14 @@ function useCandidateReducer(cachedCandidate: CachedCandidate | null) {
   return [candidate, dispatch] as const;
 }
 
+// waits for typing to settle so partial search matches aren't saved or
+// reported to analytics
+const CACHE_DELAY_MS = 500;
+
 function useSyncCandidateToCache(candidate: Candidate) {
   useEffect(() => {
-    cacheCandidate(candidate);
+    const timeout = setTimeout(() => cacheCandidate(candidate), CACHE_DELAY_MS);
+    return () => clearTimeout(timeout);
   }, [candidate]);
 }
 

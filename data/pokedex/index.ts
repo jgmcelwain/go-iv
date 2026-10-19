@@ -69,6 +69,15 @@ function createPokedexLookup(list: Pokemon[]) {
   const byLowerName = new Map(
     searchable.map(({ pokemon, name }) => [name, pokemon]),
   );
+  const byAlias = new Map(
+    list.flatMap((pokemon) =>
+      (pokemon.aliases ?? []).map((alias) => [alias, pokemon] as const),
+    ),
+  );
+  const findByName = (query: string) => {
+    const lowerQuery = query.trim().toLowerCase();
+    return byLowerName.get(lowerQuery) ?? byAlias.get(lowerQuery) ?? null;
+  };
   const byFamily = new Map<PokemonID, Pokemon[]>();
   for (const pokemon of list) {
     const family = byFamily.get(pokemon.family.id);
@@ -81,15 +90,15 @@ function createPokedexLookup(list: Pokemon[]) {
     byId: (id: PokemonID) => byId.get(id) ?? null,
     byName: (name: PokemonName) => byName.get(name) ?? null,
     familyMembers: (id: PokemonID) => byFamily.get(id)?.slice() ?? [],
+    findByName,
     searchByName: (query: string) => {
-      const lowerQuery = query.toLowerCase();
+      const lowerQuery = query.trim().toLowerCase();
+      if (!lowerQuery) return null;
       return (
-        byLowerName.get(lowerQuery) ??
-        searchable.find(
-          ({ pokemon, name }) =>
-            pokemon.aliases?.includes(lowerQuery) ||
-            isSubsequence(lowerQuery, name),
-        )?.pokemon ??
+        findByName(lowerQuery) ??
+        searchable.find(({ name }) => name.startsWith(lowerQuery))?.pokemon ??
+        searchable.find(({ name }) => isSubsequence(lowerQuery, name))
+          ?.pokemon ??
         null
       );
     },
@@ -169,6 +178,17 @@ export function getPokemonSelectionFamilyMembers(id: PokemonID) {
 
 export function getPokemonSelection(id: PokemonID) {
   return SELECTION_BY_ID.get(id) ?? null;
+}
+
+const SELECTION_BY_LOWER_NAME = new Map(
+  POKEMON_SELECTIONS.map((selection) => [
+    selection.name.toLowerCase(),
+    selection,
+  ]),
+);
+
+export function getPokemonSelectionByName(name: PokemonName) {
+  return SELECTION_BY_LOWER_NAME.get(name.trim().toLowerCase()) ?? null;
 }
 
 export function getPokemonByName(name: PokemonName, list: Pokemon[] = POKEDEX) {
