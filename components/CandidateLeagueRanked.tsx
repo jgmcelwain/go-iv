@@ -9,6 +9,7 @@ import { useCandidate } from '../hooks/useCandidate';
 import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueRankedAtLevelCap from './CandidateLeagueRankedAtLevelCap';
 import { usePokedex } from '../hooks/usePokedex';
+import { useScrolledSideways } from '../hooks/useScrolledSideways';
 
 const CandidateLeagueRanked: FC = () => {
   const { league } = useLeague();
@@ -17,19 +18,34 @@ const CandidateLeagueRanked: FC = () => {
   const pokedex = usePokedex();
   const forms = candidate.species.forms.filter((form) => pokedex.byId(form.id));
   const hasForms = candidate.species.forms.length > 1;
+  const [scrolledSideways, trackSidewaysScroll] = useScrolledSideways();
 
   return (
-    <section className='w-full overflow-x-scroll'>
-      <table className='w-full border-collapse table-fixed'>
+    <section
+      onScroll={trackSidewaysScroll}
+      data-scrolled={scrolledSideways || undefined}
+      className='group w-full overflow-x-scroll'
+    >
+      <table className='w-full border-separate border-spacing-0 table-fixed'>
         <thead>
           <tr>
             {hasForms && (
-              <CandidateLeagueTableCells.Header widthClass='w-44'>
+              <CandidateLeagueTableCells.Header
+                widthClass='w-44'
+                className={CandidateLeagueTableCells.STICKY_FIRST_HEADER}
+              >
                 Form
               </CandidateLeagueTableCells.Header>
             )}
             {settings.outputData.rank && (
-              <CandidateLeagueTableCells.Header widthClass='w-16'>
+              <CandidateLeagueTableCells.Header
+                widthClass='w-16'
+                className={
+                  hasForms
+                    ? undefined
+                    : CandidateLeagueTableCells.STICKY_FIRST_HEADER
+                }
+              >
                 Rank
               </CandidateLeagueTableCells.Header>
             )}

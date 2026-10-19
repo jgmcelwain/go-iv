@@ -13,6 +13,7 @@ function useInspectedLevelCapState() {
     candidateId: string;
     levelCap: LevelCap;
     species: Pokemon;
+    showAll: boolean;
   } | null>(null);
   const active =
     selection?.candidateId === candidate.species.id ? selection : null;
@@ -23,15 +24,26 @@ function useInspectedLevelCapState() {
   ) {
     setSelection(
       levelCap
-        ? { candidateId: candidate.species.id, levelCap, species }
+        ? {
+            candidateId: candidate.species.id,
+            levelCap,
+            species,
+            showAll: false,
+          }
         : null,
     );
+  }
+
+  function setShowAllSpreads(showAll: boolean) {
+    setSelection((value) => value && { ...value, showAll });
   }
 
   return {
     inspectedLevelCap: active?.levelCap ?? null,
     inspectedSpecies: active?.species ?? null,
+    showAllSpreads: active?.showAll ?? false,
     setInspectedLevelCap,
+    setShowAllSpreads,
   };
 }
 

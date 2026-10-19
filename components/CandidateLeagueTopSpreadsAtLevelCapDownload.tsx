@@ -46,18 +46,15 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
   }
 
   return (
-    <footer className='flex items-center justify-center w-full py-2 bg-white border-t border-gray-200'>
-      <button
-        onClick={exportToCSV}
-        className='flex items-center justify-start p-1 text-gray-700 rounded-full hover:text-black focus-visible-ring sm:rounded'
-      >
-        <span className='mr-2 text-xs font-semibold'>
-          Export All {rankedSpreads.length} to CSV
-        </span>
+    <button
+      type='button'
+      onClick={exportToCSV}
+      className='flex items-center p-1 text-gray-700 rounded hover:text-black focus-visible-ring'
+    >
+      <span className='mr-1 text-xs font-semibold'>Export CSV</span>
 
-        <DownloadIcon className='w-4 h-4' />
-      </button>
-    </footer>
+      <DownloadIcon className='w-4 h-4' />
+    </button>
   );
 };
 
