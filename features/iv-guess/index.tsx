@@ -16,7 +16,7 @@ import { Pokemon } from '../../data/pokedex';
 import { usePokedex } from '../../hooks/usePokedex';
 import {
   RankedSpread,
-  generateRankedSpreads,
+  getRankedSpreads,
 } from '../../lib/generateRankedSpreads';
 import { SpeciesDropdown } from './species-dropdown';
 import { CheckIcon } from '@heroicons/react/solid';
@@ -29,6 +29,8 @@ const defaultPokemon = {
   leagueCp: 1500,
   levelCap: 51,
 } as const;
+
+const MAX_TABLE_ROWS = 100;
 
 export function IVGuess() {
   const { byName } = usePokedex();
@@ -43,14 +45,14 @@ export function IVGuess() {
   const [anyCp, setAnyCp] = useState<boolean>(false);
   const [cp, setCp] = useState<number>(defaultPokemon.cp);
 
-  const matchingSpreads = generateRankedSpreads(
+  const matchingSpreads = getRankedSpreads({
     pokemon,
-    pokemon.floor ?? 0,
-    league,
-    levelCap,
-    0,
-    'product',
-  ).filter(
+    floor: pokemon.floor ?? 0,
+    maxCP: league,
+    maxLevel: levelCap,
+    minLevel: 0,
+    rankingMetric: 'product',
+  }).filter(
     (spread) =>
       (spread.stats.sta.value === hp || anyHp) && (spread.cp === cp || anyCp),
   );
@@ -199,7 +201,7 @@ export function IVGuess() {
           </thead>
 
           <tbody>
-            {matchingSpreads.map((spread) => (
+            {matchingSpreads.slice(0, MAX_TABLE_ROWS).map((spread) => (
               <tr key={`${spread.ivs.atk}-${spread.ivs.def}-${spread.ivs.sta}`}>
                 <td>{spread.rank}</td>
                 <td>
@@ -216,6 +218,13 @@ export function IVGuess() {
             ))}
           </tbody>
         </table>
+
+        {matchingSpreads.length > MAX_TABLE_ROWS && (
+          <p className='mt-2 text-xs text-gray-500 dark:text-gray-400'>
+            Showing the top {MAX_TABLE_ROWS} spreads. Narrow it down with CP or
+            HP to see the rest.
+          </p>
+        )}
       </div>
 
       {matchingSpreads.length > 0 && (

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import { useLeague } from '../hooks/useLeague';
+import { useCandidate } from '../hooks/useCandidate';
 import { Provider as LeagueCandidateRankedSpreadsProvider } from '../hooks/useRankedSpreads';
 
 import CandidateLeagueTopSpreadsAtLevelCap from './CandidateLeagueTopSpreadsAtLevelCap';
@@ -9,6 +10,7 @@ import { Transition } from '@headlessui/react';
 
 const CandidateLeagueContent: FC = () => {
   const { inspectedLevelCap, inspectedSpecies, collapsed } = useLeague();
+  const { candidate } = useCandidate();
 
   return (
     <Transition
@@ -23,7 +25,8 @@ const CandidateLeagueContent: FC = () => {
     >
       {inspectedLevelCap !== null ? (
         <LeagueCandidateRankedSpreadsProvider
-          species={inspectedSpecies ?? undefined}
+          levelCap={inspectedLevelCap.level}
+          species={inspectedSpecies ?? candidate.species.defaultForm}
         >
           <CandidateLeagueTopSpreadsAtLevelCap />
         </LeagueCandidateRankedSpreadsProvider>

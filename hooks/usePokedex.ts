@@ -6,20 +6,35 @@ import {
   POKEMON_SELECTIONS,
   getPokedexLookup,
   getPokemonSelection,
+  getPokemonSelectionByName,
   getPokemonSelectionFamilyMembers,
 } from '../data/pokedex';
 import { useSpeculativePokemon } from './useSpeculativePokemon';
 
+const lookupsWithoutSpeculative = new WeakMap<
+  PokemonID[],
+  ReturnType<typeof getPokedexLookup>
+>();
+
+function getLookupWithoutSpeculative(speculativePokemon: PokemonID[]) {
+  let lookup = lookupsWithoutSpeculative.get(speculativePokemon);
+  if (!lookup) {
+    const hiddenIds = new Set(speculativePokemon);
+    lookup = getPokedexLookup(
+      POKEDEX.filter((pokemon) => !hiddenIds.has(pokemon.id)),
+    );
+    lookupsWithoutSpeculative.set(speculativePokemon, lookup);
+  }
+  return lookup;
+}
+
 export function usePokedex() {
   const { settings } = useSettings();
   const speculativePokemon = useSpeculativePokemon();
-  const list = useMemo(() => {
-    if (settings.showSpeculative) return POKEDEX;
-    const hiddenIds = new Set(speculativePokemon);
-    return POKEDEX.filter((pokemon) => !hiddenIds.has(pokemon.id));
-  }, [settings.showSpeculative, speculativePokemon]);
 
-  return useMemo(() => getPokedexLookup(list), [list]);
+  return settings.showSpeculative || speculativePokemon.length === 0
+    ? getPokedexLookup()
+    : getLookupWithoutSpeculative(speculativePokemon);
 }
 
 export function usePokemonSelections() {
@@ -32,12 +47,19 @@ export function usePokemonSelections() {
     [pokedex],
   );
 
+  const toSelection = (match: { id: PokemonID } | null) =>
+    match ? getPokemonSelection(match.id) : null;
+
+  const findByName = (query: string) => {
+    const selection = getPokemonSelectionByName(query);
+    if (selection && pokedex.byId(selection.defaultForm.id)) return selection;
+    return toSelection(pokedex.findByName(query));
+  };
+
   return {
     list,
-    searchByName: (query: string) => {
-      const match = pokedex.searchByName(query);
-      return match ? getPokemonSelection(match.id) : null;
-    },
+    searchByName: (query: string) =>
+      findByName(query) ?? toSelection(pokedex.searchByName(query)),
     familyMembers: (id: PokemonID) =>
       getPokemonSelectionFamilyMembers(id).filter((selection) =>
         pokedex.byId(selection.defaultForm.id),

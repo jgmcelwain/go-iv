@@ -6,7 +6,7 @@ import { xlCount } from '../lib/xlCount';
 import { useSettings } from '../hooks/useSettings';
 import { useCandidate } from '../hooks/useCandidate';
 import { useLeague } from '../hooks/useLeague';
-import { useMemoRankedSpreads } from '../hooks/useRankedSpreads/useMemoRankedSpreads';
+import { useCandidateSpreadAtLevelCap } from '../hooks/useRankedSpreads/useSpreadsAtLevelCap';
 import { formatValue } from '../utils/formatValue';
 
 import { IV_FLOORS } from '../data/ivFloor';
@@ -25,20 +25,16 @@ const CandidateLeagueRankedAtLevelCap: FC<{
   const { league, setInspectedLevelCap } = useLeague();
   const { candidate } = useCandidate();
   const { settings } = useSettings();
-  const rankedSpreads = useMemoRankedSpreads(levelCap.level, species);
+  const candidateAtLevel = useCandidateSpreadAtLevelCap(
+    levelCap.level,
+    species,
+  );
   const formLabel =
     candidate.species.forms.length > 1 ? (
       <CandidateLeagueTableCells.Body>
         {species.name}
       </CandidateLeagueTableCells.Body>
     ) : null;
-
-  const candidateAtLevel = rankedSpreads.find(
-    (spread) =>
-      spread.ivs.atk === candidate.ivs.atk &&
-      spread.ivs.def === candidate.ivs.def &&
-      spread.ivs.sta === candidate.ivs.sta,
-  );
 
   const floor = IV_FLOORS.find((ivFloor) => ivFloor.value === candidate.floor);
   if (floor === undefined) {
