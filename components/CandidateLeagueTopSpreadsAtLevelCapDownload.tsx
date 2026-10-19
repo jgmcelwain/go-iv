@@ -49,7 +49,7 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
     <button
       type='button'
       onClick={exportToCSV}
-      className='flex items-center p-1 ml-auto text-gray-700 rounded hover:text-black focus-visible-ring'
+      className='flex items-center p-1 text-gray-700 rounded hover:text-black focus-visible-ring'
     >
       <span className='mr-1 text-xs font-semibold'>Export CSV</span>
 

@@ -29,12 +29,17 @@ const CandidateLeagueRankedAtLevelCap: FC<{
     levelCap.level,
     species,
   );
-  const formLabel =
-    candidate.species.forms.length > 1 ? (
-      <CandidateLeagueTableCells.Body>
-        {species.name}
-      </CandidateLeagueTableCells.Body>
-    ) : null;
+  const hasForms = candidate.species.forms.length > 1;
+  const formLabel = hasForms ? (
+    <CandidateLeagueTableCells.Body
+      className={CandidateLeagueTableCells.STICKY_FIRST_CELL}
+    >
+      {species.name}
+    </CandidateLeagueTableCells.Body>
+  ) : null;
+  const rankCellClass = hasForms
+    ? undefined
+    : CandidateLeagueTableCells.STICKY_FIRST_CELL;
 
   const floor = IV_FLOORS.find((ivFloor) => ivFloor.value === candidate.floor);
   if (floor === undefined) {
@@ -77,7 +82,9 @@ const CandidateLeagueRankedAtLevelCap: FC<{
       >
         {formLabel}
         {settings.outputData.rank && (
-          <CandidateLeagueTableCells.Body>?</CandidateLeagueTableCells.Body>
+          <CandidateLeagueTableCells.Body className={rankCellClass}>
+            ?
+          </CandidateLeagueTableCells.Body>
         )}
 
         {settings.outputData.level && (
@@ -111,7 +118,7 @@ const CandidateLeagueRankedAtLevelCap: FC<{
     >
       {formLabel}
       {settings.outputData.rank && (
-        <CandidateLeagueTableCells.Body>
+        <CandidateLeagueTableCells.Body className={rankCellClass}>
           {candidateAtLevel.rank}
         </CandidateLeagueTableCells.Body>
       )}

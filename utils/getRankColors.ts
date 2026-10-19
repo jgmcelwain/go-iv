@@ -18,7 +18,7 @@ export function getRankedSpreadColors(
       : rankedSpread?.stats[rankingMetric].percentOfMax;
 
   if (rankingMetricPercent === undefined || rankedSpread === undefined) {
-    return { background: 'transparent', text: 'text-gray-700' };
+    return { background: 'bg-gray-100', text: 'text-gray-700' };
   }
 
   if (rankingMetricPercent === 1) {

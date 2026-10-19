@@ -7,6 +7,7 @@ import { useLeague } from '../hooks/useLeague';
 
 import { ArrowLeftIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import { RANKABLE_METRICS } from '../data/stat';
+import { ShowAllSpreadsToggle } from './CandidateLeagueTopSpreadsAtLevelCap';
 
 const LEAGUE_COLORS = {
   great: {
@@ -107,6 +108,13 @@ const CandidateLeagueHeader: FC = () => {
           </>
         )}
       </div>
+
+      {inspectedLevelCap !== null && (
+        <ShowAllSpreadsToggle
+          levelCap={inspectedLevelCap.level}
+          species={inspectedSpecies ?? candidate.species.defaultForm}
+        />
+      )}
 
       {inspectedLevelCap === null && (
         <button onClick={() => collapsed.toggle()} className='z-10'>
