@@ -30,16 +30,16 @@ const CandidateLeagueRankedAtLevelCap: FC<{
     species,
   );
   const hasForms = candidate.species.forms.length > 1;
+  const sticky = CandidateLeagueTableCells.stickyColumns(
+    hasForms,
+    settings.outputData.rank,
+  );
   const formLabel = hasForms ? (
-    <CandidateLeagueTableCells.Body
-      className={CandidateLeagueTableCells.STICKY_FIRST_CELL}
-    >
+    <CandidateLeagueTableCells.Body className={`${sticky.form} bg-inherit`}>
       {species.name}
     </CandidateLeagueTableCells.Body>
   ) : null;
-  const rankCellClass = hasForms
-    ? undefined
-    : CandidateLeagueTableCells.STICKY_FIRST_CELL;
+  const rankCellClass = `${sticky.rank} bg-inherit`;
 
   const floor = IV_FLOORS.find((ivFloor) => ivFloor.value === candidate.floor);
   if (floor === undefined) {

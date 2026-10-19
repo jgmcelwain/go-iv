@@ -48,7 +48,7 @@ export default function CandidateBuilderStickyHeader() {
   }
 
   return (
-    <div className='sm:hidden fixed top-0 h-14 flex justify-start items-center inset-x-0 z-10 bg-white dark:bg-gray-800 px-4 space-y-0.5 border-b border-gray-100 dark:border-gray-700'>
+    <div className='sm:hidden fixed top-0 h-14 flex justify-start items-center inset-x-0 z-40 bg-white dark:bg-gray-800 px-4 space-y-0.5 border-b border-gray-100 dark:border-gray-700'>
       <div className='grow text-gray-700 dark:text-gray-100'>
         <p className='text-xs text-gray-700 dark:text-gray-100 font-title'>
           <div className='inline-flex mr-2'>
