@@ -33,88 +33,128 @@ export type RankedSpread = {
   };
 };
 
+type ScoredSpread = SpreadWithMaximizedStats & {
+  score: number;
+  tiebreak: number;
+};
+
+type RankingOptions = {
+  pokemon: Pokemon;
+  floor: IVFloor;
+  maxCP: LeagueCPCap;
+  maxLevel: LevelCapNumber;
+  minLevel: number;
+  rankingMetric: RankableMetric;
+};
+
 const compareToMax = (value: number, max: number): ComparableToMax => ({
   value,
   percentOfMax: value / max,
 });
 
-export function generateRankedSpreads(
-  pokemon: Pokemon,
-  floor: IVFloor,
-  maxCP: LeagueCPCap,
-  maxLevel: LevelCapNumber,
-  minLevel: number,
-  rankingMetric: RankableMetric,
-) {
-  const getRankingMetricValue = (spread: SpreadWithMaximizedStats) => {
-    if (rankingMetric === 'product') {
-      return spread.product;
-    }
-    if (rankingMetric === 'bulkProduct') {
-      return spread.bulkProduct;
-    } else {
-      return spread.stats[rankingMetric];
-    }
-  };
+function getScoredSpreads({
+  pokemon,
+  floor,
+  maxCP,
+  maxLevel,
+  minLevel,
+  rankingMetric,
+}: RankingOptions) {
+  const spreads: ScoredSpread[] = [];
 
-  const ivSpreads = getIVSpreads(floor);
-  const spreadsWithStats = ivSpreads
-    .map((ivs) => getMaximizedStats(pokemon, ivs, maxCP, maxLevel))
-    .filter((spreadWithStats) => spreadWithStats.level >= minLevel)
-    .sort((a, b) => {
-      // in instances where two spreads have the same rankable metric value we
-      // require a tiebreaker to determine order. this is "CP" if the ranking
-      // metric is product, or "Stat Product" if the ranking metric is anything
-      // else. this tiebreaker only affects the order that results show up in
-      // since rank numbers can be shared by identical ranking metric values.
-      if (getRankingMetricValue(b) === getRankingMetricValue(a)) {
-        if (rankingMetric === 'product') {
-          return b.cp - a.cp;
-        } else {
-          return b.product - a.product;
-        }
-      }
+  for (const ivs of getIVSpreads(floor)) {
+    const spread = getMaximizedStats(pokemon, ivs, maxCP, maxLevel);
+    if (spread.level < minLevel) continue;
 
-      return getRankingMetricValue(b) - getRankingMetricValue(a);
-    });
-
-  const rankOneSpread = spreadsWithStats[0];
-
-  const output: RankedSpread[] = [];
-  for (let i = 0; i < spreadsWithStats.length; i++) {
-    let rank = i + 1;
-
-    const currentSpread = spreadsWithStats[i];
-    const previousSpread = spreadsWithStats[i - 1];
-    if (previousSpread !== undefined) {
-      // if the currentSpread has the same ranking metric value as the
-      // previousSpread then their rank number should be the same
-
-      if (
-        getRankingMetricValue(currentSpread) ===
-        getRankingMetricValue(previousSpread)
-      ) {
-        rank = output[i - 1].rank;
-      }
-    }
-
-    output.push({
-      rank,
-      ivs: currentSpread.ivs,
-      cp: currentSpread.cp,
-      level: currentSpread.level,
-      stats: {
-        atk: compareToMax(currentSpread.stats.atk, rankOneSpread.stats.atk),
-        def: compareToMax(currentSpread.stats.def, rankOneSpread.stats.def),
-        sta: compareToMax(currentSpread.stats.sta, rankOneSpread.stats.sta),
-      },
-      product: compareToMax(currentSpread.product, rankOneSpread.product),
-      bulkProduct: compareToMax(
-        currentSpread.bulkProduct,
-        rankOneSpread.bulkProduct,
-      ),
+    spreads.push({
+      ...spread,
+      score:
+        rankingMetric === 'product' || rankingMetric === 'bulkProduct'
+          ? spread[rankingMetric]
+          : spread.stats[rankingMetric],
+      // spreads with equal scores share a rank, so the tiebreak only decides
+      // the order they are listed in
+      tiebreak: rankingMetric === 'product' ? spread.cp : spread.product,
     });
   }
 
-  return output;
+  return spreads;
+}
+
+const compareSpreads = (a: ScoredSpread, b: ScoredSpread) =>
+  b.score - a.score || b.tiebreak - a.tiebreak;
+
+const toRankedSpread = (
+  spread: ScoredSpread,
+  rank: number,
+  rankOne: ScoredSpread,
+): RankedSpread => ({
+  rank,
+  ivs: spread.ivs,
+  cp: spread.cp,
+  level: spread.level,
+  stats: {
+    atk: compareToMax(spread.stats.atk, rankOne.stats.atk),
+    def: compareToMax(spread.stats.def, rankOne.stats.def),
+    sta: compareToMax(spread.stats.sta, rankOne.stats.sta),
+  },
+  product: compareToMax(spread.product, rankOne.product),
+  bulkProduct: compareToMax(spread.bulkProduct, rankOne.bulkProduct),
+});
+
+export function generateRankedSpreads(options: RankingOptions) {
+  const spreads = getScoredSpreads(options).sort(compareSpreads);
+
+  let rank = 1;
+  return spreads.map((spread, i) => {
+    if (i > 0 && spread.score !== spreads[i - 1].score) rank = i + 1;
+    return toRankedSpread(spread, rank, spreads[0]);
+  });
+}
+
+export function rankSpread(options: RankingOptions, ivs: PokemonIVs) {
+  const spreads = getScoredSpreads(options);
+  const target = spreads.find(
+    (spread) =>
+      spread.ivs.atk === ivs.atk &&
+      spread.ivs.def === ivs.def &&
+      spread.ivs.sta === ivs.sta,
+  );
+  if (target === undefined) return undefined;
+
+  let rankOne = spreads[0];
+  let higherCount = 0;
+  for (const spread of spreads) {
+    if (compareSpreads(spread, rankOne) < 0) rankOne = spread;
+    if (spread.score > target.score) higherCount++;
+  }
+
+  return toRankedSpread(target, higherCount + 1, rankOne);
+}
+
+const CACHE_LIMIT = 6;
+const cache = new Map<string, readonly RankedSpread[]>();
+
+export function getRankedSpreads(
+  options: RankingOptions,
+): readonly RankedSpread[] {
+  const { pokemon, floor, maxCP, maxLevel, minLevel, rankingMetric } = options;
+  const key = [pokemon.id, floor, maxCP, maxLevel, minLevel, rankingMetric]
+    .map(String)
+    .join('|');
+
+  const cached = cache.get(key);
+  if (cached) {
+    cache.delete(key);
+    cache.set(key, cached);
+    return cached;
+  }
+
+  const spreads = generateRankedSpreads(options);
+  if (cache.size >= CACHE_LIMIT) {
+    const oldestKey = cache.keys().next().value as string;
+    cache.delete(oldestKey);
+  }
+  cache.set(key, spreads);
+  return spreads;
 }

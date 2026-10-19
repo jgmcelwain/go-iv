@@ -5,6 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production next start",
+    "check:ranking": "bun lib/generateRankedSpreads/check.ts",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",

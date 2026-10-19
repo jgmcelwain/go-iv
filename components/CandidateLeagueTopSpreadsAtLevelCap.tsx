@@ -21,16 +21,14 @@ function useDisplayedSpreads() {
     return [];
   }
 
-  const spreadsForLevel = rankedSpreads[inspectedLevelCap.level];
-
-  const candidateSpread = spreadsForLevel.find(
+  const candidateSpread = rankedSpreads.find(
     (rankedSpread) =>
       rankedSpread.ivs.atk === candidate.ivs.atk &&
       rankedSpread.ivs.def === candidate.ivs.def &&
       rankedSpread.ivs.sta === candidate.ivs.sta,
   );
 
-  const spreads = [candidateSpread, ...spreadsForLevel.slice(0, 10)].filter(
+  const spreads = [candidateSpread, ...rankedSpreads.slice(0, 10)].filter(
     (spread): spread is RankedSpread => spread !== undefined,
   );
 

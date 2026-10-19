@@ -1,17 +1,10 @@
 import { createContext, useContext } from 'react';
 
-import { LevelCapNumber } from '../../data/levelCap';
 import { RankedSpread } from '../../lib/generateRankedSpreads';
 
 export { Provider } from './Provider';
 
-export const Context =
-  createContext<
-    | {
-        [K in LevelCapNumber]: RankedSpread[];
-      }
-    | null
-  >(null);
+export const Context = createContext<readonly RankedSpread[] | null>(null);
 
 export function useRankedSpreads() {
   const value = useContext(Context);

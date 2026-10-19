@@ -28,7 +28,7 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
       candidate.rankingMetric
     }.csv`;
 
-    const csvContent = rankedSpreads[inspectedLevelCap.level].reduce(
+    const csvContent = rankedSpreads.reduce(
       (output, spread) =>
         output.concat(
           `\n${spread.rank},${spread.ivs.atk},${spread.ivs.def},${
@@ -52,7 +52,7 @@ const CandidateLeagueTopSpreadsAtLevelCapDownload: FC = () => {
         className='flex items-center justify-start p-1 text-gray-700 rounded-full hover:text-black focus-visible-ring sm:rounded'
       >
         <span className='mr-2 text-xs font-semibold'>
-          Export All {rankedSpreads[inspectedLevelCap.level].length} to CSV
+          Export All {rankedSpreads.length} to CSV
         </span>
 
         <DownloadIcon className='w-4 h-4' />
