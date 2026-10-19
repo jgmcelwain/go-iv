@@ -1,4 +1,11 @@
 
+## [3.10.0](https://github.com/jgmcelwain/go-iv/compare/v3.9.0...v3.10.0) (2026-10-19)
+
+
+### Features
+
+* drop whole-level ranking for form changes ([#41](https://github.com/jgmcelwain/go-iv/issues/41)) ([d136baa](https://github.com/jgmcelwain/go-iv/commit/d136baad70f4922ead81ffee7aff7875a8ef1125))
+
 ## [3.9.0](https://github.com/jgmcelwain/go-iv/compare/v3.8.1...v3.9.0) (2026-10-01)
 
 
