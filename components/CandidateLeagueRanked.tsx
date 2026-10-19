@@ -19,6 +19,10 @@ const CandidateLeagueRanked: FC = () => {
   const forms = candidate.species.forms.filter((form) => pokedex.byId(form.id));
   const hasForms = candidate.species.forms.length > 1;
   const [scrolledSideways, trackSidewaysScroll] = useScrolledSideways();
+  const sticky = CandidateLeagueTableCells.stickyColumns(
+    hasForms,
+    settings.outputData.rank,
+  );
 
   return (
     <section
@@ -32,7 +36,7 @@ const CandidateLeagueRanked: FC = () => {
             {hasForms && (
               <CandidateLeagueTableCells.Header
                 widthClass='w-44'
-                className={CandidateLeagueTableCells.STICKY_FIRST_HEADER}
+                className={sticky.form}
               >
                 Form
               </CandidateLeagueTableCells.Header>
@@ -40,11 +44,7 @@ const CandidateLeagueRanked: FC = () => {
             {settings.outputData.rank && (
               <CandidateLeagueTableCells.Header
                 widthClass='w-16'
-                className={
-                  hasForms
-                    ? undefined
-                    : CandidateLeagueTableCells.STICKY_FIRST_HEADER
-                }
+                className={sticky.rank}
               >
                 Rank
               </CandidateLeagueTableCells.Header>
