@@ -1,7 +1,7 @@
 import type { AppContext, AppProps } from 'next/app';
 
 import React, { FC } from 'react';
-import { get } from '@vercel/edge-config';
+import { getAll } from '@vercel/edge-config';
 import { parseCookies } from 'nookies';
 import { PokemonID } from './../data/pokedex';
 import { RELEASE_BANNER_VERSION_HIDDEN_COOKIE } from '../data/constants';
@@ -90,17 +90,20 @@ App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
   const settings = getInitialSettings(appContext?.ctx);
 
   try {
-    const speculativePokemon =
-      (await get<PokemonID[]>('speculative_ids')) ?? [];
+    const config = await getAll<{
+      speculative_ids?: PokemonID[];
+      release_banner_version?: string;
+      release_banner_content?: string;
+    }>(['speculative_ids', 'release_banner_version', 'release_banner_content']);
 
-    const releaseBannerVersion = Number(
-      await get<string>('release_banner_version'),
-    );
+    const speculativePokemon = config.speculative_ids ?? [];
+
+    const releaseBannerVersion = Number(config.release_banner_version);
     if (Number.isNaN(releaseBannerVersion)) {
       throw new Error('No release banner version');
     }
 
-    const releaseBannerContent = await get<string>('release_banner_content');
+    const releaseBannerContent = config.release_banner_content;
     if (releaseBannerContent === undefined) {
       throw new Error('No release banner content');
     }
