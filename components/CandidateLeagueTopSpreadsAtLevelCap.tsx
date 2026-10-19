@@ -364,7 +364,7 @@ export function SpreadCountPicker({
     <RadioGroup
       value={showAllSpreads}
       onChange={setShowAllSpreads}
-      className='z-10 flex p-0.5 ml-3 rounded-md shrink-0 bg-black/20'
+      className='z-10 flex p-1 ml-3 rounded-md shrink-0 bg-black/30'
     >
       <RadioGroup.Label className='sr-only'>Spreads shown</RadioGroup.Label>
 
