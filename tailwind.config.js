@@ -13,7 +13,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['Poppins', 'sans-serif'],
+      title: ['var(--font-title)', 'sans-serif'],
     },
   },
   plugins: [require('@tailwindcss/custom-forms')],

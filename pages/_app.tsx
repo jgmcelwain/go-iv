@@ -21,6 +21,9 @@ import AppFooter from '../components/AppFooter';
 
 import '../styles/index.css';
 import { ThemeProvider } from 'next-themes';
+import { Poppins } from 'next/font/google';
+
+const titleFont = Poppins({ weight: '600', subsets: ['latin'] });
 
 type InitialProps = {
   settings: SettingsType;
@@ -33,6 +36,12 @@ const App: FC<AppProps & InitialProps> & {
 } = ({ Component, pageProps, settings, releaseBanner, speculativePokemon }) => {
   return (
     <React.StrictMode>
+      <style jsx global>{`
+        :root {
+          --font-title: ${titleFont.style.fontFamily};
+        }
+      `}</style>
+
       <ThemeProvider
         attribute='class'
         defaultTheme='dark'
