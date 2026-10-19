@@ -13,7 +13,7 @@ export const Context = createContext<{
   inspectedLevelCap: LevelCap | null;
   inspectedSpecies: Pokemon | null;
   showAllSpreads: boolean;
-  toggleShowAllSpreads: () => void;
+  setShowAllSpreads: (showAll: boolean) => void;
   collapsed: ReturnType<typeof useCollapsedState>;
 } | null>(null);
 

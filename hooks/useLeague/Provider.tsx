@@ -34,8 +34,8 @@ function useInspectedLevelCapState() {
     );
   }
 
-  function toggleShowAllSpreads() {
-    setSelection((value) => value && { ...value, showAll: !value.showAll });
+  function setShowAllSpreads(showAll: boolean) {
+    setSelection((value) => value && { ...value, showAll });
   }
 
   return {
@@ -43,7 +43,7 @@ function useInspectedLevelCapState() {
     inspectedSpecies: active?.species ?? null,
     showAllSpreads: active?.showAll ?? false,
     setInspectedLevelCap,
-    toggleShowAllSpreads,
+    setShowAllSpreads,
   };
 }
 

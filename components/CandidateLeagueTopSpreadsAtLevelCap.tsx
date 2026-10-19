@@ -16,7 +16,7 @@ import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpr
 import { xlCount } from '../lib/xlCount';
 import { formatValue } from '../utils/formatValue';
 import { RankedSpreadLevel } from './RankedSpreadLevel';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
+import { RadioGroup } from '@headlessui/react';
 
 const TOP_ROW_COUNT = 10;
 // header (2.5rem) + pinned row (3.25rem + 5px border) + 10.5 rows
@@ -343,32 +343,45 @@ function SpreadsTable({ showAll }: { showAll: boolean }) {
   );
 }
 
-export function ShowAllSpreadsToggle({
+export function SpreadCountPicker({
   levelCap,
   species,
 }: {
   levelCap: LevelCapNumber;
   species: Pokemon;
 }) {
-  const { showAllSpreads, toggleShowAllSpreads } = useLeague();
+  const { showAllSpreads, setShowAllSpreads } = useLeague();
   const total = useRankedSpreadsAtLevelCap(levelCap, species).length;
 
   if (total <= TOP_ROW_COUNT) return null;
 
+  const options = [
+    { value: false, label: `Top ${TOP_ROW_COUNT}` },
+    { value: true, label: `All ${formatValue(total)}` },
+  ];
+
   return (
-    <button
-      type='button'
-      onClick={toggleShowAllSpreads}
-      aria-pressed={showAllSpreads}
-      className='z-10 flex items-center shrink-0 px-2 py-1 ml-3 text-xs font-semibold rounded bg-black/10 hover:bg-black/20 focus-visible:ring-2 ring-white'
+    <RadioGroup
+      value={showAllSpreads}
+      onChange={setShowAllSpreads}
+      className='z-10 flex p-0.5 ml-3 rounded-md shrink-0 bg-black/20'
     >
-      {showAllSpreads ? `Top ${TOP_ROW_COUNT}` : `All ${formatValue(total)}`}
-      {showAllSpreads ? (
-        <ChevronUpIcon className='w-4 h-4 ml-0.5' />
-      ) : (
-        <ChevronDownIcon className='w-4 h-4 ml-0.5' />
-      )}
-    </button>
+      <RadioGroup.Label className='sr-only'>Spreads shown</RadioGroup.Label>
+
+      {options.map((option) => (
+        <RadioGroup.Option
+          key={option.label}
+          value={option.value}
+          className={({ checked }) =>
+            `px-2 py-1 text-xs font-semibold rounded cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 ring-white ${
+              checked ? 'bg-white text-gray-800 shadow-sm' : 'hover:bg-white/15'
+            }`
+          }
+        >
+          {option.label}
+        </RadioGroup.Option>
+      ))}
+    </RadioGroup>
   );
 }
 
