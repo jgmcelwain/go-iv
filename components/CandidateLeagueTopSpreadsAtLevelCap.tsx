@@ -7,6 +7,7 @@ import { Pokemon } from '../data/pokedex';
 import { useRankedSpreads } from '../hooks/useRankedSpreads';
 import { useRankedSpreadsAtLevelCap } from '../hooks/useRankedSpreads/useSpreadsAtLevelCap';
 import { useLeague } from '../hooks/useLeague';
+import { usePokedex } from '../hooks/usePokedex';
 import { useScrolledSideways } from '../hooks/useScrolledSideways';
 
 import { getRankedSpreadColors } from '../utils/getRankColors';
@@ -19,12 +20,22 @@ import { RankedSpreadLevel } from './RankedSpreadLevel';
 import { RadioGroup } from '@headlessui/react';
 
 const TOP_ROW_COUNT = 10;
-// header (2.5rem) + pinned row (3.25rem + 5px border) + 10.5 rows
-// (3.25rem + 1px border each). The half row hints that the list scrolls.
-const SCROLL_BOX_HEIGHT =
-  'max-h-[calc(5.75rem_+_5px_+_10.5_*_(3.25rem_+_1px))]';
+// The scroll box fits the header (2.5rem), the pinned row (a row + 5px border)
+// and 10.5 rows (a row + 1px border each). The half row hints that the list
+// scrolls.
+const ROW_SIZES = {
+  oneLine: {
+    height: 53,
+    scrollBox: 'max-h-[calc(5.75rem_+_5px_+_10.5_*_(3.25rem_+_1px))]',
+    cellPadding: undefined,
+  },
+  withOtherForm: {
+    height: 57,
+    scrollBox: 'max-h-[calc(6rem_+_5px_+_10.5_*_(3.5rem_+_1px))]',
+    cellPadding: '[&>tr>td]:py-2.5',
+  },
+};
 const OVERSCAN_ROWS = 10;
-const FALLBACK_ROW_HEIGHT = 53;
 const FALLBACK_BOX_HEIGHT = 600;
 
 const ivsKey = (spread: RankedSpread) =>
@@ -46,16 +57,44 @@ function useDisplayedSpreads(showAll: boolean) {
   };
 }
 
+// Aegislash and Minior switch forms mid-battle, so each row also shows how
+// the same IVs rank as the other form.
+function useOtherFormSpreads(levelCap: LevelCapNumber, species: Pokemon) {
+  const { candidate } = useCandidate();
+  const pokedex = usePokedex();
+  const otherForm =
+    candidate.species.forms.find(
+      (form) => form.id !== species.id && pokedex.byId(form.id),
+    ) ?? null;
+  const otherFormSpreads = useRankedSpreadsAtLevelCap(
+    levelCap,
+    otherForm ?? species,
+  );
+
+  const byIvs = useMemo(
+    () =>
+      otherForm
+        ? new Map(otherFormSpreads.map((spread) => [ivsKey(spread), spread]))
+        : null,
+    [otherForm, otherFormSpreads],
+  );
+
+  if (!otherForm || !byIvs) return null;
+
+  return {
+    name: otherForm.name.match(/\((.+)\)/)?.[1] ?? otherForm.name,
+    byIvs,
+  };
+}
+
 // Rendering all 4,096 rows at once takes about a second, so only the rows
 // near the visible part of the scroll box are drawn.
-const INITIAL_VIEW = {
-  scrollTop: 0,
-  boxHeight: FALLBACK_BOX_HEIGHT,
-  rowHeight: FALLBACK_ROW_HEIGHT,
-};
-
-function useVisibleRows(rowCount: number) {
-  const [view, setView] = useState(INITIAL_VIEW);
+function useVisibleRows(rowCount: number, fallbackRowHeight: number) {
+  const [view, setView] = useState({
+    scrollTop: 0,
+    boxHeight: FALLBACK_BOX_HEIGHT,
+    rowHeight: fallbackRowHeight,
+  });
 
   const onScroll = (evt: UIEvent<HTMLElement>) => {
     const box = evt.currentTarget;
@@ -63,7 +102,7 @@ function useVisibleRows(rowCount: number) {
     setView({
       scrollTop: box.scrollTop,
       boxHeight: box.clientHeight,
-      rowHeight: row?.offsetHeight ?? FALLBACK_ROW_HEIGHT,
+      rowHeight: row?.offsetHeight ?? fallbackRowHeight,
     });
   };
 
@@ -88,17 +127,24 @@ type Row = RankedSpread;
 type Column = {
   label: string;
   value: (row: Row) => ReactChild;
+  otherFormValue?: (row: Row) => ReactChild;
+  sameForEveryForm?: true;
   priority: number;
   widthClass?: string;
+  stickyLeft?: string;
 };
 
-function getColumns(rankingMetric: RankableMetric) {
+// Rank and IVs stay on screen when scrolling sideways, so IVs is offset by
+// Rank's width.
+function getColumns(rankingMetric: RankableMetric, otherFormName?: string) {
   const columns: Column[] = [
     {
       label: 'Rank',
       value: (row: Row) => row.rank,
+      otherFormValue: (row) => `${otherFormName ?? ''} #${row.rank}`,
       priority: 0,
-      widthClass: 'w-16 min-w-[4rem]',
+      widthClass: otherFormName ? 'w-28 min-w-[7rem]' : 'w-16 min-w-[4rem]',
+      stickyLeft: 'left-0',
     },
     {
       label: 'IVs',
@@ -107,7 +153,11 @@ function getColumns(rankingMetric: RankableMetric) {
           {row.ivs.atk}-{row.ivs.def}-{row.ivs.sta}
         </>
       ),
+      sameForEveryForm: true,
       priority: 0,
+      stickyLeft: `${otherFormName ? 'left-28' : 'left-16'} ${
+        CandidateLeagueTableCells.STICKY_EDGE_SHADOW
+      }`,
     },
     {
       label: '%',
@@ -186,48 +236,40 @@ function getColumns(rankingMetric: RankableMetric) {
   return columns.sort((a, b) => a.priority - b.priority);
 }
 
-function useColumns(rankingMetric: RankableMetric) {
-  return useMemo(() => getColumns(rankingMetric), [rankingMetric]);
+function useColumns(rankingMetric: RankableMetric, otherFormName?: string) {
+  return useMemo(
+    () => getColumns(rankingMetric, otherFormName),
+    [rankingMetric, otherFormName],
+  );
 }
 
-// Rank and IVs (always the first two columns) stay on screen when scrolling
-// sideways. IVs sits right after Rank, which is held at 4rem wide.
-const STICKY_LEFT = ['left-0', 'left-16'];
-
-const stickyLeftClass = (columnIndex: number) =>
-  `${STICKY_LEFT[columnIndex]}${
-    columnIndex === STICKY_LEFT.length - 1
-      ? ` ${CandidateLeagueTableCells.STICKY_EDGE_SHADOW}`
-      : ''
-  }`;
-
-const headerCellClass = (columnIndex: number) =>
-  columnIndex < STICKY_LEFT.length
-    ? `sticky top-0 z-30 ${stickyLeftClass(columnIndex)}`
+const headerCellClass = (column: Column) =>
+  column.stickyLeft
+    ? `sticky top-0 z-30 ${column.stickyLeft}`
     : 'sticky top-0 z-20';
 
-function bodyCellClass(columnIndex: number, pinned: boolean) {
-  const isStickyLeft = columnIndex < STICKY_LEFT.length;
-
+function bodyCellClass(column: Column, pinned: boolean) {
   if (pinned) {
     return `sticky top-10 bg-gray-50 border-b-4 ${
-      isStickyLeft ? `${stickyLeftClass(columnIndex)} z-20` : 'z-10'
+      column.stickyLeft ? `${column.stickyLeft} z-20` : 'z-10'
     }`;
   }
 
-  return isStickyLeft
-    ? `sticky ${stickyLeftClass(columnIndex)} z-[1] bg-inherit`
+  return column.stickyLeft
+    ? `sticky ${column.stickyLeft} z-[1] bg-inherit`
     : undefined;
 }
 
 const SpreadRow = memo(function SpreadRow({
   spread,
+  otherFormSpread,
   pinned,
   isCandidate,
   columns,
   rankingMetric,
 }: {
   spread: RankedSpread;
+  otherFormSpread?: RankedSpread;
   pinned: boolean;
   isCandidate: boolean;
   columns: Column[];
@@ -246,12 +288,17 @@ const SpreadRow = memo(function SpreadRow({
             }`
       }
     >
-      {columns.map((column, i) => (
+      {columns.map((column) => (
         <CandidateLeagueTableCells.Body
           key={column.label}
-          className={bodyCellClass(i, pinned)}
+          className={bodyCellClass(column, pinned)}
         >
           {column.value(spread)}
+          {otherFormSpread && !column.sameForEveryForm && (
+            <span className='block text-xs opacity-70'>
+              {(column.otherFormValue ?? column.value)(otherFormSpread)}
+            </span>
+          )}
         </CandidateLeagueTableCells.Body>
       ))}
     </tr>
@@ -274,14 +321,27 @@ function Spacer({
   );
 }
 
-function SpreadsTable({ showAll }: { showAll: boolean }) {
+function SpreadsTable({
+  showAll,
+  levelCap,
+  species,
+}: {
+  showAll: boolean;
+  levelCap: LevelCapNumber;
+  species: Pokemon;
+}) {
   const { candidateKey, candidateSpread, spreads } =
     useDisplayedSpreads(showAll);
-  const { start, end, rowHeight, onScroll } = useVisibleRows(spreads.length);
+  const otherForm = useOtherFormSpreads(levelCap, species);
+  const rowSize = otherForm ? ROW_SIZES.withOtherForm : ROW_SIZES.oneLine;
+  const { start, end, rowHeight, onScroll } = useVisibleRows(
+    spreads.length,
+    rowSize.height,
+  );
   const [scrolledSideways, trackSidewaysScroll] = useScrolledSideways();
   const { candidate } = useCandidate();
 
-  const columns = useColumns(candidate.rankingMetric);
+  const columns = useColumns(candidate.rankingMetric, otherForm?.name);
 
   return (
     <section
@@ -291,17 +351,17 @@ function SpreadsTable({ showAll }: { showAll: boolean }) {
       }}
       data-scrolled={scrolledSideways || undefined}
       className={`group w-full overflow-x-scroll${
-        showAll ? ` overflow-y-auto ${SCROLL_BOX_HEIGHT}` : ''
+        showAll ? ` overflow-y-auto ${rowSize.scrollBox}` : ''
       }`}
     >
       <table className='w-full min-w-max table-fixed border-separate border-spacing-0'>
         <thead>
           <tr>
-            {columns.map((column, i) => (
+            {columns.map((column) => (
               <CandidateLeagueTableCells.Header
                 key={column.label}
                 widthClass={column.widthClass}
-                className={headerCellClass(i)}
+                className={headerCellClass(column)}
               >
                 {column.label}
               </CandidateLeagueTableCells.Header>
@@ -309,10 +369,11 @@ function SpreadsTable({ showAll }: { showAll: boolean }) {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className={rowSize.cellPadding}>
           {candidateSpread && (
             <SpreadRow
               spread={candidateSpread}
+              otherFormSpread={otherForm?.byIvs.get(candidateKey)}
               pinned
               isCandidate
               columns={columns}
@@ -326,6 +387,7 @@ function SpreadsTable({ showAll }: { showAll: boolean }) {
             <SpreadRow
               key={ivsKey(spread)}
               spread={spread}
+              otherFormSpread={otherForm?.byIvs.get(ivsKey(spread))}
               pinned={false}
               isCandidate={ivsKey(spread) === candidateKey}
               columns={columns}
@@ -385,7 +447,10 @@ export function SpreadCountPicker({
   );
 }
 
-const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
+const CandidateLeagueTopSpreadsAtLevelCap: FC<{
+  levelCap: LevelCapNumber;
+  species: Pokemon;
+}> = ({ levelCap, species }) => {
   const { showAllSpreads } = useLeague();
 
   return (
@@ -393,6 +458,8 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
       <SpreadsTable
         key={showAllSpreads ? 'all' : 'top'}
         showAll={showAllSpreads}
+        levelCap={levelCap}
+        species={species}
       />
 
       <footer className='flex items-center justify-center w-full py-2 bg-white border-t border-gray-200'>
