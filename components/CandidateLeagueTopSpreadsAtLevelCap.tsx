@@ -1,6 +1,5 @@
-import React, { FC, ReactChild, memo, useMemo, useState } from 'react';
+import React, { FC, ReactChild, UIEvent, memo, useMemo, useState } from 'react';
 import { RankedSpread } from '../lib/generateRankedSpreads';
-import { useLeague } from '../hooks/useLeague';
 import { useCandidate } from '../hooks/useCandidate';
 import { RankableMetric } from '../data/stat';
 import { useRankedSpreads } from '../hooks/useRankedSpreads';
@@ -12,47 +11,74 @@ import CandidateLeagueTopSpreadsAtLevelCapDownload from './CandidateLeagueTopSpr
 import { xlCount } from '../lib/xlCount';
 import { formatValue } from '../utils/formatValue';
 import { RankedSpreadLevel } from './RankedSpreadLevel';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 
-const INITIAL_ROW_COUNT = 10;
-const ROWS_PER_PAGE = 100;
+const TOP_ROW_COUNT = 10;
+const OVERSCAN_ROWS = 10;
+const FALLBACK_ROW_HEIGHT = 53;
+const FALLBACK_BOX_HEIGHT = 600;
 
-function useShownRowCount() {
-  const [count, setCount] = useState(INITIAL_ROW_COUNT);
-  return [count, () => setCount((value) => value + ROWS_PER_PAGE)] as const;
+function useShowAll() {
+  const [showAll, setShowAll] = useState(false);
+  return [showAll, () => setShowAll((value) => !value)] as const;
 }
 
 const ivsKey = (spread: RankedSpread) =>
   `${spread.ivs.atk}-${spread.ivs.def}-${spread.ivs.sta}`;
 
-function useDisplayedSpreads(shownRowCount: number) {
-  const { inspectedLevelCap } = useLeague();
+function useDisplayedSpreads(showAll: boolean) {
   const { candidate } = useCandidate();
   const rankedSpreads = useRankedSpreads();
 
-  if (inspectedLevelCap === null) {
-    return { rows: [], total: 0 };
-  }
-
   const candidateKey = `${candidate.ivs.atk}-${candidate.ivs.def}-${candidate.ivs.sta}`;
-  const candidateSpread = rankedSpreads.find(
-    (spread) => ivsKey(spread) === candidateKey,
+
+  return {
+    candidateKey,
+    candidateSpread: rankedSpreads.find(
+      (spread) => ivsKey(spread) === candidateKey,
+    ),
+    spreads: showAll ? rankedSpreads : rankedSpreads.slice(0, TOP_ROW_COUNT),
+    total: rankedSpreads.length,
+  };
+}
+
+// Rendering all 4,096 rows at once takes about a second, so only the rows
+// near the visible part of the scroll box are drawn.
+const INITIAL_VIEW = {
+  scrollTop: 0,
+  boxHeight: FALLBACK_BOX_HEIGHT,
+  rowHeight: FALLBACK_ROW_HEIGHT,
+};
+
+function useVisibleRows(rowCount: number) {
+  const [view, setView] = useState(INITIAL_VIEW);
+
+  const onScroll = (evt: UIEvent<HTMLElement>) => {
+    const box = evt.currentTarget;
+    const row = box.querySelector<HTMLElement>('tbody tr[data-row]');
+    setView({
+      scrollTop: box.scrollTop,
+      boxHeight: box.clientHeight,
+      rowHeight: row?.offsetHeight ?? FALLBACK_ROW_HEIGHT,
+    });
+  };
+
+  const start = Math.max(
+    0,
+    Math.floor(view.scrollTop / view.rowHeight) - OVERSCAN_ROWS,
+  );
+  const end = Math.min(
+    rowCount,
+    start + Math.ceil(view.boxHeight / view.rowHeight) + OVERSCAN_ROWS * 2,
   );
 
-  const toRow = (spread: RankedSpread, pinned: boolean) => ({
-    spread,
-    key: pinned ? 'pinned' : ivsKey(spread),
-    pinned,
-    isCandidate: ivsKey(spread) === candidateKey,
-  });
-
-  const rows = [
-    ...(candidateSpread ? [toRow(candidateSpread, true)] : []),
-    ...rankedSpreads
-      .slice(0, shownRowCount)
-      .map((spread) => toRow(spread, false)),
-  ];
-
-  return { rows, total: rankedSpreads.length };
+  return {
+    start,
+    end,
+    rowHeight: view.rowHeight,
+    onScroll,
+    resetScroll: () => setView(INITIAL_VIEW),
+  };
 }
 
 type Row = RankedSpread;
@@ -65,7 +91,12 @@ type Column = {
 
 function getColumns(rankingMetric: RankableMetric) {
   const columns: Column[] = [
-    { label: 'Rank', value: (row: Row) => row.rank, priority: 0 },
+    {
+      label: 'Rank',
+      value: (row: Row) => row.rank,
+      priority: 0,
+      widthClass: 'w-20 min-w-[5rem]',
+    },
     {
       label: 'IVs',
       value: (row) => (
@@ -156,7 +187,27 @@ function useColumns(rankingMetric: RankableMetric) {
   return useMemo(() => getColumns(rankingMetric), [rankingMetric]);
 }
 
-// memoised so showing more rows only renders the new ones
+// Rank and IVs (always the first two columns) stay on screen when scrolling
+// sideways. IVs sits right after Rank, which is held at 5rem wide.
+const STICKY_LEFT = ['left-0', 'left-20'];
+
+const headerCellClass = (columnIndex: number) =>
+  columnIndex < STICKY_LEFT.length
+    ? `sticky top-0 z-30 ${STICKY_LEFT[columnIndex]}`
+    : 'sticky top-0 z-20';
+
+function bodyCellClass(columnIndex: number, pinned: boolean) {
+  const left = STICKY_LEFT[columnIndex];
+
+  if (pinned) {
+    return `sticky top-10 bg-gray-50 border-b-4 ${
+      left ? `${left} z-20` : 'z-10'
+    }`;
+  }
+
+  return left ? `sticky ${left} z-[1] bg-inherit` : undefined;
+}
+
 const SpreadRow = memo(function SpreadRow({
   spread,
   pinned,
@@ -174,16 +225,20 @@ const SpreadRow = memo(function SpreadRow({
 
   return (
     <tr
+      data-row={pinned ? undefined : ''}
       className={
         pinned
-          ? 'bg-gray-50 text-gray-700 border-b-4'
+          ? 'text-gray-700'
           : `${colors.background} ${colors.text}${
               isCandidate ? ' font-semibold' : ''
             }`
       }
     >
-      {columns.map((column) => (
-        <CandidateLeagueTableCells.Body key={column.label}>
+      {columns.map((column, i) => (
+        <CandidateLeagueTableCells.Body
+          key={column.label}
+          className={bodyCellClass(i, pinned)}
+        >
           {column.value(spread)}
         </CandidateLeagueTableCells.Body>
       ))}
@@ -191,22 +246,50 @@ const SpreadRow = memo(function SpreadRow({
   );
 });
 
+function Spacer({
+  height,
+  columnCount,
+}: {
+  height: number;
+  columnCount: number;
+}) {
+  if (height <= 0) return null;
+
+  return (
+    <tr aria-hidden>
+      <td colSpan={columnCount} style={{ height, padding: 0, border: 0 }} />
+    </tr>
+  );
+}
+
 const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
-  const [shownRowCount, showMoreRows] = useShownRowCount();
-  const { rows, total } = useDisplayedSpreads(shownRowCount);
+  const [showAll, toggleShowAll] = useShowAll();
+  const { candidateKey, candidateSpread, spreads, total } =
+    useDisplayedSpreads(showAll);
+  const { start, end, rowHeight, onScroll, resetScroll } = useVisibleRows(
+    spreads.length,
+  );
   const { candidate } = useCandidate();
-  const remaining = total - shownRowCount;
 
   const columns = useColumns(candidate.rankingMetric);
 
   return (
     <>
-      <section className='w-full overflow-x-scroll'>
-        <table className='w-full border-collapse'>
+      <section
+        onScroll={showAll ? onScroll : undefined}
+        className={`w-full overflow-x-scroll${
+          showAll ? ' overflow-y-auto max-h-[min(38.5rem,60vh)]' : ''
+        }`}
+      >
+        <table className='w-full border-separate border-spacing-0'>
           <thead>
             <tr>
-              {columns.map((column) => (
-                <CandidateLeagueTableCells.Header key={column.label}>
+              {columns.map((column, i) => (
+                <CandidateLeagueTableCells.Header
+                  key={column.label}
+                  widthClass={column.widthClass}
+                  className={headerCellClass(i)}
+                >
                   {column.label}
                 </CandidateLeagueTableCells.Header>
               ))}
@@ -214,34 +297,61 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
           </thead>
 
           <tbody>
-            {rows.map((row) => (
+            {candidateSpread && (
               <SpreadRow
-                key={row.key}
-                spread={row.spread}
-                pinned={row.pinned}
-                isCandidate={row.isCandidate}
+                spread={candidateSpread}
+                pinned
+                isCandidate
+                columns={columns}
+                rankingMetric={candidate.rankingMetric}
+              />
+            )}
+
+            <Spacer height={start * rowHeight} columnCount={columns.length} />
+
+            {spreads.slice(start, end).map((spread) => (
+              <SpreadRow
+                key={ivsKey(spread)}
+                spread={spread}
+                pinned={false}
+                isCandidate={ivsKey(spread) === candidateKey}
                 columns={columns}
                 rankingMetric={candidate.rankingMetric}
               />
             ))}
+
+            <Spacer
+              height={(spreads.length - end) * rowHeight}
+              columnCount={columns.length}
+            />
           </tbody>
         </table>
       </section>
 
-      {remaining > 0 && (
-        <button
-          type='button'
-          onClick={showMoreRows}
-          className='w-full py-3 text-sm font-semibold text-blue-600 bg-white border-t border-gray-200 hover:bg-gray-50 focus-visible-ring'
-        >
-          Show {Math.min(ROWS_PER_PAGE, remaining)} more
-          <span className='ml-1.5 font-normal text-gray-500'>
-            · {formatValue(shownRowCount)} of {formatValue(total)} shown
-          </span>
-        </button>
-      )}
+      <footer className='flex items-center justify-between w-full px-3 py-2 bg-white border-t border-gray-200'>
+        {total > TOP_ROW_COUNT && (
+          <button
+            type='button'
+            onClick={() => {
+              resetScroll();
+              toggleShowAll();
+            }}
+            aria-expanded={showAll}
+            className='flex items-center p-1 text-xs font-semibold text-gray-700 rounded hover:text-black focus-visible-ring'
+          >
+            {showAll
+              ? `Show top ${TOP_ROW_COUNT}`
+              : `Show all ${formatValue(total)}`}
+            {showAll ? (
+              <ChevronUpIcon className='w-4 h-4 ml-1' />
+            ) : (
+              <ChevronDownIcon className='w-4 h-4 ml-1' />
+            )}
+          </button>
+        )}
 
-      <CandidateLeagueTopSpreadsAtLevelCapDownload />
+        <CandidateLeagueTopSpreadsAtLevelCapDownload />
+      </footer>
     </>
   );
 };
