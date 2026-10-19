@@ -1,4 +1,11 @@
 
+## [3.11.0](https://github.com/jgmcelwain/go-iv/compare/v3.10.0...v3.11.0) (2026-10-19)
+
+
+### Features
+
+* show every rank in the top spreads view ([#43](https://github.com/jgmcelwain/go-iv/issues/43)) ([b269f0d](https://github.com/jgmcelwain/go-iv/commit/b269f0d53a7f261ba3538cf676da3e6d1fca3b57))
+
 ## [3.10.0](https://github.com/jgmcelwain/go-iv/compare/v3.9.0...v3.10.0) (2026-10-19)
 
 
