@@ -1,13 +1,20 @@
+const formatters = new Map<string, Intl.NumberFormat>();
+
 export function formatValue(
   value: number,
   fractionDigits?: number,
-  options?: Intl.NumberFormatOptions,
+  options?: Pick<Intl.NumberFormatOptions, 'style'>,
 ) {
-  const numberFormatter = new Intl.NumberFormat(undefined, {
-    minimumFractionDigits: fractionDigits,
-    maximumFractionDigits: fractionDigits,
-    ...options,
-  });
+  const key = `${fractionDigits ?? ''}|${options?.style ?? ''}`;
+  let formatter = formatters.get(key);
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(undefined, {
+      minimumFractionDigits: fractionDigits,
+      maximumFractionDigits: fractionDigits,
+      ...options,
+    });
+    formatters.set(key, formatter);
+  }
 
-  return numberFormatter.format(value);
+  return formatter.format(value);
 }
