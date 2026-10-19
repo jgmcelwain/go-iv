@@ -14,6 +14,10 @@ import { RankedSpreadLevel } from './RankedSpreadLevel';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 
 const TOP_ROW_COUNT = 10;
+// header (2.5rem) + pinned row (3.25rem + 5px border) + 10.5 rows
+// (3.25rem + 1px border each). The half row hints that the list scrolls.
+const SCROLL_BOX_HEIGHT =
+  'max-h-[calc(5.75rem_+_5px_+_10.5_*_(3.25rem_+_1px))]';
 const OVERSCAN_ROWS = 10;
 const FALLBACK_ROW_HEIGHT = 53;
 const FALLBACK_BOX_HEIGHT = 600;
@@ -278,7 +282,7 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC = () => {
       <section
         onScroll={showAll ? onScroll : undefined}
         className={`w-full overflow-x-scroll${
-          showAll ? ' overflow-y-auto max-h-[min(38.5rem,60vh)]' : ''
+          showAll ? ` overflow-y-auto ${SCROLL_BOX_HEIGHT}` : ''
         }`}
       >
         <table className='w-full border-separate border-spacing-0'>
