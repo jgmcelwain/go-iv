@@ -52,6 +52,7 @@ export type Pokemon = {
   stats: PokemonStats;
   types: PokemonType[];
   floor?: IVFloor;
+  battleOnlyFormOf?: PokemonID;
   family: {
     id: PokemonID;
     stage: PokemonFamilyStage;

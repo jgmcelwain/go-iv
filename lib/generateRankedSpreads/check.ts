@@ -1,8 +1,20 @@
 import { deepStrictEqual } from 'assert';
 
-import { POKEDEX } from '../../data/pokedex';
+import { POKEDEX, getPokemonByID } from '../../data/pokedex';
 import { RANKABLE_METRICS } from '../../data/stat';
 import { generateRankedSpreads, rankSpread } from '.';
+import { getBattleOnlyFormStats } from './getMaximizedStats';
+
+const meteor = getPokemonByID('minior_meteor');
+const core = getPokemonByID('minior_core');
+if (!meteor || !core) throw new Error('Missing Minior forms');
+for (const seen of [
+  { ivs: { atk: 9, def: 3, sta: 1 }, level: 25, cp: 1474, hp: 104 },
+  { ivs: { atk: 2, def: 12, sta: 14 }, level: 24.5, cp: 1499, hp: 111 },
+] as const) {
+  const spread = getBattleOnlyFormStats(meteor, core, seen.ivs, seen.level);
+  deepStrictEqual([spread.cp, spread.stats.sta], [seen.cp, seen.hp]);
+}
 
 let checked = 0;
 for (const pokemon of POKEDEX.filter((_, i) => i % 50 === 0)) {
