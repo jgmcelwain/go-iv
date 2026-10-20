@@ -38,9 +38,10 @@ function toSpread(
 // `level` stays the stored level, since that is what gets powered up.
 const BATTLE_ONLY_FORM_MAX_LEVEL = 50;
 
-// Only Great League readings all fit the rule above.
+// Great League readings all fit the rule above, and Little Cup is expected to
+// match. Ultra and Master League aren't confirmed yet.
 export const hasUnconfirmedStats = (species: Pokemon, maxCP: LeagueCPCap) =>
-  species.battleOnlyFormOf !== undefined && maxCP !== 1500;
+  species.battleOnlyFormOf !== undefined && maxCP > 1500;
 
 export function getBattleOnlyFormStats(
   form: Pokemon,
