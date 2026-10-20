@@ -4,7 +4,6 @@ import React, {
   startTransition,
   useEffect,
   useRef,
-  useState,
 } from 'react';
 
 import {
@@ -16,11 +15,6 @@ import { usePokemonSelections } from '../hooks/usePokedex';
 
 function useInputRef() {
   return useRef<HTMLInputElement | null>(null);
-}
-
-function useOptionsShownAfterFocus() {
-  const [shown, setShown] = useState(false);
-  return [shown, () => setShown(true)] as const;
 }
 
 function useSyncInputToCandidate(
@@ -44,7 +38,6 @@ const CandidateBuilderSpecies: FC = () => {
   const pokedex = usePokemonSelections();
   const { candidate, dispatch } = useCandidate();
   const input = useInputRef();
-  const [optionsShown, showOptions] = useOptionsShownAfterFocus();
   useSyncInputToCandidate(input, candidate);
 
   return (
@@ -64,7 +57,6 @@ const CandidateBuilderSpecies: FC = () => {
           }
         }}
         onFocus={() => {
-          showOptions();
           if (input.current !== null) {
             input.current.value = '';
           }
@@ -83,10 +75,9 @@ const CandidateBuilderSpecies: FC = () => {
       />
 
       <datalist id='pokemon-list'>
-        {optionsShown &&
-          pokedex.list.map((pokemon) => (
-            <option key={pokemon.id} value={pokemon.name} />
-          ))}
+        {pokedex.list.map((pokemon) => (
+          <option key={pokemon.id} value={pokemon.name} />
+        ))}
       </datalist>
     </label>
   );
