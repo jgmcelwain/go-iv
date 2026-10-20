@@ -14501,6 +14501,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 155,
     },
     types: ['rock', 'flying'],
+    battleOnlyFormOf: 'minior_core',
     family: {
       id: 'minior',
       stage: 1,
