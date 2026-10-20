@@ -1,21 +1,10 @@
-import {
-  MutableRefObject,
-  startTransition,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { MutableRefObject, startTransition, useEffect, useRef } from 'react';
 
 import { usePokedex } from '../../hooks/usePokedex';
 import { Pokemon } from '../../data/pokedex';
 
 function useInputRef() {
   return useRef<HTMLInputElement | null>(null);
-}
-
-function useOptionsShownAfterFocus() {
-  const [shown, setShown] = useState(false);
-  return [shown, () => setShown(true)] as const;
 }
 
 function useSyncInputToValue(
@@ -47,7 +36,6 @@ export function SpeciesDropdown({
 }: SpeciesDropdownProps) {
   const pokedex = usePokedex();
   const input = useInputRef();
-  const [optionsShown, showOptions] = useOptionsShownAfterFocus();
   useSyncInputToValue(input, value);
 
   return (
@@ -63,7 +51,6 @@ export function SpeciesDropdown({
           }
         }}
         onFocus={() => {
-          showOptions();
           if (input.current !== null) {
             input.current.value = '';
           }
@@ -82,10 +69,9 @@ export function SpeciesDropdown({
       />
 
       <datalist id='pokemon-list'>
-        {optionsShown &&
-          pokedex.list.map((pokemon) => (
-            <option key={pokemon.id} value={pokemon.name} />
-          ))}
+        {pokedex.list.map((pokemon) => (
+          <option key={pokemon.id} value={pokemon.name} />
+        ))}
       </datalist>
     </label>
   );
