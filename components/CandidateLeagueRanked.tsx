@@ -10,6 +10,8 @@ import * as CandidateLeagueTableCells from './CandidateLeagueTableCells';
 import CandidateLeagueRankedAtLevelCap from './CandidateLeagueRankedAtLevelCap';
 import { usePokedex } from '../hooks/usePokedex';
 import { useScrolledSideways } from '../hooks/useScrolledSideways';
+import { hasUnconfirmedStats } from '../lib/generateRankedSpreads/getMaximizedStats';
+import UnconfirmedStatsNote from './UnconfirmedStatsNote';
 
 const CandidateLeagueRanked: FC = () => {
   const { league } = useLeague();
@@ -23,111 +25,118 @@ const CandidateLeagueRanked: FC = () => {
     hasForms,
     settings.outputData.rank,
   );
+  const unconfirmedForm = forms.find((form) =>
+    hasUnconfirmedStats(form, league.cp),
+  );
 
   return (
-    <section
-      onScroll={trackSidewaysScroll}
-      data-scrolled={scrolledSideways || undefined}
-      className='group w-full overflow-x-scroll'
-    >
-      <table className='w-full border-separate border-spacing-0 table-fixed'>
-        <thead>
-          <tr>
-            {hasForms && (
-              <CandidateLeagueTableCells.Header
-                widthClass='w-44'
-                className={sticky.form}
+    <>
+      <section
+        onScroll={trackSidewaysScroll}
+        data-scrolled={scrolledSideways || undefined}
+        className='group w-full overflow-x-scroll'
+      >
+        <table className='w-full border-separate border-spacing-0 table-fixed'>
+          <thead>
+            <tr>
+              {hasForms && (
+                <CandidateLeagueTableCells.Header
+                  widthClass='w-44'
+                  className={sticky.form}
+                >
+                  Form
+                </CandidateLeagueTableCells.Header>
+              )}
+              {settings.outputData.rank && (
+                <CandidateLeagueTableCells.Header
+                  widthClass='w-16'
+                  className={sticky.rank}
+                >
+                  Rank
+                </CandidateLeagueTableCells.Header>
+              )}
+
+              {settings.outputData.cp && (
+                <CandidateLeagueTableCells.Header widthClass='w-16'>
+                  CP
+                </CandidateLeagueTableCells.Header>
+              )}
+
+              {settings.outputData.level && (
+                <CandidateLeagueTableCells.Header>
+                  Level
+                </CandidateLeagueTableCells.Header>
+              )}
+
+              {settings.outputData.xlCandy && (
+                <CandidateLeagueTableCells.Header widthClass='w-16'>
+                  XL
+                </CandidateLeagueTableCells.Header>
+              )}
+
+              {settings.outputData.statProduct && (
+                <CandidateLeagueTableCells.Header widthClass='w-28'>
+                  Stat Prod
+                </CandidateLeagueTableCells.Header>
+              )}
+
+              {settings.outputData.stats && (
+                <>
+                  <CandidateLeagueTableCells.Header>
+                    Atk
+                  </CandidateLeagueTableCells.Header>
+                  <CandidateLeagueTableCells.Header>
+                    Def
+                  </CandidateLeagueTableCells.Header>
+                  <CandidateLeagueTableCells.Header>
+                    Sta
+                  </CandidateLeagueTableCells.Header>
+                </>
+              )}
+
+              {settings.outputData.bulkProduct && (
+                <CandidateLeagueTableCells.Header widthClass='w-28'>
+                  Bulk Prod
+                </CandidateLeagueTableCells.Header>
+              )}
+
+              <CandidateLeagueTableCells.Header />
+            </tr>
+          </thead>
+
+          {LEVEL_CAPS.map((levelCap) => {
+            const enabledForms = forms.filter((species) =>
+              isLevelCapEnabled(levelCap.level, settings.levelCaps, {
+                showMegaLevelCaps: settings.showMegaLevelCaps,
+                isMasterLeague: league.cp === 10000,
+                isMegaSpecies: species.name.startsWith('Mega '),
+              }),
+            );
+            if (enabledForms.length === 0) return null;
+            return (
+              <tbody
+                key={levelCap.level}
+                className={
+                  hasForms
+                    ? '[&>tr>td]:py-1.5 [&>tr+tr>td]:border-t-0'
+                    : undefined
+                }
               >
-                Form
-              </CandidateLeagueTableCells.Header>
-            )}
-            {settings.outputData.rank && (
-              <CandidateLeagueTableCells.Header
-                widthClass='w-16'
-                className={sticky.rank}
-              >
-                Rank
-              </CandidateLeagueTableCells.Header>
-            )}
+                {enabledForms.map((species) => (
+                  <CandidateLeagueRankedAtLevelCap
+                    key={species.id}
+                    levelCap={levelCap}
+                    species={species}
+                  />
+                ))}
+              </tbody>
+            );
+          })}
+        </table>
+      </section>
 
-            {settings.outputData.cp && (
-              <CandidateLeagueTableCells.Header widthClass='w-16'>
-                CP
-              </CandidateLeagueTableCells.Header>
-            )}
-
-            {settings.outputData.level && (
-              <CandidateLeagueTableCells.Header>
-                Level
-              </CandidateLeagueTableCells.Header>
-            )}
-
-            {settings.outputData.xlCandy && (
-              <CandidateLeagueTableCells.Header widthClass='w-16'>
-                XL
-              </CandidateLeagueTableCells.Header>
-            )}
-
-            {settings.outputData.statProduct && (
-              <CandidateLeagueTableCells.Header widthClass='w-28'>
-                Stat Prod
-              </CandidateLeagueTableCells.Header>
-            )}
-
-            {settings.outputData.stats && (
-              <>
-                <CandidateLeagueTableCells.Header>
-                  Atk
-                </CandidateLeagueTableCells.Header>
-                <CandidateLeagueTableCells.Header>
-                  Def
-                </CandidateLeagueTableCells.Header>
-                <CandidateLeagueTableCells.Header>
-                  Sta
-                </CandidateLeagueTableCells.Header>
-              </>
-            )}
-
-            {settings.outputData.bulkProduct && (
-              <CandidateLeagueTableCells.Header widthClass='w-28'>
-                Bulk Prod
-              </CandidateLeagueTableCells.Header>
-            )}
-
-            <CandidateLeagueTableCells.Header />
-          </tr>
-        </thead>
-
-        {LEVEL_CAPS.map((levelCap) => {
-          const enabledForms = forms.filter((species) =>
-            isLevelCapEnabled(levelCap.level, settings.levelCaps, {
-              showMegaLevelCaps: settings.showMegaLevelCaps,
-              isMasterLeague: league.cp === 10000,
-              isMegaSpecies: species.name.startsWith('Mega '),
-            }),
-          );
-          if (enabledForms.length === 0) return null;
-          return (
-            <tbody
-              key={levelCap.level}
-              className={
-                hasForms
-                  ? '[&>tr>td]:py-1.5 [&>tr+tr>td]:border-t-0'
-                  : undefined
-              }
-            >
-              {enabledForms.map((species) => (
-                <CandidateLeagueRankedAtLevelCap
-                  key={species.id}
-                  levelCap={levelCap}
-                  species={species}
-                />
-              ))}
-            </tbody>
-          );
-        })}
-      </table>
-    </section>
+      {unconfirmedForm && <UnconfirmedStatsNote species={unconfirmedForm} />}
+    </>
   );
 };
 
