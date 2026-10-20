@@ -1,4 +1,3 @@
-import { CPMs } from '../../data/cpm';
 import { LeagueCPCap } from '../../data/league';
 import { LevelCapNumber } from '../../data/levelCap';
 import { Pokemon, PokemonIVs, getPokemonByID } from '../../data/pokedex';
@@ -7,8 +6,6 @@ import { SpreadWithMaximizedStats } from '.';
 import { getLevel } from './getLevel';
 import { getStats } from './getStats';
 import { getCP } from './getCP';
-
-const HIGHEST_LEVEL = 1 + (CPMs.length - 1) / 2;
 
 function withIVs(species: Pokemon, ivs: PokemonIVs) {
   return {
@@ -34,15 +31,20 @@ function toSpread(
   };
 }
 
-// Measured in-game (Minior, Oct 2026): the battle-only form fights at the
-// highest level whose CP is at most 10 over the stored form's, but keeps the
-// stored form's HP. `level` stays the stored level, since that is what gets
-// powered up.
+// Measured in-game (Minior, Oct 2026). Under a CP cap, the battle-only form
+// fights at its highest level with CP below the cap, or half a level higher
+// when the stored form sits exactly on the cap. With no cap it fights half a
+// level above the stored form. Either way it keeps the stored form's HP, and
+// `level` stays the stored level, since that is what gets powered up.
+// Ultra League readings don't all fit this yet.
+const BATTLE_ONLY_FORM_MAX_LEVEL = 50;
+
 export function getBattleOnlyFormStats(
   form: Pokemon,
   storedForm: Pokemon,
   ivs: PokemonIVs,
   storedLevel: number,
+  maxCP: LeagueCPCap,
 ): SpreadWithMaximizedStats {
   const stored = withIVs(storedForm, ivs);
   const storedCP = getCP(stored.atk, stored.def, stored.sta, storedLevel);
@@ -54,9 +56,13 @@ export function getBattleOnlyFormStats(
   ).sta;
 
   const { atk, def, sta } = withIVs(form, ivs);
-  let battleLevel = HIGHEST_LEVEL;
-  while (battleLevel > 1 && getCP(atk, def, sta, battleLevel) > storedCP + 10) {
-    battleLevel -= 0.5;
+  let battleLevel = storedLevel + 0.5;
+  if (maxCP !== 10000) {
+    battleLevel = BATTLE_ONLY_FORM_MAX_LEVEL;
+    while (battleLevel > 1 && getCP(atk, def, sta, battleLevel) >= maxCP) {
+      battleLevel -= 0.5;
+    }
+    if (storedCP === maxCP) battleLevel += 0.5;
   }
 
   return toSpread(ivs, storedLevel, getCP(atk, def, sta, battleLevel), {
@@ -76,7 +82,7 @@ export function getMaximizedStats(
     : null;
   if (storedForm) {
     const { level } = getMaximizedStats(storedForm, ivs, maxCP, maxLevel);
-    return getBattleOnlyFormStats(species, storedForm, ivs, level);
+    return getBattleOnlyFormStats(species, storedForm, ivs, level, maxCP);
   }
 
   const { atk, def, sta } = withIVs(species, ivs);
