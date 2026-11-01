@@ -1,6 +1,12 @@
 import { LeagueCPCap } from '../../data/league';
 import { LevelCapNumber } from '../../data/levelCap';
-import { Pokemon, PokemonIVs, getPokemonByID } from '../../data/pokedex';
+import { CPMs } from '../../data/cpm';
+import {
+  Pokemon,
+  PokemonIVs,
+  PokemonStats,
+  getPokemonByID,
+} from '../../data/pokedex';
 
 import { SpreadWithMaximizedStats } from '.';
 import { getLevel } from './getLevel';
@@ -31,14 +37,21 @@ function toSpread(
   };
 }
 
-// Measured in-game (Minior, Oct 2026). Under a CP cap, the battle-only form
-// fights at its highest level with CP below the cap, or half a level higher
-// when the stored form sits exactly on the cap. With no cap it fights half a
-// level above the stored form. Either way it keeps the stored form's HP, and
-// `level` stays the stored level, since that is what gets powered up.
-// Ultra League readings don't all fit this yet.
-const BATTLE_ONLY_FORM_MAX_LEVEL = 50;
+const LAST_CPM_LEVEL = 1 + (CPMs.length - 1) / 2;
 
+// The multiplier stops growing past the last CPM level, so a form that never
+// reaches the cap counts as level 80 here.
+function getCapLevel({ atk, def, sta }: PokemonStats, maxCP: LeagueCPCap) {
+  let level = 1;
+  while (level < LAST_CPM_LEVEL && getCP(atk, def, sta, level + 0.5) <= maxCP) {
+    level += 0.5;
+  }
+  return level === LAST_CPM_LEVEL ? 80 : level;
+}
+
+// Fitted to player readings by u/eli5questions (see pvpoke/pvpoke#404). The
+// battle-only form keeps the stored form's HP, and `level` stays the stored
+// level, since that is what gets powered up.
 export function getBattleOnlyFormStats(
   form: Pokemon,
   storedForm: Pokemon,
@@ -47,7 +60,6 @@ export function getBattleOnlyFormStats(
   maxCP: LeagueCPCap,
 ): SpreadWithMaximizedStats {
   const stored = withIVs(storedForm, ivs);
-  const storedCP = getCP(stored.atk, stored.def, stored.sta, storedLevel);
   const storedHP = getStats(
     stored.atk,
     stored.def,
@@ -55,15 +67,13 @@ export function getBattleOnlyFormStats(
     storedLevel,
   ).sta;
 
-  const { atk, def, sta } = withIVs(form, ivs);
-  let battleLevel = storedLevel + 0.5;
-  if (maxCP !== 10000) {
-    battleLevel = BATTLE_ONLY_FORM_MAX_LEVEL;
-    while (battleLevel > 1 && getCP(atk, def, sta, battleLevel) >= maxCP) {
-      battleLevel -= 0.5;
-    }
-    if (storedCP === maxCP) battleLevel += 0.5;
-  }
+  const battle = withIVs(form, ivs);
+  const halfLevels = Math.floor(
+    (2 * (getCapLevel(battle, maxCP) - 1) * storedLevel) /
+      getCapLevel(stored, maxCP),
+  );
+  const battleLevel = Math.min(1 + halfLevels / 2, LAST_CPM_LEVEL);
+  const { atk, def, sta } = battle;
 
   return toSpread(ivs, storedLevel, getCP(atk, def, sta, battleLevel), {
     ...getStats(atk, def, sta, battleLevel),
