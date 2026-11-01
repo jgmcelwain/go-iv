@@ -1,6 +1,5 @@
 import React, { FC, ReactChild, UIEvent, memo, useMemo, useState } from 'react';
 import { RankedSpread } from '../lib/generateRankedSpreads';
-import { hasUnconfirmedStats } from '../lib/generateRankedSpreads/getMaximizedStats';
 import { useCandidate } from '../hooks/useCandidate';
 import { RankableMetric } from '../data/stat';
 import { LevelCapNumber } from '../data/levelCap';
@@ -19,7 +18,6 @@ import { xlCount } from '../lib/xlCount';
 import { formatValue } from '../utils/formatValue';
 import { RankedSpreadLevel } from './RankedSpreadLevel';
 import { RadioGroup } from '@headlessui/react';
-import UnconfirmedStatsNote from './UnconfirmedStatsNote';
 
 const TOP_ROW_COUNT = 10;
 // The scroll box fits the header (2.5rem), the pinned row (a row + 5px border)
@@ -63,7 +61,6 @@ function useDisplayedSpreads(showAll: boolean) {
 // the same IVs rank as the other form.
 function useOtherFormSpreads(levelCap: LevelCapNumber, species: Pokemon) {
   const { candidate } = useCandidate();
-  const { league } = useLeague();
   const pokedex = usePokedex();
   const otherForm =
     candidate.species.forms.find(
@@ -84,11 +81,8 @@ function useOtherFormSpreads(levelCap: LevelCapNumber, species: Pokemon) {
 
   if (!otherForm || !byIvs) return null;
 
-  const name = otherForm.name.match(/\((.+)\)/)?.[1] ?? otherForm.name;
-
   return {
-    species: otherForm,
-    name: hasUnconfirmedStats(otherForm, league.cp) ? `${name}*` : name,
+    name: otherForm.name.match(/\((.+)\)/)?.[1] ?? otherForm.name,
     byIvs,
   };
 }
@@ -457,11 +451,7 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC<{
   levelCap: LevelCapNumber;
   species: Pokemon;
 }> = ({ levelCap, species }) => {
-  const { showAllSpreads, league } = useLeague();
-  const { candidate } = useCandidate();
-  const unconfirmedForm = candidate.species.forms.find((form) =>
-    hasUnconfirmedStats(form, league.cp),
-  );
+  const { showAllSpreads } = useLeague();
 
   return (
     <>
@@ -471,8 +461,6 @@ const CandidateLeagueTopSpreadsAtLevelCap: FC<{
         levelCap={levelCap}
         species={species}
       />
-
-      {unconfirmedForm && <UnconfirmedStatsNote species={unconfirmedForm} />}
 
       <footer className='flex items-center justify-center w-full py-2 bg-white border-t border-gray-200'>
         <CandidateLeagueTopSpreadsAtLevelCapDownload />
