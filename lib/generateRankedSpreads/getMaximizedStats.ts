@@ -36,12 +36,8 @@ function toSpread(
 // when the stored form sits exactly on the cap. With no cap it fights half a
 // level above the stored form. Either way it keeps the stored form's HP, and
 // `level` stays the stored level, since that is what gets powered up.
+// Ultra League readings don't all fit this yet.
 const BATTLE_ONLY_FORM_MAX_LEVEL = 50;
-
-// Great League readings all fit the rule above, and Little Cup is expected to
-// match. Ultra and Master League aren't confirmed yet.
-export const hasUnconfirmedStats = (species: Pokemon, maxCP: LeagueCPCap) =>
-  species.battleOnlyFormOf !== undefined && maxCP > 1500;
 
 export function getBattleOnlyFormStats(
   form: Pokemon,
