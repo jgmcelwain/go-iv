@@ -17,7 +17,6 @@ import CandidateLeagueTableCellsPercentOfMax from './CandidateLeagueTableCellsPe
 import { ViewListIcon } from '@heroicons/react/solid';
 import { RankedSpreadLevel } from './RankedSpreadLevel';
 import { Pokemon } from '../data/pokedex';
-import { hasUnconfirmedStats } from '../lib/generateRankedSpreads/getMaximizedStats';
 
 const CandidateLeagueRankedAtLevelCap: FC<{
   levelCap: LevelCap;
@@ -38,7 +37,6 @@ const CandidateLeagueRankedAtLevelCap: FC<{
   const formLabel = hasForms ? (
     <CandidateLeagueTableCells.Body className={`${sticky.form} bg-inherit`}>
       {species.name}
-      {hasUnconfirmedStats(species, league.cp) && '*'}
     </CandidateLeagueTableCells.Body>
   ) : null;
   const rankCellClass = `${sticky.rank} bg-inherit`;

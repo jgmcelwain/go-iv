@@ -8,7 +8,6 @@ import { useLeague } from '../hooks/useLeague';
 import { ArrowLeftIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import { RANKABLE_METRICS } from '../data/stat';
 import { SpreadCountPicker } from './CandidateLeagueTopSpreadsAtLevelCap';
-import { hasUnconfirmedStats } from '../lib/generateRankedSpreads/getMaximizedStats';
 
 const LEAGUE_COLORS = {
   great: {
@@ -50,8 +49,6 @@ const CandidateLeagueHeader: FC = () => {
     throw new Error('No matching ranking metric could be found.');
   }
 
-  const inspected = inspectedSpecies ?? candidate.species.defaultForm;
-
   const floor = IV_FLOORS.find((floor) => floor.value === candidate.floor);
   if (floor === undefined) {
     throw new Error('No matching IV floor could be found.');
@@ -87,8 +84,7 @@ const CandidateLeagueHeader: FC = () => {
             <h2 className='flex-grow font-semibold leading-snug'>
               Top {league.name} IV Spreads for{' '}
               <span key={candidate.species.id}>
-                {inspected.name}
-                {hasUnconfirmedStats(inspected, league.cp) && '*'}
+                {inspectedSpecies?.name ?? candidate.species.defaultForm.name}
               </span>
             </h2>
 
@@ -116,7 +112,7 @@ const CandidateLeagueHeader: FC = () => {
       {inspectedLevelCap !== null && (
         <SpreadCountPicker
           levelCap={inspectedLevelCap.level}
-          species={inspected}
+          species={inspectedSpecies ?? candidate.species.defaultForm}
         />
       )}
 

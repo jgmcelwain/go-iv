@@ -12683,6 +12683,7 @@ export const POKEDEX: Pokemon[] = [
       sta: 155,
     },
     types: ['steel', 'ghost'],
+    battleOnlyFormOf: 'aegislash_shield',
     family: {
       id: 'honedge',
       stage: 3,
