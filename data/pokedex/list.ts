@@ -2603,7 +2603,7 @@ export const POKEDEX: Pokemon[] = [
       def: 231,
       sta: 163,
     },
-    types: ['bug'],
+    types: ['bug', 'flying'],
     family: {
       id: 'pinsir',
       stage: 2,
@@ -4936,7 +4936,7 @@ export const POKEDEX: Pokemon[] = [
       def: 186,
       sta: 172,
     },
-    types: ['grass'],
+    types: ['grass', 'dragon'],
     family: {
       id: 'treecko',
       stage: 4,
@@ -5836,7 +5836,7 @@ export const POKEDEX: Pokemon[] = [
       def: 331,
       sta: 172,
     },
-    types: ['steel', 'rock'],
+    types: ['steel'],
     family: {
       id: 'aron',
       stage: 4,
@@ -9000,15 +9000,75 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'rotom_appliance',
+    id: 'rotom_heat',
     dexNumber: 479,
-    name: 'Rotom (Appliance)',
+    name: 'Rotom (Heat)',
     stats: {
       atk: 204,
       def: 219,
       sta: 137,
     },
-    types: ['electric'],
+    types: ['electric', 'fire'],
+    family: {
+      id: 'rotom',
+      stage: 2,
+    },
+  },
+  {
+    id: 'rotom_wash',
+    dexNumber: 479,
+    name: 'Rotom (Wash)',
+    stats: {
+      atk: 204,
+      def: 219,
+      sta: 137,
+    },
+    types: ['electric', 'water'],
+    family: {
+      id: 'rotom',
+      stage: 2,
+    },
+  },
+  {
+    id: 'rotom_frost',
+    dexNumber: 479,
+    name: 'Rotom (Frost)',
+    stats: {
+      atk: 204,
+      def: 219,
+      sta: 137,
+    },
+    types: ['electric', 'ice'],
+    family: {
+      id: 'rotom',
+      stage: 2,
+    },
+  },
+  {
+    id: 'rotom_fan',
+    dexNumber: 479,
+    name: 'Rotom (Fan)',
+    stats: {
+      atk: 204,
+      def: 219,
+      sta: 137,
+    },
+    types: ['electric', 'flying'],
+    family: {
+      id: 'rotom',
+      stage: 2,
+    },
+  },
+  {
+    id: 'rotom_mow',
+    dexNumber: 479,
+    name: 'Rotom (Mow)',
+    stats: {
+      atk: 204,
+      def: 219,
+      sta: 137,
+    },
+    types: ['electric', 'grass'],
     family: {
       id: 'rotom',
       stage: 2,
@@ -9948,7 +10008,7 @@ export const POKEDEX: Pokemon[] = [
       def: 239,
       sta: 230,
     },
-    types: ['normal'],
+    types: ['normal', 'fairy'],
     family: {
       id: 'audino',
       stage: 2,
@@ -10683,7 +10743,7 @@ export const POKEDEX: Pokemon[] = [
       def: 79,
       sta: 111,
     },
-    types: ['ghost', 'normal'],
+    types: ['normal', 'ghost'],
     family: {
       id: 'zorua_hisui',
       stage: 1,
@@ -10713,7 +10773,7 @@ export const POKEDEX: Pokemon[] = [
       def: 128,
       sta: 146,
     },
-    types: ['ghost', 'normal'],
+    types: ['normal', 'ghost'],
     family: {
       id: 'zorua_hisui',
       stage: 2,
@@ -16454,15 +16514,30 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'urshifu',
+    id: 'urshifu_single_strike',
     dexNumber: 892,
-    name: 'Urshifu',
+    name: 'Urshifu (Single Strike)',
     stats: {
       atk: 254,
       def: 177,
       sta: 225,
     },
-    types: ['fighting'],
+    types: ['fighting', 'dark'],
+    family: {
+      id: 'kubfu',
+      stage: 2,
+    },
+  },
+  {
+    id: 'urshifu_rapid_strike',
+    dexNumber: 892,
+    name: 'Urshifu (Rapid Strike)',
+    stats: {
+      atk: 254,
+      def: 177,
+      sta: 225,
+    },
+    types: ['fighting', 'water'],
     family: {
       id: 'kubfu',
       stage: 2,
@@ -16628,7 +16703,7 @@ export const POKEDEX: Pokemon[] = [
       def: 181,
       sta: 277,
     },
-    types: ['normal', 'ground'],
+    types: ['ground', 'normal'],
     family: {
       id: 'teddiursa',
       stage: 3,
@@ -16643,7 +16718,7 @@ export const POKEDEX: Pokemon[] = [
       def: 190,
       sta: 247,
     },
-    types: ['normal', 'ground'],
+    types: ['ground', 'normal'],
     family: {
       id: 'teddiursa',
       stage: 4,
@@ -18480,9 +18555,9 @@ export const POKEDEX: Pokemon[] = [
     },
   },
   {
-    id: 'monkidori',
+    id: 'munkidori',
     dexNumber: 1015,
-    name: 'Monkidori',
+    name: 'Munkidori',
     stats: {
       atk: 261,
       def: 172,
@@ -18490,7 +18565,7 @@ export const POKEDEX: Pokemon[] = [
     },
     types: ['poison', 'psychic'],
     family: {
-      id: 'monkidori',
+      id: 'munkidori',
       stage: 1,
     },
   },
