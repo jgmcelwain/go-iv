@@ -234,10 +234,10 @@ const SpreadRow: FC<{
               {rankMark}
               {ranked.rank}
               <span className={NARROW_ONLY_LINE}>
+                {ranked.cp} CP
+                <br />
                 {percent}{' '}
                 <span className='whitespace-nowrap'>· L{ranked.level}</span>
-                <br />
-                {ranked.cp} CP
               </span>
             </Body>
             <Body className={wideCell}>
