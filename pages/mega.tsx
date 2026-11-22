@@ -398,7 +398,9 @@ const MegaSpreadsTable: FC<{
 
           <tbody
             className={
-              yourSpread ? '[&>tr:nth-child(2)>td]:border-t-0' : undefined
+              yourSpread
+                ? '[&>tr:nth-child(2)>td]:border-t-transparent'
+                : undefined
             }
           >
             {yourSpread && (
