@@ -59,6 +59,8 @@ function useNameInput(name: string) {
   return input;
 }
 
+const DEFAULT_POKEMON_ID = 'clefable_mega';
+const DEFAULT_IVS = '0-13-9';
 const SORTS = ['combined', 'great', 'ultra'] as const;
 type Sort = (typeof SORTS)[number];
 
@@ -67,8 +69,8 @@ function defaultLevelCap(levelCaps: Settings['levelCaps']): LevelCapNumber {
   return preferred.find((level) => levelCaps[level]) ?? 50;
 }
 
-function parseIVs(value: string | undefined, floor: number): PokemonIVs {
-  const [atk, def, sta] = (value ?? '').split('-').map((part) => {
+function parseIVs(value: string, floor: number): PokemonIVs {
+  const [atk, def, sta] = value.split('-').map((part) => {
     const iv = parseInt(part, 10);
     return (
       Number.isNaN(iv) ? MAX_IV : Math.min(Math.max(iv, floor), MAX_IV)
@@ -99,7 +101,9 @@ function useMegaReference() {
   );
 
   const pokemon =
-    availablePokemon.find((species) => species.id === param('pokemon')) ??
+    availablePokemon.find(
+      (species) => species.id === (param('pokemon') ?? DEFAULT_POKEMON_ID),
+    ) ??
     availablePokemon[0] ??
     MEGA_POKEMON[0];
   const selectedMetric =
@@ -113,7 +117,7 @@ function useMegaReference() {
     defaultLevelCap(settings.levelCaps);
   const sort: Sort = SORTS.find((key) => key === param('sort')) ?? 'combined';
   const ivFloor = pokemon.floor ?? 0;
-  const ivs = parseIVs(param('ivs'), ivFloor);
+  const ivs = parseIVs(param('ivs') ?? DEFAULT_IVS, ivFloor);
 
   const spreads = useMemo(
     () => getMegaLeagueSpreads(pokemon, levelCap, rankingMetric),
