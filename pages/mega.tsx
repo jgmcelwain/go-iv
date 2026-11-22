@@ -211,7 +211,7 @@ const SpreadRow: FC<{
             }`
       }
     >
-      <Body className={`${STICKY_RANK} ${cell} max-sm:pr-0`}>
+      <Body className={`${STICKY_RANK} ${cell} max-sm:pr-0 max-sm:text-right`}>
         {rankMark}
         {spread.rank}
       </Body>
@@ -230,14 +230,17 @@ const SpreadRow: FC<{
 
         return (
           <React.Fragment key={key}>
-            <Body className={`${cell} ${LEAGUE_DIVIDER} max-sm:px-2`}>
+            <Body
+              className={`${cell} ${LEAGUE_DIVIDER} max-sm:px-2 max-sm:whitespace-normal`}
+            >
               {rankMark}
               {ranked.rank}
+              <span className='ml-1.5 text-xs opacity-70 sm:hidden'>
+                {percent}
+              </span>
               <span className={NARROW_ONLY_LINE}>
-                {percent}{' '}
+                {ranked.cp} CP{' '}
                 <span className='whitespace-nowrap'>· L{ranked.level}</span>
-                <br />
-                {ranked.cp} CP
               </span>
             </Body>
             <Body className={wideCell}>
