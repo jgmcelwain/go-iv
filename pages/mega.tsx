@@ -230,17 +230,14 @@ const SpreadRow: FC<{
 
         return (
           <React.Fragment key={key}>
-            <Body
-              className={`${cell} ${LEAGUE_DIVIDER} max-sm:px-2 max-sm:whitespace-normal`}
-            >
+            <Body className={`${cell} ${LEAGUE_DIVIDER} max-sm:px-2`}>
               {rankMark}
-              {ranked.rank}{' '}
-              <span className='ml-0.5 text-xs opacity-70 sm:hidden'>
-                {percent}
-              </span>
+              {ranked.rank}
               <span className={NARROW_ONLY_LINE}>
-                {ranked.cp} CP{' '}
+                {percent}{' '}
                 <span className='whitespace-nowrap'>· L{ranked.level}</span>
+                <br />
+                {ranked.cp} CP
               </span>
             </Body>
             <Body className={wideCell}>
