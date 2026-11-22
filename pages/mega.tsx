@@ -157,7 +157,7 @@ function useMegaReference() {
 }
 
 const STICKY_RANK = 'sticky left-0 z-[1]';
-const STICKY_IVS = `sticky left-16 z-[1] ${CandidateLeagueTableCells.STICKY_EDGE_SHADOW}`;
+const STICKY_IVS = `sticky sm:left-16 z-[1] ${CandidateLeagueTableCells.STICKY_EDGE_SHADOW}`;
 const LEAGUE_DIVIDER = 'border-l border-gray-200';
 const ROW_DIVIDER = 'max-sm:border-t-2';
 const WIDE_ONLY = 'hidden sm:table-cell';
@@ -211,11 +211,10 @@ const SpreadRow: FC<{
             }`
       }
     >
-      <Body className={`${STICKY_RANK} ${cell} max-sm:pr-0 max-sm:text-right`}>
-        {rankMark}
+      <Body className={`${STICKY_RANK} ${cell} max-sm:pr-0`}>
         {spread.rank}
       </Body>
-      <Body className={`${STICKY_IVS} ${cell}`}>
+      <Body className={`${STICKY_IVS} ${cell} max-sm:pl-1.5`}>
         {ivsKey(spread.ivs)}
         <span className={NARROW_ONLY_LINE}>
           <span className='mr-1 text-[10px] font-normal opacity-70'>avg</span>
@@ -289,7 +288,7 @@ const MegaSpreadsTable: FC<{
       >
         <table className='w-full border-separate border-spacing-0 sm:min-w-max table-fixed'>
           <colgroup>
-            <col className='w-16' />
+            <col className='w-[3.25rem] sm:w-16' />
             <col className='w-[5.5rem] sm:w-24' />
             <col className={`${WIDE_ONLY_COLUMN} w-[4.5rem]`} />
             {LEAGUES.map(({ key }) => (
