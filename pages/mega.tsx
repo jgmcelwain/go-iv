@@ -261,7 +261,7 @@ const SortButton: FC<{
     aria-pressed={active}
     title='Sort by this rank'
     onClick={onClick}
-    className='relative z-[1] tracking-wider uppercase rounded focus-visible-ring'
+    className='tracking-wider uppercase rounded focus-visible-ring'
   >
     {children}
     <span aria-hidden className={active ? 'ml-1' : 'ml-1 opacity-40'}>
