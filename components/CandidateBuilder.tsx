@@ -39,7 +39,11 @@ const CandidateBuilder: FC = () => {
           <Link
             href={{
               pathname: '/mega',
-              query: { pokemon: megaId, ivs: ivsKey(candidate.ivs) },
+              query: {
+                pokemon: megaId,
+                ivs: ivsKey(candidate.ivs),
+                metric: candidate.rankingMetric,
+              },
             }}
             className='flex items-center w-full mt-1 mb-2 text-sm font-semibold text-blue-500 rounded dark:text-blue-300 hover:underline focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900 sm:w-auto'
           >

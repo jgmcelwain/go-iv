@@ -1,4 +1,11 @@
-import React, { FC, ReactNode, useEffect, useMemo, useRef } from 'react';
+import React, {
+  FC,
+  ReactNode,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -100,18 +107,17 @@ function useMegaReference() {
     [pokedex],
   );
 
+  const byId = (id: string | undefined) =>
+    availablePokemon.find((species) => species.id === id);
   const pokemon =
-    availablePokemon.find(
-      (species) => species.id === (param('pokemon') ?? DEFAULT_POKEMON_ID),
-    ) ??
+    byId(param('pokemon')) ??
+    byId(DEFAULT_POKEMON_ID) ??
     availablePokemon[0] ??
     MEGA_POKEMON[0];
-  const selectedMetric =
+  const rankedPokemon = useDeferredValue(pokemon);
+  const rankingMetric: RankableMetric =
     RANKABLE_METRICS.find((metric) => metric.key === param('metric'))?.key ??
     'product';
-  const rankingMetric: RankableMetric = settings.showRankingMetric
-    ? selectedMetric
-    : 'product';
   const levelCap =
     LEVEL_CAPS.find((cap) => String(cap.level) === param('cap'))?.level ??
     defaultLevelCap(settings.levelCaps);
@@ -120,8 +126,8 @@ function useMegaReference() {
   const ivs = parseIVs(param('ivs') ?? DEFAULT_IVS, ivFloor);
 
   const spreads = useMemo(
-    () => getMegaLeagueSpreads(pokemon, levelCap, rankingMetric),
-    [pokemon, levelCap, rankingMetric],
+    () => getMegaLeagueSpreads(rankedPokemon, levelCap, rankingMetric),
+    [rankedPokemon, levelCap, rankingMetric],
   );
   const topSpreads = useMemo(
     () =>
@@ -541,7 +547,7 @@ const MegaPage: FC = () => {
           </select>
         </label>
 
-        {settings.showRankingMetric && (
+        {(settings.showRankingMetric || rankingMetric !== 'product') && (
           <label className='block mb-2 mr-6'>
             <span className='text-xs text-gray-500 dark:text-gray-400'>
               Rank By

@@ -20,14 +20,12 @@ export function stickyColumns(hasForms: boolean, showRank: boolean) {
 export const Header: FC<{
   children?: ReactNode;
   colSpan?: number;
-  rowSpan?: number;
   scope?: 'col' | 'colgroup';
   widthClass?: string;
   className?: string;
-}> = ({ children, colSpan, rowSpan, scope, widthClass, className }) => (
+}> = ({ children, colSpan, scope, widthClass, className }) => (
   <th
     colSpan={colSpan}
-    rowSpan={rowSpan}
     scope={scope}
     className={`px-3 py-2 text-left bg-gray-100 first:pl-4 last:pr-4 ${
       widthClass ?? 'w-20'
