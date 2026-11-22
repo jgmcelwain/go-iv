@@ -158,7 +158,7 @@ function useMegaReference() {
 
 const STICKY_RANK = 'sticky left-0 z-[1]';
 const STICKY_IVS = `sticky sm:left-16 z-[1] ${CandidateLeagueTableCells.STICKY_EDGE_SHADOW}`;
-const LEAGUE_DIVIDER = 'border-l border-gray-200';
+const LEAGUE_DIVIDER = 'border-l border-black/10';
 const ROW_DIVIDER = 'max-sm:border-t-2';
 const WIDE_ONLY = 'hidden sm:table-cell';
 const WIDE_ONLY_COLUMN = 'hidden sm:table-column';
@@ -396,7 +396,11 @@ const MegaSpreadsTable: FC<{
             </tr>
           </thead>
 
-          <tbody>
+          <tbody
+            className={
+              yourSpread ? '[&>tr:nth-child(2)>td]:border-t-0' : undefined
+            }
+          >
             {yourSpread && (
               <SpreadRow
                 spread={yourSpread}
