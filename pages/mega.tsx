@@ -234,8 +234,8 @@ const SpreadRow: FC<{
               className={`${cell} ${LEAGUE_DIVIDER} max-sm:px-2 max-sm:whitespace-normal`}
             >
               {rankMark}
-              {ranked.rank}
-              <span className='ml-1.5 text-xs opacity-70 sm:hidden'>
+              {ranked.rank}{' '}
+              <span className='ml-0.5 text-xs opacity-70 sm:hidden'>
                 {percent}
               </span>
               <span className={NARROW_ONLY_LINE}>
