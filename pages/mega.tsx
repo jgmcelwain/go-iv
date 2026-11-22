@@ -159,8 +159,7 @@ function useMegaReference() {
 const STICKY_RANK = 'sticky left-0 z-[1]';
 const STICKY_IVS = `sticky left-16 z-[1] ${CandidateLeagueTableCells.STICKY_EDGE_SHADOW}`;
 const LEAGUE_DIVIDER = 'border-l border-gray-200';
-const ROW_DIVIDER =
-  'max-sm:!border-t-2 max-sm:!border-t-[color:color-mix(in_srgb,currentColor_20%,transparent)]';
+const ROW_DIVIDER = 'max-sm:border-t-2';
 const WIDE_ONLY = 'hidden sm:table-cell';
 const WIDE_ONLY_COLUMN = 'hidden sm:table-column';
 const NARROW_ONLY_LINE = 'block text-xs opacity-70 whitespace-normal sm:hidden';

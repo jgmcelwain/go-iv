@@ -48,7 +48,7 @@ export const Body: FC<{
   className?: string;
 }> = ({ right, children, colSpan, className }) => (
   <td
-    className={`border-t border-gray-200 px-3 py-4 text-sm whitespace-nowrap first:pl-4${
+    className={`border-t border-gray-200 border-t-[color:color-mix(in_srgb,currentColor_20%,transparent)] px-3 py-4 text-sm whitespace-nowrap first:pl-4${
       right ? ' text-right' : ''
     }${className ? ` ${className}` : ''}`}
     colSpan={colSpan}
