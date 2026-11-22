@@ -18,7 +18,6 @@ const defaultSettings: Settings = {
     bulkProduct: true,
     percent: true,
   },
-  showMegaLevelCaps: true,
   showSpeculative: false,
   showMinimumLevel: false,
   showRankingMetric: false,

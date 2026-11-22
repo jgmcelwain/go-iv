@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import { LEAGUES } from '../data/league';
-import { SETTABLE_LEVEL_CAPS } from '../data/levelCap';
+import { LEVEL_CAPS } from '../data/levelCap';
 import { OUTPUT_DATA } from '../data/outputData';
 
 import { useSettings, SettingsActionTypes } from '../hooks/useSettings';
@@ -47,7 +47,7 @@ const SettingsPage: FC = () => {
       </SettingsSection>
 
       <SettingsSection id='level-caps' title='Level Caps'>
-        {SETTABLE_LEVEL_CAPS.map((levelCap) => (
+        {LEVEL_CAPS.map((levelCap) => (
           <SettingsSectionItem key={levelCap.name}>
             <SettingsSectionItemToggle
               onInput={(value) =>
@@ -62,20 +62,6 @@ const SettingsPage: FC = () => {
             />
           </SettingsSectionItem>
         ))}
-
-        <SettingsSectionItem>
-          <SettingsSectionItemToggle
-            onInput={(value) =>
-              dispatch({
-                type: SettingsActionTypes.MegaLevelCaps,
-                payload: value,
-              })
-            }
-            value={settings.showMegaLevelCaps}
-            label='"Super Max" Mega Level Caps'
-            description='Show Level 52/53 for Mega Pokémon in Master League. Requires the corresponding base cap (50/51) to be enabled.'
-          />
-        </SettingsSectionItem>
       </SettingsSection>
 
       <SettingsSection id='displayed-fields' title='Output Fields'>

@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
 import { LeagueKey } from '../../data/league';
-import { SettableLevelCapNumber } from '../../data/levelCap';
+import { LevelCapNumber } from '../../data/levelCap';
 import { OutputDataKey } from '../../data/outputData';
 import { Dispatch } from './settingsReducer';
 
@@ -17,9 +17,8 @@ export const Context = createContext<{
 export type Settings = {
   leagues: { [key in LeagueKey]: boolean };
   leagueOrder: LeagueKey[];
-  levelCaps: { [key in SettableLevelCapNumber]: boolean };
+  levelCaps: { [key in LevelCapNumber]: boolean };
   outputData: { [key in OutputDataKey]: boolean };
-  showMegaLevelCaps: boolean;
   showSpeculative: boolean;
   showRankingMetric: boolean;
   showMinimumLevel: boolean;

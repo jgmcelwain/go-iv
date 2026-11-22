@@ -47,6 +47,14 @@ type RankingOptions = {
   rankingMetric: RankableMetric;
 };
 
+export const getMetricPercent = (
+  spread: RankedSpread,
+  rankingMetric: RankableMetric,
+) =>
+  rankingMetric === 'product' || rankingMetric === 'bulkProduct'
+    ? spread[rankingMetric].percentOfMax
+    : spread.stats[rankingMetric].percentOfMax;
+
 const compareToMax = (value: number, max: number): ComparableToMax => ({
   value,
   percentOfMax: value / max,

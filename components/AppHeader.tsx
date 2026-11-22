@@ -15,6 +15,7 @@ import {
 } from '@heroicons/react/solid';
 import { useTheme } from 'next-themes';
 import { SettingsActionTypes, useSettings } from '../hooks/useSettings';
+import MegaEvolutionIcon from './MegaEvolutionIcon';
 
 function useIsMounted() {
   const [mounted, setMounted] = useState(false);
@@ -100,6 +101,29 @@ const AppHeader: FC = () => {
           <div aria-hidden className='p-1'>
             <MoonIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
           </div>
+        )}
+
+        {router.pathname === '/mega' ? (
+          <Link
+            href='/'
+            className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+          >
+            <ArrowSmLeftIcon
+              className='w-5 h-5 text-gray-500 dark:text-gray-300'
+              aria-hidden
+            />
+
+            <span className='sr-only'>Home</span>
+          </Link>
+        ) : (
+          <Link
+            href='/mega'
+            className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+          >
+            <MegaEvolutionIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+
+            <span className='sr-only'>Mega &amp; Primal PvP IVs</span>
+          </Link>
         )}
 
         {router.pathname === '/settings' ? (
