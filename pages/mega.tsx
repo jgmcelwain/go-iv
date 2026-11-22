@@ -23,6 +23,7 @@ import { getPercentColors } from '../utils/getRankColors';
 import * as CandidateLeagueTableCells from '../components/CandidateLeagueTableCells';
 import { RankedSpreadLevel } from '../components/RankedSpreadLevel';
 import { StickySummary } from '../components/CandidateBuilderStickyHeader';
+import MegaEvolutionIcon from '../components/MegaEvolutionIcon';
 import SpeciesTypeIcons from '../components/SpeciesTypeIcons';
 
 const TOP_SPREAD_COUNT = 100;
@@ -445,13 +446,10 @@ const MegaPage: FC = () => {
       </Head>
 
       <div className='w-full px-4 mb-4 sm:px-0'>
-        <h1 className='pt-2 text-2xl font-semibold text-gray-900 dark:text-white font-title'>
+        <h1 className='flex items-center pt-2 text-2xl font-semibold text-gray-900 dark:text-white font-title'>
+          <MegaEvolutionIcon className='w-6 h-6 mr-2 text-gray-400 dark:text-gray-500 shrink-0' />
           Mega &amp; Primal PvP IVs
         </h1>
-        <p className='mt-1 text-sm text-gray-600 dark:text-gray-400'>
-          Find IV spreads that rank well in both Great League and Ultra League
-          at once.
-        </p>
       </div>
 
       <section className='flex flex-wrap items-start justify-start w-full px-4 mb-4 sm:px-0'>
