@@ -217,7 +217,10 @@ const SpreadRow: FC<{
       </Body>
       <Body className={`${STICKY_IVS} ${cell}`}>
         {ivsKey(spread.ivs)}
-        <span className={NARROW_ONLY_LINE}>{averagePercent}</span>
+        <span className={NARROW_ONLY_LINE}>
+          <span className='mr-1 text-[10px] font-normal opacity-70'>avg</span>
+          {averagePercent}
+        </span>
       </Body>
       <Body className={wideCell}>{averagePercent}</Body>
 
