@@ -103,7 +103,7 @@ const AppHeader: FC = () => {
           </div>
         )}
 
-        {router.pathname === '/mega' ? (
+        {router.pathname.startsWith('/mega') ? (
           <Link
             href='/'
             className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'

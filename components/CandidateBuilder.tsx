@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Link from 'next/link';
 
 import { useCandidate } from '../hooks/useCandidate';
-import { MEGA_POKEMON, ivsKey } from '../lib/megaLeagueSpreads';
+import { MEGA_POKEMON } from '../lib/megaLeagueSpreads';
 
 import CandidateBuilderStickyHeader from './CandidateBuilderStickyHeader';
 import CandidateBuilderSpecies from './CandidateBuilderSpecies';
@@ -37,14 +37,7 @@ const CandidateBuilder: FC = () => {
 
         {isMega && (
           <Link
-            href={{
-              pathname: '/mega',
-              query: {
-                pokemon: megaId,
-                ivs: ivsKey(candidate.ivs),
-                metric: candidate.rankingMetric,
-              },
-            }}
+            href={`/mega/${megaId}/${candidate.ivs.atk}/${candidate.ivs.def}/${candidate.ivs.sta}/${candidate.rankingMetric}`}
             className='flex items-center w-full mt-1 mb-2 text-sm font-semibold text-blue-500 rounded dark:text-blue-300 hover:underline focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900 sm:w-auto'
           >
             <MegaEvolutionIcon className='w-4 h-4 mr-1.5' />

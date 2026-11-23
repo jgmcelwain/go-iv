@@ -8,31 +8,32 @@ import React, {
   useState,
 } from 'react';
 import Head from 'next/head';
+import { RadioGroup } from '@headlessui/react';
 import { useRouter } from 'next/router';
 
-import { IV, IV_RANGE, MAX_IV } from '../data/iv';
-import { LEVEL_CAPS, LevelCapNumber } from '../data/levelCap';
-import { Pokemon, PokemonID, PokemonIVs } from '../data/pokedex';
-import { Settings } from '../hooks/useSettings';
-import { RANKABLE_METRICS, RankableMetric, STATS } from '../data/stat';
-import { usePokedex } from '../hooks/usePokedex';
-import { useScrolledSideways } from '../hooks/useScrolledSideways';
-import { useSettings } from '../hooks/useSettings';
+import { IV, IV_RANGE, MAX_IV } from '../../data/iv';
+import { LEVEL_CAPS, LevelCapNumber } from '../../data/levelCap';
+import { Pokemon, PokemonID, PokemonIVs } from '../../data/pokedex';
+import { Settings } from '../../hooks/useSettings';
+import { RANKABLE_METRICS, RankableMetric, STATS } from '../../data/stat';
+import { usePokedex } from '../../hooks/usePokedex';
+import { useScrolledSideways } from '../../hooks/useScrolledSideways';
+import { useSettings } from '../../hooks/useSettings';
 import {
   MEGA_POKEMON,
   MegaLeagueSpread,
   getMegaLeagueSpreads,
   ivsKey,
-} from '../lib/megaLeagueSpreads';
-import { getMetricPercent } from '../lib/generateRankedSpreads';
-import { formatValue } from '../utils/formatValue';
-import { isSubsequence } from '../utils/isSubsequence';
-import { getPercentColors } from '../utils/getRankColors';
-import * as CandidateLeagueTableCells from '../components/CandidateLeagueTableCells';
-import { RankedSpreadLevel } from '../components/RankedSpreadLevel';
-import { StickySummary } from '../components/CandidateBuilderStickyHeader';
-import MegaEvolutionIcon from '../components/MegaEvolutionIcon';
-import SpeciesTypeIcons from '../components/SpeciesTypeIcons';
+} from '../../lib/megaLeagueSpreads';
+import { getMetricPercent } from '../../lib/generateRankedSpreads';
+import { formatValue } from '../../utils/formatValue';
+import { isSubsequence } from '../../utils/isSubsequence';
+import { getPercentColors } from '../../utils/getRankColors';
+import * as CandidateLeagueTableCells from '../../components/CandidateLeagueTableCells';
+import { RankedSpreadLevel } from '../../components/RankedSpreadLevel';
+import { StickySummary } from '../../components/CandidateBuilderStickyHeader';
+import MegaEvolutionIcon from '../../components/MegaEvolutionIcon';
+import SpeciesTypeIcons from '../../components/SpeciesTypeIcons';
 
 const TOP_SPREAD_COUNT = 100;
 
@@ -92,11 +93,11 @@ function useMegaReference() {
   const pokedex = usePokedex();
   const router = useRouter();
 
-  const [choices, setChoices] = useState(router.query);
-  const param = (key: string) => {
-    const value = choices[key];
-    return Array.isArray(value) ? value[0] : value;
-  };
+  const [id, atk, def, sta, metric] = (router.query.spread ?? []) as string[];
+  const [choices, setChoices] = useState<{ [key: string]: string | undefined }>(
+    { pokemon: id, ivs: atk && [atk, def, sta].join('-'), metric },
+  );
+  const param = (key: string) => choices[key];
   const setParam = (key: string) => (value: string | number) =>
     setChoices((current) => ({ ...current, [key]: String(value) }));
 
@@ -127,9 +128,12 @@ function useMegaReference() {
     () => getMegaLeagueSpreads(rankedPokemon, levelCap, rankingMetric),
     [rankedPokemon, levelCap, rankingMetric],
   );
-  const [nearMaxCPOnly, setNearMaxCPOnly] = useState(false);
+  const [cpMargin, setCPMargin] = useState<CPMargin>(null);
   const topSpreads = useMemo(() => {
-    const shown = nearMaxCPOnly ? spreads.filter(isNearMaxCPInBoth) : spreads;
+    const shown =
+      cpMargin === null
+        ? spreads
+        : spreads.filter((spread) => isWithinCPMargin(spread, cpMargin));
     return (
       sort === 'combined'
         ? shown
@@ -137,7 +141,7 @@ function useMegaReference() {
             (a, b) => a[sort].rank - b[sort].rank || a.rank - b.rank,
           )
     ).slice(0, TOP_SPREAD_COUNT);
-  }, [spreads, sort, nearMaxCPOnly]);
+  }, [spreads, sort, cpMargin]);
   const yourSpread = spreads.find(
     (spread) => ivsKey(spread.ivs) === ivsKey(ivs),
   );
@@ -157,8 +161,8 @@ function useMegaReference() {
     setIVs: (next: PokemonIVs) => setParam('ivs')(ivsKey(next)),
     yourSpread,
     topSpreads,
-    nearMaxCPOnly,
-    setNearMaxCPOnly,
+    cpMargin,
+    setCPMargin,
     settings,
   };
 }
@@ -195,13 +199,14 @@ const LEAGUES = [
   },
 ] as const;
 
-const NEAR_MAX_CP = 10;
-const isNearMaxCP = (
-  spread: MegaLeagueSpread,
-  league: (typeof LEAGUES)[number],
-) => league.maxCP - spread[league.key].cp <= NEAR_MAX_CP;
-const isNearMaxCPInBoth = (spread: MegaLeagueSpread) =>
-  LEAGUES.every((league) => isNearMaxCP(spread, league));
+const CP_MARGINS = [
+  { value: null, name: 'Any CP' },
+  { value: 10, name: 'Within 10 of cap' },
+  { value: 5, name: 'Within 5 of cap' },
+] as const;
+type CPMargin = (typeof CP_MARGINS)[number]['value'];
+const isWithinCPMargin = (spread: MegaLeagueSpread, margin: number) =>
+  LEAGUES.every((league) => league.maxCP - spread[league.key].cp <= margin);
 
 const { Header, Body } = CandidateLeagueTableCells;
 
@@ -240,10 +245,8 @@ const SpreadRow: FC<{
       </Body>
       <Body className={wideCell}>{averagePercent}</Body>
 
-      {LEAGUES.map((league) => {
-        const { key } = league;
+      {LEAGUES.map(({ key }) => {
         const ranked = spread[key];
-        const cpWeight = isNearMaxCP(spread, league) ? 'font-bold' : undefined;
         const percent = formatPercent(getMetricPercent(ranked, rankingMetric));
 
         return (
@@ -252,7 +255,7 @@ const SpreadRow: FC<{
               {rankMark}
               {ranked.rank}
               <span className={NARROW_ONLY_LINE}>
-                <span className={cpWeight}>{ranked.cp} CP</span>
+                {ranked.cp} CP
                 <br />
                 {percent}{' '}
                 <span className='whitespace-nowrap'>· L{ranked.level}</span>
@@ -261,9 +264,7 @@ const SpreadRow: FC<{
             <Body className={wideCell}>
               <RankedSpreadLevel {...ranked} />
             </Body>
-            <Body className={`${wideCell}${cpWeight ? ` ${cpWeight}` : ''}`}>
-              {ranked.cp}
-            </Body>
+            <Body className={wideCell}>{ranked.cp}</Body>
             <Body className={wideCell}>{percent}</Body>
           </React.Fragment>
         );
@@ -446,7 +447,7 @@ const MegaSpreadsTable: FC<{
             {spreads.length === 0 && (
               <tr>
                 <Body colSpan={11} className='whitespace-normal'>
-                  No spreads are within {NEAR_MAX_CP} CP of both league caps.
+                  No spreads are that close to both league caps.
                 </Body>
               </tr>
             )}
@@ -473,8 +474,8 @@ const MegaPage: FC = () => {
     setIVs,
     yourSpread,
     topSpreads,
-    nearMaxCPOnly,
-    setNearMaxCPOnly,
+    cpMargin,
+    setCPMargin,
     settings,
   } = useMegaReference();
   const nameInput = useNameInput(pokemon.name);
@@ -593,15 +594,37 @@ const MegaPage: FC = () => {
           </label>
         )}
 
-        <label className='flex items-center w-full mb-2 text-sm text-gray-700 dark:text-gray-300'>
-          <input
-            type='checkbox'
-            checked={nearMaxCPOnly}
-            onChange={(evt) => setNearMaxCPOnly(evt.target.checked)}
-            className='mr-2 rounded form-checkbox focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900'
-          />
-          Only show spreads within {NEAR_MAX_CP} CP of both league caps
-        </label>
+        <RadioGroup
+          value={cpMargin}
+          onChange={setCPMargin}
+          as='div'
+          className='flex flex-wrap items-center justify-start w-full mt-2 sm:mt-1'
+        >
+          <RadioGroup.Label className='sr-only'>
+            How close to both league caps
+          </RadioGroup.Label>
+
+          {CP_MARGINS.map((margin) => (
+            <RadioGroup.Option
+              key={margin.name}
+              value={margin.value}
+              className='mb-2 mr-2 rounded cursor-pointer last:mr-0 focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900'
+            >
+              {({ checked }) => (
+                <RadioGroup.Label
+                  as='span'
+                  className={`block transition-colors border py-1 px-2 text-sm font-semibold hover:text-blue-500 dark:hover:text-blue-300 rounded bg-white dark:bg-gray-800 ${
+                    checked
+                      ? 'text-blue-500 dark:text-blue-300 border-gray-200 dark:border-gray-700'
+                      : 'text-gray-500 dark:text-gray-400 border-gray-100 dark:border-transparent'
+                  }`}
+                >
+                  {margin.name}
+                </RadioGroup.Label>
+              )}
+            </RadioGroup.Option>
+          ))}
+        </RadioGroup>
       </section>
 
       <StickySummary
@@ -623,7 +646,7 @@ const MegaPage: FC = () => {
             : `, sorted by ${
                 LEAGUES.find((league) => league.key === sort)?.shortName ?? ''
               } rank`
-        }${nearMaxCPOnly ? ', near max CP only' : ''}`}
+        }${cpMargin === null ? '' : `, within ${cpMargin} CP of cap`}`}
       />
 
       <MegaSpreadsTable
