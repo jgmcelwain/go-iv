@@ -495,8 +495,8 @@ const MegaPage: FC = () => {
 
       <section className='flex flex-wrap items-start justify-start w-full px-4 pt-2 mb-4 sm:px-0'>
         <label className='block w-full mb-2 sm:w-auto sm:mr-6'>
-          <span className='flex items-center text-xs text-gray-500 dark:text-gray-400'>
-            <MegaEvolutionIcon className='w-3 h-3 mr-1' />
+          <span className='text-xs text-gray-500 dark:text-gray-400'>
+            <MegaEvolutionIcon className='inline w-3 h-3 mr-1 align-[-1px]' />
             Mega Pokémon
           </span>
           <input
