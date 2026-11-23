@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-import Link from 'next/link';
+import React, { FC, useEffect } from 'react';
 
 import { useCandidate } from '../hooks/useCandidate';
 import { MEGA_POKEMON } from '../lib/megaLeagueSpreads';
@@ -11,12 +10,25 @@ import CandidateBuilderIVs from './CandidateBuilderIVs';
 import CandidateBuilderIVFloor from './CandidateBuilderIVFloor';
 import CandidateBuilderMinimumLevel from './CandidateBuilderMinimumLevel';
 import CandidateBuilderRankingMetric from './CandidateBuilderRankingMetric';
-import MegaEvolutionIcon from './MegaEvolutionIcon';
+import { useMegaLink } from './AppHeader';
+
+function useOfferMegaLink() {
+  const { candidate } = useCandidate();
+  const { setMegaPath } = useMegaLink();
+  const { id } = candidate.species.defaultForm;
+  const { atk, def, sta } = candidate.ivs;
+  const megaPath = MEGA_POKEMON.some((pokemon) => pokemon.id === id)
+    ? `/mega/${id}/${atk}/${def}/${sta}/${candidate.rankingMetric}`
+    : null;
+
+  useEffect(() => {
+    setMegaPath(megaPath);
+    return () => setMegaPath(null);
+  }, [megaPath, setMegaPath]);
+}
 
 const CandidateBuilder: FC = () => {
-  const { candidate } = useCandidate();
-  const megaId = candidate.species.defaultForm.id;
-  const isMega = MEGA_POKEMON.some((pokemon) => pokemon.id === megaId);
+  useOfferMegaLink();
 
   return (
     <>
@@ -34,16 +46,6 @@ const CandidateBuilder: FC = () => {
         <CandidateBuilderMinimumLevel />
 
         <CandidateBuilderFamilySwap />
-
-        {isMega && (
-          <Link
-            href={`/mega/${megaId}/${candidate.ivs.atk}/${candidate.ivs.def}/${candidate.ivs.sta}/${candidate.rankingMetric}`}
-            className='flex items-center w-full mt-1 mb-2 text-sm font-semibold text-blue-500 rounded dark:text-blue-300 hover:underline focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900 sm:w-auto'
-          >
-            <MegaEvolutionIcon className='w-4 h-4 mr-1.5' />
-            Compare Great and Ultra League ranks
-          </Link>
-        )}
       </section>
     </>
   );

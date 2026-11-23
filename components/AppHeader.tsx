@@ -1,4 +1,10 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, {
+  FC,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { useRouter } from 'next/router';
 
 import pkg from '../package.json';
@@ -17,6 +23,17 @@ import { useTheme } from 'next-themes';
 import { SettingsActionTypes, useSettings } from '../hooks/useSettings';
 import MegaEvolutionIcon from './MegaEvolutionIcon';
 
+export const MegaLinkContext = createContext<{
+  megaPath: string | null;
+  setMegaPath: (path: string | null) => void;
+}>({ megaPath: null, setMegaPath: () => undefined });
+
+export const useMegaLink = () => useContext(MegaLinkContext);
+export const useMegaLinkState = () => {
+  const [megaPath, setMegaPath] = useState<string | null>(null);
+  return { megaPath, setMegaPath };
+};
+
 function useIsMounted() {
   const [mounted, setMounted] = useState(false);
 
@@ -33,6 +50,8 @@ const AppHeader: FC = () => {
   const { settings, dispatch } = useSettings();
 
   const mounted = useIsMounted();
+  const { megaPath } = useMegaLink();
+  const onMegaPage = router.pathname.startsWith('/mega');
 
   return (
     <header className='relative w-full z-20 overflow-hidden dark:bg-gray-800 bg-white border-b border-gray-100 dark:border-gray-700'>
@@ -56,27 +75,41 @@ const AppHeader: FC = () => {
           </a>
         </div>
 
-        <button
-          onClick={() =>
-            dispatch({
-              type: SettingsActionTypes.Layout,
-              payload: settings.layout === 'grid' ? 'list' : 'grid',
-            })
-          }
-          className='hidden lg:block rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
-        >
-          {settings.layout === 'grid' ? (
-            <>
-              <ViewGridIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
-              <span className='sr-only'>Switch to Single-Column Display</span>
-            </>
-          ) : (
-            <>
-              <ViewListIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
-              <span className='sr-only'>Switch to Grid Display</span>
-            </>
-          )}
-        </button>
+        {onMegaPage ? (
+          <Link
+            href='/'
+            className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+          >
+            <ArrowSmLeftIcon
+              className='w-5 h-5 text-gray-500 dark:text-gray-300'
+              aria-hidden
+            />
+
+            <span className='sr-only'>Home</span>
+          </Link>
+        ) : (
+          <button
+            onClick={() =>
+              dispatch({
+                type: SettingsActionTypes.Layout,
+                payload: settings.layout === 'grid' ? 'list' : 'grid',
+              })
+            }
+            className='hidden lg:block rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+          >
+            {settings.layout === 'grid' ? (
+              <>
+                <ViewGridIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+                <span className='sr-only'>Switch to Single-Column Display</span>
+              </>
+            ) : (
+              <>
+                <ViewListIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
+                <span className='sr-only'>Switch to Grid Display</span>
+              </>
+            )}
+          </button>
+        )}
 
         {mounted ? (
           <button
@@ -103,26 +136,35 @@ const AppHeader: FC = () => {
           </div>
         )}
 
-        {router.pathname.startsWith('/mega') ? (
+        {!onMegaPage && (
           <Link
-            href='/'
-            className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+            href={megaPath ?? '/mega'}
+            title={
+              megaPath
+                ? 'Compare Great and Ultra League ranks'
+                : 'Mega & Primal PvP IVs'
+            }
+            className='relative rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
           >
-            <ArrowSmLeftIcon
-              className='w-5 h-5 text-gray-500 dark:text-gray-300'
-              aria-hidden
+            {megaPath && (
+              <span
+                aria-hidden
+                className='absolute inset-0 rounded-full bg-blue-400/50 animate-ping [animation-iteration-count:3] motion-reduce:hidden'
+              />
+            )}
+            <MegaEvolutionIcon
+              className={`relative w-5 h-5 ${
+                megaPath
+                  ? 'text-blue-500 dark:text-blue-300'
+                  : 'text-gray-500 dark:text-gray-300'
+              }`}
             />
 
-            <span className='sr-only'>Home</span>
-          </Link>
-        ) : (
-          <Link
-            href='/mega'
-            className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
-          >
-            <MegaEvolutionIcon className='w-5 h-5 text-gray-500 dark:text-gray-300' />
-
-            <span className='sr-only'>Mega &amp; Primal PvP IVs</span>
+            <span className='sr-only'>
+              {megaPath
+                ? 'Compare Great and Ultra League ranks'
+                : 'Mega & Primal PvP IVs'}
+            </span>
           </Link>
         )}
 

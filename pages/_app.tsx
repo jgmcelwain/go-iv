@@ -15,7 +15,10 @@ import { SpeculativePokemonProvider } from '../hooks/useSpeculativePokemon';
 
 import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
-import AppHeader from '../components/AppHeader';
+import AppHeader, {
+  MegaLinkContext,
+  useMegaLinkState,
+} from '../components/AppHeader';
 import AppReleaseBanner from '../components/AppReleaseBanner';
 import AppFooter from '../components/AppFooter';
 
@@ -34,6 +37,8 @@ type InitialProps = {
 const App: FC<AppProps & InitialProps> & {
   getInitialProps: (arg0: AppContext) => Promise<InitialProps>;
 } = ({ Component, pageProps, settings, releaseBanner, speculativePokemon }) => {
+  const megaLink = useMegaLinkState();
+
   return (
     <React.StrictMode>
       <style jsx global>{`
@@ -75,15 +80,17 @@ const App: FC<AppProps & InitialProps> & {
 
             <AppReleaseBanner {...releaseBanner} />
 
-            <AppHeader />
+            <MegaLinkContext.Provider value={megaLink}>
+              <AppHeader />
 
-            <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 mt-2 mx-auto max-w-8xl sm:px-4 md:px-8'>
-              <main className='flex-grow w-full'>
-                <Component {...pageProps} />
-              </main>
+              <section className='flex flex-col items-start justify-start flex-auto w-full min-h-screen px-0 mt-2 mx-auto max-w-8xl sm:px-4 md:px-8'>
+                <main className='flex-grow w-full'>
+                  <Component {...pageProps} />
+                </main>
 
-              <AppFooter />
-            </section>
+                <AppFooter />
+              </section>
+            </MegaLinkContext.Provider>
 
             <Analytics />
           </SettingsProvider>
