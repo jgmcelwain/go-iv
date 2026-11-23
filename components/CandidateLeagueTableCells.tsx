@@ -19,10 +19,14 @@ export function stickyColumns(hasForms: boolean, showRank: boolean) {
 
 export const Header: FC<{
   children?: ReactNode;
+  colSpan?: number;
+  scope?: 'col' | 'colgroup';
   widthClass?: string;
   className?: string;
-}> = ({ children, widthClass, className }) => (
+}> = ({ children, colSpan, scope, widthClass, className }) => (
   <th
+    colSpan={colSpan}
+    scope={scope}
     className={`px-3 py-2 text-left bg-gray-100 first:pl-4 last:pr-4 ${
       widthClass ?? 'w-20'
     }${className ? ` ${className}` : ''}`}
@@ -42,7 +46,7 @@ export const Body: FC<{
   className?: string;
 }> = ({ right, children, colSpan, className }) => (
   <td
-    className={`border-t border-gray-200 px-3 py-4 text-sm whitespace-nowrap first:pl-4${
+    className={`border-t border-black/10 px-3 py-4 text-sm whitespace-nowrap first:pl-4${
       right ? ' text-right' : ''
     }${className ? ` ${className}` : ''}`}
     colSpan={colSpan}

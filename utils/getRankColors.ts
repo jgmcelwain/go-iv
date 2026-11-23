@@ -1,35 +1,34 @@
 import { RankableMetric } from '../data/stat';
-import { RankedSpread } from '../lib/generateRankedSpreads';
+import { RankedSpread, getMetricPercent } from '../lib/generateRankedSpreads';
 
 export type SpreadColors = {
   background: string;
   text: string;
 };
 
-export function getRankedSpreadColors(
-  rankedSpread: RankedSpread | undefined,
-  rankingMetric: RankableMetric,
-): SpreadColors {
-  const rankingMetricPercent =
-    rankingMetric === 'product'
-      ? rankedSpread?.product.percentOfMax
-      : rankingMetric === 'bulkProduct'
-      ? rankedSpread?.bulkProduct.percentOfMax
-      : rankedSpread?.stats[rankingMetric].percentOfMax;
-
-  if (rankingMetricPercent === undefined || rankedSpread === undefined) {
+export function getPercentColors(percent: number | undefined): SpreadColors {
+  if (percent === undefined) {
     return { background: 'bg-gray-100', text: 'text-gray-700' };
   }
 
-  if (rankingMetricPercent === 1) {
+  if (percent === 1) {
     return { background: 'bg-purple-50', text: 'text-purple-800' };
-  } else if (rankingMetricPercent >= 0.98) {
+  } else if (percent >= 0.98) {
     return { background: 'bg-green-50', text: 'text-green-800' };
-  } else if (rankingMetricPercent >= 0.95) {
+  } else if (percent >= 0.95) {
     return { background: 'bg-yellow-50', text: 'text-yellow-800' };
-  } else if (rankingMetricPercent >= 0.9) {
+  } else if (percent >= 0.9) {
     return { background: 'bg-orange-50', text: 'text-orange-800' };
   } else {
     return { background: 'bg-red-50', text: 'text-red-800' };
   }
+}
+
+export function getRankedSpreadColors(
+  rankedSpread: RankedSpread | undefined,
+  rankingMetric: RankableMetric,
+): SpreadColors {
+  return getPercentColors(
+    rankedSpread && getMetricPercent(rankedSpread, rankingMetric),
+  );
 }

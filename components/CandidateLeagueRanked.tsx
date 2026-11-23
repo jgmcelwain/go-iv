@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 
-import { LEVEL_CAPS, isLevelCapEnabled } from '../data/levelCap';
+import { LEVEL_CAPS } from '../data/levelCap';
 
-import { useLeague } from '../hooks/useLeague';
 import { useSettings } from '../hooks/useSettings';
 import { useCandidate } from '../hooks/useCandidate';
 
@@ -12,7 +11,6 @@ import { usePokedex } from '../hooks/usePokedex';
 import { useScrolledSideways } from '../hooks/useScrolledSideways';
 
 const CandidateLeagueRanked: FC = () => {
-  const { league } = useLeague();
   const { candidate } = useCandidate();
   const { settings } = useSettings();
   const pokedex = usePokedex();
@@ -99,14 +97,7 @@ const CandidateLeagueRanked: FC = () => {
         </thead>
 
         {LEVEL_CAPS.map((levelCap) => {
-          const enabledForms = forms.filter((species) =>
-            isLevelCapEnabled(levelCap.level, settings.levelCaps, {
-              showMegaLevelCaps: settings.showMegaLevelCaps,
-              isMasterLeague: league.cp === 10000,
-              isMegaSpecies: species.name.startsWith('Mega '),
-            }),
-          );
-          if (enabledForms.length === 0) return null;
+          if (!settings.levelCaps[levelCap.level]) return null;
           return (
             <tbody
               key={levelCap.level}
@@ -116,7 +107,7 @@ const CandidateLeagueRanked: FC = () => {
                   : undefined
               }
             >
-              {enabledForms.map((species) => (
+              {forms.map((species) => (
                 <CandidateLeagueRankedAtLevelCap
                   key={species.id}
                   levelCap={levelCap}

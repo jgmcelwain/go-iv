@@ -1,50 +1,10 @@
-export type SettableLevelCapNumber = 40 | 41 | 50 | 51;
-export type MegaLevelCapNumber = 52 | 53;
-export type LevelCapNumber = SettableLevelCapNumber | MegaLevelCapNumber;
+export type LevelCapNumber = 40 | 41 | 50 | 51;
 
 export type LevelCap = {
   level: LevelCapNumber;
   name: string;
   description: string;
 };
-
-const MEGA_LEVEL_CAP_BASE: Record<MegaLevelCapNumber, SettableLevelCapNumber> =
-  {
-    52: 50,
-    53: 51,
-  };
-
-function isMegaLevelCap(level: LevelCapNumber): level is MegaLevelCapNumber {
-  return level in MEGA_LEVEL_CAP_BASE;
-}
-
-function getMegaBaseCap(level: LevelCapNumber): SettableLevelCapNumber | null {
-  if (isMegaLevelCap(level)) return MEGA_LEVEL_CAP_BASE[level];
-  return null;
-}
-
-export function isLevelCapEnabled(
-  level: LevelCapNumber,
-  levelCaps: { [key in SettableLevelCapNumber]: boolean },
-  megaContext?: {
-    showMegaLevelCaps: boolean;
-    isMasterLeague: boolean;
-    isMegaSpecies: boolean;
-  },
-): boolean {
-  if (isMegaLevelCap(level)) {
-    if (!megaContext) return false;
-
-    return (
-      megaContext.showMegaLevelCaps &&
-      megaContext.isMasterLeague &&
-      megaContext.isMegaSpecies &&
-      levelCaps[MEGA_LEVEL_CAP_BASE[level]]
-    );
-  }
-
-  return levelCaps[level];
-}
 
 export const LEVEL_CAPS: LevelCap[] = [
   { level: 40, name: 'Level 40', description: 'Regular Candy' },
@@ -55,19 +15,4 @@ export const LEVEL_CAPS: LevelCap[] = [
     name: 'Level 51',
     description: 'Candy XL + Best Buddy',
   },
-  {
-    level: 52,
-    name: 'Level 52',
-    description: 'Candy XL + Mega 4',
-  },
-  {
-    level: 53,
-    name: 'Level 53',
-    description: 'Candy XL + Mega 4 + Best Buddy',
-  },
 ];
-
-export const SETTABLE_LEVEL_CAPS = LEVEL_CAPS.filter(
-  (cap): cap is LevelCap & { level: SettableLevelCapNumber } =>
-    getMegaBaseCap(cap.level) === null,
-);

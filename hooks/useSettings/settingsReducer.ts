@@ -2,7 +2,7 @@ import { Dispatch as ReactDispatch } from 'react';
 import { Settings } from '.';
 
 import { LeagueKey } from '../../data/league';
-import { SettableLevelCapNumber } from '../../data/levelCap';
+import { LevelCapNumber } from '../../data/levelCap';
 import { OutputDataKey } from '../../data/outputData';
 import { ActionMap } from '../../utils/actionMap';
 
@@ -10,7 +10,6 @@ export enum SettingsActionTypes {
   League,
   LeagueOrder,
   LevelCap,
-  MegaLevelCaps,
   OutputData,
   Speculative,
   RankingMetric,
@@ -23,14 +22,13 @@ type PayloadTypes = {
   [SettingsActionTypes.League]: { key: LeagueKey; value: boolean };
   [SettingsActionTypes.LeagueOrder]: LeagueKey[];
   [SettingsActionTypes.LevelCap]: {
-    key: SettableLevelCapNumber;
+    key: LevelCapNumber;
     value: boolean;
   };
   [SettingsActionTypes.OutputData]: {
     key: OutputDataKey;
     value: boolean;
   };
-  [SettingsActionTypes.MegaLevelCaps]: boolean;
   [SettingsActionTypes.Speculative]: boolean;
   [SettingsActionTypes.RankingMetric]: boolean;
   [SettingsActionTypes.MinimumLevel]: boolean;
@@ -74,12 +72,6 @@ export function settingsReducer(state: Settings, action: Action): Settings {
           ...state.outputData,
           [action.payload.key]: action.payload.value,
         },
-      };
-    }
-    case SettingsActionTypes.MegaLevelCaps: {
-      return {
-        ...state,
-        showMegaLevelCaps: action.payload,
       };
     }
     case SettingsActionTypes.Speculative: {

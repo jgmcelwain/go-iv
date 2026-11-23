@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { IV_FLOORS } from '../data/ivFloor';
 import { RANKABLE_METRICS } from '../data/stat';
 
@@ -28,12 +28,45 @@ function useIsScrolled() {
   return isScrolled;
 }
 
+export function StickySummary({
+  title,
+  detail,
+  editLabel,
+}: {
+  title: ReactNode;
+  detail: ReactNode;
+  editLabel: string;
+}) {
+  const isScrolled = useIsScrolled();
+  if (!isScrolled) return null;
+
+  return (
+    <div className='sm:hidden fixed top-0 h-14 flex justify-start items-center inset-x-0 z-40 bg-white dark:bg-gray-800 px-4 space-y-0.5 border-b border-gray-100 dark:border-gray-700'>
+      <div className='grow text-gray-700 dark:text-gray-100'>
+        <div className='text-xs text-gray-700 dark:text-gray-100 font-title'>
+          {title}
+        </div>
+        <p className='text-[10px] text-gray-600 dark:text-gray-300'>{detail}</p>
+      </div>
+
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
+      >
+        <PencilIcon
+          className='w-5 h-5 text-gray-600 dark:text-gray-300'
+          aria-hidden
+        />
+
+        <span className='sr-only'>{editLabel}</span>
+      </button>
+    </div>
+  );
+}
+
 export default function CandidateBuilderStickyHeader() {
   const { candidate } = useCandidate();
   const { settings } = useSettings();
-
-  const isScrolled = useIsScrolled();
-  if (!isScrolled) return null;
 
   const rankingMetric = RANKABLE_METRICS.find(
     (metric) => metric.key === candidate.rankingMetric,
@@ -48,34 +81,25 @@ export default function CandidateBuilderStickyHeader() {
   }
 
   return (
-    <div className='sm:hidden fixed top-0 h-14 flex justify-start items-center inset-x-0 z-40 bg-white dark:bg-gray-800 px-4 space-y-0.5 border-b border-gray-100 dark:border-gray-700'>
-      <div className='grow text-gray-700 dark:text-gray-100'>
-        <p className='text-xs text-gray-700 dark:text-gray-100 font-title'>
-          <div className='inline-flex mr-2'>
+    <StickySummary
+      editLabel='Edit Candidate'
+      title={
+        <>
+          <span className='inline-flex mr-2'>
             <SpeciesTypeIcons types={candidate.species.defaultForm.types} />
-          </div>
+          </span>
           {candidate.species.name}, {candidate.ivs.atk}-{candidate.ivs.def}-
-          {candidate.ivs.sta}{' '}
-        </p>
-        <p className='text-[10px] text-gray-600 dark:text-gray-300'>
+          {candidate.ivs.sta}
+        </>
+      }
+      detail={
+        <>
           Ranked by {rankingMetric.name}, Min. IV {floor.value}{' '}
           {floor.name !== null ? `(${floor.name})` : ''}
           {settings.showMinimumLevel &&
             `, Min. Level ${candidate.minimumLevel}`}
-        </p>
-      </div>
-
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className='rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
-      >
-        <PencilIcon
-          className='w-5 h-5 text-gray-600 dark:text-gray-300'
-          aria-hidden
-        />
-
-        <span className='sr-only'>Edit Candidate</span>
-      </button>
-    </div>
+        </>
+      }
+    />
   );
 }

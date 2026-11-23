@@ -4,6 +4,7 @@ import { POKEDEX, getPokemonByID } from '../../data/pokedex';
 import { RANKABLE_METRICS } from '../../data/stat';
 import { generateRankedSpreads, rankSpread } from '.';
 import { getBattleOnlyFormStats } from './getMaximizedStats';
+import { MEGA_POKEMON, getMegaLeagueSpreads } from '../megaLeagueSpreads';
 
 const MINIOR = 'minior_meteor';
 const AEGISLASH = 'aegislash_blade';
@@ -88,3 +89,29 @@ for (const pokemon of POKEDEX.filter((_, i) => i % 50 === 0)) {
 
 // eslint-disable-next-line no-console
 console.log(`rankSpread matches generateRankedSpreads for ${checked} spreads`);
+
+deepStrictEqual(
+  [
+    'venusaur_mega',
+    'kyogre_primal',
+    'groudon_primal',
+    'meganium',
+    'yanmega',
+  ].map((id) => MEGA_POKEMON.some((pokemon) => pokemon.id === id)),
+  [true, true, true, false, false],
+);
+
+const megaVenusaur = getPokemonByID('venusaur_mega');
+if (!megaVenusaur) throw new Error('Missing Mega Venusaur');
+const megaSpreads = getMegaLeagueSpreads(megaVenusaur, 50, 'product');
+deepStrictEqual(megaSpreads.length, 4096);
+deepStrictEqual(megaSpreads[0].rank, 1);
+megaSpreads.forEach((spread, i) => {
+  deepStrictEqual(spread.great.ivs, spread.ultra.ivs);
+  if (spread.great.cp > 1500 || spread.ultra.cp > 2500) {
+    throw new Error('Mega spread is over its league cap');
+  }
+  if (i > 0 && spread.averagePercent > megaSpreads[i - 1].averagePercent) {
+    throw new Error('Mega spreads are not sorted by average percent');
+  }
+});
