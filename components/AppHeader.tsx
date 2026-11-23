@@ -166,7 +166,7 @@ const AppHeader: FC = () => {
             {megaPath && !hasUsedMegaLink() && (
               <span
                 aria-hidden
-                className='absolute inset-0 rounded-full bg-blue-400/50 animate-ping [animation-iteration-count:3] motion-reduce:hidden'
+                className='absolute inset-0 rounded-full bg-blue-400/50 animate-ping motion-reduce:hidden'
               />
             )}
             <MegaEvolutionIcon
