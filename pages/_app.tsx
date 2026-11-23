@@ -30,7 +30,12 @@ const titleFont = Poppins({ weight: '600', subsets: ['latin'] });
 
 type InitialProps = {
   settings: SettingsType;
-  releaseBanner: { version: number; shown: boolean; content: string };
+  releaseBanner: {
+    version: number;
+    shown: boolean;
+    content: string;
+    link?: string;
+  };
   speculativePokemon: PokemonID[];
 };
 
@@ -110,7 +115,13 @@ App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
       speculative_ids?: PokemonID[];
       release_banner_version?: string;
       release_banner_content?: string;
-    }>(['speculative_ids', 'release_banner_version', 'release_banner_content']);
+      release_banner_link?: string;
+    }>([
+      'speculative_ids',
+      'release_banner_version',
+      'release_banner_content',
+      'release_banner_link',
+    ]);
 
     const speculativePokemon = config.speculative_ids ?? [];
 
@@ -138,6 +149,7 @@ App.getInitialProps = async (appContext: AppContext): Promise<InitialProps> => {
         version: releaseBannerVersion,
         shown: releaseBannerVersionHidden < releaseBannerVersion,
         content: releaseBannerContent,
+        link: config.release_banner_link,
       },
       speculativePokemon,
     };
