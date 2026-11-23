@@ -133,7 +133,10 @@ function useMegaReference() {
     const shown =
       cpMargin === null
         ? spreads
-        : spreads.filter((spread) => isWithinCPMargin(spread, cpMargin));
+        : LEAGUES.reduce((kept, { key }) => {
+            const lowestCP = highestCP(spreads, key) - cpMargin;
+            return kept.filter((spread) => spread[key].cp >= lowestCP);
+          }, spreads);
     return (
       sort === 'combined'
         ? shown
@@ -185,7 +188,6 @@ const LEAGUES = [
     key: 'great',
     shortName: 'Great',
     name: 'Great League',
-    maxCP: 1500,
     tint: 'from-blue-400 to-blue-500',
     stripe: 'from-red-500 to-red-600',
   },
@@ -193,7 +195,6 @@ const LEAGUES = [
     key: 'ultra',
     shortName: 'Ultra',
     name: 'Ultra League',
-    maxCP: 2500,
     tint: 'from-gray-700 to-gray-800',
     stripe: 'from-yellow-500 to-yellow-600',
   },
@@ -201,12 +202,14 @@ const LEAGUES = [
 
 const CP_MARGINS = [
   { value: null, name: 'Any CP' },
-  { value: 10, name: 'Within 10 of cap' },
-  { value: 5, name: 'Within 5 of cap' },
+  { value: 10, name: 'Max −10' },
+  { value: 5, name: 'Max −5' },
 ] as const;
 type CPMargin = (typeof CP_MARGINS)[number]['value'];
-const isWithinCPMargin = (spread: MegaLeagueSpread, margin: number) =>
-  LEAGUES.every((league) => league.maxCP - spread[league.key].cp <= margin);
+const highestCP = (
+  spreads: readonly MegaLeagueSpread[],
+  key: Sort & keyof MegaLeagueSpread,
+) => Math.max(...spreads.map((spread) => spread[key].cp));
 
 const { Header, Body } = CandidateLeagueTableCells;
 
@@ -447,7 +450,7 @@ const MegaSpreadsTable: FC<{
             {spreads.length === 0 && (
               <tr>
                 <Body colSpan={11} className='whitespace-normal'>
-                  No spreads are that close to both league caps.
+                  No spreads are that close to the highest CP in both leagues.
                 </Body>
               </tr>
             )}
@@ -490,17 +493,11 @@ const MegaPage: FC = () => {
         <title>Mega &amp; Primal PvP IVs • GOIV.app</title>
       </Head>
 
-      <div className='w-full px-4 mb-4 sm:px-0'>
-        <h1 className='flex items-center pt-2 text-2xl font-semibold text-gray-900 dark:text-white font-title'>
-          <MegaEvolutionIcon className='w-6 h-6 mr-2 text-gray-400 dark:text-gray-500 shrink-0' />
-          Mega &amp; Primal PvP IVs
-        </h1>
-      </div>
-
-      <section className='flex flex-wrap items-start justify-start w-full px-4 mb-4 sm:px-0'>
+      <section className='flex flex-wrap items-start justify-start w-full px-4 pt-2 mb-4 sm:px-0'>
         <label className='block w-full mb-2 sm:w-auto sm:mr-6'>
-          <span className='text-xs text-gray-500 dark:text-gray-400'>
-            Pokémon
+          <span className='flex items-center text-xs text-gray-500 dark:text-gray-400'>
+            <MegaEvolutionIcon className='w-3 h-3 mr-1' />
+            Mega Pokémon
           </span>
           <input
             ref={nameInput}
@@ -601,7 +598,7 @@ const MegaPage: FC = () => {
           className='flex flex-wrap items-center justify-start w-full mt-2 sm:mt-1'
         >
           <RadioGroup.Label className='sr-only'>
-            How close to both league caps
+            How close to the highest CP in both leagues
           </RadioGroup.Label>
 
           {CP_MARGINS.map((margin) => (
@@ -646,7 +643,7 @@ const MegaPage: FC = () => {
             : `, sorted by ${
                 LEAGUES.find((league) => league.key === sort)?.shortName ?? ''
               } rank`
-        }${cpMargin === null ? '' : `, within ${cpMargin} CP of cap`}`}
+        }${cpMargin === null ? '' : `, within ${cpMargin} CP of max`}`}
       />
 
       <MegaSpreadsTable
