@@ -1,4 +1,22 @@
 
+## [3.12.0](https://github.com/jgmcelwain/go-iv/compare/v3.11.0...v3.12.0) (2026-11-23)
+
+
+### Features
+
+* add Mega & Primal page ranking spreads for Great and Ultra League together ([#52](https://github.com/jgmcelwain/go-iv/issues/52)) ([b5a70d2](https://github.com/jgmcelwain/go-iv/commit/b5a70d2d00b787ac5fc5eb79f84bb124a6746c06))
+* show the other form's values in the top spreads view ([#46](https://github.com/jgmcelwain/go-iv/issues/46)) ([ac0e5ae](https://github.com/jgmcelwain/go-iv/commit/ac0e5ae5adc660a14b28c99e657c8dba343a0ae3))
+
+
+### Bug Fixes
+
+* correct Pokémon types and split Urshifu and Rotom forms ([#51](https://github.com/jgmcelwain/go-iv/issues/51)) ([563525f](https://github.com/jgmcelwain/go-iv/commit/563525f8f3eaebd6d337febbd102f10d03a0258a))
+* keep rank column pinned for species with forms ([#45](https://github.com/jgmcelwain/go-iv/issues/45)) ([a5a6664](https://github.com/jgmcelwain/go-iv/commit/a5a66649f91781f8362ceb448999f6992fb706c3))
+* make core the default minior form ([#47](https://github.com/jgmcelwain/go-iv/issues/47)) ([f55f37b](https://github.com/jgmcelwain/go-iv/commit/f55f37bdae4d30787001d8cf8e3f0ba7e7990116))
+* stop the Pokémon name field freezing Safari on iOS ([#49](https://github.com/jgmcelwain/go-iv/issues/49)) ([ec2da8b](https://github.com/jgmcelwain/go-iv/commit/ec2da8b752c4df2e328702bce80cb8ce239244c4))
+* work out Minior's Meteor and Aegislash's Blade levels with the formula from pvpoke#404 ([#50](https://github.com/jgmcelwain/go-iv/issues/50)) ([257a402](https://github.com/jgmcelwain/go-iv/commit/257a402110b9dc4d453a984d244acc63390cd6a1))
+* work out Minior's Meteor stats from Core ([#48](https://github.com/jgmcelwain/go-iv/issues/48)) ([6be016f](https://github.com/jgmcelwain/go-iv/commit/6be016f5488ac9048986c1d3eca7b87873e2430e))
+
 ## [3.11.0](https://github.com/jgmcelwain/go-iv/compare/v3.10.0...v3.11.0) (2026-10-19)
 
 
