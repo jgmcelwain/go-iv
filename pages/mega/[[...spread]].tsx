@@ -7,7 +7,9 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { NextPageContext } from 'next';
 import Head from 'next/head';
+import { parseCookies, setCookie } from 'nookies';
 import { RadioGroup } from '@headlessui/react';
 import { useRouter } from 'next/router';
 
@@ -88,17 +90,35 @@ function parseIVs(value: string, floor: number): PokemonIVs {
   return { atk: atk ?? MAX_IV, def: def ?? MAX_IV, sta: sta ?? MAX_IV };
 }
 
-function useMegaReference() {
+type Choices = { [key: string]: string | undefined };
+const CHOICES_COOKIE = 'megaChoices';
+const SAVE_DELAY_MS = 500;
+
+function useMegaReference(savedChoices: Choices) {
   const { settings } = useSettings();
   const pokedex = usePokedex();
   const router = useRouter();
 
   const [id, atk, def, sta, metric] = (router.query.spread ?? []) as string[];
-  const [choices, setChoices] = useState<{ [key: string]: string | undefined }>(
-    { pokemon: id, ivs: atk && [atk, def, sta].join('-'), metric },
-  );
+  const [choices, setChoices] = useState<Choices>({
+    ...savedChoices,
+    ...(id && { pokemon: id }),
+    ...(atk && { ivs: [atk, def, sta].join('-') }),
+    ...(metric && { metric }),
+  });
+  useEffect(() => {
+    const timeout = setTimeout(
+      () =>
+        setCookie({}, CHOICES_COOKIE, JSON.stringify(choices), {
+          path: '/',
+          maxAge: 30 * 24 * 60 * 60,
+        }),
+      SAVE_DELAY_MS,
+    );
+    return () => clearTimeout(timeout);
+  }, [choices]);
   const param = (key: string) => choices[key];
-  const setParam = (key: string) => (value: string | number) =>
+  const setParam = (key: string) => (value: string | number | null) =>
     setChoices((current) => ({ ...current, [key]: String(value) }));
 
   const availablePokemon = useMemo(
@@ -128,7 +148,9 @@ function useMegaReference() {
     () => getMegaLeagueSpreads(rankedPokemon, levelCap, rankingMetric),
     [rankedPokemon, levelCap, rankingMetric],
   );
-  const [cpMargin, setCPMargin] = useState<CPMargin>(null);
+  const cpMargin: CPMargin =
+    CP_MARGINS.find((margin) => String(margin.value) === param('margin'))
+      ?.value ?? null;
   const topSpreads = useMemo(() => {
     const shown =
       cpMargin === null
@@ -165,7 +187,7 @@ function useMegaReference() {
     yourSpread,
     topSpreads,
     cpMargin,
-    setCPMargin,
+    setCPMargin: setParam('margin') as (margin: CPMargin) => void,
     settings,
   };
 }
@@ -461,7 +483,7 @@ const MegaSpreadsTable: FC<{
   );
 };
 
-const MegaPage: FC = () => {
+const MegaPage: FC<{ savedChoices: Choices }> = ({ savedChoices }) => {
   const {
     availablePokemon,
     pokemon,
@@ -480,7 +502,7 @@ const MegaPage: FC = () => {
     cpMargin,
     setCPMargin,
     settings,
-  } = useMegaReference();
+  } = useMegaReference(savedChoices);
   const nameInput = useNameInput(pokemon.name);
 
   const ivOptions = IV_RANGE.filter((iv) => iv >= ivFloor)[
@@ -658,3 +680,18 @@ const MegaPage: FC = () => {
 };
 
 export default MegaPage;
+
+export const getServerSideProps = (
+  ctx: NextPageContext,
+): { props: { savedChoices: Choices } } => {
+  try {
+    const saved: unknown = JSON.parse(parseCookies(ctx)[CHOICES_COOKIE]);
+    const savedChoices: Choices = {};
+    for (const [key, value] of Object.entries(saved as object)) {
+      if (typeof value === 'string') savedChoices[key] = value;
+    }
+    return { props: { savedChoices } };
+  } catch (err) {
+    return { props: { savedChoices: {} } };
+  }
+};
