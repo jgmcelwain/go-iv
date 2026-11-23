@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
+  useState,
 } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -91,16 +92,13 @@ function useMegaReference() {
   const pokedex = usePokedex();
   const router = useRouter();
 
+  const [choices, setChoices] = useState(router.query);
   const param = (key: string) => {
-    const value = router.query[key];
+    const value = choices[key];
     return Array.isArray(value) ? value[0] : value;
   };
   const setParam = (key: string) => (value: string | number) =>
-    void router.replace(
-      { pathname: router.pathname, query: { ...router.query, [key]: value } },
-      undefined,
-      { shallow: true, scroll: false },
-    );
+    setChoices((current) => ({ ...current, [key]: String(value) }));
 
   const availablePokemon = useMemo(
     () => MEGA_POKEMON.filter((species) => pokedex.byId(species.id) !== null),
