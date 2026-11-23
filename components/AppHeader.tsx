@@ -34,6 +34,22 @@ export const useMegaLinkState = () => {
   return { megaPath, setMegaPath };
 };
 
+const MEGA_LINK_USED_KEY = 'megaLinkUsed';
+function hasUsedMegaLink() {
+  try {
+    return localStorage.getItem(MEGA_LINK_USED_KEY) !== null;
+  } catch {
+    return false;
+  }
+}
+function rememberMegaLinkUsed() {
+  try {
+    localStorage.setItem(MEGA_LINK_USED_KEY, '1');
+  } catch {
+    return;
+  }
+}
+
 function useIsMounted() {
   const [mounted, setMounted] = useState(false);
 
@@ -139,6 +155,7 @@ const AppHeader: FC = () => {
         {!onMegaPage && (
           <Link
             href={megaPath ?? '/mega'}
+            onClick={rememberMegaLinkUsed}
             title={
               megaPath
                 ? 'Compare Great and Ultra League ranks'
@@ -146,7 +163,7 @@ const AppHeader: FC = () => {
             }
             className='relative rounded-full focus-visible-ring ring-offset-gray-100 dark:ring-offset-gray-800 p-1'
           >
-            {megaPath && (
+            {megaPath && !hasUsedMegaLink() && (
               <span
                 aria-hidden
                 className='absolute inset-0 rounded-full bg-blue-400/50 animate-ping [animation-iteration-count:3] motion-reduce:hidden'
