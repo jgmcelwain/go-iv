@@ -127,16 +127,17 @@ function useMegaReference() {
     () => getMegaLeagueSpreads(rankedPokemon, levelCap, rankingMetric),
     [rankedPokemon, levelCap, rankingMetric],
   );
-  const topSpreads = useMemo(
-    () =>
-      (sort === 'combined'
-        ? spreads
-        : [...spreads].sort(
+  const [nearMaxCPOnly, setNearMaxCPOnly] = useState(false);
+  const topSpreads = useMemo(() => {
+    const shown = nearMaxCPOnly ? spreads.filter(isNearMaxCPInBoth) : spreads;
+    return (
+      sort === 'combined'
+        ? shown
+        : [...shown].sort(
             (a, b) => a[sort].rank - b[sort].rank || a.rank - b.rank,
           )
-      ).slice(0, TOP_SPREAD_COUNT),
-    [spreads, sort],
-  );
+    ).slice(0, TOP_SPREAD_COUNT);
+  }, [spreads, sort, nearMaxCPOnly]);
   const yourSpread = spreads.find(
     (spread) => ivsKey(spread.ivs) === ivsKey(ivs),
   );
@@ -156,6 +157,8 @@ function useMegaReference() {
     setIVs: (next: PokemonIVs) => setParam('ivs')(ivsKey(next)),
     yourSpread,
     topSpreads,
+    nearMaxCPOnly,
+    setNearMaxCPOnly,
     settings,
   };
 }
@@ -178,6 +181,7 @@ const LEAGUES = [
     key: 'great',
     shortName: 'Great',
     name: 'Great League',
+    maxCP: 1500,
     tint: 'from-blue-400 to-blue-500',
     stripe: 'from-red-500 to-red-600',
   },
@@ -185,10 +189,19 @@ const LEAGUES = [
     key: 'ultra',
     shortName: 'Ultra',
     name: 'Ultra League',
+    maxCP: 2500,
     tint: 'from-gray-700 to-gray-800',
     stripe: 'from-yellow-500 to-yellow-600',
   },
 ] as const;
+
+const NEAR_MAX_CP = 10;
+const isNearMaxCP = (
+  spread: MegaLeagueSpread,
+  league: (typeof LEAGUES)[number],
+) => league.maxCP - spread[league.key].cp <= NEAR_MAX_CP;
+const isNearMaxCPInBoth = (spread: MegaLeagueSpread) =>
+  LEAGUES.every((league) => isNearMaxCP(spread, league));
 
 const { Header, Body } = CandidateLeagueTableCells;
 
@@ -227,8 +240,10 @@ const SpreadRow: FC<{
       </Body>
       <Body className={wideCell}>{averagePercent}</Body>
 
-      {LEAGUES.map(({ key }) => {
+      {LEAGUES.map((league) => {
+        const { key } = league;
         const ranked = spread[key];
+        const cpWeight = isNearMaxCP(spread, league) ? 'font-bold' : undefined;
         const percent = formatPercent(getMetricPercent(ranked, rankingMetric));
 
         return (
@@ -237,7 +252,7 @@ const SpreadRow: FC<{
               {rankMark}
               {ranked.rank}
               <span className={NARROW_ONLY_LINE}>
-                {ranked.cp} CP
+                <span className={cpWeight}>{ranked.cp} CP</span>
                 <br />
                 {percent}{' '}
                 <span className='whitespace-nowrap'>· L{ranked.level}</span>
@@ -246,7 +261,9 @@ const SpreadRow: FC<{
             <Body className={wideCell}>
               <RankedSpreadLevel {...ranked} />
             </Body>
-            <Body className={wideCell}>{ranked.cp}</Body>
+            <Body className={`${wideCell}${cpWeight ? ` ${cpWeight}` : ''}`}>
+              {ranked.cp}
+            </Body>
             <Body className={wideCell}>{percent}</Body>
           </React.Fragment>
         );
@@ -425,6 +442,14 @@ const MegaSpreadsTable: FC<{
                 rankingMetric={rankingMetric}
               />
             ))}
+
+            {spreads.length === 0 && (
+              <tr>
+                <Body colSpan={11} className='whitespace-normal'>
+                  No spreads are within {NEAR_MAX_CP} CP of both league caps.
+                </Body>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
@@ -448,6 +473,8 @@ const MegaPage: FC = () => {
     setIVs,
     yourSpread,
     topSpreads,
+    nearMaxCPOnly,
+    setNearMaxCPOnly,
     settings,
   } = useMegaReference();
   const nameInput = useNameInput(pokemon.name);
@@ -565,6 +592,16 @@ const MegaPage: FC = () => {
             </select>
           </label>
         )}
+
+        <label className='flex items-center w-full mb-2 text-sm text-gray-700 dark:text-gray-300'>
+          <input
+            type='checkbox'
+            checked={nearMaxCPOnly}
+            onChange={(evt) => setNearMaxCPOnly(evt.target.checked)}
+            className='mr-2 rounded form-checkbox focus-visible-ring ring-offset-gray-50 dark:ring-offset-gray-900'
+          />
+          Only show spreads within {NEAR_MAX_CP} CP of both league caps
+        </label>
       </section>
 
       <StickySummary
@@ -586,7 +623,7 @@ const MegaPage: FC = () => {
             : `, sorted by ${
                 LEAGUES.find((league) => league.key === sort)?.shortName ?? ''
               } rank`
-        }`}
+        }${nearMaxCPOnly ? ', near max CP only' : ''}`}
       />
 
       <MegaSpreadsTable
